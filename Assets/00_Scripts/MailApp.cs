@@ -5,33 +5,32 @@ using UnityEngine;
 
 public class MailApp : MonoBehaviour, IApp
 {
-    [SerializeField] GameObject toShow;
-    [SerializeField] RectTransform parent;
     [SerializeField] Mail mailPrefab;
     [SerializeField] RectTransform contentAncor;
-
-
-    private void Start()
-    {
-        if (parent == null)
-        {
-            parent = GetComponent<RectTransform>();
-        }
-    }
+    [HideInInspector] public List<Mail> bin = new();
 
     public void Open()
     {
-        parent.DOScale(1f, 0.3f);
-        toShow.SetActive(true);
+        while (bin.Count > 0)
+        {
+            bin[0].UnCheck();
+            bin.RemoveAt(0);
+        }
     }
-    public void Close()
+
+    public void Delete()
     {
-        parent.DOScale(0f, 0.3f).OnComplete(() => toShow.SetActive(false));
+        while (bin.Count > 0)
+        {
+            bin[0].Delete();
+            bin.RemoveAt(0);
+        }
     }
 
     [Button]
     void TestReceiveMail()
     {
-
+        Mail cash = Instantiate(mailPrefab, contentAncor.transform);
+        cash.appRef = this;
     }
 }

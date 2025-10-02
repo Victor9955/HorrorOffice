@@ -10,34 +10,22 @@ using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCou
 
 public class SearchingApp : MonoBehaviour, IApp
 {
-    [SerializeField] GameObject toShow;
     [SerializeField] int size;
-    [SerializeField] RectTransform parent;
     [SerializeField] RectTransform contentAncor;
     [SerializeField] GridLayoutGroup content;
     [SerializeField] RectTransform idPrefab;
+    [SerializeField] Scrollbar scrollbar;
     [SerializeField] TMP_InputField inputField;
     Dictionary<string, GameObject> codes = new();
 
     private void Start()
     {
-        if(parent == null)
-        {
-            parent = GetComponent<RectTransform>();
-        }
         contentAncor.sizeDelta = new Vector2(0,size * content.cellSize.y);
         RandomCode(size);
     }
 
-    public void Open()
-    {
-        parent.DOScale(1f, 0.3f);
-        toShow.SetActive(true);
-    }
-
     public void Close()
     {
-        parent.DOScale(0f, 0.3f).OnComplete(() => toShow.SetActive(false));
         Searching("");
         inputField.text = "";
     }
