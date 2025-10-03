@@ -6,29 +6,22 @@ using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-[Serializable]
-public class File
-{
-    [SerializeField] private int _id;
-    public int FileID => _id;
-    [SerializeField] private Color _color = Color.white;
-    public Color FileColor => _color;
-}
+
 
 public class FileSorting : MonoBehaviour
 {
     [Header("Refs")]
-    [SerializeField] private GameObject _fileToSortObj;
+    [SerializeField] private EmployeeFile _fileToSortObj;
     [SerializeField] private Transform _choiceTransform;
-    [SerializeField] private GameObject _choicePrefab;
+    [SerializeField] private FileChoice _choicePrefab;
     [SerializeField] private TMP_Text _sortText;
     [Space(5)]
     [Header("Parameters")]
-    [SerializeField] private float _choiceOffset;
+    [SerializeField] private float _choiceSpawnPosOffset;
     [Space(5)]
-    [SerializeField] private List<File> _fileList;
+    [SerializeField] private List<FileChoiceData> _fileChoiceList;
     
-    private File _fileToSort;
+    private EmployeeFile _fileToSort;
     private int _fileIndex;
 
     private void Start()
@@ -39,39 +32,38 @@ public class FileSorting : MonoBehaviour
     private void NewFile(int id)
     {
         MeshRenderer meshRend = _fileToSortObj.GetComponent<MeshRenderer>();
-        int randInd = Random.Range(0, _fileList.Count);
-        _fileToSort = _fileList[randInd];
-        meshRend.material.color = _fileToSort.FileColor;
-        ClearButtons();
-        SpawnButtons();
+        int randInd = Random.Range(0, _fileChoiceList.Count);
+        _fileToSortObj.Init(_fileChoiceList[randInd]);
+        _fileToSortObj.OnDroppedEvent += OnChoose;
+        Clear();
+        _fileToSortObj.ResetFile();
+        SpawnClasseur();
     }
 
-    private void ClearButtons()
+    private void Clear()
     {
         for (int i = 0; i < _choiceTransform.childCount; i++)
         {
             Destroy(_choiceTransform.GetChild(0).gameObject);
         }
         _sortText.gameObject.SetActive(false);
-    }
+            }
 
-    private void SpawnButtons()
+    private void SpawnClasseur()
     {
-        for (int i = 0; i < _fileList.Count; i++)
+        for (int i = 0; i < _fileChoiceList.Count; i++)
         {
             FileChoice newChoice = Instantiate(_choicePrefab,_choiceTransform).GetComponent<FileChoice>();
-            Vector3 posOffset = Vector3.right * (_choiceOffset * i);
+            Vector3 posOffset = Vector3.right * (_choiceSpawnPosOffset * i);
             newChoice.transform.position = _choiceTransform.position + posOffset;
-            newChoice.Init(_fileList[i]);
-            newChoice.OnChooseEvent += OnChoose;
+            newChoice.Init(_fileChoiceList[i]);
         }
     }
 
-    private void OnChoose(int choiceID)
+    private void OnChoose()
     {
-        bool isSortedCorrectly = (choiceID == _fileToSort.FileID);
-        _sortText.text = isSortedCorrectly ? "Correct Sort!": "Wrong Sort...";
-        _sortText.color = isSortedCorrectly ? Color.green : Color.red;
+        _sortText.text = "Correct Sort!";
+        _sortText.color =  Color.white;
         StartCoroutine(ShowText());
     }
 
