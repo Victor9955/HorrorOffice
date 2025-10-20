@@ -12,9 +12,8 @@ public class FileChoiceData
 public class FileChoice : MonoBehaviour, IDropContainer
 {
 
-    public Action<int> OnChooseEvent;
-
     private int _id;
+    public bool isOpen;
 
     public void Init(FileChoiceData file)
     {
@@ -27,9 +26,12 @@ public class FileChoice : MonoBehaviour, IDropContainer
         EmployeeFile file = dropped as EmployeeFile;
         if (file == null) throw new Exception("Bruh that aint no File");
         bool match = file.FileID == _id;
-        Utils.BigText(match ? "Match !" : "No match..." );
         // Call fileSorting if true;
         return match;
+    }
+    public bool IsOpen()
+    {
+        return isOpen;
     }
 
 }

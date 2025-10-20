@@ -9,7 +9,7 @@ public class EmployeeFile : Draggable
     private int _id;
     public int FileID => _id;
     private MeshRenderer _mesh;
-    public Action OnDroppedEvent;
+    public Action<bool> OnDroppedEvent;
     public void Init(FileChoiceData choice)
     {
         _id = choice._id;
@@ -41,7 +41,7 @@ public class EmployeeFile : Draggable
         base.Drop();
 
         _isDragging = false;
-        bool didDrop = false;
+        bool isContainerOpen = false;
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
@@ -51,14 +51,16 @@ public class EmployeeFile : Draggable
         {
             if (hit.transform.gameObject.TryGetComponent(out IDropContainer container))
             {
-                didDrop = container.Drop(this);
+                isContainerOpen = container.IsOpen();
+                if (isContainerOpen)
+                {
+                    bool isMatched = container.Drop(this);
+                    OnDroppedEvent?.Invoke(isMatched);
+                    gameObject.SetActive(!_getsConsumedOnCorrectDrop);
+                }
+
             }
             else Debug.LogError("Cant get da DropContainer :(");
-            if (didDrop)
-            {
-                OnDroppedEvent?.Invoke();
-                gameObject.SetActive(!_getsConsumedOnCorrectDrop);
-            }
         }
         else Debug.Log("Cant hit anything :(");
     }

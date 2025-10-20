@@ -12,15 +12,15 @@ public class FileSorting : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] private EmployeeFile _fileToSortObj;
-    [SerializeField] private Transform _choiceTransform;
+    private List<FileChoice> _fileChoiceList;
     [SerializeField] private FileChoice _choicePrefab;
     [SerializeField] private TMP_Text _sortText;
     [Space(5)]
     [Header("Parameters")]
     [SerializeField] private float _choiceSpawnPosOffset;
     [Space(5)]
-    [SerializeField] private List<FileChoiceData> _fileChoiceList;
-    
+    [SerializeField] private List<FileChoiceData> _fileChoiceDataList;
+
     private EmployeeFile _fileToSort;
     private int _fileIndex;
 
@@ -32,38 +32,26 @@ public class FileSorting : MonoBehaviour
     private void NewFile(int id)
     {
         MeshRenderer meshRend = _fileToSortObj.GetComponent<MeshRenderer>();
-        int randInd = Random.Range(0, _fileChoiceList.Count);
-        _fileToSortObj.Init(_fileChoiceList[randInd]);
+        int randInd = Random.Range(0, _fileChoiceDataList.Count);
+        _fileToSortObj.Init(_fileChoiceDataList[randInd]);
         _fileToSortObj.OnDroppedEvent += OnChoose;
-        Clear();
         _fileToSortObj.ResetFile();
-        SpawnClasseur();
+        SetDrop(true);
     }
 
-    private void Clear()
-    {
-        for (int i = 0; i < _choiceTransform.childCount; i++)
-        {
-            Destroy(_choiceTransform.GetChild(0).gameObject);
-        }
-        _sortText.gameObject.SetActive(false);
-            }
 
-    private void SpawnClasseur()
+    private void SetDrop(bool active)
     {
-        for (int i = 0; i < _fileChoiceList.Count; i++)
+        foreach (FileChoice file in _fileChoiceList)
         {
-            FileChoice newChoice = Instantiate(_choicePrefab,_choiceTransform).GetComponent<FileChoice>();
-            Vector3 posOffset = Vector3.right * (_choiceSpawnPosOffset * i);
-            newChoice.transform.position = _choiceTransform.position + posOffset;
-            newChoice.Init(_fileChoiceList[i]);
+            file.isOpen = active;
         }
+
     }
-
-    private void OnChoose()
+    private void OnChoose(bool isMatched)
     {
         _sortText.text = "Correct Sort!";
-        _sortText.color =  Color.white;
+        _sortText.color = Color.white;
         StartCoroutine(ShowText());
     }
 
