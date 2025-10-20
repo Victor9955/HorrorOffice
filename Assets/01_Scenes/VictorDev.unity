@@ -202,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560521070}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SearchingApp, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -1495,7 +1495,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528798315}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AppOpener, Assembly-CSharp
         m_MethodName: Open
         m_Mode: 1
@@ -1841,8 +1841,6 @@ GameObject:
   m_Component:
   - component: {fileID: 528798311}
   - component: {fileID: 528798313}
-  - component: {fileID: 528798315}
-  - component: {fileID: 528798314}
   m_Layer: 5
   m_Name: MailApp
   m_TagString: Untagged
@@ -1878,30 +1876,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528798310}
   m_CullTransparentMesh: 1
---- !u!114 &528798314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528798310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1f850402c416b54d8f2fdf28dac63e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &528798315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528798310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1525777eecc421f4ba350e34b7b33474, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &529064838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,8 +1962,6 @@ GameObject:
   m_Component:
   - component: {fileID: 560521067}
   - component: {fileID: 560521069}
-  - component: {fileID: 560521071}
-  - component: {fileID: 560521070}
   m_Layer: 5
   m_Name: SearchingApp
   m_TagString: Untagged
@@ -2025,30 +1997,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560521066}
   m_CullTransparentMesh: 1
---- !u!114 &560521070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560521066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd873a14967e6f848b41dcee67aecfcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &560521071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560521066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1525777eecc421f4ba350e34b7b33474, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &561668352
 GameObject:
   m_ObjectHideFlags: 0
@@ -2943,7 +2891,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560521070}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SearchingApp, Assembly-CSharp
         m_MethodName: Searching
         m_Mode: 0
@@ -4065,8 +4013,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1226332563}
   - component: {fileID: 1226332565}
-  - component: {fileID: 1226332567}
-  - component: {fileID: 1226332566}
   m_Layer: 5
   m_Name: NoteApp
   m_TagString: Untagged
@@ -4102,30 +4048,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226332562}
   m_CullTransparentMesh: 1
---- !u!114 &1226332566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226332562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3a44fadd90b1df4289d3b68908d0a65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1226332567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226332562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1525777eecc421f4ba350e34b7b33474, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1266572897
 GameObject:
   m_ObjectHideFlags: 0
@@ -4209,7 +4131,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560521071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AppOpener, Assembly-CSharp
         m_MethodName: Open
         m_Mode: 1
@@ -4552,7 +4474,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1226332567}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AppOpener, Assembly-CSharp
         m_MethodName: Open
         m_Mode: 1
@@ -5183,7 +5105,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528798314}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MailApp, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -6414,7 +6336,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1226332566}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NoteApp, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -7057,7 +6979,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 528798314}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MailApp, Assembly-CSharp
         m_MethodName: Delete
         m_Mode: 1
