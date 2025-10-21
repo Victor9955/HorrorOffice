@@ -93,6 +93,6 @@ public class SearchingApp : MonoBehaviour, IApp
 
     public void Open()
     {
-        throw new NotImplementedException();
+
     }
 }
