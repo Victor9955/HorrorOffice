@@ -10,18 +10,6 @@ public class EmployeeFile : Draggable
     public int FileID => _id;
     private MeshRenderer _mesh;
     public Action<bool> OnDroppedEvent;
-    public void Init(FileChoiceData choice)
-    {
-        _id = choice._id;
-        FileColor = choice._color;
-    }
-
-    public void ResetFile()
-    {
-        transform.position = _initialPosition;
-        gameObject.SetActive(true);
-    }
-
     public Color FileColor
     {
         get => _mesh.material.color;
@@ -32,6 +20,19 @@ public class EmployeeFile : Draggable
         }
     }
 
+    public void Init(FileChoice choice)
+    {
+        _id = choice.Id;
+        FileColor = choice.MeshMatColor;
+    }
+
+    public void ResetFile()
+    {
+        transform.position = _initialPosition;
+        gameObject.SetActive(true);
+    }
+
+
     private void Awake()
     {
         _mesh = GetComponent<MeshRenderer>();
@@ -41,7 +42,6 @@ public class EmployeeFile : Draggable
         base.Drop();
 
         _isDragging = false;
-        bool isContainerOpen = false;
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
@@ -51,14 +51,12 @@ public class EmployeeFile : Draggable
         {
             if (hit.transform.gameObject.TryGetComponent(out IDropContainer container))
             {
-                isContainerOpen = container.IsOpen();
-                if (isContainerOpen)
+                if (container.IsOpen())
                 {
                     bool isMatched = container.Drop(this);
                     OnDroppedEvent?.Invoke(isMatched);
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }
-
             }
             else Debug.LogError("Cant get da DropContainer :(");
         }
