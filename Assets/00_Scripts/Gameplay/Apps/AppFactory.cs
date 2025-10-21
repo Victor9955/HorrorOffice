@@ -3,33 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
 
 public class AppFactory : MonoBehaviour, ISingletonMonobehavior
 {
     [SerializeField] List<InterfaceReference<IApp>> apps = new();
-    [SerializeField] Canvas cavna;
     Dictionary<Type, IApp> appsByType = new();
+    Dictionary<IApp, int> notificationNum = new();
 
     private void Awake()
     {
         foreach (var app in apps)
         {
+            if(app.UnderlyingValue == null) continue;
             appsByType.Add(app.Value.GetType(), app.Value);
+            notificationNum.Add(app.Value, 0);
         }
-    }
-
-    private void Start()
-    {
-        foreach (var app in apps)
-        {
-            app.Value.notificationEvent += Value_notificationEvent;
-        }
-
-    }
-
-    private void Value_notificationEvent(int obj)
-    {
-
     }
 
     public T GetApp<T>() where T : IApp
@@ -46,11 +35,23 @@ public class AppFactory : MonoBehaviour, ISingletonMonobehavior
         }
     }
 
+    public void Notification<T>() where T : IApp
+    {
+        if (appsByType.TryGetValue(typeof(T), out IApp value))
+        {
+            if (notificationNum.ContainsKey(value))
+            {
+                notificationNum[value]++;
+                value.Notification();
+            }
+        }
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene(1);
+            Singleton.Instance<AppFactory>().Notification<SearchingApp>();
         }
     }
 }

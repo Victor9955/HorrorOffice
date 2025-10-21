@@ -90,4 +90,9 @@ public class SearchingApp : MonoBehaviour, IApp
             contentAncor.sizeDelta = new Vector2(0, counter * content.cellSize.y);
         }
     }
+
+    public void Open()
+    {
+        throw new NotImplementedException();
+    }
 }
