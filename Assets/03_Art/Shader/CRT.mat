@@ -41,14 +41,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: 0.95
+    - _Amount: 0.93
     - _BlurOffset: 0
+    - _ColorMask: 15
     - _H: 0
-    - _ScanLineSpeed: 1
+    - _Round: 0.02
+    - _ScanLineSpeed: 16.5
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _Test: 11.72
-    - _Transparent: 1.26
+    - _Transparent: 1.05
+    - _UIMaskSoftnessX: 1
+    - _UIMaskSoftnessY: 1
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.014802983, g: 0.067385375, b: 0.020989154, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2293763333443131880

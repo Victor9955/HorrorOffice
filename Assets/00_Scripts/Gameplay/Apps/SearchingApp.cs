@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 
 public class SearchingApp : MonoBehaviour, IApp
@@ -18,10 +17,12 @@ public class SearchingApp : MonoBehaviour, IApp
     [SerializeField] TMP_InputField inputField;
     Dictionary<string, GameObject> codes = new();
 
+
     private void Start()
     {
         contentAncor.sizeDelta = new Vector2(0,size * content.cellSize.y);
         RandomCode(size);
+
     }
 
     public void Close()
