@@ -1,24 +1,26 @@
 using DG.Tweening;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class AppOpener : MonoBehaviour
+public class WindowAnimation : MonoBehaviour
 {
     [SerializeField] GameObject toShow;
-    [SerializeField] InterfaceReference<IApp> app;
+    [SerializeField] UnityEvent OpenEvent;
+    [SerializeField] UnityEvent CloseEvent;
 
     public void Open()
     {
         toShow.SetActive(true);
         transform.DOScale(1f, 0.3f).OnComplete(() =>
         {
-            app.Value.Open();
+            OpenEvent?.Invoke();
         });
     }
 
     public void Close()
     {
         transform.DOScale(0f, 0.3f).OnComplete(() => toShow.SetActive(false));
-        app.Value.Close();
+        CloseEvent?.Invoke();
     }
 }
