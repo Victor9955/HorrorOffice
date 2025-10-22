@@ -1,15 +1,16 @@
 ﻿using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
-[Serializable]
 public class EmployeeFile : Draggable
 {
 
     private int _id;
     public int FileID => _id;
     private MeshRenderer _mesh;
-    public Action<bool> OnDroppedEvent;
+    public Action<bool> OnDropped;
+    public UnityEvent OnDroppedUEvent;
     public Color FileColor
     {
         get => _mesh.material.color;
@@ -20,10 +21,10 @@ public class EmployeeFile : Draggable
         }
     }
 
-    public void Init(FileChoice choice)
+    public void Init(FileBinder binder)
     {
-        _id = choice.Id;
-        FileColor = choice.MeshMatColor;
+        _id = binder.Id;
+        FileColor = binder.MeshMatColor;
     }
 
     public void ResetFile()
@@ -54,7 +55,8 @@ public class EmployeeFile : Draggable
                 if (container.IsOpen())
                 {
                     bool isMatched = container.Drop(this);
-                    OnDroppedEvent?.Invoke(isMatched);
+                    OnDropped?.Invoke(isMatched);
+                    OnDroppedUEvent?.Invoke();
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }
             }

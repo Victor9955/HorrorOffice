@@ -3,16 +3,15 @@ using Unity.Properties;
 using UnityEngine;
 
 [Serializable]
-public class FileChoiceData
+public class BinderData
 {
-    public int _id;
-    public Color _color;
+    public Color color = Color.white;
 }
 
-public class FileChoice : MonoBehaviour, IDropContainer
+public class FileBinder : MonoBehaviour, IDropContainer
 {
 
-    private int _id;
+    [SerializeField] private int _id;
     public int Id => _id;
     public bool isOpen;
     private MeshRenderer _meshRend;
@@ -28,12 +27,18 @@ public class FileChoice : MonoBehaviour, IDropContainer
             return _meshRend;
         }
     }
-    public Color MeshMatColor => MeshRend.material.color;
-
-    public void Init(FileChoiceData file)
+    public Color MeshMatColor
     {
-        _meshRend.material.color = file._color;
-        _id = file._id;
+        get => MeshRend.material.color;
+        private set => MeshRend.material.color = value;
+    }
+
+    public void Init(int id, BinderData data = null)
+    {
+        _id = id;
+        if (data == null) return; // managing data like binder color etc
+        MeshMatColor = data.color;
+
     }
     public bool Drop<T>(T dropped) where T : Draggable
     {
