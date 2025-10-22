@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2599968917148806193}
   - component: {fileID: 7127512555744415804}
   - component: {fileID: 166803268096489839}
-  - component: {fileID: 8398173223803828496}
+  - component: {fileID: 6209125947064649377}
   m_Layer: 5
   m_Name: Mail
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8398173223803828496
+--- !u!114 &6209125947064649377
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,13 +87,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 942179230466780950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e5aa2189b901a4ba399a39ac5e911d, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d955682692e76443801cb6ece8e000d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  appRef: {fileID: 0}
   backGround: {fileID: 166803268096489839}
-  check: {fileID: 2665688691930218785}
-  chekedSprite: {fileID: 21300000, guid: c64649b264d4c7948ac8ed8d2ef7721b, type: 3}
-  unchekedSprite: {fileID: 21300000, guid: dab7daa75a51b1d4ebc1219b5682caa2, type: 3}
+  check: {fileID: 0}
+  chekedSprite: {fileID: 0}
+  unchekedSprite: {fileID: 0}
 --- !u!1 &3568434589918867332
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dab7daa75a51b1d4ebc1219b5682caa2, type: 3}
+  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8398173223803828496}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Mail, Assembly-CSharp
         m_MethodName: UpdateCheck
         m_Mode: 1

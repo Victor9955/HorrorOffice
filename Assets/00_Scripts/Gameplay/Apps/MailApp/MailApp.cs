@@ -33,4 +33,9 @@ public class MailApp : MonoBehaviour, IApp
         Mail cash = Instantiate(mailPrefab, contentAncor.transform);
         cash.appRef = this;
     }
+
+    public void Close()
+    {
+
+    }
 }
