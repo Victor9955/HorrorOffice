@@ -37,7 +37,7 @@ public class Mail : MonoBehaviour
 
     public void OnClicked()
     {
-        Singleton.Instance<MailApp>();
+        Singleton.Instance<MailApp>().OpenMail(mailId);
     }
 
     void Check()

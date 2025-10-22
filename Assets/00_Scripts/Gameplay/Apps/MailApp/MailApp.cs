@@ -8,7 +8,8 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
     [SerializeField] Mail mailPrefab;
     [SerializeField] MailRef mails;
     [SerializeField] RectTransform contentAncor;
-    [SerializeField] RectTransform bg;
+    [SerializeField] RectTransform mailViewAncor;
+    [SerializeField] WindowAnimation mailWindow;
     [HideInInspector] public List<Mail> bin = new();
 
     public void Open()
@@ -32,7 +33,7 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
     [Button]
     void TestReceiveMail()
     {
-        ReiceiveMail(1);
+        ReiceiveMail(0);
     }
 
     public void ReiceiveMail(int id)
@@ -44,13 +45,15 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
     public void OpenMail(int id)
     {
         // Look for Mail in Scriptable object with all mails
+        Debug.Log("Open Mail " + id);
         if(id < 0 && id > mails.mailsPrefab.Count)
         {
             Debug.LogAssertion("Wrong Mail ID Sended");
         }
         else
         {
-            Instantiate(mails.mailsPrefab[id], bg);
+            Instantiate(mails.mailsPrefab[id], mailViewAncor);
+            mailWindow.Open();
         }
     }
 
