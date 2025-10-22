@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MailRef", menuName = "Scriptable Objects/MailRef")]
 public class MailRef : ScriptableObject
 {
-    public List<RectTransform> mailsPrefab;
+    public List<MailView> mailsPrefab;
 }

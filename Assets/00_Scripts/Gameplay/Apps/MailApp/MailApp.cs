@@ -1,6 +1,7 @@
 using DG.Tweening;
 using NaughtyAttributes;
 using System.Collections.Generic;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
@@ -11,6 +12,8 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
     [SerializeField] RectTransform mailViewAncor;
     [SerializeField] WindowAnimation mailWindow;
     [HideInInspector] public List<Mail> bin = new();
+
+    MailView current;
 
     public void Open()
     {
@@ -52,7 +55,8 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         }
         else
         {
-            Instantiate(mails.mailsPrefab[id], mailViewAncor);
+            current = Instantiate(mails.mailsPrefab[id], mailViewAncor);
+            current.myWindow = mailWindow;
             mailWindow.Open();
         }
     }
@@ -60,5 +64,10 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
     public void Close()
     {
 
+    }
+
+    public void DestroyCurrent()
+    {
+        Destroy(current);
     }
 }

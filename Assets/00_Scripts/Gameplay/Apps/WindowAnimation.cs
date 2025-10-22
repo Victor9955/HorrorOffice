@@ -8,6 +8,7 @@ public class WindowAnimation : MonoBehaviour
     [SerializeField] GameObject toShow;
     [SerializeField] UnityEvent OpenEvent;
     [SerializeField] UnityEvent CloseEvent;
+    [HideInInspector] public bool isClosed = false;
 
     public void Open()
     {
@@ -15,12 +16,17 @@ public class WindowAnimation : MonoBehaviour
         transform.DOScale(1f, 0.3f).OnComplete(() =>
         {
             OpenEvent?.Invoke();
+            isClosed = false;
         });
     }
 
     public void Close()
     {
-        transform.DOScale(0f, 0.3f).OnComplete(() => toShow.SetActive(false));
-        CloseEvent?.Invoke();
+        transform.DOScale(0f, 0.3f).OnComplete(() =>
+        {
+            CloseEvent?.Invoke();
+            toShow.SetActive(false);
+            isClosed = true;
+        });
     }
 }
