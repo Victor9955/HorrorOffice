@@ -3,15 +3,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.InputSystem.InputControlScheme;
 using Random = UnityEngine.Random;
 
 public class FileSorting : MonoBehaviour
 {
     [Header("Refs")]
-    [SerializeField] private EmployeeFile _fileToSortObj;
+    [SerializeField] private EmployeeFile _fileToSortPrefab;
     [SerializeField] private TMP_Text _sortText;
+    [SerializeField] private Transform _fileSpawnTr;
     [Space(5)]
     [Header("Parameters")]
     [Space(5)]
@@ -22,7 +25,9 @@ public class FileSorting : MonoBehaviour
     [SerializeField] private UnityEvent<bool> OnSetOpenEvent;
     [SerializeField] private UnityEvent OnMatchCheckEvent;
 
+    private EmployeeFile _currentFile;
     private List<FileBinder> _binderList;
+    private Coroutine _textCoroutine;
     private int _fileIndex;
 
     private void Awake()
@@ -30,11 +35,11 @@ public class FileSorting : MonoBehaviour
         _binderList = new List<FileBinder>();
     }
 
-    private void Start()
+    public void Init()
     {
         _fileIndex = 0;
         SetupBinders();
-        NewFile();
+        Singleton.Instance<GameManager>().OnStartRound += OnNewFileRound; // REGISTER ON START ROUND
     }
 
 
@@ -50,7 +55,7 @@ public class FileSorting : MonoBehaviour
         Debug.Log($"{_binderList.Count} binders in the scene");
 
     }
-    private void SortBindert()
+    private void SortBindersEditor()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -68,10 +73,7 @@ public class FileSorting : MonoBehaviour
         }
     }
 
-    private void SortBinders()
-    {
 
-    }
     private void SetBindersOpenState(bool isOpen)
     {
         foreach (FileBinder file in _binderList)
@@ -80,20 +82,28 @@ public class FileSorting : MonoBehaviour
         }
         OnSetOpenEvent.Invoke(isOpen);
 
-        if(isOpen) _fileToSortObj.OnDropped += OnFileDropped;
-        else _fileToSortObj.OnDropped -= OnFileDropped;
+        if (isOpen) _currentFile.OnDropped += OnFileDropped;
+        else _currentFile.OnDropped -= OnFileDropped;
 
     }
     #endregion Binder Management Methods
 
-
+    void OnNewFileRound()
+    {
+        _sortText.text = $"file n°{_fileIndex + 1}";
+        _sortText.color = Color.white;
+        ShowText(false);
+        NewFile();
+    }
     private void NewFile()
     {
-        MeshRenderer meshRend = _fileToSortObj.GetComponent<MeshRenderer>();
+        _fileIndex++;
+        _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
+        _currentFile.name = $"DragFileToSort_{_fileIndex}";
         if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
         int randInd = Random.Range(0, _binderList.Count);
-        _fileToSortObj.Init(_binderList[randInd]);
-        _fileToSortObj.ResetFile();
+        _currentFile.Init(_binderList[randInd]);
+        _currentFile.ResetFile();
         SetBindersOpenState(true);
     }
 
@@ -102,17 +112,25 @@ public class FileSorting : MonoBehaviour
     {
         string matchResult = isMatched ? "Correct Sort!" : "Wrong Sort...";
         SetBindersOpenState(false);
-        _sortText.text = $"file n°{_fileIndex} : {matchResult}";
+
+        //show match on text
+        _sortText.text = $"file n°{_fileIndex + 1} : {matchResult}";
         _sortText.color = Color.white;
-        StartCoroutine(ShowText());
+        ShowText(true);
+        StartCoroutine(Singleton.Instance<FileRoundManager>().StopRound(isMatched));
     }
 
-    private IEnumerator ShowText()
+    private void ShowText(bool endRound)
     {
-        _fileIndex++;
+        if (_textCoroutine != null) StopCoroutine(_textCoroutine);
+        _textCoroutine = StartCoroutine(ShowTextRoutine(endRound));
+    }
+    private IEnumerator ShowTextRoutine(bool endRound)
+    {
+
         _sortText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         _sortText.gameObject.SetActive(false);
-        NewFile();
+        if (endRound) Singleton.Instance<FileRoundManager>().isRoundEnding = false;
     }
 }

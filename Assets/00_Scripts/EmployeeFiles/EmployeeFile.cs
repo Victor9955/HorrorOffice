@@ -8,23 +8,33 @@ public class EmployeeFile : Draggable
 
     private int _id;
     public int FileID => _id;
-    private MeshRenderer _mesh;
+    private MeshRenderer _meshRend;
+    private MeshRenderer Mesh
+    {
+        get
+        {
+            if(_meshRend == null) _meshRend = GetComponent<MeshRenderer>();
+            return _meshRend;
+        }
+    }
     public Action<bool> OnDropped;
     public UnityEvent OnDroppedUEvent;
     public Color FileColor
     {
-        get => _mesh.material.color;
+        get => Mesh.material.color;
         set
         {
             Debug.Log("GYAAAAAAAAAAT");
-            _mesh.material.color = value;
+            Mesh.material.color = value;
         }
     }
+
 
     public void Init(FileBinder binder)
     {
         _id = binder.Id;
         FileColor = binder.MeshMatColor;
+        _initialPosition = transform.position;
     }
 
     public void ResetFile()
@@ -33,11 +43,6 @@ public class EmployeeFile : Draggable
         gameObject.SetActive(true);
     }
 
-
-    private void Awake()
-    {
-        _mesh = GetComponent<MeshRenderer>();
-    }
     public override void Drop()
     {
         base.Drop();
