@@ -10,8 +10,10 @@ public class AppOpener : MonoBehaviour
     public void Open()
     {
         toShow.SetActive(true);
-        transform.DOScale(1f, 0.3f);
-        app.Value.Open();
+        transform.DOScale(1f, 0.3f).OnComplete(() =>
+        {
+            app.Value.Open();
+        });
     }
 
     public void Close()

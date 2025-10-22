@@ -11,6 +11,14 @@ public class Mail : MonoBehaviour
     [SerializeField] Image check;
     [SerializeField] Sprite chekedSprite;
     [SerializeField] Sprite unchekedSprite;
+    Vector3 baseScale;
+
+    private void Start()
+    {
+        baseScale = transform.localScale;
+        transform.localScale = Vector3.zero;
+        transform.DOScale(baseScale, 0.3f);
+    }
 
     public void UpdateCheck()
     {

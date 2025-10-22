@@ -92,9 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appRef: {fileID: 0}
   backGround: {fileID: 166803268096489839}
-  check: {fileID: 0}
-  chekedSprite: {fileID: 0}
-  unchekedSprite: {fileID: 0}
+  check: {fileID: 2665688691930218785}
+  chekedSprite: {fileID: 21300000, guid: 33e6326af0f7f8b4ab13d298c53314d8, type: 3}
+  unchekedSprite: {fileID: 21300000, guid: 26a030f60ca46a849b066c9676847687, type: 3}
 --- !u!1 &3568434589918867332
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 26a030f60ca46a849b066c9676847687, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 2
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6209125947064649377}
         m_TargetAssemblyTypeName: Mail, Assembly-CSharp
         m_MethodName: UpdateCheck
         m_Mode: 1

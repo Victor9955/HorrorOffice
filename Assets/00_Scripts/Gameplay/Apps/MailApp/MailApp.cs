@@ -3,7 +3,7 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MailApp : MonoBehaviour, IApp
+public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 {
     [SerializeField] Mail mailPrefab;
     [SerializeField] RectTransform contentAncor;
@@ -32,6 +32,11 @@ public class MailApp : MonoBehaviour, IApp
     {
         Mail cash = Instantiate(mailPrefab, contentAncor.transform);
         cash.appRef = this;
+    }
+
+    public void ReiceiveMail()
+    {
+
     }
 
     public void Close()
