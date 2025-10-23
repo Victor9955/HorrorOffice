@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class WindowAnimation : MonoBehaviour
 {
     [SerializeField] GameObject toShow;
-    [SerializeField] UnityEvent OpenEvent;
-    [SerializeField] UnityEvent CloseEvent;
+    public UnityEvent OpenEvent;
+    public UnityEvent CloseEvent;
     [HideInInspector] public bool isClosed = false;
 
     public void Open()

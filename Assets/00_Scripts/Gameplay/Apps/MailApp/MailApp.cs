@@ -14,6 +14,7 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
     [HideInInspector] public List<Mail> bin = new();
 
     MailView current;
+    bool toBeDestroyed;
 
     public void Open()
     {
@@ -47,7 +48,6 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 
     public void OpenMail(int id)
     {
-        // Look for Mail in Scriptable object with all mails
         Debug.Log("Open Mail " + id);
         if(id < 0 && id > mails.mailsPrefab.Count)
         {
@@ -55,9 +55,19 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         }
         else
         {
+            GameObject cash = null;
+            if (current != null)
+            {
+                cash = current.gameObject;
+            }
             current = Instantiate(mails.mailsPrefab[id], mailViewAncor);
             current.myWindow = mailWindow;
             mailWindow.Open();
+            if (toBeDestroyed && cash != null)
+            {
+                Destroy(cash);
+                toBeDestroyed = false;
+            }
         }
     }
 
@@ -66,8 +76,8 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 
     }
 
-    public void DestroyCurrent()
+    public void CloseCurrentMail()
     {
-        Destroy(current);
+        toBeDestroyed = true;
     }
 }
