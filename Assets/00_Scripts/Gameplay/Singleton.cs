@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public interface ISingletonMonobehavior
 {
-
+    public virtual bool DoDontDestroyOnLoad => false;
 }
 
 public class Singleton : MonoBehaviour
@@ -28,7 +28,10 @@ public class Singleton : MonoBehaviour
                     continue;
                 }
                 singletons.Add(singleton.GetType(), cash);
-                DontDestroyOnLoad(singleton);
+                if(cash.DoDontDestroyOnLoad)
+                {
+                    DontDestroyOnLoad(singleton);
+                }
             }
         }
         SceneManager.sceneLoaded += SceneLoaded;
