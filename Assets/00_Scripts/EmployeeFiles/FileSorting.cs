@@ -13,13 +13,17 @@ public class FileSorting : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] private EmployeeFile _fileToSortPrefab;
-    [SerializeField] private TMP_Text _sortText;
     [SerializeField] private Transform _fileSpawnTr;
     [Space(5)]
     [Header("Parameters")]
     [Space(5)]
     [SerializeField] private List<BinderData> _binderDataList;
     //[SerializeField] private float _binderSpacingDistance;
+    [Header("Text UI")]
+    [Space(5)]
+    [SerializeField] private TMP_Text _sortText;
+    [SerializeField] private Transform _sortUITr;
+    [SerializeField] private float _textDelay;
     [Header("Events")]
     [Space(5)]
     [SerializeField] private UnityEvent<bool> OnSetOpenEvent;
@@ -29,12 +33,17 @@ public class FileSorting : MonoBehaviour
     private List<FileBinder> _binderList;
     private Coroutine _textCoroutine;
     private int _fileIndex;
+    private WaitForSeconds _textWaitForSeconds;
 
     private void Awake()
     {
-        _binderList = new List<FileBinder>();
+        _binderList = new();
     }
 
+    private void Start()
+    {
+        _textWaitForSeconds = new WaitForSeconds(_textDelay);
+    }
     public void Init()
     {
         _fileIndex = 0;
@@ -120,6 +129,8 @@ public class FileSorting : MonoBehaviour
         StartCoroutine(Singleton.Instance<FileRoundManager>().StopRound(isMatched));
     }
 
+
+    #region Text Methods
     private void ShowText(bool endRound)
     {
         if (_textCoroutine != null) StopCoroutine(_textCoroutine);
@@ -127,10 +138,10 @@ public class FileSorting : MonoBehaviour
     }
     private IEnumerator ShowTextRoutine(bool endRound)
     {
-
-        _sortText.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        _sortText.gameObject.SetActive(false);
+        _sortUITr.gameObject.SetActive(true);
+        yield return _textWaitForSeconds;
+        _sortUITr.gameObject.SetActive(false);
         if (endRound) Singleton.Instance<FileRoundManager>().isRoundEnding = false;
     }
+    #endregion
 }

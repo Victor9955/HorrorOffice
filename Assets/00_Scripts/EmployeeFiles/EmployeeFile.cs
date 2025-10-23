@@ -24,7 +24,6 @@ public class EmployeeFile : Draggable
         get => Mesh.material.color;
         set
         {
-            Debug.Log("GYAAAAAAAAAAT");
             Mesh.material.color = value;
         }
     }

@@ -25,13 +25,16 @@ public class GameManager : MonoBehaviour, ISingletonMonobehavior
     private void Init()
     {
         //Round Manager
-        InitRoundManager();
+        FileRoundManager roundMan = Singleton.Instance<FileRoundManager>();
+        Singleton.Instance<FileRoundManager>().Init();
+
+        //Character Displayer
+        Singleton.Instance<CharacterDisplay>().Init();
+
+        OnNewRound?.Invoke(roundMan.StartingRoundInd); // INVOKE ON NEW ROUND ON INIT
     }
 
     private void InitRoundManager()
     {
-        FileRoundManager roundMan = Singleton.Instance<FileRoundManager>();
-        roundMan.Init();
-        OnNewRound?.Invoke(roundMan.StartingRoundInd); // INVOKE ON NEW ROUND ON INIT
     }
 }
