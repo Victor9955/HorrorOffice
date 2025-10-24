@@ -31,7 +31,6 @@ public class LevelSender : MonoBehaviour, ISingletonMonobehavior
     {
         foreach (var level in current.level)
         {
-            
             levelCreator.CreateLevel(level);
             yield return new WaitUntil(() => levelCreator.isCreated);
             levelCreator.Play();

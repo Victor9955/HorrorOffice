@@ -8,6 +8,7 @@ public struct CharacterStaticInfo
     public Sprite commingSprite;
     public Sprite givePaperSprite;
     public Animation walkCurve;
+    public int happyAmount;
 }
 
 public class CharacterData : ScriptableObject
