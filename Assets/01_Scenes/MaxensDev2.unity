@@ -7196,12 +7196,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
+      propertyPath: _exitDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _enterDuration
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _walkFrequency
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _walkMagnitude

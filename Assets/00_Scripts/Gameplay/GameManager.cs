@@ -10,10 +10,16 @@ public class GameManager : MonoBehaviour, ISingletonMonobehavior
 {
 
     #region GameEvents
+    //Rounds events
     public Action<int> OnNewRound;
     public Action OnStartRound;
     public Action<bool> OnStopRound;
 
+    //Character enter & File
+    public Action OnCharacterEnter;
+    public Action OnFileSpawned;
+    public Action OnDialogueEnd;
+    public Action OnCharacterExit;
 
     #endregion
 

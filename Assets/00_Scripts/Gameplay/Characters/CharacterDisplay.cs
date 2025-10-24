@@ -1,10 +1,8 @@
-using DG.Tweening;
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 {
@@ -17,7 +15,9 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
     [SerializeField] private GameObject _characterPrefab;
 
     [Header("Anim Parameters")]
-    [SerializeField] private float _enterDuration, _exitAnimation;
+    [SerializeField] private bool _debugLoopEnterExitAnim;
+    [SerializeField] private float _enterDuration;
+    [SerializeField] private float _exitDuration;
     [SerializeField] private float _walkMagnitude = 1;
     [SerializeField] private int _walkFrequency = 1;
     [SerializeField] private AnimationCurve _animCurve;
@@ -33,44 +33,97 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
     }
     public void Init()
     {
+        if (_debugLoopEnterExitAnim)
+        {
+            DebugLoopEnter();
+            return;
+        }
         Singleton.Instance<GameManager>().OnNewRound += OnNewRoundEvent;
+        Singleton.Instance<GameManager>().OnDialogueEnd += OnCharacterDialogueEnd;
+        Singleton.Instance<GameManager>().OnCharacterExit += OnCharacterExit;
+
     }
+
+    #region Event Methods
 
     private void OnNewRoundEvent(int ind)
     {
         SpawnCharacter();
     }
+    private void OnCharacterDialogueEnd()
+    {
+        Action characterExitCallback = () => Singleton.Instance<GameManager>().OnCharacterExit?.Invoke();
+        CharacterExit(characterExitCallback);
+    }
+    private void OnCharacterExit()
+    {
+        _currentCharacter.SetActive(false);
+        _currentCharacter = null;
+        //TakeOffQueue();
+    }
+
+    #endregion
+
+    #region Chara Queue
+
+    private void AddToQueue(GameObject character)
+    {
+        characterQueue.Enqueue(character);
+
+    }
+
+    private bool UpdateQueue()
+    {
+        if (_currentCharacter != null) // current characater already in use
+        {
+            return false;
+        }
+        // Start next in queue
+        SpawnCharacter();
+        return true;
+    }
+    private void TakeOffQueue()
+    {
+        characterQueue.Dequeue();
+        UpdateQueue();
+    }
 
     void SpawnCharacter()
     {
-        if (_currentCharacter != null)
-        {
-            // add to queue
-            Debug.Log("Queueing character");
-            return;
-        }
+        //if (_currentCharacter != null)
+        //{
+        //    return;
+        //    // add to queue
+        //    AddToQueue(chara);
+        //    UpdateQueue();
+        //    Debug.Log("Queueing character");
+        //}
         _currentCharacter = Instantiate(_characterPrefab, transform);
         _currentCharacter.SetActive(true);
         _currentCharacter.transform.position = _enterTr.position;
-        CharacterEnter();
+        // Need to spawn the sheet after entrance
+        Action characterEnterCallback = () => Singleton.Instance<GameManager>().OnCharacterEnter?.Invoke();
+        CharacterEnter(characterEnterCallback);
     }
+
+
+
+    #endregion
 
     #region CharacterMovement Methods
 
-    void CharacterEnter()
+    void CharacterEnter(Action callback)
     {
-        _moveCoroutine = StartCoroutine(Move(_officeTr.position, _enterDuration, _animCurve, GoBack));
-        //Sequence mySequence = DOTween.Sequence();
-        //Tween slideRightTween = _currentCharacter.transform.DOShakePosition(_enterDuration, Vector3.up / 5f, randomness: 10).OnComplete(CharacterStepForward).Play();
-        //Tween walkTween = _currentCharacter.transform.DOMove(_officeTr.position, _enterDuration).Play();
-        //mySequence.Append(slideRightTween)
-        //            .Insert(0f, walkTween);
-        //mySequence.Play();
+        _moveCoroutine = StartCoroutine(Move(_officeTr.position, _enterDuration, _animCurve, callback));
     }
-    void GoBack()
+    void CharacterGoBackToSpawn(Action callback)
     {
-        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, CharacterEnter));
+        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, callback));
 
+    }
+    void CharacterExit(Action callback)
+    {
+        _moveCoroutine = StartCoroutine(Move(_exitTr.position, _exitDuration, _animCurve, callback));
     }
 
     void CharacterStepForward()
@@ -79,9 +132,9 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
         {
             Debug.Log("Huh");
         });
+
+        huh.Invoke();
     }
-
-
 
     private IEnumerator Move(Vector3 endPos, float duration = 1f, AnimationCurve animCurve = null, Action callback = null)
     {
@@ -113,9 +166,27 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
         callback?.Invoke();
         yield return null;
     }
+    #endregion
+
+    #region Debug
+
+    [Button]
+    public void DebugSpawnCharacter()
+    {
+        if (_currentCharacter != null)
+        {
+            Debug.LogWarning("Already a character in office (IMPLEMENT QUEUE PLEASE BRO)");
+            return;
+        }
+        SpawnCharacter();
+    }
+    void DebugLoopEnter()
+    {
+        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, DebugLoopBack));
+    }
+    void DebugLoopBack()
+    {
+        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, DebugLoopEnter));
+    }
+    #endregion Debug
 }
-
-
-
-#endregion
-

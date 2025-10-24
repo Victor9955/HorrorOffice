@@ -29,9 +29,11 @@ public class FileSorting : MonoBehaviour
     [SerializeField] private UnityEvent<bool> OnSetOpenEvent;
     [SerializeField] private UnityEvent OnMatchCheckEvent;
 
+    private bool _canDropFile;
     private EmployeeFile _currentFile;
     private List<FileBinder> _binderList;
     private Coroutine _textCoroutine;
+    private Coroutine _newFileCoroutine;
     private int _fileIndex;
     private WaitForSeconds _textWaitForSeconds;
 
@@ -49,6 +51,7 @@ public class FileSorting : MonoBehaviour
         _fileIndex = 0;
         SetupBinders();
         Singleton.Instance<GameManager>().OnStartRound += OnNewFileRound; // REGISTER ON START ROUND
+        Singleton.Instance<GameManager>().OnCharacterEnter += OnEnterAnimEnd; // REGISTER ON START ROUND
     }
 
 
@@ -97,23 +100,37 @@ public class FileSorting : MonoBehaviour
     }
     #endregion Binder Management Methods
 
-    void OnNewFileRound()
+    private void OnNewFileRound()
     {
         _sortText.text = $"file n°{_fileIndex + 1}";
         _sortText.color = Color.white;
         ShowText(false);
-        NewFile();
+        _newFileCoroutine = StartCoroutine(NewFile());
     }
-    private void NewFile()
+
+    private void OnEnterAnimEnd()
     {
+        _canDropFile = true;
+    }
+    private IEnumerator NewFile()
+    {
+        WaitForSeconds wait = new(0.2f);
+        while (!_canDropFile)
+            yield return wait;
+        _canDropFile= false;
         _fileIndex++;
         _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
-        _currentFile.name = $"DragFileToSort_{_fileIndex}";
+
         if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
         int randInd = Random.Range(0, _binderList.Count);
-        _currentFile.Init(_binderList[randInd]);
+        _currentFile.Init(_binderList[randInd], _fileIndex);
+  
         _currentFile.ResetFile();
         SetBindersOpenState(true);
+        Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
+        // Play Dialogue etc
+        yield return new WaitForSeconds(Random.Range(0f, 2.5f));
+        Singleton.Instance<GameManager>().OnDialogueEnd?.Invoke();
     }
 
 
