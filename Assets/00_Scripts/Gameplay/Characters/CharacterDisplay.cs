@@ -4,22 +4,29 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 {
 
     [Header("Refs")]
-    [SerializeField] private Transform _enterTr, _officeTr, _exitTr;
+    [SerializeField] private Transform _enterTr;
+    [SerializeField] private Transform _officeTr;
+    [SerializeField] private Transform _exitTr;
+
     [SerializeField] private GameObject _characterPrefab;
 
     [Header("Anim Parameters")]
     [SerializeField] private float _enterDuration, _exitAnimation;
+    [SerializeField] private float _walkMagnitude = 1;
+    [SerializeField] private float _walkFrequency = 1;
     [SerializeField] private AnimationCurve _animCurve;
 
     private GameObject _currentCharacter;
     Queue<GameObject> characterQueue;
     private Coroutine _moveCoroutine;
     private bool _moving;
+
     private void Awake()
     {
         characterQueue = new();
@@ -52,13 +59,18 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
     void CharacterEnter()
     {
-        _moveCoroutine = StartCoroutine(Move(_officeTr.position, _enterDuration));
+        _moveCoroutine = StartCoroutine(Move(_officeTr.position, _enterDuration, _animCurve, GoBack));
         //Sequence mySequence = DOTween.Sequence();
         //Tween slideRightTween = _currentCharacter.transform.DOShakePosition(_enterDuration, Vector3.up / 5f, randomness: 10).OnComplete(CharacterStepForward).Play();
         //Tween walkTween = _currentCharacter.transform.DOMove(_officeTr.position, _enterDuration).Play();
         //mySequence.Append(slideRightTween)
         //            .Insert(0f, walkTween);
         //mySequence.Play();
+    }
+    void GoBack()
+    {
+        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, CharacterEnter));
+
     }
 
     void CharacterStepForward()
@@ -71,20 +83,33 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
 
 
-    private IEnumerator Move(Vector3 endPos,float duration = 1f,AnimationCurve animCurve= null,Action callback = null)
+    private IEnumerator Move(Vector3 endPos, float duration = 1f, AnimationCurve animCurve = null, Action callback = null)
     {
         float elapsed = 0f;
-        Vector3 initPos = transform.position;
+        Vector3 initPos = _currentCharacter.transform.position;
         _moving = true;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
+
+            // Interpolation du mouvement de base
             float t = Mathf.Clamp01(elapsed / duration);
-            animCurve.Evaluate(t); //anim curve
+            if (animCurve != null)
+                t = animCurve.Evaluate(t);
+
             Vector3 newPos = Vector3.Lerp(initPos, endPos, t);
+
+            // Ajout de la vague sinusoïdale sur l’axe Y
+            float waveT = t * Mathf.PI * _walkFrequency;  // progression dans la sinusoïde
+            float waveMov = Mathf.Abs(Mathf.Sin(waveT)) * _walkMagnitude;
+            newPos.y = initPos.y + waveMov;
+
+            _currentCharacter.transform.position = newPos;
+
             yield return null;
         }
         _moving = false;
+        _currentCharacter.transform.position = endPos;
         callback?.Invoke();
         yield return null;
     }
@@ -92,5 +117,5 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
 
 
-    #endregion
+#endregion
 
