@@ -101,8 +101,8 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
             // Ajout de la vague sinusoïdale sur l’axe Y
             float waveT = t * Mathf.PI * _walkFrequency;  // progression dans la sinusoïde
-            float waveMov = Mathf.Abs(Mathf.Sin(waveT)) * _walkMagnitude;
-            newPos.y = initPos.y + waveMov;
+            Vector3 waveMov = Mathf.Abs(Mathf.Sin(waveT)) * _walkMagnitude * _currentCharacter.transform.up;
+            newPos += waveMov;
 
             _currentCharacter.transform.position = newPos;
 

@@ -7201,7 +7201,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _walkFrequency
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _walkMagnitude
@@ -7212,11 +7212,23 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
+      propertyPath: _animCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _animCurve.m_Curve.Array.data[1].time
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
+      propertyPath: _animCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _animCurve.m_Curve.Array.data[1].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
+      propertyPath: _animCurve.m_Curve.Array.data[2].value
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
@@ -7232,7 +7244,19 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
+      propertyPath: _animCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _animCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
+      propertyPath: _animCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
+      propertyPath: _animCurve.m_Curve.Array.data[1].outWeight
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
