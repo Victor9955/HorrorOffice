@@ -19,7 +19,7 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
     [Header("Anim Parameters")]
     [SerializeField] private float _enterDuration, _exitAnimation;
     [SerializeField] private float _walkMagnitude = 1;
-    [SerializeField] private float _walkFrequency = 1;
+    [SerializeField] private int _walkFrequency = 1;
     [SerializeField] private AnimationCurve _animCurve;
 
     private GameObject _currentCharacter;

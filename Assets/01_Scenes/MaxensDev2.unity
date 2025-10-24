@@ -6548,8 +6548,8 @@ Transform:
   m_GameObject: {fileID: 1881762037}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1937, y: 0.468, z: -6.981}
-  m_LocalScale: {x: 3.237116, y: 1.1112, z: 0.075298}
+  m_LocalPosition: {x: -0.0145, y: 0.468, z: -6.981}
+  m_LocalScale: {x: 2.8787673, y: 1.1112, z: 0.075298}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1828591088}
@@ -7196,6 +7196,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
+      propertyPath: _enterDuration
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _walkFrequency
       value: 5
       objectReference: {fileID: 0}
@@ -7217,7 +7221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _animCurve.m_Curve.Array.data[0].inSlope
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _animCurve.m_Curve.Array.data[1].inSlope
@@ -7225,7 +7229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _animCurve.m_Curve.Array.data[0].outSlope
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7417609862321839265, guid: 85048fe3b5b61e14ea08eb33e26a4cd2, type: 3}
       propertyPath: _animCurve.m_Curve.Array.data[1].outSlope
