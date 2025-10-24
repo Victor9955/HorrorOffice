@@ -2024,7 +2024,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mailPrefab: {fileID: 6209125947064649377, guid: 6c7573fac0748a84e910ef981ee75de2, type: 3}
-  mails: {fileID: 11400000, guid: ccd932f0387262a40be01c47eb65ecb1, type: 2}
   contentAncor: {fileID: 1040725059}
   mailViewAncor: {fileID: 1475367034}
   mailWindow: {fileID: 1475367035}
@@ -2255,7 +2254,7 @@ MonoBehaviour:
   size: 200
   contentAncor: {fileID: 561668353}
   content: {fileID: 561668354}
-  idPrefab: {fileID: 3150597911833477871, guid: ac35c1bc0d6b3dd4382906de57413899, type: 3}
+  idPrefab: {fileID: 1008723711804576555, guid: e1a038b0ca843fb46b9b01a2ff732717, type: 3}
   scrollbar: {fileID: 951758918}
   inputField: {fileID: 869408803}
 --- !u!1 &561668352
@@ -2291,7 +2290,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00006792559, y: 0.00012207031}
+  m_AnchoredPosition: {x: 0.000000073750954, y: -0.0000038146973}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -2307,14 +2306,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 30
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 30}
+  m_CellSize: {x: 400, y: 80}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 1
@@ -3711,7 +3710,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 568864542}
   m_HandleRect: {fileID: 568864541}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3936,7 +3935,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0.000061035156}
+  m_AnchoredPosition: {x: -0.000030517578, y: 0.000011751255}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1040725060
@@ -4561,13 +4560,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185831069}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11935703, y: 0, z: 0, w: 0.99285144}
-  m_LocalPosition: {x: 0.45, y: 1, z: -9}
+  m_LocalRotation: {x: 0.036205333, y: -0.011336884, z: 0.0004107514, w: 0.99928004}
+  m_LocalPosition: {x: 0.7, y: 0.85, z: -9.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 13.71, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.15, y: -1.3, z: 0}
 --- !u!114 &1185831073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4691,6 +4690,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1207184978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207184979}
+  - component: {fileID: 1207184980}
+  m_Layer: 0
+  m_Name: CharacterCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1207184979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207184978}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1207184980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207184978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d8224028cfcf04d9b40525b7304867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createInfo:
+    name: 
+    commingSprite: {fileID: 0}
+    givePaperSprite: {fileID: 0}
+    walkCurve: {fileID: 0}
 --- !u!1 &1226332562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6647,6 +6695,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!1 &1861938361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1861938362}
+  - component: {fileID: 1861938363}
+  - component: {fileID: 1861938364}
+  m_Layer: 0
+  m_Name: LevelCreator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1861938362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861938361}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1861938363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861938361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7855fe38047a40478f04ef69d130fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterCreator: {fileID: 1207184980}
+  isFinished: 0
+  isCreated: 0
+  isEnded: 0
+--- !u!114 &1861938364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861938361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e303d899cc54f8e4ebed366c240c3a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelCreator: {fileID: 1861938363}
+  levels:
+  - {fileID: 11400000, guid: a22bf67e33b54af4997da7bd514c29b8, type: 2}
+  - {fileID: 11400000, guid: 9fe35b264fbc86843abbc401621d9366, type: 2}
+  testDay: 0
 --- !u!1 &1867061568
 GameObject:
   m_ObjectHideFlags: 0
@@ -7324,7 +7438,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 501551167}
   m_HandleRect: {fileID: 501551166}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -8176,3 +8290,5 @@ SceneRoots:
   - {fileID: 1902982588}
   - {fileID: 1828591088}
   - {fileID: 1197377599}
+  - {fileID: 1207184979}
+  - {fileID: 1861938362}

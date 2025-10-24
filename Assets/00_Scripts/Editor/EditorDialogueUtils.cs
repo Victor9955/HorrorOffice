@@ -24,7 +24,7 @@ public static class DialogueEditorUtils
         if (null != _webRequest) return;
         _webRequest = UnityWebRequest.Get(CSV_URL);
         Debug.Log("<color=white>Starting CSV synchronisation...</color>");
-        _webRequest.SendWebRequest();
+        await _webRequest.SendWebRequest();
         while (!_webRequest.isDone)
         {
             await Task.Delay(500);

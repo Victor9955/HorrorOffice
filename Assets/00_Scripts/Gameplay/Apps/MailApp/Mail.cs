@@ -11,6 +11,7 @@ public class Mail : MonoBehaviour
     [SerializeField] Sprite chekedSprite;
     [SerializeField] Sprite unchekedSprite;
     [HideInInspector] public int mailId;
+    [SerializeField] MailView mailView;
     Vector3 baseScale;
 
     private void Start()
@@ -37,7 +38,7 @@ public class Mail : MonoBehaviour
 
     public void OnClicked()
     {
-        Singleton.Instance<MailApp>().OpenMail(mailId);
+        Singleton.Instance<MailApp>().OpenMail(mailView);
     }
 
     void Check()

@@ -7,7 +7,6 @@ using UnityEngine;
 public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 {
     [SerializeField] Mail mailPrefab;
-    [SerializeField] MailRef mails;
     [SerializeField] RectTransform contentAncor;
     [SerializeField] RectTransform mailViewAncor;
     [SerializeField] WindowAnimation mailWindow;
@@ -46,28 +45,20 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         cash.mailId = id;
     }
 
-    public void OpenMail(int id)
+    public void OpenMail(MailView mail)
     {
-        Debug.Log("Open Mail " + id);
-        if(id < 0 && id > mails.mailsPrefab.Count)
+        GameObject cash = null;
+        if (current != null)
         {
-            Debug.LogAssertion("Wrong Mail ID Sended");
+            cash = current.gameObject;
         }
-        else
+        current = Instantiate(mail, mailViewAncor);
+        current.myWindow = mailWindow;
+        mailWindow.Open();
+        if (toBeDestroyed && cash != null)
         {
-            GameObject cash = null;
-            if (current != null)
-            {
-                cash = current.gameObject;
-            }
-            current = Instantiate(mails.mailsPrefab[id], mailViewAncor);
-            current.myWindow = mailWindow;
-            mailWindow.Open();
-            if (toBeDestroyed && cash != null)
-            {
-                Destroy(cash);
-                toBeDestroyed = false;
-            }
+            Destroy(cash);
+            toBeDestroyed = false;
         }
     }
 
