@@ -5,9 +5,9 @@ using UnityEngine;
 public struct CharacterStaticInfo
 {
     public string name;
-    public Sprite commingSprite;
+    public Sprite comingSprite;
     public Sprite givePaperSprite;
-    public Animation walkCurve;
+    public AnimationCurve walkCurve;
     public int happyAmount;
 }
 

@@ -31,22 +31,20 @@ public class LevelSender : MonoBehaviour, ISingletonMonobehavior
     {
         foreach (var levelAction in current.level)
         {
-            yield return new WaitUntil(() => DoGetNextCharacter());
-
             levelCreator.CreateLevel(levelAction);
             yield return new WaitUntil(() => levelCreator.isCreated);
-            levelCreator.Play();
+            StartCoroutine(levelCreator.Play());
             yield return new WaitUntil(() => levelCreator.isFinished);
             levelCreator.End();
             yield return new WaitUntil(() => levelCreator.isEnded);
+
+            //yield return new WaitUntil(() => DoGetNextCharacter());
         }
         current = null;
     }
 
     bool DoGetNextCharacter()
     {
-        if(systemMailRecu 5)
-                if(fait 5 fiche)
         return false;
     }
 }
