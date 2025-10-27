@@ -5,12 +5,21 @@ using UnityEngine.UI;
 
 public class Mail : MonoBehaviour
 {
-    public MailApp appRef;
     bool isChecked = false;
     [SerializeField] Image backGround;
     [SerializeField] Image check;
     [SerializeField] Sprite chekedSprite;
     [SerializeField] Sprite unchekedSprite;
+    [HideInInspector] public int mailId;
+    [SerializeField] MailView mailView;
+    Vector3 baseScale;
+
+    private void Start()
+    {
+        baseScale = transform.localScale;
+        transform.localScale = Vector3.zero;
+        transform.DOScale(baseScale, 0.3f);
+    }
 
     public void UpdateCheck()
     {
@@ -18,13 +27,18 @@ public class Mail : MonoBehaviour
         if (isChecked)
         {
             Check();
-            appRef.bin.Add(this);
+            Singleton.Instance<MailApp>().bin.Add(this);
         }
         else
         {
             UnCheck();
-            appRef.bin.Remove(this);
+            Singleton.Instance<MailApp>().bin.Remove(this);
         }
+    }
+
+    public void OnClicked()
+    {
+        Singleton.Instance<MailApp>().OpenMail(mailView);
     }
 
     void Check()
