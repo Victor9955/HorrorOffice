@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ public struct Sheet
 {
     public SheetAction Action;
     public SheetValue Value;
+    public string newName;
 }
 
 [System.Serializable]

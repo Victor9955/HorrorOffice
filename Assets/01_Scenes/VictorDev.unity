@@ -4739,6 +4739,7 @@ MonoBehaviour:
     commingSprite: {fileID: 0}
     givePaperSprite: {fileID: 0}
     walkCurve: {fileID: 0}
+    happyAmount: 0
 --- !u!1 &1226332562
 GameObject:
   m_ObjectHideFlags: 0
@@ -6758,8 +6759,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelCreator: {fileID: 1861938363}
   levels:
-  - {fileID: 11400000, guid: a22bf67e33b54af4997da7bd514c29b8, type: 2}
   - {fileID: 11400000, guid: 9fe35b264fbc86843abbc401621d9366, type: 2}
+  - {fileID: 11400000, guid: a22bf67e33b54af4997da7bd514c29b8, type: 2}
   testDay: 0
 --- !u!1 &1867061568
 GameObject:

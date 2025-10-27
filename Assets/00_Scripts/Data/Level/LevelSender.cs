@@ -29,17 +29,24 @@ public class LevelSender : MonoBehaviour, ISingletonMonobehavior
 
     IEnumerator PlayLevel()
     {
-        foreach (var level in current.level)
+        foreach (var levelAction in current.level)
         {
-            levelCreator.CreateLevel(level);
+            yield return new WaitUntil(() => DoGetNextCharacter());
+
+            levelCreator.CreateLevel(levelAction);
             yield return new WaitUntil(() => levelCreator.isCreated);
             levelCreator.Play();
             yield return new WaitUntil(() => levelCreator.isFinished);
             levelCreator.End();
             yield return new WaitUntil(() => levelCreator.isEnded);
-
-            // TODO Rajouter conditons pour nouveau perso
         }
         current = null;
+    }
+
+    bool DoGetNextCharacter()
+    {
+        if(systemMailRecu 5)
+                if(fait 5 fiche)
+        return false;
     }
 }

@@ -8,6 +8,8 @@ public class CharacterCreator : MonoBehaviour
     {
         //TODO Setup Sprites walkCurve etc..
         createInfo = info;
+
+
     }
 
     public void Play()
