@@ -160,9 +160,9 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
             yield return null;
         }
+        callback?.Invoke();
         _moving = false;
         _currentCharacter.transform.position = endPos;
-        callback?.Invoke();
     }
     #endregion
 

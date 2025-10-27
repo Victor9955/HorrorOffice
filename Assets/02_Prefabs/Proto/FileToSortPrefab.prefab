@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 79761091741008529}
   - component: {fileID: 1141883545392975073}
   - component: {fileID: 122143531842773000}
-  - component: {fileID: 7656328179936051271}
+  - component: {fileID: 900574019958138232}
   m_Layer: 0
   m_Name: FileToSortPrefab
   m_TagString: Untagged
@@ -109,7 +109,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7656328179936051271
+--- !u!114 &900574019958138232
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,15 +118,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5105465388225100964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6ca37cf24fdb3a4ba62671a6678feda, type: 3}
+  m_Script: {fileID: 11500000, guid: 35bc5b4289f1d434baf377b6315827fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 1.5
+  _distance: 1
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
   _getsConsumedOnCorrectDrop: 1
-  _draggingTick: 0.01
+  _draggingTick: 0.2
   OnDroppedUEvent:
     m_PersistentCalls:
       m_Calls: []
