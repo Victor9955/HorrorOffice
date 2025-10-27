@@ -1,19 +1,41 @@
 ﻿using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
-[Serializable]
 public class EmployeeFile : Draggable
 {
 
     private int _id;
     public int FileID => _id;
-    private MeshRenderer _mesh;
-    public Action OnDroppedEvent;
-    public void Init(FileChoiceData choice)
+    private MeshRenderer _meshRend;
+    private MeshRenderer Mesh
     {
-        _id = choice._id;
-        FileColor = choice._color;
+        get
+        {
+            if(_meshRend == null) _meshRend = GetComponent<MeshRenderer>();
+            return _meshRend;
+        }
+    }
+    public Action<bool> OnDropped;
+    public UnityEvent OnDroppedUEvent;
+    public Color FileColor
+    {
+        get => Mesh.material.color;
+        set
+        {
+            Mesh.material.color = value;
+        }
+    }
+
+
+    public void Init(FileBinder binder, int fileIndex)
+    {
+        name = $"DragFileToSort_{fileIndex}";
+
+        _id = binder.Id;
+        FileColor = binder.MeshMatColor;
+        _initialPosition = transform.position;
     }
 
     public void ResetFile()
@@ -22,26 +44,11 @@ public class EmployeeFile : Draggable
         gameObject.SetActive(true);
     }
 
-    public Color FileColor
-    {
-        get => _mesh.material.color;
-        set
-        {
-            Debug.Log("GYAAAAAAAAAAT");
-            _mesh.material.color = value;
-        }
-    }
-
-    private void Awake()
-    {
-        _mesh = GetComponent<MeshRenderer>();
-    }
     public override void Drop()
     {
         base.Drop();
 
         _isDragging = false;
-        bool didDrop = false;
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
@@ -51,14 +58,15 @@ public class EmployeeFile : Draggable
         {
             if (hit.transform.gameObject.TryGetComponent(out IDropContainer container))
             {
-                didDrop = container.Drop(this);
+                if (container.IsOpen())
+                {
+                    bool isMatched = container.Drop(this);
+                    OnDropped?.Invoke(isMatched);
+                    OnDroppedUEvent?.Invoke();
+                    gameObject.SetActive(!_getsConsumedOnCorrectDrop);
+                }
             }
             else Debug.LogError("Cant get da DropContainer :(");
-            if (didDrop)
-            {
-                OnDroppedEvent?.Invoke();
-                gameObject.SetActive(!_getsConsumedOnCorrectDrop);
-            }
         }
         else Debug.Log("Cant hit anything :(");
     }
