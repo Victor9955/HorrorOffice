@@ -1,6 +1,5 @@
 using System.Collections;
 using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,6 +20,7 @@ public abstract class Draggable : MonoBehaviour
     {
         _cam = Camera.main;
         _dragTick = _draggingTick;
+        _initialPosition = transform.position;
     }
 
     public Vector3 CamToWorldPos
@@ -29,16 +29,13 @@ public abstract class Draggable : MonoBehaviour
         {
             Vector3 mousePos = Mouse.current.position.value;
             mousePos.z = _distance;
-            Debug.Log("mousePos =  " + mousePos);
             return _cam.ScreenToWorldPoint(mousePos);
         }
     }
 
     private void OnMouseDown()
     {
-        _initialPosition = transform.position;
         StartCoroutine(Drag());
-
     }
 
     private void OnMouseUp()
@@ -57,7 +54,7 @@ public abstract class Draggable : MonoBehaviour
         while (_isDragging)
         {
             Vector3 newPos = CamToWorldPos;
-            Debug.Log("dir =  " + newPos);
+            //Debug.Log("dir =  " + newPos);
             transform.position = newPos;
             yield return new WaitForSeconds(_dragTick);
         }
