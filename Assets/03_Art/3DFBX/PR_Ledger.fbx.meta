@@ -3,7 +3,22 @@ guid: 8b4674872081932479414434f1ce307d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 5b4f7aad9f2e6384b816ffd240c3a106, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Papers
+    second: {fileID: 2100000, guid: fb3e33384de6b1740a40c59d90dd0c94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Woodboard
+    second: {fileID: 2100000, guid: fa5909db16414344e8d56eeeb35e77fe, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
