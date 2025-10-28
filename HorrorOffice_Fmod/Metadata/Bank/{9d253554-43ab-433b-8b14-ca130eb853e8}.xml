@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="Bank" id="{9cbdbb99-36c0-47a0-b021-80c4728bdc32}">
+	<object class="Bank" id="{9d253554-43ab-433b-8b14-ca130eb853e8}">
 		<property name="color">
-			<value>Red</value>
+			<value>Red Light 1</value>
 		</property>
 		<property name="name">
-			<value>Master</value>
-		</property>
-		<property name="isMasterBank">
-			<value>true</value>
+			<value>SBK_SFX</value>
 		</property>
 		<relationship name="folder">
 			<destination>{3cc0ac64-da1a-4b82-8315-ac7a628903d8}</destination>
