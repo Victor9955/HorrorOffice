@@ -38,9 +38,9 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
             DebugLoopEnter();
             return;
         }
-        Singleton.Instance<GameManager>().OnNewRound += OnNewRoundEvent;
-        Singleton.Instance<GameManager>().OnDialogueEnd += OnCharacterDialogueEnd;
-        Singleton.Instance<GameManager>().OnCharacterExit += OnCharacterExit;
+        //Singleton.Instance<GameManager>().OnNewRound += OnNewRoundEvent;
+        //Singleton.Instance<GameManager>().OnDialogueEnd += OnCharacterDialogueEnd;
+        //Singleton.Instance<GameManager>().OnCharacterExit += OnCharacterExit;
 
     }
 
@@ -160,9 +160,9 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
             yield return null;
         }
-        callback?.Invoke();
         _moving = false;
         _currentCharacter.transform.position = endPos;
+        callback?.Invoke();
     }
     #endregion
 
