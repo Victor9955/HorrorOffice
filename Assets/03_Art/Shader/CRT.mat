@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CRT
-  m_Shader: {fileID: -6465566751694194690, guid: b088f9100d1e55246905080edc75c4e6, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: f37a4bb0f474bd04ba593b1e4727ac34, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -41,36 +41,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amount: 0.978
-    - _BlurOffset: 0
+    - _Amount: 0.95
     - _ColorMask: 15
-    - _H: 0
-    - _Round: 0.038
-    - _ScanLineSpeed: 16.5
+    - _Round: 0.03
+    - _ScanLineSpeed: 0.02
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _Test: 11.72
-    - _Transparent: 0.122
+    - _Transparent: 0.2
     - _UIMaskSoftnessX: 1
     - _UIMaskSoftnessY: 1
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.014802983, g: 0.067385375, b: 0.020989154, a: 0}
+    - _Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &2293763333443131880
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 10

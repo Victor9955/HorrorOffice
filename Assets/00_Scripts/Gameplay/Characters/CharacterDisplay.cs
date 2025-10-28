@@ -20,7 +20,7 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
     [SerializeField] private float _exitDuration;
     [SerializeField] private float _walkMagnitude = 1;
     [SerializeField] private int _walkFrequency = 1;
-    [SerializeField] private AnimationCurve _animCurve;
+    [SerializeField] public AnimationCurve _animCurve;
 
     private GameObject _currentCharacter;
     Queue<GameObject> characterQueue;
@@ -48,12 +48,11 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
     private void OnNewRoundEvent(int ind)
     {
-        SpawnCharacter();
+        //SpawnCharacter();
     }
-    private void OnCharacterDialogueEnd()
+    public void OnCharacterDialogueEnd()
     {
-        Action characterExitCallback = () => Singleton.Instance<GameManager>().OnCharacterExit?.Invoke();
-        CharacterExit(characterExitCallback);
+        CharacterExit(Singleton.Instance<GameManager>().OnCharacterExit);
     }
     private void OnCharacterExit()
     {
@@ -79,7 +78,7 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
             return false;
         }
         // Start next in queue
-        SpawnCharacter();
+        //SpawnCharacter();
         return true;
     }
     private void TakeOffQueue()
@@ -88,7 +87,7 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
         UpdateQueue();
     }
 
-    void SpawnCharacter()
+    public void SpawnCharacter(Sprite character)
     {
         //if (_currentCharacter != null)
         //{
@@ -99,11 +98,11 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
         //    Debug.Log("Queueing character");
         //}
         _currentCharacter = Instantiate(_characterPrefab, transform);
+        _currentCharacter.GetComponent<SpriteRenderer>().sprite = character;
         _currentCharacter.SetActive(true);
         _currentCharacter.transform.position = _enterTr.position;
         // Need to spawn the sheet after entrance
-        Action characterEnterCallback = () => Singleton.Instance<GameManager>().OnCharacterEnter?.Invoke();
-        CharacterEnter(characterEnterCallback);
+        CharacterEnter(Singleton.Instance<GameManager>().OnCharacterEnter);
     }
 
 
@@ -161,10 +160,9 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
             yield return null;
         }
+        callback?.Invoke();
         _moving = false;
         _currentCharacter.transform.position = endPos;
-        callback?.Invoke();
-        yield return null;
     }
     #endregion
 
@@ -178,7 +176,7 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
             Debug.LogWarning("Already a character in office (IMPLEMENT QUEUE PLEASE BRO)");
             return;
         }
-        SpawnCharacter();
+        //SpawnCharacter();
     }
     void DebugLoopEnter()
     {
