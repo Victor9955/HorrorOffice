@@ -24,7 +24,8 @@ public struct Sheet
 {
     public SheetAction Action;
     public SheetValue Value;
-    public string newName;
+    public string stringValue;
+    public int numValue;
 }
 
 [System.Serializable]
