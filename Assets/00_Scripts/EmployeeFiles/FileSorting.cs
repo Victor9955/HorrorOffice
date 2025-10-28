@@ -21,7 +21,7 @@ public class FileSorting : MonoBehaviour
     //[SerializeField] private float _binderSpacingDistance;
     [Header("Text UI")]
     [Space(5)]
-    [SerializeField] private TMP_Text _sortText;
+    //[SerializeField] private TMP_Text _sortText;
     [SerializeField] private Transform _sortUITr;
     [SerializeField] private float _textDelay;
     [Header("Events")]
@@ -29,11 +29,15 @@ public class FileSorting : MonoBehaviour
     [SerializeField] private UnityEvent<bool> OnSetOpenEvent;
     [SerializeField] private UnityEvent OnMatchCheckEvent;
 
+    private bool _canDropFile;
     private EmployeeFile _currentFile;
     private List<FileBinder> _binderList;
     private Coroutine _textCoroutine;
+    private Coroutine _newFileCoroutine;
     private int _fileIndex;
     private WaitForSeconds _textWaitForSeconds;
+
+    public event Action OnFileDroppedEvent;
 
     private void Awake()
     {
@@ -43,12 +47,14 @@ public class FileSorting : MonoBehaviour
     private void Start()
     {
         _textWaitForSeconds = new WaitForSeconds(_textDelay);
+        Init();
     }
     public void Init()
     {
         _fileIndex = 0;
         SetupBinders();
         Singleton.Instance<GameManager>().OnStartRound += OnNewFileRound; // REGISTER ON START ROUND
+        Singleton.Instance<GameManager>().OnCharacterEnter += OnEnterAnimEnd; // REGISTER ON START ROUND
     }
 
 
@@ -97,23 +103,40 @@ public class FileSorting : MonoBehaviour
     }
     #endregion Binder Management Methods
 
-    void OnNewFileRound()
+    public void OnNewFileRound()
     {
-        _sortText.text = $"file n°{_fileIndex + 1}";
-        _sortText.color = Color.white;
-        ShowText(false);
-        NewFile();
+        //if(_sortText != null)
+        //{
+        //    _sortText.text = $"file n°{_fileIndex + 1}";
+        //    _sortText.color = Color.white;
+        //    ShowText(false);
+        //}
+        _newFileCoroutine = StartCoroutine(NewFile());
     }
-    private void NewFile()
+
+    private void OnEnterAnimEnd()
     {
+        _canDropFile = true;
+    }
+    private IEnumerator NewFile()
+    {
+        WaitForSeconds wait = new(0.2f);
+        while (!_canDropFile)
+            yield return wait;
+        _canDropFile = false;
         _fileIndex++;
         _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
-        _currentFile.name = $"DragFileToSort_{_fileIndex}";
+
         if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
         int randInd = Random.Range(0, _binderList.Count);
-        _currentFile.Init(_binderList[randInd]);
+        _currentFile.Init(_binderList[randInd], _fileIndex);
+  
         _currentFile.ResetFile();
         SetBindersOpenState(true);
+        Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
+        //// Play Dialogue etc
+        //yield return new WaitForSeconds(Random.Range(0f, 2.5f));
+        //Singleton.Instance<GameManager>().OnDialogueEnd?.Invoke();
     }
 
 
@@ -122,11 +145,13 @@ public class FileSorting : MonoBehaviour
         string matchResult = isMatched ? "Correct Sort!" : "Wrong Sort...";
         SetBindersOpenState(false);
 
+        OnFileDroppedEvent?.Invoke();
+
         //show match on text
-        _sortText.text = $"file n°{_fileIndex + 1} : {matchResult}";
-        _sortText.color = Color.white;
-        ShowText(true);
-        StartCoroutine(Singleton.Instance<FileRoundManager>().StopRound(isMatched));
+        //_sortText.text = $"file n°{_fileIndex + 1} : {matchResult}";
+        //_sortText.color = Color.white;
+        //ShowText(true);
+        //StartCoroutine(Singleton.Instance<FileRoundManager>().StopRound(isMatched));
     }
 
 
@@ -134,14 +159,15 @@ public class FileSorting : MonoBehaviour
     private void ShowText(bool endRound)
     {
         if (_textCoroutine != null) StopCoroutine(_textCoroutine);
-        _textCoroutine = StartCoroutine(ShowTextRoutine(endRound));
+        //_textCoroutine = StartCoroutine(ShowTextRoutine(endRound));
     }
+    /*
     private IEnumerator ShowTextRoutine(bool endRound)
     {
-        _sortUITr.gameObject.SetActive(true);
-        yield return _textWaitForSeconds;
-        _sortUITr.gameObject.SetActive(false);
-        if (endRound) Singleton.Instance<FileRoundManager>().isRoundEnding = false;
-    }
+        //_sortUITr.gameObject.SetActive(true);
+        //yield return _textWaitForSeconds;
+        //_sortUITr.gameObject.SetActive(false);
+        //if (endRound) Singleton.Instance<FileRoundManager>().isRoundEnding = false;
+    }*/
     #endregion
 }

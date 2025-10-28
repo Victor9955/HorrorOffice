@@ -13,6 +13,6 @@ public class NoteApp : MonoBehaviour, IApp
 
     public void Open()
     {
-        scrollbar.value = 1;
+        scrollbar.value = 0.99f;
     }
 }
