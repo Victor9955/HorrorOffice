@@ -96,6 +96,7 @@ MonoBehaviour:
   chekedSprite: {fileID: 21300000, guid: 33e6326af0f7f8b4ab13d298c53314d8, type: 3}
   unchekedSprite: {fileID: 21300000, guid: 26a030f60ca46a849b066c9676847687, type: 3}
   mailId: 0
+  mailView: {fileID: 4303017568675066393, guid: dfebdc03a6e451e468d6319f18a9ebcf, type: 3}
 --- !u!114 &1334513063251941555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +350,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 18
   m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 1

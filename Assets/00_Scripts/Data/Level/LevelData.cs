@@ -8,6 +8,7 @@ public enum SheetAction
 {
     BloodTest,
     Name,
+    Age
 }
 
 public enum SheetValue
@@ -16,7 +17,9 @@ public enum SheetValue
     RandomAge, // RandomAge between 0 and 100
     ScrambleString,
     ScrambleNum,
-    BaseName
+    BaseName,
+    BaseNum,
+    BaseAge
 }
 
 [System.Serializable]
