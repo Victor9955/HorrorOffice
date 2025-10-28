@@ -2144,6 +2144,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mailPrefab: {fileID: 0}
   contentAncor: {fileID: 1040725059}
+  mailViewAncor: {fileID: 0}
+  mailWindow: {fileID: 0}
   bin: []
 --- !u!1 &529064838
 GameObject:
@@ -2281,8 +2283,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toShow: {fileID: 1867061568}
-  app:
-    underlyingValue: {fileID: 560521071}
+  OpenEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  CloseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isClosed: 0
 --- !u!114 &560521071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4534,8 +4541,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toShow: {fileID: 817028423}
-  app:
-    underlyingValue: {fileID: 1226332566}
+  OpenEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  CloseEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isClosed: 0
 --- !u!1 &1327758840
 GameObject:
   m_ObjectHideFlags: 0
