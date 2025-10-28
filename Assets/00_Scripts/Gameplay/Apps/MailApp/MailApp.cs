@@ -1,7 +1,6 @@
 using DG.Tweening;
 using NaughtyAttributes;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior

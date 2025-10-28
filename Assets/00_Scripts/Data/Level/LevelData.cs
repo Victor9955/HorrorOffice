@@ -23,7 +23,7 @@ public enum SheetValue
 }
 
 [System.Serializable]
-public struct Sheet
+public struct SheetModifiers
 {
     public SheetAction Action;
     public SheetValue Value;
@@ -34,7 +34,7 @@ public struct Sheet
 [System.Serializable]
 public struct SheetCreateInfo
 {
-    public List<Sheet> modifiers;
+    public List<SheetModifiers> modifiers;
 }
 
 
