@@ -38,7 +38,7 @@ public class LevelSender : MonoBehaviour, ISingletonMonobehavior
             levelCreator.End();
             yield return new WaitUntil(() => levelCreator.isEnded);
 
-            yield return new WaitUntil(() => DoGetNextCharacter());
+            //yield return new WaitUntil(() => DoGetNextCharacter());
         }
         current = null;
     }
