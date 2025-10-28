@@ -10,7 +10,7 @@ public class CharacterInstance : MonoBehaviour
 
     public void Init(CharacterStaticInfo info)
     {
-        _spriteRenderer.sprite = info.commingSprite;
+        _spriteRenderer.sprite = info.comingSprite;
     }
 
 }
