@@ -42,7 +42,6 @@ public class LevelSender : MonoBehaviour, ISingletonMonobehavior
         }
         current = null;
     }
-
     bool DoGetNextCharacter()
     {
         return false;

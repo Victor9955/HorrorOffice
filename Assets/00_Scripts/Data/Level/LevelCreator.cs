@@ -41,7 +41,7 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
         characterCreator.Play();
 
         yield return new WaitUntil(() => characterCreator.arrived);
-
+        
         foreach (var item in current.character.sheetBaseInfo.modifiers)
         {
             Init(item.Action, item.Value);
