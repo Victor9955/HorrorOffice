@@ -42,6 +42,7 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
 
         yield return new WaitUntil(() => characterCreator.arrived);
         
+        /*
         foreach (var item in current.character.sheetBaseInfo.modifiers)
         {
             Init(item.Action, item.Value);
@@ -52,6 +53,7 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
         {
             Modifie(item.Action, item.Value);
         }
+        */
 
         //Sheet Spawning
         fileSorting.OnNewFileRound();
@@ -66,8 +68,9 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
 
     }
 
-    void Init(SheetAction action , SheetValue sheetValue)
+    void Init()
     {
+        /*
         Debug.Log("<color=yellow> Action From Base " + action.ToString());
         switch (action)
         {   
@@ -75,19 +78,19 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
                 break;
             case SheetAction.Name:
                 break;
-        }
+        }*/
     }
 
-    void Modifie(SheetAction action, SheetValue sheetValue)
+    void Modifie()
     {
+        /*
         Debug.Log("<color=yellow> Action From Sheet " + action.ToString());
         switch (action)
         {
             case SheetAction.BloodTest:
                 break;
             case SheetAction.Name:
-                Debug.Log(current.character.staticInfo.name);
                 break;
-        }
+        }*/
     }
 }

@@ -14,7 +14,7 @@ public class LevelSender : MonoBehaviour
     int day;
     LevelData current;
 
-    [ConsoleCommand("BeginDay", "[Integer Input][Float Input]")]
+    [ConsoleCommand("BeginDay", "[Integer Input]")]
     public void BeginDay(int m_day)
     {
         if (current == null) // when current = null current level is finished
@@ -36,7 +36,7 @@ public class LevelSender : MonoBehaviour
             levelCreator.End();
             yield return new WaitUntil(() => levelCreator.isEnded);
 
-            //yield return new WaitUntil(() => DoGetNextCharacter());
+            yield return new WaitUntil(() => DoGetNextCharacter());
         }
         current = null;
     }

@@ -11,7 +11,6 @@ namespace HuntroxGames.Utils
         [Header("UI Font Style")]
         [SerializeField] private float inputFontSize = 22;
         [SerializeField] private float outputFontSize = 22;
-        [SerializeField] private float parameterFontSize = 22;
         [SerializeField] private float autoCompleteFontSize = 22;
         [Header("Command Options Font Style")]
         [SerializeField] private Color optionTextColor = Color.white;

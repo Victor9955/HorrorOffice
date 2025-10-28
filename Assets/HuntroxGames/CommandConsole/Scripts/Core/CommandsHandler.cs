@@ -52,7 +52,7 @@ namespace HuntroxGames.Utils
         /// </summary>
         public static void FetchCommandAttributes()
         {
-            var behaviours = Object.FindObjectsOfType<MonoBehaviour>()
+            var behaviours = Object.FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None)
                 .OrderBy(m => m.transform.GetSiblingIndex()).ToArray();
             Clear();
    

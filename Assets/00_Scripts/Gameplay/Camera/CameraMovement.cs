@@ -1,7 +1,9 @@
 using DG.Tweening;
 using HuntroxGames.Utils;
 using NaughtyAttributes;
+using System.Data.Common;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] Transform cameraTransform;
     [SerializeField] float transitionSpeed;
 
+    [Header("Movement")]
+    [SerializeField] Vector2 triggerAmounts;
+    [SerializeField] Vector2 rotationClamp;
+    [SerializeField] float rotationSpeed;
 
     [Header("PC")]
     [SerializeField] Vector2 offset;
@@ -21,16 +27,23 @@ public class CameraMovement : MonoBehaviour
     Quaternion lastRotation;
     float lastFov;
 
+    float cameraRotation;
+
     private void Start()
     {
         lastFov = cameraRef.fieldOfView;
-        lastRotation = cameraTransform.rotation;
+        lastRotation = cameraTransform.localRotation;
+        cameraRotation = lastRotation.y;
     }
 
     [ConsoleCommand]
     public void StopFocus()
     {
-        isFocused = false;
+        cameraTransform.DOLocalRotate(lastRotation.eulerAngles, transitionSpeed).OnComplete(() =>
+        {
+            isFocused = false;
+        });
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, lastFov, transitionSpeed);
     }
 
     public void FocusCharacter(CharacterData character, Vector3 position)
@@ -58,7 +71,7 @@ public class CameraMovement : MonoBehaviour
         finalRoation.x += offset.y;
         finalRoation.y += offset.x;
 
-        cameraTransform.DORotate(finalRoation,transitionSpeed);
+        cameraTransform.DOLocalRotate(finalRoation,transitionSpeed);
         DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed);
     }
 
@@ -66,8 +79,25 @@ public class CameraMovement : MonoBehaviour
     {
         if(!isFocused)
         {
-            cameraRef.fieldOfView = lastFov;
             cameraTransform.rotation = lastRotation;
+
+            Vector2 mousePosition = Mouse.current.position.value;
+            //Rights
+            if(mousePosition.x > Screen.width - (triggerAmounts.y * Screen.width))
+            {
+                cameraRotation += rotationSpeed;
+            }
+
+            //Left
+            if (mousePosition.x < (triggerAmounts.x * Screen.width))
+            {
+                cameraRotation -= rotationSpeed;
+            }
+
+            cameraRotation = Mathf.Clamp(cameraRotation, rotationClamp.x, rotationClamp.y);
+            Vector3 finalRotation = lastRotation.eulerAngles;
+            finalRotation.y = cameraRotation;
+            lastRotation.eulerAngles = finalRotation;
         }
     }
 }

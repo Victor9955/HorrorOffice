@@ -17,7 +17,7 @@ namespace HuntroxGames.Utils
             if (CheckConsoleExists()) return;
             
             //check if canvas exists in scene if not create one and load CommandConsoleUI prefab from Resources and add it to canvas
-            var canvas = Object.FindObjectOfType<Canvas>(); 
+            var canvas = Object.FindAnyObjectByType<Canvas>(); 
             if (canvas == null)
             {
                 canvas = new GameObject("Canvas", typeof(Canvas)).GetComponent<Canvas>();
@@ -26,7 +26,7 @@ namespace HuntroxGames.Utils
                 canvas.gameObject.AddComponent<GraphicRaycaster>();
                 Selection.SetActiveObjectWithContext(canvas, canvas);
                 //check if EventSystem exists in scene if not create one
-                if (Object.FindObjectOfType<EventSystem>() == null)
+                if (Object.FindAnyObjectByType<EventSystem>() == null)
                 {
                     var eventSystem = new GameObject("EventSystem", typeof(EventSystem), typeof(StandaloneInputModule));
                 }
@@ -51,11 +51,11 @@ namespace HuntroxGames.Utils
         [MenuItem("HuntroxUtils/CommandConsole/Add Console Menu Trigger")]
         public static void AddConsoleManagerTrigger()
         {
-            var console = Object.FindObjectOfType<CommandConsole>();
+            var console = Object.FindAnyObjectByType<CommandConsole>();
             if (console == null)
             {
                 AddConsoleManager();
-                console = Object.FindObjectOfType<CommandConsole>();
+                console = Object.FindAnyObjectByType<CommandConsole>();
             }
             console.gameObject.AddComponent<ConsoleMenuTrigger>();
         }
@@ -63,12 +63,12 @@ namespace HuntroxGames.Utils
         //Validate if console exists
         [MenuItem("HuntroxUtils/CommandConsole/Add Console Menu Trigger", true)]
         public static bool ConsoleExists() 
-            => Object.FindObjectOfType<CommandConsole>() != null;
+            => Object.FindAnyObjectByType<CommandConsole>() != null;
         
         
         private static bool CheckConsoleExists()
         {
-            var console = Object.FindObjectOfType<CommandConsole>();
+            var console = Object.FindAnyObjectByType<CommandConsole>();
             if (console == null)
             {
                 return false;

@@ -2,39 +2,10 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public enum SheetAction
-{
-    BloodTest,
-    Name,
-    Age
-}
-
-public enum SheetValue
-{
-    A, B, C, D, E, F,//Value as Letters
-    RandomAge, // RandomAge between 0 and 100
-    ScrambleString,
-    ScrambleNum,
-    BaseName,
-    BaseNum,
-    BaseAge
-}
-
-[System.Serializable]
-public struct SheetModifiers
-{
-    public SheetAction Action;
-    public SheetValue Value;
-    public string stringValue;
-    public int numValue;
-}
-
 [System.Serializable]
 public struct SheetCreateInfo
 {
-    public List<SheetModifiers> modifiers;
+    public string characterName;
 }
 
 
@@ -42,7 +13,8 @@ public struct SheetCreateInfo
 public struct LevelActionCreateInfo
 {
     public CharacterData character;
-    public SheetCreateInfo sheetCreateInfo;
+    public SheetCreateInfo rightSheet;
+    public SheetCreateInfo wrongSheet;
 }
 
 [CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/LevelData")]
