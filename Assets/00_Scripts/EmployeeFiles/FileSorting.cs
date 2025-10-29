@@ -30,7 +30,8 @@ public class FileSorting : MonoBehaviour
     [SerializeField] private UnityEvent OnMatchCheckEvent;
 
     private bool _canDropFile;
-    private EmployeeFile _currentFile;
+    private EmployeeFile _currentFileObj;
+    private Sheet _currentSheetInfo;
     private List<FileBinder> _binderList;
     private Coroutine _textCoroutine;
     private Coroutine _newFileCoroutine;
@@ -53,8 +54,6 @@ public class FileSorting : MonoBehaviour
     {
         _fileIndex = 0;
         SetupBinders();
-        Singleton.Instance<GameManager>().OnStartRound += OnNewFileRound; // REGISTER ON START ROUND
-        Singleton.Instance<GameManager>().OnCharacterEnter += OnEnterAnimEnd; // REGISTER ON START ROUND
     }
 
 
@@ -97,20 +96,15 @@ public class FileSorting : MonoBehaviour
         }
         OnSetOpenEvent.Invoke(isOpen);
 
-        if (isOpen) _currentFile.OnDropped += OnFileDropped;
-        else _currentFile.OnDropped -= OnFileDropped;
+        if (isOpen) _currentFileObj.OnDropped += OnFileDropped;
+        else _currentFileObj.OnDropped -= OnFileDropped;
 
     }
     #endregion Binder Management Methods
 
-    public void OnNewFileRound()
+    public void OnNewFile(Sheet sheet)
     {
-        //if(_sortText != null)
-        //{
-        //    _sortText.text = $"file n°{_fileIndex + 1}";
-        //    _sortText.color = Color.white;
-        //    ShowText(false);
-        //}
+        _currentSheetInfo = sheet;
         _newFileCoroutine = StartCoroutine(NewFile());
     }
 
@@ -125,18 +119,17 @@ public class FileSorting : MonoBehaviour
             yield return wait;
         _canDropFile = false;
         _fileIndex++;
-        _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
+        _currentFileObj = Instantiate(_fileToSortPrefab, _fileSpawnTr);
 
         if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
         int randInd = Random.Range(0, _binderList.Count);
-        _currentFile.Init(_binderList[randInd], _fileIndex);
-  
-        _currentFile.ResetFile();
+        _currentFileObj.InitObject(_binderList[randInd], _fileIndex);
+        _currentFileObj.InitData(_currentSheetInfo);
+        _currentFileObj.ResetFile();
         SetBindersOpenState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
-        //// Play Dialogue etc
-        //yield return new WaitForSeconds(Random.Range(0f, 2.5f));
-        //Singleton.Instance<GameManager>().OnDialogueEnd?.Invoke();
+        //// Play Dialogue here
+
     }
 
 
@@ -146,12 +139,6 @@ public class FileSorting : MonoBehaviour
         SetBindersOpenState(false);
 
         OnFileDroppedEvent?.Invoke();
-
-        //show match on text
-        //_sortText.text = $"file n°{_fileIndex + 1} : {matchResult}";
-        //_sortText.color = Color.white;
-        //ShowText(true);
-        //StartCoroutine(Singleton.Instance<FileRoundManager>().StopRound(isMatched));
     }
 
 

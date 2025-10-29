@@ -8,7 +8,6 @@ public struct SheetCreateInfo
     public string characterName;
 }
 
-
 [System.Serializable]
 public struct LevelActionCreateInfo
 {

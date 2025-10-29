@@ -29,13 +29,17 @@ public class EmployeeFile : Draggable
     }
 
 
-    public void Init(FileBinder binder, int fileIndex)
+    public void InitObject(FileBinder binder, int fileIndex)
     {
         name = $"DragFileToSort_{fileIndex}";
 
         _id = binder.Id;
         FileColor = binder.MeshMatColor;
         _initialPosition = transform.position;
+    }
+    public void InitData(Sheet info)
+    {
+       Debug.Log(info.stringValue);
     }
 
     public void ResetFile()
