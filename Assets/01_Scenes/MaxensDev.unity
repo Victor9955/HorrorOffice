@@ -6087,6 +6087,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     happyAmount: 0
+    lookOffset: {x: 0, y: 0}
   arrived: 0
   exited: 0
   characterDisplay: {fileID: 2041667330}
@@ -8992,7 +8993,6 @@ MonoBehaviour:
   levels:
   - {fileID: 11400000, guid: 9fe35b264fbc86843abbc401621d9366, type: 2}
   - {fileID: 11400000, guid: a22bf67e33b54af4997da7bd514c29b8, type: 2}
-  testDay: 0
 --- !u!1 &1867061568
 GameObject:
   m_ObjectHideFlags: 0
