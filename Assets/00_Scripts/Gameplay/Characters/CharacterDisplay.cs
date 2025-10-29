@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
+public class CharacterDisplay : MonoBehaviour
 {
 
     [Header("Refs")]
@@ -25,31 +25,18 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
     private GameObject _currentCharacter;
     Queue<GameObject> characterQueue;
     private Coroutine _moveCoroutine;
-    private bool _moving;
 
     private void Awake()
     {
         characterQueue = new();
     }
-    public void Init()
-    {
-        if (_debugLoopEnterExitAnim)
-        {
-            DebugLoopEnter();
-            return;
-        }
-        Singleton.Instance<GameManager>().OnNewRound += OnNewRoundEvent;
-        Singleton.Instance<GameManager>().OnDialogueEnd += OnCharacterDialogueEnd;
-        Singleton.Instance<GameManager>().OnCharacterExit += OnCharacterExit;
 
+    private void Start()
+    {
+        Singleton.Instance<GameManager>().OnCharacterExit += OnCharacterExit;
     }
 
     #region Event Methods
-
-    private void OnNewRoundEvent(int ind)
-    {
-        //SpawnCharacter();
-    }
     public void OnCharacterDialogueEnd()
     {
         CharacterExit(Singleton.Instance<GameManager>().OnCharacterExit);
@@ -57,51 +44,20 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
     private void OnCharacterExit()
     {
         _currentCharacter.SetActive(false);
-        _currentCharacter = null;
-        //TakeOffQueue();
+        Destroy(_currentCharacter);
     }
 
     #endregion
 
     #region Chara Queue
 
-    private void AddToQueue(GameObject character)
-    {
-        characterQueue.Enqueue(character);
-
-    }
-
-    private bool UpdateQueue()
-    {
-        if (_currentCharacter != null) // current characater already in use
-        {
-            return false;
-        }
-        // Start next in queue
-        //SpawnCharacter();
-        return true;
-    }
-    private void TakeOffQueue()
-    {
-        characterQueue.Dequeue();
-        UpdateQueue();
-    }
-
     public void SpawnCharacter(Sprite character)
     {
-        //if (_currentCharacter != null)
-        //{
-        //    return;
-        //    // add to queue
-        //    AddToQueue(chara);
-        //    UpdateQueue();
-        //    Debug.Log("Queueing character");
-        //}
         _currentCharacter = Instantiate(_characterPrefab, transform);
         _currentCharacter.GetComponent<SpriteRenderer>().sprite = character;
         _currentCharacter.SetActive(true);
         _currentCharacter.transform.position = _enterTr.position;
-        // Need to spawn the sheet after entrance
+
         CharacterEnter(Singleton.Instance<GameManager>().OnCharacterEnter);
     }
 
@@ -139,7 +95,6 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
     {
         float elapsed = 0f;
         Vector3 initPos = _currentCharacter.transform.position;
-        _moving = true;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -160,31 +115,8 @@ public class CharacterDisplay : MonoBehaviour, ISingletonMonobehavior
 
             yield return null;
         }
-        callback?.Invoke();
-        _moving = false;
         _currentCharacter.transform.position = endPos;
+        callback?.Invoke();
     }
     #endregion
-
-    #region Debug
-
-    [Button]
-    public void DebugSpawnCharacter()
-    {
-        if (_currentCharacter != null)
-        {
-            Debug.LogWarning("Already a character in office (IMPLEMENT QUEUE PLEASE BRO)");
-            return;
-        }
-        //SpawnCharacter();
-    }
-    void DebugLoopEnter()
-    {
-        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, DebugLoopBack));
-    }
-    void DebugLoopBack()
-    {
-        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, DebugLoopEnter));
-    }
-    #endregion Debug
 }

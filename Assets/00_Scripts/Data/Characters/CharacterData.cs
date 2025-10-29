@@ -9,10 +9,10 @@ public struct CharacterStaticInfo
     public Sprite givePaperSprite;
     public AnimationCurve walkCurve;
     public int happyAmount;
+    public Vector2 lookOffset;
 }
 
 public class CharacterData : ScriptableObject
 {
     public virtual CharacterStaticInfo staticInfo { get; }
-    public virtual SheetCreateInfo sheetBaseInfo { get; }
 }

@@ -1,23 +1,21 @@
+using HuntroxGames.Utils;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class LevelSender : MonoBehaviour, ISingletonMonobehavior
+public class LevelSender : MonoBehaviour
 {
     [SerializeField,Required] LevelCreator levelCreator;
 
     [SerializeField] List<LevelData> levels;
 
     int day;
-    [SerializeField] int testDay = 0;
-
     LevelData current;
 
-    [Button]
-    void TestDay() => SetDay(testDay);
-
-    public void SetDay(int m_day)
+    [ConsoleCommand("BeginDay", "[Integer Input]")]
+    public void BeginDay(int m_day)
     {
         if (current == null) // when current = null current level is finished
         {
@@ -42,7 +40,6 @@ public class LevelSender : MonoBehaviour, ISingletonMonobehavior
         }
         current = null;
     }
-
     bool DoGetNextCharacter()
     {
         return false;
