@@ -31,7 +31,7 @@ public class FileSorting : MonoBehaviour
 
     private bool _canDropFile;
     private EmployeeFile _currentFileObj;
-    private Sheet _currentSheetInfo;
+    private SheetCreateInfo _currentSheetInfo;
     private List<FileBinder> _binderList;
     private Coroutine _textCoroutine;
     private Coroutine _newFileCoroutine;
@@ -102,29 +102,16 @@ public class FileSorting : MonoBehaviour
     }
     #endregion Binder Management Methods
 
-    public void OnNewFile(Sheet sheet)
+    public void OnNewFile(Sprite spr)
     {
-        _currentSheetInfo = sheet;
-        _newFileCoroutine = StartCoroutine(NewFile());
-    }
-
-    private void OnEnterAnimEnd()
-    {
-        _canDropFile = true;
-    }
-    private IEnumerator NewFile()
-    {
-        WaitForSeconds wait = new(0.2f);
-        while (!_canDropFile)
-            yield return wait;
         _canDropFile = false;
         _fileIndex++;
         _currentFileObj = Instantiate(_fileToSortPrefab, _fileSpawnTr);
 
         if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
         int randInd = Random.Range(0, _binderList.Count);
-        _currentFileObj.InitObject(_binderList[randInd], _fileIndex);
-        _currentFileObj.InitData(_currentSheetInfo);
+        _currentFileObj.InitObject(_fileIndex);
+        _currentFileObj.InitData(spr, 0);
         _currentFileObj.ResetFile();
         SetBindersOpenState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
@@ -132,6 +119,10 @@ public class FileSorting : MonoBehaviour
 
     }
 
+    private void OnEnterAnimEnd()
+    {
+        _canDropFile = true;
+    }
 
     private void OnFileDropped(bool isMatched)
     {

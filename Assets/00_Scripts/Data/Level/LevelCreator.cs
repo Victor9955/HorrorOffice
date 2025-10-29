@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
 {
-    [SerializeField,Required] CharacterCreator characterCreator;
-    [SerializeField,Required] FileSorting fileSorting;
+    [SerializeField, Required] CharacterCreator characterCreator;
+    [SerializeField, Required] FileSorting fileSorting;
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
 
     LevelActionCreateInfo current;
 
+    [SerializeField] private Sprite _debugSheetSprite;
     private void Start()
     {
         Singleton.Instance<GameManager>().OnCharacterExit += () => isEnded = true;
@@ -41,22 +42,8 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
         characterCreator.Play();
 
         yield return new WaitUntil(() => characterCreator.arrived);
-        
-        /*
-        foreach (var item in current.character.sheetBaseInfo.modifiers)
-        {
-            Init(item.Action, item.Value);
-        }
-
-        //Sheet Changing Data
-        foreach (var item in current.sheetCreateInfo.modifiers)
-        {
-            Modifie(item.Action, item.Value);
-        }
-        */
-
         //Sheet Spawning
-        fileSorting.OnNewFileRound();
+        fileSorting.OnNewFile(_debugSheetSprite);
     }
 
     public void End()
@@ -68,29 +55,5 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
 
     }
 
-    void Init()
-    {
-        /*
-        Debug.Log("<color=yellow> Action From Base " + action.ToString());
-        switch (action)
-        {   
-            case SheetAction.BloodTest:
-                break;
-            case SheetAction.Name:
-                break;
-        }*/
-    }
 
-    void Modifie()
-    {
-        /*
-        Debug.Log("<color=yellow> Action From Sheet " + action.ToString());
-        switch (action)
-        {
-            case SheetAction.BloodTest:
-                break;
-            case SheetAction.Name:
-                break;
-        }*/
-    }
 }
