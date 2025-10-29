@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
 {
-    [SerializeField,Required] CharacterCreator characterCreator;
-    [SerializeField,Required] FileSorting fileSorting;
+    [SerializeField, Required] CharacterCreator characterCreator;
+    [SerializeField, Required] FileSorting fileSorting;
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
@@ -40,21 +40,8 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
         Debug.Log("<color=red> BEGIN LEVEL </color>");
         characterCreator.Play();
 
-        yield return new WaitUntil(() => characterCreator.arrived);
-        
-        foreach (var item in current.character.sheetBaseInfo.modifiers)
-        {
-            Init(item.Action, item.Value);
-        }
-
-        //Sheet Changing Data
-        foreach (var item in current.sheetCreateInfo.modifiers)
-        {
-            Modifie(item.Action, item.Value);
-        }
-
-        //Sheet Spawning
-        fileSorting.OnNewFileRound();
+        // handle data, idk bruh </3
+        yield return null;
     }
 
     public void End()
@@ -66,13 +53,16 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
 
     }
 
-    void Init(SheetAction action , SheetValue sheetValue)
+    void InitData(SheetAction action, SheetValue sheetValue)
     {
+
         Debug.Log("<color=yellow> Action From Base " + action.ToString());
         switch (action)
-        {   
+        {
             case SheetAction.BloodTest:
+
                 break;
+                
             case SheetAction.Name:
                 break;
         }

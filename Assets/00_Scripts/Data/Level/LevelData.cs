@@ -34,7 +34,6 @@ public struct SheetCreateInfo
     public List<Sheet> modifiers;
 }
 
-
 [System.Serializable]
 public struct LevelActionCreateInfo
 {
