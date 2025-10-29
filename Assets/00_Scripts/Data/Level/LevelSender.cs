@@ -27,7 +27,7 @@ public class LevelSender : MonoBehaviour
 
     IEnumerator PlayLevel()
     {
-        foreach (var levelAction in current.level)
+        foreach (var levelAction in current.actions)
         {
             levelCreator.CreateLevel(levelAction);
             yield return new WaitUntil(() => levelCreator.isCreated);

@@ -10,13 +10,13 @@ public class LevelCreator : MonoBehaviour, ISingletonMonobehavior
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
 
-    LevelActionCreateInfo current;
+    SheetAction current;
 
     private void Start()
     {
         Singleton.Instance<GameManager>().OnCharacterExit += () => isEnded = true;
     }
-    public void CreateLevel(LevelActionCreateInfo createInfo)
+    public void CreateLevel(SheetAction createInfo)
     {
         Debug.Log("<color=green> CREATE LEVEL </color>");
 
