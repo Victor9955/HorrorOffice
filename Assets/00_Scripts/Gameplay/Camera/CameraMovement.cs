@@ -85,13 +85,13 @@ public class CameraMovement : MonoBehaviour
             //Rights
             if(mousePosition.x > Screen.width - (triggerAmounts.y * Screen.width))
             {
-                cameraRotation += rotationSpeed;
+                cameraRotation += rotationSpeed * Time.deltaTime;
             }
 
             //Left
             if (mousePosition.x < (triggerAmounts.x * Screen.width))
             {
-                cameraRotation -= rotationSpeed;
+                cameraRotation -= rotationSpeed * Time.deltaTime;
             }
 
             cameraRotation = Mathf.Clamp(cameraRotation, rotationClamp.x, rotationClamp.y);

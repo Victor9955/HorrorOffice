@@ -31,6 +31,11 @@ public class CharacterDisplay : MonoBehaviour
         characterQueue = new();
     }
 
+    private void Start()
+    {
+        Singleton.Instance<GameManager>().OnCharacterExit += OnCharacterExit;
+    }
+
     #region Event Methods
     public void OnCharacterDialogueEnd()
     {
@@ -39,7 +44,7 @@ public class CharacterDisplay : MonoBehaviour
     private void OnCharacterExit()
     {
         _currentCharacter.SetActive(false);
-        _currentCharacter = null;
+        Destroy(_currentCharacter);
     }
 
     #endregion

@@ -1648,8 +1648,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4130,6 +4130,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2149084621217931821, guid: 851b9bcdf815f4540a07aaf539544ca9, type: 3}
+      propertyPath: dontDestroyOnLoad
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2149084621217931822, guid: 851b9bcdf815f4540a07aaf539544ca9, type: 3}
       propertyPath: m_Name
       value: CommandConsoleGUI
@@ -4920,7 +4924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &924103276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6091,7 +6095,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 45.6
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -6197,9 +6201,9 @@ MonoBehaviour:
   cameraRef: {fileID: 1185831071}
   cameraTransform: {fileID: 1185831072}
   transitionSpeed: 0.25
-  triggerAmounts: {x: 0.05, y: 0.1}
+  triggerAmounts: {x: 0.1, y: 0.1}
   rotationClamp: {x: -4, y: 50}
-  rotationSpeed: 1
+  rotationSpeed: 50
   offset: {x: 0, y: 0}
   pc: {fileID: 1902982588}
   fovPC: 20
@@ -9530,8 +9534,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
