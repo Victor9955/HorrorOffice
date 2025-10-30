@@ -146,7 +146,10 @@ public class Draggable : MonoBehaviour
            );
 
         transform.position = _currentDI.Pos;
-        if (isDragging) transform.LookAt(_cam.transform, Vector3.up);
+        if (isDragging)
+        {
+            transform.LookAt(_cam.transform, transform.up);
+        }
         else transform.rotation = _currentDI.Rot;
 
     }
