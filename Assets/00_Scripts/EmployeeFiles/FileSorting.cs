@@ -29,7 +29,7 @@ public class FileSorting : MonoBehaviour
     private Coroutine _newFileCoroutine;
     private int _fileIndex = 0;
 
-    public event Action OnFileDroppedEvent;
+    public event Action<Binder> OnFileDroppedEvent;
 
     private void Start()
     {
@@ -89,6 +89,7 @@ public class FileSorting : MonoBehaviour
     private void OnFileDropped(bool isMatched)
     {
         SetBindersOpenState(false);
-        OnFileDroppedEvent?.Invoke();
+        //TODO Get Binder Dropped
+        OnFileDroppedEvent?.Invoke(Binder.Fired);
     }
 }

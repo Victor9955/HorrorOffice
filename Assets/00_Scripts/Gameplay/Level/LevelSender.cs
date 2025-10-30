@@ -27,6 +27,7 @@ public class LevelSender : MonoBehaviour
 
     IEnumerator PlayLevel()
     {
+        current.OnBeginDay?.Invoke();
         foreach (var levelAction in current.actions)
         {
             yield return new WaitUntil(() => levelAction.beginCondition);
