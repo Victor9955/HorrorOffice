@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,13 +11,6 @@ public enum Binder
     RAS
 }
 
-[System.Serializable]
-public struct LevelAction
-{
-    public Binder binder;
-    public UnityEvent binderEvent;
-}
-
 [CreateAssetMenu(fileName = "Sheet", menuName = "Scriptable Objects/Sheet")]
 public class SheetData : ScriptableObject
 {
@@ -25,8 +19,7 @@ public class SheetData : ScriptableObject
     public Sprite sprite;
     public Binder rightBinder;
 
-    public List<LevelAction> actions;
-
+    public SerializedDictionary<Binder,UnityEvent> actions;
 
     [Header("Database")]
     public int statA;

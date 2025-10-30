@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelCreator : MonoBehaviour
 {
@@ -23,7 +24,10 @@ public class LevelCreator : MonoBehaviour
             isFinished = true;
             foreach (var sheet in current.sheets)
             {
-                sheet.actions.Where((action) => action.binder == binder).First().binderEvent?.Invoke();
+                if(sheet.actions.TryGetValue(binder,out UnityEvent cash))
+                {
+                    cash?.Invoke();
+                }
             }
         };
     }
@@ -33,7 +37,7 @@ public class LevelCreator : MonoBehaviour
         Debug.Log("<color=green> CREATE LEVEL </color>");
 
         current = createInfo;
-        characterCreator.CreateCharacter(current.character.staticInfo);
+        characterCreator.CreateCharacter(createInfo.character.staticInfo, createInfo.dayDialogue);
         isCreated = true;
         isEnded = false;
     }
