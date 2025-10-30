@@ -12,6 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
   m_Name: Day 0
   m_EditorClassIdentifier: 
+  OnBeginDay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: EnableMailApp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   actions:
   - character: {fileID: 11400000, guid: 7b76ae9dc38f953478e315d68ed67746, type: 2}
     beginCondition: 1
@@ -21,3 +36,4 @@ MonoBehaviour:
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+  dialogues: {fileID: 11400000, guid: d1125510ba234ac4eb07a7efcd02452e, type: 2}
