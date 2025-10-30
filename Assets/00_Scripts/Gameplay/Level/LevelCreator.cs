@@ -50,7 +50,9 @@ public class LevelCreator : MonoBehaviour
         yield return new WaitUntil(() => characterCreator.arrived);
 
         foreach (SheetData sheet in current.sheets)
+        {
             fileSorting.OnNewFile(sheet);
+        }
     }
 
     public IEnumerator End()
