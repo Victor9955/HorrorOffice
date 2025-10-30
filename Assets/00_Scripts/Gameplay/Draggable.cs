@@ -1,30 +1,45 @@
 using NaughtyAttributes;
+using System;
 using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public abstract class Draggable : MonoBehaviour
+
+public struct DragStateInfo
 {
-    [SerializeField,Range(0.3f,1f),Tooltip("how much the obj is near the camera's eye (1 = furthest)")] protected float _distance;
+    private Vector3 _posOffset;
+    private float _yaw;
+    private float _pitch;
+    private float _roll;
+
+    public Quaternion Rot => Quaternion.Euler(_pitch, _yaw, _roll);
+    public Vector3 Pos => _posOffset;
+
+    public DragStateInfo(Vector3 posOffset, float yaw, float pitch, float roll)
+    {
+        _posOffset = posOffset;
+        _yaw = yaw;
+        _pitch = pitch;
+        _roll = roll;
+    }
+}
+
+public class Draggable : MonoBehaviour
+{
+    #region Parameters
+    [SerializeField, Range(0.3f, 1f), Tooltip("how much the obj is near the camera's eye (1 = furthest)")] protected float _distance;
     [SerializeField] protected LayerMask _layerMask;
     [SerializeField] protected bool _getsConsumedOnCorrectDrop = true;
+    [SerializeField] protected float _dragPosSpeed;
+    [SerializeField] protected float _dragRotSpeed;
     [SerializeField] protected float _draggingTick = 0.2f;
+    [SerializeField] protected float _dragReturnDuration = 0.4f;
+    #endregion
+
     //Refs
     protected Camera _cam;
-    //Info
-    protected bool _isDragging;
-    protected (Vector3 pos, Quaternion rot) pickupStateTr;
-    protected (Vector3 pos, Quaternion rot) _initialStateTr;
-
-    private float _dragTick;
-    private void Start()
-    {
-        _cam = Camera.main;
-        _dragTick = _draggingTick;
-        _initialStateTr = (transform.position, transform.rotation);
-    }
-
     public Vector3 CamToWorldPos
     {
         get
@@ -35,9 +50,34 @@ public abstract class Draggable : MonoBehaviour
         }
     }
 
+    //Info
+    protected bool _isPickedUp;
+    protected DragStateInfo _initDI;
+    protected DragStateInfo _targetDI;
+    protected DragStateInfo _pickedUpDI;
+
+    Coroutine _dragCoroutine;
+    public Coroutine DragCoroutine
+    {
+        get => _dragCoroutine;
+        private set
+        {
+            if (_dragCoroutine != null)
+                StopCoroutine(_dragCoroutine);
+            _dragCoroutine = value;
+        }
+    }
+    private void Start()
+    {
+        _initDI = SetStateToCurrent(_initDI);
+        _cam = Camera.main;
+        _dragCoroutine = StartCoroutine(DragReturn());
+    }
+    #region Inputs
+
     private void OnMouseDown()
     {
-        StartCoroutine(Drag());
+        DragCoroutine = StartCoroutine(Drag());
     }
 
     private void OnMouseUp()
@@ -45,35 +85,107 @@ public abstract class Draggable : MonoBehaviour
         Drop();
     }
 
+    #endregion
     public virtual void Drop()
     {
+        _isPickedUp = false;
         // Usual drop stuff
     }
-    IEnumerator Drag()
+    protected virtual IEnumerator Drag()
     {
+
         Debug.Log("Start dragging");
-        _isDragging = true;
-        while (_isDragging)
+        _isPickedUp = true;
+        while (_isPickedUp)
         {
-            Vector3 newPos = CamToWorldPos + pickupStateTr.pos;
-            //Debug.Log("dir =  " + newPos);
-            transform.position = newPos;
-            transform.rotation = pickupStateTr.rot;
-            yield return new WaitForSeconds(_dragTick);
+            _targetDI = ComputeTargetDrag();
+            ApplyDrag(_targetDI);
+            yield return new WaitForSeconds(_draggingTick);
         }
-        transform.position = _initialStateTr.pos;
-        transform.rotation = _initialStateTr.rot;
+        _dragCoroutine = StartCoroutine(DragReturn());
         Debug.Log("Stop dragging");
     }
 
-    #region Rotation
-    [Button] public void DebugSetPickupState() => SetPickupState();
-    protected void SetPickupState()
+    private IEnumerator DragReturn()
     {
-        pickupStateTr.pos = transform.position;
-        pickupStateTr.rot = transform.rotation;
+        float elapsed = 0;
+        while (elapsed < _dragReturnDuration)
+        {
+            elapsed += Time.deltaTime;
+            ApplyDrag(_initDI,false);
+            yield return new WaitForSeconds(_draggingTick);
+        }
+        Debug.Log("Returned");
 
-        Utils.BigText("Pickup Rotation saved", "white", 15);
+    }
+
+    private DragStateInfo ComputeTargetDrag()
+    {
+        transform.LookAt(_cam.transform, Vector3.up);
+
+        return new DragStateInfo
+            (
+            CamToWorldPos + _pickedUpDI.Pos,
+            transform.rotation.x,
+            transform.rotation.y,
+            transform.rotation.z
+            );
+    }
+
+    private void ApplyDrag(DragStateInfo dragInfo, bool isDragging = true)
+    {
+        Quaternion targetRot = dragInfo.Rot;
+        Vector3 targetPos = dragInfo.Pos;
+
+        DragStateInfo _currentDI = new
+           (
+           DragLerp(transform.position, targetPos), // Lerp Pos
+           DragLerp(transform.rotation.x, targetRot.x), // Lerp Yaw
+           DragLerp(transform.rotation.y, targetRot.y), // Lerp Pitch
+           DragLerp(transform.rotation.z, targetRot.z) // Lerp Roll
+           );
+
+        transform.position = _currentDI.Pos;
+        if (isDragging) transform.LookAt(_cam.transform, Vector3.up);
+        else transform.rotation = _currentDI.Rot;
+
+    }
+
+    #region Lerps
+    public float DragLerp(float P, float T)
+    {
+        if (_dragPosSpeed * Time.deltaTime > 1) return T;
+        float result = P + (T - P) * _dragPosSpeed * Time.deltaTime;
+        return result;
+    }
+
+    public Vector3 DragLerp(Vector3 P, Vector3 T)
+    {
+        if (_dragPosSpeed * Time.deltaTime > 1) return T;
+        Vector3 result = P + (T - P) * _dragPosSpeed * Time.deltaTime;
+        return result;
+
+    }
+
+    #endregion
+
+    #region Rotation
+
+    private Quaternion EulerRot(Vector3 vec) => Quaternion.Euler(vec.x, vec.y, vec.z);
+
+    protected DragStateInfo SetStateToCurrent(DragStateInfo info)
+    {
+        info = new DragStateInfo
+            (
+            transform.localPosition,
+
+            transform.rotation.x,
+            transform.rotation.y,
+            transform.rotation.z
+            );
+
+        Utils.BigText("Pickup State saved", "white", 15);
+        return info;
     }
     #endregion
 }

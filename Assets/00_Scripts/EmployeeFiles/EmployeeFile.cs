@@ -31,8 +31,6 @@ public class EmployeeFile : Draggable
     public void InitObject(int fileIndex)
     {
         name = $"DragFileToSort_{fileIndex}";
-
-        _initialStateTr = (transform.position, transform.rotation);
     }
     public void InitData(Sprite sheetSprite, int binderID)
     {
@@ -42,7 +40,7 @@ public class EmployeeFile : Draggable
 
     public void ResetFile()
     {
-        transform.position = _initialStateTr.pos;
+        
         gameObject.SetActive(true);
     }
 
@@ -50,7 +48,7 @@ public class EmployeeFile : Draggable
     {
         base.Drop();
 
-        _isDragging = false;
+        _isPickedUp = false;
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;

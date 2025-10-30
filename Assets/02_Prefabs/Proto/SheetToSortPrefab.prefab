@@ -128,7 +128,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _getsConsumedOnCorrectDrop: 1
-  _draggingTick: 0
+  _dragPosSpeed: 1
+  _dragRotSpeed: 1
+  _draggingTick: 0.2
+  _dragReturnDuration: 0.4
   OnDroppedUEvent:
     m_PersistentCalls:
       m_Calls: []
