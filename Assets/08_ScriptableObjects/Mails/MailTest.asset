@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a740d1a2d7566498b6f836d99eb043, type: 3}
-  m_Name: Sheet
+  m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
+  m_Name: MailTest
   m_EditorClassIdentifier: 
-  spriteSheet: {fileID: 0}
-  rightBinder: 0
-  firedMail: {fileID: 0}
-  rasMail: {fileID: 0}
-  promotionMail: {fileID: 0}
-  statA: 0
-  statB: 0
-  statC: 0
+  title: Test
+  character: {fileID: 11400000, guid: 7b76ae9dc38f953478e315d68ed67746, type: 2}
+  mailText: Mail Test

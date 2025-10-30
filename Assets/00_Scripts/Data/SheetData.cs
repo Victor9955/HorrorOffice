@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum Binder
 {
@@ -9,28 +10,22 @@ public enum Binder
     RAS
 }
 
-public enum LevelAction
+[System.Serializable]
+public struct LevelAction
 {
-    SendEmail
+    public Binder binder;
+    public UnityEvent binderEvent;
 }
 
 [CreateAssetMenu(fileName = "Sheet", menuName = "Scriptable Objects/Sheet")]
 public class SheetData : ScriptableObject
 {
-
     [Header("Sheet")]
     [ShowAssetPreview]
     public Sprite spriteSheet;
     public Binder rightBinder;
 
-    [Header("Fired Binder")]
-    public GameObject firedMail;
-
-    [Header("RAS Binder")]
-    public GameObject rasMail;
-
-    [Header("Promotion Binder")]
-    public GameObject promotionMail;
+    public List<LevelAction> actions;
 
 
     [Header("Database")]

@@ -9,10 +9,10 @@ public class LevelSender : MonoBehaviour
 {
     [SerializeField,Required] LevelCreator levelCreator;
 
-    [SerializeField] List<LevelData> levels;
+    [SerializeField] List<DayData> days;
 
     int day;
-    LevelData current;
+    DayData current;
 
     [ConsoleCommand("BeginDay", "[Integer Input]")]
     public void BeginDay(int m_day)
@@ -20,7 +20,7 @@ public class LevelSender : MonoBehaviour
         if (current == null) // when current = null current level is finished
         {
             day = m_day;
-            current = levels[day];
+            current = days[day];
             StartCoroutine(PlayLevel());
         }
     }
@@ -29,19 +29,14 @@ public class LevelSender : MonoBehaviour
     {
         foreach (var levelAction in current.actions)
         {
+            yield return new WaitUntil(() => levelAction.beginCondition);
             levelCreator.CreateLevel(levelAction);
             yield return new WaitUntil(() => levelCreator.isCreated);
             StartCoroutine(levelCreator.Play());
             yield return new WaitUntil(() => levelCreator.isFinished);
-            levelCreator.End();
+            StartCoroutine(levelCreator.End());
             yield return new WaitUntil(() => levelCreator.isEnded);
-
-            //yield return new WaitUntil(() => DoGetNextCharacter());
         }
         current = null;
-    }
-    bool DoGetNextCharacter()
-    {
-        return false;
     }
 }

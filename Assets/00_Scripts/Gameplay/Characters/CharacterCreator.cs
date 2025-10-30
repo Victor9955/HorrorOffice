@@ -12,30 +12,27 @@ public class CharacterCreator : MonoBehaviour
 
     [SerializeField, Required] CharacterDisplay characterDisplay;
 
-    private void Start()
-    {
-        Singleton.Instance<GameManager>().OnCharacterEnter += () => arrived = true;
-    }
-
     public void CreateCharacter(CharacterStaticInfo info)
     {
-        //TODO Setup Sprites walkCurve etc..
         createInfo = info;
         characterDisplay._animCurve = info.walkCurve;
-        arrived = false;
         exited = false;
     }
 
     public void Play()
     {
-        //TODO Play Coming Animations
-        characterDisplay.SpawnCharacter(createInfo.comingSprite);
+        characterDisplay.SpawnCharacter(createInfo.comingSprite, () =>
+        {
+            arrived = true;
+        });
     }
 
     public void Back()
     {
-        //TODO Play Character go away
-        characterDisplay.OnCharacterDialogueEnd();
+        characterDisplay.CharacterLeave(() =>
+        {
+            exited = true;
+        });
         arrived = false;
     }
 }
