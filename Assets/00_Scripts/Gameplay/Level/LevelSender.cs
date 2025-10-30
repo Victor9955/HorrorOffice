@@ -13,6 +13,17 @@ public class LevelSender : MonoBehaviour
 
     int day;
     DayData current;
+    [SerializeField] private bool debugBeginFirstDay;
+
+
+    private void Start()
+    {
+        if (debugBeginFirstDay)
+        {
+            BeginDay(0);
+        }
+    }
+
 
     [ConsoleCommand("BeginDay", "[Integer Input]")]
     public void BeginDay(int m_day)

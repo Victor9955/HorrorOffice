@@ -11,12 +11,12 @@ public class FileSorting : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private EmployeeFile _fileToSortPrefab;
     [SerializeField] private Transform _fileSpawnTr;
-    [SerializeField,Required] private CharacterDisplay _characterDisplay;
+    [SerializeField, Required] private CharacterDisplay _characterDisplay;
 
     [Space(5)]
     [Header("Parameters")]
     [Space(5)]
-    [SerializeField] private List<BinderData> _binderDataList;
+    [SerializeField] private List<Binder> _binderDataList;
 
     [Header("Events")]
     [Space(5)]
@@ -42,7 +42,7 @@ public class FileSorting : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             FileBinder childBinder = transform.GetChild(i).GetComponent<FileBinder>();
-            childBinder.Init(i, _binderDataList[i]);
+            childBinder.Init(_binderDataList[i]);
             _binderList.Add(childBinder);
         }
         Debug.Log($"{_binderList.Count} binders in the scene");
@@ -57,56 +57,34 @@ public class FileSorting : MonoBehaviour
         }
         OnSetOpenEvent.Invoke(isOpen);
 
-        if (isOpen) _currentFileObj.OnDropped += OnFileDropped;
-        else _currentFileObj.OnDropped -= OnFileDropped;
+        if (isOpen) _currentFile.OnDropped += OnFileDropped;
+        else _currentFile.OnDropped -= OnFileDropped;
 
     }
 
-    public void OnNewFile(Sprite spr)
+    public void OnNewFile(SheetData data)
     {
-        //if(_sortText != null)
-        //{
-        //    _sortText.text = $"file n�{_fileIndex + 1}";
-        //    _sortText.color = Color.white;
-        //    ShowText(false);
-        //}
-        _newFileCoroutine = StartCoroutine(NewFile());
+        _newFileCoroutine = StartCoroutine(NewFile(data));
     }
 
-    private void OnEnterAnimEnd()
-    {
-        _canDropFile = true;
-    }
-    private IEnumerator NewFile()
+    private IEnumerator NewFile(SheetData data)
     {
         WaitForSeconds wait = new(0.2f);
         while (!_canDropFile)
             yield return wait;
         _canDropFile = false;
         _fileIndex++;
-        _currentFileObj = Instantiate(_fileToSortPrefab, _fileSpawnTr);
-
-        if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
+        _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
+        _currentFile.Init(data, _fileIndex);
         int randInd = Random.Range(0, _binderList.Count);
-        _currentFileObj.InitObject(_fileIndex);
-        _currentFileObj.InitData(spr, 0);
-        _currentFileObj.ResetFile();
         SetBindersOpenState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
-        //// Play Dialogue etc
-        //yield return new WaitForSeconds(Random.Range(0f, 2.5f));
-        //Singleton.Instance<GameManager>().OnDialogueEnd?.Invoke();
     }
 
-    private void OnEnterAnimEnd()
-    {
-        _canDropFile = true;
-    }
-
-    private void OnFileDropped(bool isMatched)
+    private void OnFileDropped(Binder binderType)
     {
         SetBindersOpenState(false);
         //TODO Get Binder Dropped
-        OnFileDroppedEvent?.Invoke(Binder.Fired);
+        OnFileDroppedEvent?.Invoke(binderType);
     }
 }

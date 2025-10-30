@@ -1,17 +1,20 @@
 using NaughtyAttributes;
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class LevelCreator : MonoBehaviour
 {
-    [SerializeField,Required] CharacterCreator characterCreator;
-    [SerializeField,Required] FileSorting fileSorting;
+    [SerializeField, Required] CharacterCreator characterCreator;
+    [SerializeField, Required] FileSorting fileSorting;
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
-
+    [SerializeField] public bool debugStartFirstDay;
     SheetAction current;
+    private Dictionary<CharacterData, Binder> CharacterSheetDict = new();
 
     private void Start()
     {
@@ -42,12 +45,8 @@ public class LevelCreator : MonoBehaviour
 
         yield return new WaitUntil(() => characterCreator.arrived);
 
-        foreach (SheetData sheetAction in current.sheets)
-        {
-            //fileSorting.OnNewFileRound();
-            //Sheet Spawning
-        }
-        fileSorting.OnNewFileRound(/*Sheet Data*/);
+        foreach (SheetData sheet in current.sheets)
+            fileSorting.OnNewFile(sheet);
     }
 
     public IEnumerator End()

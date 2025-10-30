@@ -69,7 +69,7 @@ public class Draggable : MonoBehaviour
     }
     private void Start()
     {
-        _initDI = SetStateToCurrent(_initDI);
+        _initDI = SetState(_initDI);
         _cam = Camera.main;
         _dragCoroutine = StartCoroutine(DragReturn());
     }
@@ -172,15 +172,12 @@ public class Draggable : MonoBehaviour
 
     #endregion
 
-    #region Rotation
-
-    private Quaternion EulerRot(Vector3 vec) => Quaternion.Euler(vec.x, vec.y, vec.z);
-
-    protected DragStateInfo SetStateToCurrent(DragStateInfo info)
+    [Button] 
+        protected DragStateInfo SetState(DragStateInfo info)
     {
         info = new DragStateInfo
             (
-            transform.localPosition,
+            transform.position,
 
             transform.rotation.x,
             transform.rotation.y,
@@ -190,5 +187,4 @@ public class Draggable : MonoBehaviour
         Utils.BigText("Pickup State saved", "white", 15);
         return info;
     }
-    #endregion
 }

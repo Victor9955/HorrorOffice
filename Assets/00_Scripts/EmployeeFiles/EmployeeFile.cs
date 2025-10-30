@@ -7,8 +7,9 @@ using UnityEngine.Events;
 public class EmployeeFile : Draggable
 {
 
-    private int _binderID;
-    public int FileID => _binderID;
+    private SheetData _sheetData;
+    public SheetData GetSheetData => _sheetData;
+
     private SpriteRenderer _spriteRend;
     private SpriteRenderer SpriteRend
     {
@@ -18,7 +19,7 @@ public class EmployeeFile : Draggable
             return _spriteRend;
         }
     }
-    public Action<bool> OnDropped;
+    public Action<Binder> OnDropped;
     public UnityEvent OnDroppedUEvent;
     public Color FileColor
     {
@@ -28,17 +29,24 @@ public class EmployeeFile : Draggable
             SpriteRend.color = value;
         }
     }
-    public void InitObject(int fileIndex)
+
+    public void Init(SheetData data, int fileIndex)
     {
-        name = $"DragFileToSort_{fileIndex}";
+        InitObject(fileIndex);
+        InitData(data);
+        ResetFile();
     }
-    public void InitData(Sprite sheetSprite, int binderID)
+    private void InitObject(int fileIndex)
     {
-        SpriteRend.sprite = sheetSprite;
-        _binderID = binderID;
+        name = $"SheetInstance_{fileIndex}";
+        Debug.Log($"{name} type = {_sheetData}");
+    }
+    private void InitData(SheetData sheetData)
+    {
+        _sheetData = sheetData;
     }
 
-    public void ResetFile()
+    private void ResetFile()
     {
         
         gameObject.SetActive(true);
@@ -48,7 +56,6 @@ public class EmployeeFile : Draggable
     {
         base.Drop();
 
-        _isPickedUp = false;
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
@@ -61,7 +68,8 @@ public class EmployeeFile : Draggable
                 if (container.IsOpen())
                 {
                     bool isMatched = container.Drop(this);
-                    OnDropped?.Invoke(isMatched);
+                    OnDropped?.Invoke(_sheetData.rightBinder);
+
                     OnDroppedUEvent?.Invoke();
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }

@@ -27,14 +27,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5105465388225100964}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.23228925, y: -0, z: -0, w: 0.9726468}
+  m_LocalPosition: {x: 0, y: 0.284, z: 0}
   m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1663104928401994892}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.864, y: 0, z: 0}
 --- !u!212 &1701446877458476659
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -128,9 +128,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _getsConsumedOnCorrectDrop: 1
-  _dragPosSpeed: 1
-  _dragRotSpeed: 1
-  _draggingTick: 0.2
+  _dragPosSpeed: 15
+  _dragRotSpeed: 15
+  _draggingTick: 0.01
   _dragReturnDuration: 0.4
   OnDroppedUEvent:
     m_PersistentCalls:
