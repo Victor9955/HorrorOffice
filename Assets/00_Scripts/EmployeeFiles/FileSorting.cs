@@ -57,16 +57,26 @@ public class FileSorting : MonoBehaviour
         }
         OnSetOpenEvent.Invoke(isOpen);
 
-        if (isOpen) _currentFile.OnDropped += OnFileDropped;
-        else _currentFile.OnDropped -= OnFileDropped;
+        if (isOpen) _currentFileObj.OnDropped += OnFileDropped;
+        else _currentFileObj.OnDropped -= OnFileDropped;
 
     }
 
-    public void OnNewFileRound()
+    public void OnNewFile(Sprite spr)
     {
+        //if(_sortText != null)
+        //{
+        //    _sortText.text = $"file n°{_fileIndex + 1}";
+        //    _sortText.color = Color.white;
+        //    ShowText(false);
+        //}
         _newFileCoroutine = StartCoroutine(NewFile());
     }
 
+    private void OnEnterAnimEnd()
+    {
+        _canDropFile = true;
+    }
     private IEnumerator NewFile()
     {
         WaitForSeconds wait = new(0.2f);
@@ -74,21 +84,42 @@ public class FileSorting : MonoBehaviour
             yield return wait;
         _canDropFile = false;
         _fileIndex++;
-        _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
+        _currentFileObj = Instantiate(_fileToSortPrefab, _fileSpawnTr);
 
         if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
         int randInd = Random.Range(0, _binderList.Count);
-        _currentFile.Init(_binderList[randInd], _fileIndex);
-  
-        _currentFile.ResetFile();
+        _currentFileObj.InitObject(_fileIndex);
+        _currentFileObj.InitData(spr, 0);
+        _currentFileObj.ResetFile();
         SetBindersOpenState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
+        //// Play Dialogue etc
+        //yield return new WaitForSeconds(Random.Range(0f, 2.5f));
+        //Singleton.Instance<GameManager>().OnDialogueEnd?.Invoke();
     }
 
+    private void OnEnterAnimEnd()
+    {
+        _canDropFile = true;
+    }
 
     private void OnFileDropped(bool isMatched)
     {
         SetBindersOpenState(false);
         OnFileDroppedEvent?.Invoke();
+
+        //show match on text
+        //_sortText.text = $"file n°{_fileIndex + 1} : {matchResult}";
+        //_sortText.color = Color.white;
+        //ShowText(true);
+        //StartCoroutine(Singleton.Instance<FileRoundManager>().StopRound(isMatched));
+    }
+
+
+    #region Text Methods
+    private void ShowText(bool endRound)
+    {
+        if (_textCoroutine != null) StopCoroutine(_textCoroutine);
+        //_textCoroutine = StartCoroutine(ShowTextRoutine(endRound));
     }
 }

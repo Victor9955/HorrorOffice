@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NaughtyAttributes;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,41 +7,40 @@ using UnityEngine.Events;
 public class EmployeeFile : Draggable
 {
 
-    private int _id;
-    public int FileID => _id;
-    private MeshRenderer _meshRend;
-    private MeshRenderer Mesh
+    private int _binderID;
+    public int FileID => _binderID;
+    private SpriteRenderer _spriteRend;
+    private SpriteRenderer SpriteRend
     {
         get
         {
-            if(_meshRend == null) _meshRend = GetComponent<MeshRenderer>();
-            return _meshRend;
+            if (_spriteRend == null) _spriteRend = GetComponent<SpriteRenderer>();
+            return _spriteRend;
         }
     }
     public Action<bool> OnDropped;
     public UnityEvent OnDroppedUEvent;
     public Color FileColor
     {
-        get => Mesh.material.color;
+        get => SpriteRend.color;
         set
         {
-            Mesh.material.color = value;
+            SpriteRend.color = value;
         }
     }
-
-
-    public void Init(FileBinder binder, int fileIndex)
+    public void InitObject(int fileIndex)
     {
         name = $"DragFileToSort_{fileIndex}";
-
-        _id = binder.Id;
-        FileColor = binder.MeshMatColor;
-        _initialPosition = transform.position;
+    }
+    public void InitData(Sprite sheetSprite, int binderID)
+    {
+        SpriteRend.sprite = sheetSprite;
+        _binderID = binderID;
     }
 
     public void ResetFile()
     {
-        transform.position = _initialPosition;
+        
         gameObject.SetActive(true);
     }
 
@@ -48,7 +48,7 @@ public class EmployeeFile : Draggable
     {
         base.Drop();
 
-        _isDragging = false;
+        _isPickedUp = false;
         Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hit;
@@ -70,4 +70,5 @@ public class EmployeeFile : Draggable
         }
         else Debug.Log("Cant hit anything :(");
     }
+
 }
