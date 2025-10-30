@@ -65,6 +65,7 @@ public class FileRoundManager : MonoBehaviour, ISingletonMonobehavior
 
     public void Init()
     {
+        _fileSorter.Init();
         CurrentRoundInd = _startingRound;
         TimeRemaining = _startingTime;
         CurrentRound = GetNewRound();

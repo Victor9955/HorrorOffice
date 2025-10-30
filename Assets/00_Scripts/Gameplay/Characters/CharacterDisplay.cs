@@ -15,6 +15,7 @@ public class CharacterDisplay : MonoBehaviour
     [SerializeField] private GameObject _characterPrefab;
 
     [Header("Anim Parameters")]
+    [SerializeField] private bool _debugLoopEnterExitAnim;
     [SerializeField] private float _enterDuration;
     [SerializeField] private float _exitDuration;
     [SerializeField] private float _walkMagnitude = 1;
@@ -22,45 +23,76 @@ public class CharacterDisplay : MonoBehaviour
     [SerializeField] public AnimationCurve _animCurve;
 
     private GameObject _currentCharacter;
+    Queue<GameObject> characterQueue;
     private Coroutine _moveCoroutine;
 
-    public Action OnCharcterSpawned;
-    public Action OnCharacterEntered;
-    public Action OnCharacterExited;
-
-    public void CharacterLeave(Action onEnd)
+    private void Awake()
     {
-        _moveCoroutine = StartCoroutine(Move(_exitTr.position, _exitDuration, _animCurve, () =>
-        {
-            _currentCharacter.SetActive(false);
-            Destroy(_currentCharacter);
-            OnCharacterExited?.Invoke();
-            onEnd?.Invoke();
-        }));
+        characterQueue = new();
     }
 
-    public void SpawnCharacter(Sprite character, Action onArrived)
+    private void Start()
     {
-        OnCharcterSpawned?.Invoke();
+        Singleton.Instance<GameManager>().OnCharacterExit += OnCharacterExit;
+    }
+
+    #region Event Methods
+    public void OnCharacterDialogueEnd()
+    {
+        CharacterExit(Singleton.Instance<GameManager>().OnCharacterExit);
+    }
+    private void OnCharacterExit()
+    {
+        _currentCharacter.SetActive(false);
+        Destroy(_currentCharacter);
+    }
+
+    #endregion
+
+    #region Chara Queue
+
+    public void SpawnCharacter(Sprite character)
+    {
         _currentCharacter = Instantiate(_characterPrefab, transform);
         _currentCharacter.GetComponent<SpriteRenderer>().sprite = character;
         _currentCharacter.SetActive(true);
         _currentCharacter.transform.position = _enterTr.position;
 
-        _moveCoroutine = StartCoroutine(Move(_officeTr.position, _enterDuration, _animCurve,() =>
+        CharacterEnter(Singleton.Instance<GameManager>().OnCharacterEnter);
+    }
+
+
+
+    #endregion
+
+    #region CharacterMovement Methods
+
+    void CharacterEnter(Action callback)
+    {
+        _moveCoroutine = StartCoroutine(Move(_officeTr.position, _enterDuration, _animCurve, callback));
+    }
+    void CharacterGoBackToSpawn(Action callback)
+    {
+        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, callback));
+
+    }
+    void CharacterExit(Action callback)
+    {
+        _moveCoroutine = StartCoroutine(Move(_exitTr.position, _exitDuration, _animCurve, callback));
+    }
+
+    void CharacterStepForward()
+    {
+        Action huh = new(() =>
         {
-            OnCharacterEntered?.Invoke();
-            onArrived?.Invoke();
-        }));
+            Debug.Log("Huh");
+        });
+
+        huh.Invoke();
     }
 
     private IEnumerator Move(Vector3 endPos, float duration = 1f, AnimationCurve animCurve = null, Action callback = null)
     {
-        if(_moveCoroutine != null)
-        {
-            StopCoroutine(_moveCoroutine);
-        }
-
         float elapsed = 0f;
         Vector3 initPos = _currentCharacter.transform.position;
         while (elapsed < duration)
@@ -84,7 +116,7 @@ public class CharacterDisplay : MonoBehaviour
             yield return null;
         }
         _currentCharacter.transform.position = endPos;
-        _moveCoroutine = null;
         callback?.Invoke();
     }
+    #endregion
 }

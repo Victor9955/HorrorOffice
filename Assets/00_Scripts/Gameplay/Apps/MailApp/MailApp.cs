@@ -32,9 +32,16 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         }
     }
 
-    public void ReiceiveMail(Mail mail)
+    [Button]
+    void TestReceiveMail()
     {
-        Mail cash = Instantiate(mail, contentAncor.transform);
+        ReiceiveMail(0);
+    }
+
+    public void ReiceiveMail(int id)
+    {
+        Mail cash = Instantiate(mailPrefab, contentAncor.transform);
+        cash.mailId = id;
     }
 
     public void OpenMail(MailView mail)
