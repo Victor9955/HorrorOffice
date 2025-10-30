@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour, ISingletonMonobehavior
         //Singleton.Instance<FileRoundManager>().Init();
 
         //Character Displayer
-        Singleton.Instance<CharacterDisplay>().Init();
 
         //OnNewRound?.Invoke(roundMan.StartingRoundInd); // INVOKE ON NEW ROUND ON INIT
     }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7980673528403653817}
-  - component: {fileID: 267066704250161422}
+  - component: {fileID: 7683926593208053349}
   m_Layer: 0
   m_Name: File Sorter
   m_TagString: Untagged
@@ -35,7 +35,7 @@ Transform:
   - {fileID: 8922829583052391683}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &267066704250161422
+--- !u!114 &7683926593208053349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,15 +44,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2839956445801452805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ace8a2bfbfa13fb46954da649da96d99, type: 3}
+  m_Script: {fileID: 11500000, guid: 6794ab553a20bdc4d9e6f669f7cc4c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fileToSortPrefab: {fileID: 5105465388225100964, guid: 27a179bb2be324e4ab517eff262535fe, type: 3}
-  _sortText: {fileID: 0}
+  _fileToSortPrefab: {fileID: 900574019958138232, guid: 27a179bb2be324e4ab517eff262535fe, type: 3}
+  _fileSpawnTr: {fileID: 0}
   _binderDataList:
-  - color: {r: 0.79215693, g: 0.10196079, b: 0.0627451, a: 1}
-  - color: {r: 0.14901961, g: 0.29803923, b: 1, a: 1}
-  - color: {r: 0.50980395, g: 1, b: 0.19215688, a: 1}
+  - color: {r: 1, g: 0, b: 0, a: 1}
+  - color: {r: 0, g: 1, b: 0.09437704, a: 1}
+  - color: {r: 0, g: 0.066483974, b: 1, a: 1}
+  _sortUITr: {fileID: 0}
+  _textDelay: 0
   OnSetOpenEvent:
     m_PersistentCalls:
       m_Calls: []
