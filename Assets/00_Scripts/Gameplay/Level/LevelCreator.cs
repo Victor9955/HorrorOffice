@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class LevelCreator : MonoBehaviour
@@ -14,7 +15,14 @@ public class LevelCreator : MonoBehaviour
 
     private void Start()
     {
-        fileSorting.OnFileDroppedEvent += () => isFinished = true;
+        fileSorting.OnFileDroppedEvent += (binder) =>
+        {
+            isFinished = true;
+            foreach (var sheet in current.sheets)
+            {
+                sheet.actions.Where((action) => action.binder == binder).First().binderEvent?.Invoke();
+            }
+        };
     }
 
     public void CreateLevel(SheetAction createInfo)
@@ -22,7 +30,6 @@ public class LevelCreator : MonoBehaviour
         Debug.Log("<color=green> CREATE LEVEL </color>");
 
         current = createInfo;
-
         characterCreator.CreateCharacter(current.character.staticInfo);
         isCreated = true;
         isEnded = false;
@@ -35,14 +42,18 @@ public class LevelCreator : MonoBehaviour
 
         yield return new WaitUntil(() => characterCreator.arrived);
 
-        //Sheet Spawning
-        fileSorting.OnNewFileRound();
+        foreach (SheetData sheetAction in current.sheets)
+        {
+            //fileSorting.OnNewFileRound();
+            //Sheet Spawning
+        }
+        fileSorting.OnNewFileRound(/*Sheet Data*/);
     }
 
     public IEnumerator End()
     {
         Debug.Log("<color=red> END LEVEL </color>");
-        //Every thing to restart Level
+        //Every thing to restart Leve
         characterCreator.Back();
         yield return new WaitUntil(() => characterCreator.exited);
         isFinished = false;

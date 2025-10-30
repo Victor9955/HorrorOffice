@@ -29,7 +29,7 @@ public class FileSorting : MonoBehaviour
     private Coroutine _newFileCoroutine;
     private int _fileIndex = 0;
 
-    public event Action OnFileDroppedEvent;
+    public event Action<Binder> OnFileDroppedEvent;
 
     private void Start()
     {
@@ -66,7 +66,7 @@ public class FileSorting : MonoBehaviour
     {
         //if(_sortText != null)
         //{
-        //    _sortText.text = $"file n°{_fileIndex + 1}";
+        //    _sortText.text = $"file nï¿½{_fileIndex + 1}";
         //    _sortText.color = Color.white;
         //    ShowText(false);
         //}
@@ -106,20 +106,7 @@ public class FileSorting : MonoBehaviour
     private void OnFileDropped(bool isMatched)
     {
         SetBindersOpenState(false);
-        OnFileDroppedEvent?.Invoke();
-
-        //show match on text
-        //_sortText.text = $"file n°{_fileIndex + 1} : {matchResult}";
-        //_sortText.color = Color.white;
-        //ShowText(true);
-        //StartCoroutine(Singleton.Instance<FileRoundManager>().StopRound(isMatched));
-    }
-
-
-    #region Text Methods
-    private void ShowText(bool endRound)
-    {
-        if (_textCoroutine != null) StopCoroutine(_textCoroutine);
-        //_textCoroutine = StartCoroutine(ShowTextRoutine(endRound));
+        //TODO Get Binder Dropped
+        OnFileDroppedEvent?.Invoke(Binder.Fired);
     }
 }
