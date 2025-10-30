@@ -12,16 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
   m_Name: Day 1
   m_EditorClassIdentifier: 
-  level:
-  - character: {fileID: 11400000, guid: 7b76ae9dc38f953478e315d68ed67746, type: 2}
-    sheetCreateInfo:
-      modifiers:
-      - Action: 1
-        Value: 9
-        newName: 
-  - character: {fileID: 11400000, guid: 7b76ae9dc38f953478e315d68ed67746, type: 2}
-    sheetCreateInfo:
-      modifiers:
-      - Action: 0
-        Value: 3
-        newName: 
+  OnBeginDay:
+    m_PersistentCalls:
+      m_Calls: []
+  actions: []
+  dialogues: {fileID: 11400000, guid: d1125510ba234ac4eb07a7efcd02452e, type: 2}

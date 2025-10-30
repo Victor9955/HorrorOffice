@@ -12,5 +12,5 @@ public struct DayDialogueData
 [CreateAssetMenu(fileName = "DialogueData", menuName = "Scriptable Objects/DialogueData")]
 public class DialogueData : ScriptableObject
 {
-    public SerializedDictionary<CharacterData,DayDialogueData> dialogues;
+    public SerializedDictionary<CharacterData,DayDialogueData> dialoguesPerCharacter;
 }

@@ -12,15 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae42e645693bc94eb53327a841f2d48, type: 3}
   m_Name: Day 0 Dialogue
   m_EditorClassIdentifier: 
-  dialogues:
-    _serializedList:
-    - Key: {fileID: 11400000, guid: 7b76ae9dc38f953478e315d68ed67746, type: 2}
-      Value:
-        DefaultDialogueKey: 
-        dialogs:
-          _serializedList: []
-    - Key: {fileID: 11400000, guid: 5dc4ac72133ab7d49994c9b792510145, type: 2}
-      Value:
-        DefaultDialogueKey: 
-        dialogs:
-          _serializedList: []
+  dialoguesPerCharacter:
+    _serializedList: []
