@@ -1926,6 +1926,14 @@ PrefabInstance:
       propertyPath: _characterDisplay
       value: 
       objectReference: {fileID: 2041667330}
+    - target: {fileID: 7683926593208053349, guid: 77d81858edcdba44c8ffb958ecd08730, type: 3}
+      propertyPath: '_binderDataList.Array.data[0]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7683926593208053349, guid: 77d81858edcdba44c8ffb958ecd08730, type: 3}
+      propertyPath: '_binderDataList.Array.data[1]'
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7980673528403653817, guid: 77d81858edcdba44c8ffb958ecd08730, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.614
@@ -9304,6 +9312,7 @@ MonoBehaviour:
   levelCreator: {fileID: 1861938363}
   days:
   - {fileID: 11400000, guid: 9fe35b264fbc86843abbc401621d9366, type: 2}
+  - {fileID: 11400000, guid: a22bf67e33b54af4997da7bd514c29b8, type: 2}
 --- !u!1 &1867061568
 GameObject:
   m_ObjectHideFlags: 0

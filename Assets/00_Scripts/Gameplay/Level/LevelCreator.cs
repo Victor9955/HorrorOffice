@@ -1,5 +1,7 @@
 using NaughtyAttributes;
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,8 +14,9 @@ public class LevelCreator : MonoBehaviour
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
-
+    [SerializeField] public bool debugStartFirstDay;
     SheetAction current;
+    private Dictionary<CharacterData, Binder> CharacterSheetDict = new();
 
     private void Start()
     {
@@ -47,17 +50,10 @@ public class LevelCreator : MonoBehaviour
 
         yield return new WaitUntil(() => characterCreator.arrived);
 
-        if(dialogueData.GetDialogue(current.character.staticInfo.dialogueKey, current.dayDialogue.DefaultDialogueKey, out string dialogue))
+        foreach (SheetData sheet in current.sheets)
         {
-            Debug.Log(dialogue);
+            fileSorting.OnNewFile(sheet);
         }
-        
-        foreach (SheetData sheetAction in current.sheets)
-        {
-            //fileSorting.OnNewFileRound();
-            //Sheet Spawning
-        }
-        fileSorting.OnNewFileRound(/*Sheet Data*/);
     }
 
     public IEnumerator End()

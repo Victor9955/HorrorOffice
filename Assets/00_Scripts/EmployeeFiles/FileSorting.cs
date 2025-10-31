@@ -11,12 +11,12 @@ public class FileSorting : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private EmployeeFile _fileToSortPrefab;
     [SerializeField] private Transform _fileSpawnTr;
-    [SerializeField,Required] private CharacterDisplay _characterDisplay;
+    [SerializeField, Required] private CharacterDisplay _characterDisplay;
 
     [Space(5)]
     [Header("Parameters")]
     [Space(5)]
-    [SerializeField] private List<BinderData> _binderDataList;
+    [SerializeField] private List<Binder> _binderDataList;
 
     [Header("Events")]
     [Space(5)]
@@ -42,7 +42,7 @@ public class FileSorting : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             FileBinder childBinder = transform.GetChild(i).GetComponent<FileBinder>();
-            childBinder.Init(i, _binderDataList[i]);
+            childBinder.Init(_binderDataList[i]);
             _binderList.Add(childBinder);
         }
         Debug.Log($"{_binderList.Count} binders in the scene");
@@ -62,12 +62,12 @@ public class FileSorting : MonoBehaviour
 
     }
 
-    public void OnNewFileRound()
+    public void OnNewFile(SheetData data)
     {
-        _newFileCoroutine = StartCoroutine(NewFile());
+        _newFileCoroutine = StartCoroutine(NewFile(data));
     }
 
-    private IEnumerator NewFile()
+    private IEnumerator NewFile(SheetData data)
     {
         WaitForSeconds wait = new(0.2f);
         while (!_canDropFile)
@@ -75,21 +75,16 @@ public class FileSorting : MonoBehaviour
         _canDropFile = false;
         _fileIndex++;
         _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
-
-        if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
+        _currentFile.Init(data, _fileIndex);
         int randInd = Random.Range(0, _binderList.Count);
-        _currentFile.Init(_binderList[randInd], _fileIndex);
-  
-        _currentFile.ResetFile();
         SetBindersOpenState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
 
-
-    private void OnFileDropped(bool isMatched)
+    private void OnFileDropped(Binder binderType)
     {
         SetBindersOpenState(false);
         //TODO Get Binder Dropped
-        OnFileDroppedEvent?.Invoke(Binder.Fired);
+        OnFileDroppedEvent?.Invoke(binderType);
     }
 }

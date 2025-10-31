@@ -2,19 +2,14 @@ using System;
 using Unity.Properties;
 using UnityEngine;
 
-[Serializable]
-public class BinderData
-{
-    public Color color = Color.white;
-}
 
 public class FileBinder : MonoBehaviour, IDropContainer
 {
 
-    [SerializeField] private int _id;
-    public int Id => _id;
+    public Binder BinderType => _binderType;
     public bool isOpen;
     private MeshRenderer _meshRend;
+    private Binder _binderType;
     public MeshRenderer MeshRend
     {
         get
@@ -27,30 +22,29 @@ public class FileBinder : MonoBehaviour, IDropContainer
             return _meshRend;
         }
     }
-    public Color MeshMatColor
-    {
-        get => MeshRend.material.color;
-        private set => MeshRend.material.color = value;
-    }
 
-    public void Init(int id, BinderData data = null)
+    public void Init( Binder bindertype)
     {
-        _id = id;
-        if (data == null) return; // managing data like binder color etc
-        MeshMatColor = data.color;
-
+        _binderType = bindertype;
     }
     public bool Drop<T>(T dropped) where T : Draggable
     {
         EmployeeFile file = dropped as EmployeeFile;
         if (file == null) throw new Exception("Bruh that aint no File");
-        bool match = file.FileID == Id;
-        // Call fileSorting if true;
-        return match;
+        return true;
     }
     public bool IsOpen()
     {
         return isOpen;
     }
 
+
+    #region Debug
+
+
+    private void OnMouseDown()
+    {
+        Debug.Log($"{name}'s type is {BinderType}");
+    }
+    #endregion
 }
