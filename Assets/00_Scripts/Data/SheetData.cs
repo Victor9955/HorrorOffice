@@ -16,7 +16,7 @@ public class SheetData : ScriptableObject
 {
     [Header("Sheet")]
     [ShowAssetPreview]
-    public Sprite spriteSheet;
+    public Sprite sprite;
     public Binder rightBinder;
 
     public SerializedDictionary<Binder,UnityEvent> actions;
