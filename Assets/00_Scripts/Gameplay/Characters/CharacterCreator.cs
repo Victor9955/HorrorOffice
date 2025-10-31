@@ -42,7 +42,7 @@ public class CharacterCreator : MonoBehaviour
 
     public void Play()
     {
-        characterDisplay.SpawnCharacter(createInfo.comingSprite, () =>
+        characterDisplay.SpawnCharacter(createInfo.comingSprite,toSay, () =>
         {
             arrived = true;
         });

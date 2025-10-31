@@ -2,6 +2,7 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterDisplay : MonoBehaviour
@@ -39,11 +40,12 @@ public class CharacterDisplay : MonoBehaviour
         }));
     }
 
-    public void SpawnCharacter(Sprite character, Action onArrived)
+    public void SpawnCharacter(Sprite character,string dialogue, Action onArrived)
     {
         OnCharcterSpawned?.Invoke();
         _currentCharacter = Instantiate(_characterPrefab, transform);
         _currentCharacter.GetComponent<SpriteRenderer>().sprite = character;
+        _currentCharacter.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
         _currentCharacter.SetActive(true);
         _currentCharacter.transform.position = _enterTr.position;
 
