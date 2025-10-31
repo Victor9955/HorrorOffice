@@ -8,6 +8,7 @@ public class LevelCreator : MonoBehaviour
 {
     [SerializeField,Required] CharacterCreator characterCreator;
     [SerializeField,Required] FileSorting fileSorting;
+    [SerializeField,Required] DialogueData dialogueData;
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
@@ -46,6 +47,11 @@ public class LevelCreator : MonoBehaviour
 
         yield return new WaitUntil(() => characterCreator.arrived);
 
+        if(dialogueData.GetDialogue(current.character.staticInfo.dialogueKey, current.dayDialogue.DefaultDialogueKey, out string dialogue))
+        {
+            Debug.Log(dialogue);
+        }
+        
         foreach (SheetData sheetAction in current.sheets)
         {
             //fileSorting.OnNewFileRound();

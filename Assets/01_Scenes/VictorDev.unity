@@ -6409,6 +6409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createInfo:
     name: JeanMicheTest
+    dialogueKey: 
     comingSprite: {fileID: 21300000, guid: 8602c66017bcfe147b2a72762bc0e97d, type: 3}
     givePaperSprite: {fileID: 0}
     walkCurve:
@@ -9284,6 +9285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterCreator: {fileID: 1207184980}
   fileSorting: {fileID: 364499091}
+  dialogueData: {fileID: 11400000, guid: 3516b3d679eeb0c4eb6f04c219c681f4, type: 2}
   isFinished: 0
   isCreated: 1
   isEnded: 0

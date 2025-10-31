@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterStaticInfo:
     name: MaxensTest
+    dialogueKey: MAX
     comingSprite: {fileID: 21300000, guid: 39b9cc5aa7cf30147b62eabea15ec600, type: 3}
     givePaperSprite: {fileID: 0}
     walkCurve:
@@ -41,8 +42,5 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     happyAmount: 0
-  sheetCreateInfo:
-    modifiers:
-    - Action: 1
-      Value: 7
-      newName: 
+    lookOffset: {x: 0, y: 0}
+    lastBinder: 0

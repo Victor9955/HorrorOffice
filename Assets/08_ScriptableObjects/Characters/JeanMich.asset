@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterStaticInfo:
     name: JeanMicheTest
+    dialogueKey: JEAN
     comingSprite: {fileID: 21300000, guid: 8602c66017bcfe147b2a72762bc0e97d, type: 3}
     givePaperSprite: {fileID: 0}
     walkCurve:
@@ -42,4 +43,4 @@ MonoBehaviour:
       m_RotationOrder: 4
     happyAmount: 0
     lookOffset: {x: 0, y: 0}
-    mails: []
+    lastBinder: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public struct CharacterStaticInfo
 {
     public string name;
+    public string dialogueKey;
     public Sprite comingSprite;
     public Sprite givePaperSprite;
     public AnimationCurve walkCurve;

@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public struct DayDialogueData
+{
+    public string DefaultDialogueKey;
+    public SerializedDictionary<Binder, string> dialogs;
+}
 
 [System.Serializable]
 public struct SheetAction

@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae42e645693bc94eb53327a841f2d48, type: 3}
+  m_Name: DialogueData
+  m_EditorClassIdentifier: 
+  url: https://docs.google.com/spreadsheets/d/e/2PACX-1vQpSvrM8mhpAdbZ-XlsNpr_OK69RDyARIT1DVzGfDExky9vAo1NE0-4TmXPlxgay1QcH0qHTSBb9CYV/pub?output=csv
+  language: 0
+  dialogues:
+    _serializedList:
+    - Key: MAX_Test
+      Value:
+      - 
+      - 
+    - Key: JEAN_Hello
+      Value:
+      - Hello !
+      - 
+    - Key: MAX_Hello
+      Value:
+      - 
+      - 
