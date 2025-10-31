@@ -1,12 +1,9 @@
-using DG.Tweening;
+using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEngine.InputSystem.InputControlScheme;
 using Random = UnityEngine.Random;
 
 public class FileSorting : MonoBehaviour
@@ -14,79 +11,43 @@ public class FileSorting : MonoBehaviour
     [Header("Refs")]
     [SerializeField] private EmployeeFile _fileToSortPrefab;
     [SerializeField] private Transform _fileSpawnTr;
+    [SerializeField, Required] private CharacterDisplay _characterDisplay;
+
     [Space(5)]
     [Header("Parameters")]
     [Space(5)]
-    [SerializeField] private List<BinderData> _binderDataList;
-    //[SerializeField] private float _binderSpacingDistance;
-    [Header("Text UI")]
-    [Space(5)]
-    //[SerializeField] private TMP_Text _sortText;
-    [SerializeField] private Transform _sortUITr;
-    [SerializeField] private float _textDelay;
+    [SerializeField] private List<Binder> _binderDataList;
+
     [Header("Events")]
     [Space(5)]
     [SerializeField] private UnityEvent<bool> OnSetOpenEvent;
     [SerializeField] private UnityEvent OnMatchCheckEvent;
 
     private bool _canDropFile;
-    private EmployeeFile _currentFileObj;
-    private SheetCreateInfo _currentSheetInfo;
-    private List<FileBinder> _binderList;
-    private Coroutine _textCoroutine;
+    private EmployeeFile _currentFile;
+    private List<FileBinder> _binderList = new();
     private Coroutine _newFileCoroutine;
-    private int _fileIndex;
-    private WaitForSeconds _textWaitForSeconds;
+    private int _fileIndex = 0;
 
-    public event Action OnFileDroppedEvent;
-
-    private void Awake()
-    {
-        _binderList = new();
-    }
+    public event Action<Binder> OnFileDroppedEvent;
 
     private void Start()
     {
-        _textWaitForSeconds = new WaitForSeconds(_textDelay);
-        Init();
-    }
-    public void Init()
-    {
-        _fileIndex = 0;
+        _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
         SetupBinders();
     }
 
-
-    #region Binder Management Methods
     private void SetupBinders()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
             FileBinder childBinder = transform.GetChild(i).GetComponent<FileBinder>();
-            childBinder.Init(i, _binderDataList[i]);
+            childBinder.Init(_binderDataList[i]);
             _binderList.Add(childBinder);
         }
         Debug.Log($"{_binderList.Count} binders in the scene");
 
     }
-    private void SortBindersEditor()
-    {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            var child = transform.GetChild(i);
-            FileBinder potentialBinder;
-            if (!child.TryGetComponent(out potentialBinder))
-            {
-                Debug.LogWarning($"{child.name} is not a Binder ({(typeof(FileBinder).ToString())}' componnent is needed)");
-                foreach (FileBinder binder in _binderList)
-                {
-                    // sort binders if needed
-                }
-                child.parent = null;
-            }
-        }
-    }
-
 
     private void SetBindersOpenState(bool isOpen)
     {
@@ -96,56 +57,34 @@ public class FileSorting : MonoBehaviour
         }
         OnSetOpenEvent.Invoke(isOpen);
 
-        if (isOpen) _currentFileObj.OnDropped += OnFileDropped;
-        else _currentFileObj.OnDropped -= OnFileDropped;
+        if (isOpen) _currentFile.OnDropped += OnFileDropped;
+        else _currentFile.OnDropped -= OnFileDropped;
 
     }
-    #endregion Binder Management Methods
 
-    public void OnNewFile(Sprite spr)
+    public void OnNewFile(SheetData data)
     {
+        _newFileCoroutine = StartCoroutine(NewFile(data));
+    }
+
+    private IEnumerator NewFile(SheetData data)
+    {
+        WaitForSeconds wait = new(0.2f);
+        while (!_canDropFile)
+            yield return wait;
         _canDropFile = false;
         _fileIndex++;
-        _currentFileObj = Instantiate(_fileToSortPrefab, _fileSpawnTr);
-
-        if (_binderList.Count <= 0) Debug.LogError("Aint no damn container foo' ???");
+        _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
+        _currentFile.Init(data, _fileIndex);
         int randInd = Random.Range(0, _binderList.Count);
-        _currentFileObj.InitObject(_fileIndex);
-        _currentFileObj.InitData(spr, 0);
-        _currentFileObj.ResetFile();
         SetBindersOpenState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
-        //// Play Dialogue here
-
     }
 
-    private void OnEnterAnimEnd()
+    private void OnFileDropped(Binder binderType)
     {
-        _canDropFile = true;
-    }
-
-    private void OnFileDropped(bool isMatched)
-    {
-        string matchResult = isMatched ? "Correct Sort!" : "Wrong Sort...";
         SetBindersOpenState(false);
-
-        OnFileDroppedEvent?.Invoke();
+        //TODO Get Binder Dropped
+        OnFileDroppedEvent?.Invoke(binderType);
     }
-
-
-    #region Text Methods
-    private void ShowText(bool endRound)
-    {
-        if (_textCoroutine != null) StopCoroutine(_textCoroutine);
-        //_textCoroutine = StartCoroutine(ShowTextRoutine(endRound));
-    }
-    /*
-    private IEnumerator ShowTextRoutine(bool endRound)
-    {
-        //_sortUITr.gameObject.SetActive(true);
-        //yield return _textWaitForSeconds;
-        //_sortUITr.gameObject.SetActive(false);
-        //if (endRound) Singleton.Instance<FileRoundManager>().isRoundEnding = false;
-    }*/
-    #endregion
 }

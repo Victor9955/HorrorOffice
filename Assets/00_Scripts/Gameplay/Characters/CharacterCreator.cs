@@ -6,6 +6,7 @@ public class CharacterCreator : MonoBehaviour
 {
     [SerializeField,HideInInspector] // sheet position
     CharacterStaticInfo createInfo;
+    DayDialogueData dialogue;
 
     [HideInInspector] public bool arrived;
     [HideInInspector] public bool exited;
@@ -15,15 +16,10 @@ public class CharacterCreator : MonoBehaviour
 
     string toSay;
 
-    private void Start()
+    public void CreateCharacter(CharacterStaticInfo info, DayDialogueData dialogueData)
     {
-        Singleton.Instance<GameManager>().OnCharacterEnter += () => arrived = true;
-    }
-
-    public void CreateCharacter(CharacterStaticInfo info)
-    {
-        //TODO Setup Sprites walkCurve etc..
         createInfo = info;
+        dialogue = dialogueData;
         characterDisplay._animCurve = info.walkCurve;
 
         toSay = string.Empty;
@@ -54,8 +50,10 @@ public class CharacterCreator : MonoBehaviour
 
     public void Back()
     {
-        //TODO Play Character go away
-        characterDisplay.OnCharacterDialogueEnd();
+        characterDisplay.CharacterLeave(() =>
+        {
+            exited = true;
+        });
         arrived = false;
     }
 }
