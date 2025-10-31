@@ -11,7 +11,6 @@ public struct CharacterStaticInfo
     public AnimationCurve walkCurve;
     public int happyAmount;
     public Vector2 lookOffset;
-    public Binder lastBinder;
 }
 
 public class CharacterData : ScriptableObject

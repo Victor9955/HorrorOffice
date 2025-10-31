@@ -22,6 +22,7 @@ public class SearchingApp : MonoBehaviour, IApp
     {
         contentAncor.sizeDelta = new Vector2(0,size * content.cellSize.y);
         RandomCode(size);
+
     }
 
     public void Close()
