@@ -6450,6 +6450,7 @@ MonoBehaviour:
   arrived: 0
   exited: 0
   characterDisplay: {fileID: 2041667330}
+  dialogueRef: {fileID: 11400000, guid: 3516b3d679eeb0c4eb6f04c219c681f4, type: 2}
 --- !u!1 &1226332562
 GameObject:
   m_ObjectHideFlags: 0
@@ -9293,10 +9294,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterCreator: {fileID: 1207184980}
   fileSorting: {fileID: 364499091}
-  dialogueData: {fileID: 11400000, guid: 3516b3d679eeb0c4eb6f04c219c681f4, type: 2}
   isFinished: 0
   isCreated: 1
   isEnded: 0
+  debugStartFirstDay: 0
 --- !u!114 &1861938364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9313,6 +9314,7 @@ MonoBehaviour:
   days:
   - {fileID: 11400000, guid: 9fe35b264fbc86843abbc401621d9366, type: 2}
   - {fileID: 11400000, guid: a22bf67e33b54af4997da7bd514c29b8, type: 2}
+  debugBeginFirstDay: 1
 --- !u!1 &1867061568
 GameObject:
   m_ObjectHideFlags: 0
@@ -10907,6 +10909,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.72
       objectReference: {fileID: 0}
+    - target: {fileID: 3997467547497800802, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5064504969117165728, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.68
@@ -10994,6 +11000,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4966649649512659908, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+    - {fileID: 5973072212726876974, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
@@ -11298,10 +11305,10 @@ SceneRoots:
   - {fileID: 1197377599}
   - {fileID: 1207184979}
   - {fileID: 1861938362}
-  - {fileID: 2041667328}
   - {fileID: 335514663}
   - {fileID: 2095468245}
   - {fileID: 1536032684}
   - {fileID: 943869145}
   - {fileID: 861602745}
   - {fileID: 1039996812}
+  - {fileID: 2041667328}

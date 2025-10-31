@@ -10,7 +10,6 @@ public class LevelCreator : MonoBehaviour
 {
     [SerializeField,Required] CharacterCreator characterCreator;
     [SerializeField,Required] FileSorting fileSorting;
-    [SerializeField,Required] DialogueData dialogueData;
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
