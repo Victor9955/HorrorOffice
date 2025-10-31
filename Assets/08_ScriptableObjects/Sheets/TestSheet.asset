@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a740d1a2d7566498b6f836d99eb043, type: 3}
   m_Name: TestSheet
   m_EditorClassIdentifier: 
-  spriteSheet: {fileID: 21300000, guid: 69130bcbfd8d9a54b9461f6989a423f5, type: 3}
+  sprite: {fileID: 21300000, guid: 69130bcbfd8d9a54b9461f6989a423f5, type: 3}
   rightBinder: 1
   actions:
     _serializedList:
@@ -64,6 +64,6 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-  statA: 0
-  statB: 0
-  statC: 0
+  statA: 26
+  statB: 41
+  statC: 48
