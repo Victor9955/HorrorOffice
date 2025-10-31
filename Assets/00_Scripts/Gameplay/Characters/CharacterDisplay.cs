@@ -14,14 +14,9 @@ public class CharacterDisplay : MonoBehaviour
 
     [SerializeField] private GameObject _characterPrefab;
 
-    [Header("Anim Parameters")]
-    [SerializeField] private float _enterDuration;
-    [SerializeField] private float _exitDuration;
-    [SerializeField] private float _walkMagnitude = 1;
-    [SerializeField] private int _walkFrequency = 1;
-    [SerializeField] public AnimationCurve _animCurve;
 
-    private GameObject _currentCharacter;
+    private GameObject _currentCharacterObj;
+    private CharacterStaticInfo _currentCharacterInfo;
     private Coroutine _moveCoroutine;
 
     public Action OnCharcterSpawned;
@@ -30,28 +25,33 @@ public class CharacterDisplay : MonoBehaviour
 
     public void CharacterLeave(Action onEnd)
     {
-        _moveCoroutine = StartCoroutine(Move(_exitTr.position, _exitDuration, _animCurve, () =>
+        _moveCoroutine = StartCoroutine(Move(_exitTr.position, _currentCharacterInfo._exitDuration, _currentCharacterInfo._animCurve, () =>
         {
-            _currentCharacter.SetActive(false);
-            Destroy(_currentCharacter);
+            _currentCharacterObj.SetActive(false);
+            Destroy(_currentCharacterObj);
             OnCharacterExited?.Invoke();
             onEnd?.Invoke();
         }));
     }
 
-    public void SpawnCharacter(Sprite character, Action onArrived)
+    public void SpawnCharacter(CharacterStaticInfo info, Action onArrived)
     {
         OnCharcterSpawned?.Invoke();
-        _currentCharacter = Instantiate(_characterPrefab, transform);
-        _currentCharacter.GetComponent<SpriteRenderer>().sprite = character;
-        _currentCharacter.SetActive(true);
-        _currentCharacter.transform.position = _enterTr.position;
-
-        _moveCoroutine = StartCoroutine(Move(_officeTr.position, _enterDuration, _animCurve,() =>
+        SetCharacterObj(info);
+        _currentCharacterInfo = info;
+        _moveCoroutine = StartCoroutine(Move(_officeTr.position, info._enterDuration, info._animCurve, () =>
         {
             OnCharacterEntered?.Invoke();
             onArrived?.Invoke();
         }));
+    }
+
+    private void SetCharacterObj(CharacterStaticInfo info)
+    {
+        _currentCharacterObj = Instantiate(_characterPrefab, transform);
+        _currentCharacterObj.GetComponent<SpriteRenderer>().sprite = info.comingSprite;
+        _currentCharacterObj.SetActive(true);
+        _currentCharacterObj.transform.position = _enterTr.position;
     }
 
     private IEnumerator Move(Vector3 endPos, float duration = 1f, AnimationCurve animCurve = null, Action callback = null)
@@ -62,7 +62,7 @@ public class CharacterDisplay : MonoBehaviour
         }
 
         float elapsed = 0f;
-        Vector3 initPos = _currentCharacter.transform.position;
+        Vector3 initPos = _currentCharacterObj.transform.position;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -75,15 +75,15 @@ public class CharacterDisplay : MonoBehaviour
             Vector3 newPos = Vector3.Lerp(initPos, endPos, t);
 
             // Ajout de la vague sinusoïdale sur l’axe Y
-            float waveT = t * Mathf.PI * _walkFrequency;  // progression dans la sinusoïde
-            Vector3 waveMov = Mathf.Abs(Mathf.Sin(waveT)) * _walkMagnitude * _currentCharacter.transform.up;
+            float waveT = t * Mathf.PI * _currentCharacterInfo._walkFrequency;  // progression dans la sinusoïde
+            Vector3 waveMov = Mathf.Abs(Mathf.Sin(waveT)) * _currentCharacterInfo._walkMagnitude * _currentCharacterObj.transform.up;
             newPos += waveMov;
 
-            _currentCharacter.transform.position = newPos;
+            _currentCharacterObj.transform.position = newPos;
 
             yield return null;
         }
-        _currentCharacter.transform.position = endPos;
+        _currentCharacterObj.transform.position = endPos;
         _moveCoroutine = null;
         callback?.Invoke();
     }

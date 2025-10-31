@@ -17,7 +17,6 @@ public class CharacterCreator : MonoBehaviour
     {
         createInfo = info;
         dialogue = dialogueData;
-        characterDisplay._animCurve = info.walkCurve;
         exited = false;
     }
 
@@ -32,7 +31,7 @@ public class CharacterCreator : MonoBehaviour
             Debug.Log(dialogue.DefaultDialogueKey);
         }
         
-        characterDisplay.SpawnCharacter(createInfo.comingSprite, () =>
+        characterDisplay.SpawnCharacter(createInfo, () =>
         {
             arrived = true;
         });

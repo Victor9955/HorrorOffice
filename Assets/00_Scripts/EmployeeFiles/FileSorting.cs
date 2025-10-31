@@ -64,14 +64,6 @@ public class FileSorting : MonoBehaviour
 
     public void OnNewFile(SheetData data)
     {
-        _newFileCoroutine = StartCoroutine(NewFile(data));
-    }
-
-    private IEnumerator NewFile(SheetData data)
-    {
-        WaitForSeconds wait = new(0.2f);
-        while (!_canDropFile)
-            yield return wait;
         _canDropFile = false;
         _fileIndex++;
         _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
@@ -80,6 +72,7 @@ public class FileSorting : MonoBehaviour
         SetBindersOpenState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
+
 
     private void OnFileDropped(Binder binderType)
     {

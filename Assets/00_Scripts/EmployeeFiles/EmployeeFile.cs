@@ -38,7 +38,10 @@ public class EmployeeFile : Draggable
     }
     private void InitObject(int fileIndex)
     {
+        _initDI = SetState(_initDI);
         name = $"SheetInstance_{fileIndex}";
+        transform.position = _initDI.Pos;
+        transform.rotation = _initDI.Rot;
         Debug.Log($"{name} type = {_sheetData}");
     }
     private void InitData(SheetData sheetData)
@@ -49,7 +52,7 @@ public class EmployeeFile : Draggable
 
     private void ResetFile()
     {
-        
+        transform.position = _initDI.Pos;
         gameObject.SetActive(true);
     }
 
