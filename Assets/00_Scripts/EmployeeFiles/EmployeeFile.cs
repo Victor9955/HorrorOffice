@@ -44,6 +44,7 @@ public class EmployeeFile : Draggable
     private void InitData(SheetData sheetData)
     {
         _sheetData = sheetData;
+        SpriteRend.sprite = _sheetData.sprite;
     }
 
     private void ResetFile()
