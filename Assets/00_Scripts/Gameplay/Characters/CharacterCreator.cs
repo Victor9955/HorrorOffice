@@ -42,7 +42,16 @@ public class CharacterCreator : MonoBehaviour
 
     public void Play()
     {
-        characterDisplay.SpawnCharacter(createInfo.comingSprite,toSay, () =>
+        if(dialogue.dialogs.TryGetValue(createInfo.lastBinder, out string dialogueKey))
+        {
+            Debug.Log(dialogueKey);
+        }
+        else
+        {
+            Debug.Log(dialogue.DefaultDialogueKey);
+        }
+        
+        characterDisplay.SpawnCharacter(createInfo, () =>
         {
             arrived = true;
         });

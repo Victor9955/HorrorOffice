@@ -5,6 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
 
 
 public struct DragStateInfo
@@ -69,9 +70,8 @@ public class Draggable : MonoBehaviour
     }
     private void Start()
     {
-        _initDI = SetState(_initDI);
         _cam = Camera.main;
-        _dragCoroutine = StartCoroutine(DragReturn());
+        DragCoroutine = StartCoroutine(DragReturn());
     }
     #region Inputs
 
@@ -137,20 +137,20 @@ public class Draggable : MonoBehaviour
         Quaternion targetRot = dragInfo.Rot;
         Vector3 targetPos = dragInfo.Pos;
 
-        DragStateInfo _currentDI = new
+        DragStateInfo currentDI = new
            (
            DragLerp(transform.position, targetPos), // Lerp Pos
            DragLerp(transform.rotation.x, targetRot.x), // Lerp Yaw
            DragLerp(transform.rotation.y, targetRot.y), // Lerp Pitch
            DragLerp(transform.rotation.z, targetRot.z) // Lerp Roll
            );
-
-        transform.position = _currentDI.Pos;
+        transform.position = currentDI.Pos;
         if (isDragging)
         {
-            transform.LookAt(_cam.transform, transform.up);
+            transform.rotation = Quaternion.LookRotation(-(_cam.transform.position - transform.position), transform.up);
+            Debug.Log("TR lookRot = " + transform.rotation);
         }
-        else transform.rotation = _currentDI.Rot;
+        else transform.rotation = currentDI.Rot;
 
     }
 
@@ -172,13 +172,11 @@ public class Draggable : MonoBehaviour
 
     #endregion
 
-    [Button] 
         protected DragStateInfo SetState(DragStateInfo info)
     {
         info = new DragStateInfo
             (
             transform.position,
-
             transform.rotation.x,
             transform.rotation.y,
             transform.rotation.z
