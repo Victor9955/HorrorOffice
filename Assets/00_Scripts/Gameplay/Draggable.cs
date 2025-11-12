@@ -4,6 +4,7 @@ using System.Collections;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 
@@ -24,6 +25,14 @@ public struct DragStateInfo
         _yaw = yaw;
         _pitch = pitch;
         _roll = roll;
+    }
+
+    public DragStateInfo(DragStateInfo original)
+    {
+        _posOffset = original._posOffset;
+        _yaw = original._yaw;
+        _pitch = original._pitch;
+        _roll = original._roll;
     }
 }
 
@@ -52,6 +61,8 @@ public class Draggable : MonoBehaviour
     }
 
     //Info
+    [SerializeField] protected bool _draggableOnReset = true;
+    protected bool _canBeDragged;
     protected bool _isPickedUp;
     protected DragStateInfo _initDI;
     protected DragStateInfo _targetDI;
@@ -71,13 +82,17 @@ public class Draggable : MonoBehaviour
     private void Start()
     {
         _cam = Camera.main;
-        DragCoroutine = StartCoroutine(DragReturn());
+        _dragCoroutine = StartCoroutine(DragReturn());
     }
     #region Inputs
 
     private void OnMouseDown()
     {
-        DragCoroutine = StartCoroutine(Drag());
+        if (!_canBeDragged)
+        {
+            Debug.Log($"Cant pickup {name} rn");
+        }
+        else DragCoroutine = StartCoroutine(Drag());
     }
 
     private void OnMouseUp()
@@ -112,7 +127,7 @@ public class Draggable : MonoBehaviour
         while (elapsed < _dragReturnDuration)
         {
             elapsed += Time.deltaTime;
-            ApplyDrag(_initDI,false);
+            ApplyDrag(_initDI, false);
             yield return new WaitForSeconds(_draggingTick);
         }
         Debug.Log("Returned");
@@ -148,7 +163,6 @@ public class Draggable : MonoBehaviour
         if (isDragging)
         {
             transform.rotation = Quaternion.LookRotation(-(_cam.transform.position - transform.position), transform.up);
-            Debug.Log("TR lookRot = " + transform.rotation);
         }
         else transform.rotation = currentDI.Rot;
 
@@ -172,17 +186,23 @@ public class Draggable : MonoBehaviour
 
     #endregion
 
-        protected DragStateInfo SetState(DragStateInfo info)
+    protected void SetState(ref DragStateInfo setInfo)
     {
-        info = new DragStateInfo
+        DragStateInfo info = new
             (
             transform.position,
             transform.rotation.x,
             transform.rotation.y,
             transform.rotation.z
             );
-
+        setInfo = info;
         Utils.BigText("Pickup State saved", "white", 15);
-        return info;
+    }
+
+    protected virtual void ResetDrag()
+    {
+        transform.position = _initDI.Pos;
+        gameObject.SetActive(true);
+        _canBeDragged = _draggableOnReset;
     }
 }

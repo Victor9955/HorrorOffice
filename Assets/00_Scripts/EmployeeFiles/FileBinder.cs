@@ -1,4 +1,6 @@
+using DG.Tweening;
 using System;
+using System.Collections;
 using Unity.Properties;
 using UnityEngine;
 
@@ -7,9 +9,16 @@ public class FileBinder : MonoBehaviour, IDropContainer
 {
 
     public Binder BinderType => _binderType;
-    public bool isOpen;
+    public bool canReceive;
     private MeshRenderer _meshRend;
     private Binder _binderType;
+
+    private float _openAnimDistance;
+    private float _openAnimDuration;
+
+    private bool _hasDropAnimEnded;
+    private Vector3 _initPos;
+
     public MeshRenderer MeshRend
     {
         get
@@ -23,20 +32,47 @@ public class FileBinder : MonoBehaviour, IDropContainer
         }
     }
 
-    public void Init( Binder bindertype)
+    private void Start()
+    {
+        _initPos = transform.position;
+    }
+    public void Init(Binder bindertype, float distance, float duration)
     {
         _binderType = bindertype;
+        _openAnimDistance = distance;
+        _openAnimDuration = duration;
     }
+
+    private void OnMouseEnter()
+    {
+        UpdateBinderState(true);
+    }
+
+    private void OnMouseExit()
+    {
+        UpdateBinderState(false);
+    }
+
     public bool Drop<T>(T dropped) where T : Draggable
     {
         EmployeeFile file = dropped as EmployeeFile;
-        if (file == null) throw new Exception("Bruh that aint no File");
+        UpdateBinderState(false);
+        if (canReceive)
+            if (file == null) throw new Exception("Bruh that aint no File");
         return true;
     }
-    public bool IsOpen()
+    public bool CanReceive()
     {
-        return isOpen;
+        return canReceive;
     }
+
+    private void UpdateBinderState(bool isOpening)
+    {
+        string state = isOpening ? "Opening" : "Closing";
+        Vector3 targetPos = isOpening ? _initPos + Vector3.back * _openAnimDistance : _initPos;
+        transform.DOMove(targetPos, _openAnimDuration, false);
+    }
+
 
 
     #region Debug

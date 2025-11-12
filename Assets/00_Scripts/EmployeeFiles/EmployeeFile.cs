@@ -34,26 +34,18 @@ public class EmployeeFile : Draggable
     {
         InitObject(fileIndex);
         InitData(data);
-        ResetFile();
+        //ResetFilePosition();
     }
     private void InitObject(int fileIndex)
     {
-        _initDI = SetState(_initDI);
+        SetState(ref _initDI);
         name = $"SheetInstance_{fileIndex}";
-        transform.position = _initDI.Pos;
-        transform.rotation = _initDI.Rot;
-        Debug.Log($"{name} type = {_sheetData}");
+        ResetDrag();
     }
     private void InitData(SheetData sheetData)
     {
         _sheetData = sheetData;
         SpriteRend.sprite = _sheetData.sprite;
-    }
-
-    private void ResetFile()
-    {
-        transform.position = _initDI.Pos;
-        gameObject.SetActive(true);
     }
 
     public override void Drop()
@@ -69,7 +61,7 @@ public class EmployeeFile : Draggable
         {
             if (hit.transform.gameObject.TryGetComponent(out IDropContainer container))
             {
-                if (container.IsOpen())
+                if (container.CanReceive())
                 {
                     bool isMatched = container.Drop(this);
                     OnDropped?.Invoke(_sheetData.rightBinder);
@@ -77,6 +69,7 @@ public class EmployeeFile : Draggable
                     OnDroppedUEvent?.Invoke();
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }
+            else Debug.Log("Cant Receive rn, not open >:(");
             }
             else Debug.LogError("Cant get da DropContainer :(");
         }
