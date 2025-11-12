@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class LevelSender : MonoBehaviour
 {
     [SerializeField,Required] LevelCreator levelCreator;
+    [SerializeField] private Vector2 randomWaitTimeForCharacter;
 
     [SerializeField] List<DayData> days;
 
@@ -34,8 +35,12 @@ public class LevelSender : MonoBehaviour
         {
             day = m_day;
             current = days[day];
-            StartCoroutine(PlayLevel());
         }
+    }
+
+    public void StartSheetSorting()
+    {
+        StartCoroutine(PlayLevel());
     }
 
     IEnumerator PlayLevel()
@@ -43,6 +48,8 @@ public class LevelSender : MonoBehaviour
         OnBeginDay?.Invoke(current);
         foreach (var levelAction in current.actions)
         {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
+
             yield return new WaitUntil(() => levelAction.beginCondition);
             levelCreator.CreateLevel(levelAction);
             yield return new WaitUntil(() => levelCreator.isCreated);
