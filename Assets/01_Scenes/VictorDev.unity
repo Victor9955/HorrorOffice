@@ -3082,7 +3082,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -79278.27, y: 43677.484}
+  m_AnchoredPosition: {x: -140580.11, y: 78113.22}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -6796,6 +6796,16 @@ MonoBehaviour:
     happyAmount: 0
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
+    _enterDuration: 0
+    _exitDuration: 0
+    _walkMagnitude: 0
+    _walkFrequency: 0
+    _animCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
   arrived: 0
   exited: 0
   characterDisplay: {fileID: 2041667330}
@@ -10576,7 +10586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCreator: {fileID: 1861938363}
-  randomWaitTimeForCharacter: {x: 5, y: 15}
+  randomWaitTimeForCharacter: {x: 2, y: 7}
   days:
   - {fileID: 11400000, guid: 9fe35b264fbc86843abbc401621d9366, type: 2}
   - {fileID: 11400000, guid: a22bf67e33b54af4997da7bd514c29b8, type: 2}

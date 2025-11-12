@@ -14,6 +14,7 @@ public class CharacterDisplay : MonoBehaviour
     [SerializeField] private Transform _exitTr;
 
     [SerializeField] private GameObject _characterPrefab;
+    [SerializeField] private TextMeshProUGUI dialogueTMP;
 
 
     private GameObject _currentCharacterObj;
@@ -38,8 +39,8 @@ public class CharacterDisplay : MonoBehaviour
     public void SpawnCharacter(CharacterStaticInfo info,string dialogue, Action onArrived)
     {
         OnCharcterSpawned?.Invoke();
-        _currentCharacter.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
         SetCharacterObj(info);
+        _currentCharacterObj.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
         _currentCharacterInfo = info;
         _moveCoroutine = StartCoroutine(Move(_officeTr.position, info._enterDuration, info._animCurve, () =>
         {

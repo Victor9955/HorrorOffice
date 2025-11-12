@@ -41,6 +41,7 @@ public class SearchingApp : MonoBehaviour, IApp
             if(item.sheets[0])
             {
                 SheetData sheet = item.sheets[0];
+                if (codes.ContainsKey(sheet.charachterId) || stats.ContainsKey(sheet.charachterId)) continue;
                 Button cash = Instantiate(idPrefab, contentAncor);
                 cash.GetComponentInChildren<TextMeshProUGUI>().text = sheet.charachterId;
                 cash.onClick.AddListener(() => OnClicked(cash.gameObject));

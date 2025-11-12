@@ -18,19 +18,16 @@ MonoBehaviour:
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
-    - {fileID: 11400000, guid: ba8a0f3c1bc583141aef031525118a5a, type: 2}
     dayDialogue:
-      DefaultDialogueKey: MAX_Test
+      DefaultDialogueKey: JEAN_Hello
       dialogs:
-        _serializedList:
-        - Key: 1
-          Value: 
+        _serializedList: []
   - character: {fileID: 11400000, guid: 5dc4ac72133ab7d49994c9b792510145, type: 2}
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: MAX_Test
+      DefaultDialogueKey: Hello
       dialogs:
         _serializedList:
         - Key: 1

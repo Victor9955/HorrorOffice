@@ -20,8 +20,13 @@ public class CharacterCreator : MonoBehaviour
     {
         createInfo = info;
         dialogue = dialogueData;
-        characterDisplay._animCurve = info.walkCurve;
 
+
+        exited = false;
+    }
+
+    public void Play()
+    {
         toSay = string.Empty;
         if (dialogue.dialogs.TryGetValue(createInfo.lastBinder, out string dialogueKey))
         {
@@ -37,21 +42,8 @@ public class CharacterCreator : MonoBehaviour
                 toSay = dialogueStr;
             }
         }
-        exited = false;
-    }
 
-    public void Play()
-    {
-        if(dialogue.dialogs.TryGetValue(createInfo.lastBinder, out string dialogueKey))
-        {
-            Debug.Log(dialogueKey);
-        }
-        else
-        {
-            Debug.Log(dialogue.DefaultDialogueKey);
-        }
-        
-        characterDisplay.SpawnCharacter(createInfo, () =>
+        characterDisplay.SpawnCharacter(createInfo, toSay, () =>
         {
             arrived = true;
         });
