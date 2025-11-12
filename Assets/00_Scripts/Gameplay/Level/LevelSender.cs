@@ -1,5 +1,6 @@
 using HuntroxGames.Utils;
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class LevelSender : MonoBehaviour
     DayData current;
     [SerializeField] private bool debugBeginFirstDay;
 
+    public event Action<DayData> OnBeginDay;
+    public event Action OnEndDay;
 
     private void Start()
     {
@@ -23,7 +26,6 @@ public class LevelSender : MonoBehaviour
             BeginDay(0);
         }
     }
-
 
     [ConsoleCommand("BeginDay", "[Integer Input]")]
     public void BeginDay(int m_day)
@@ -38,7 +40,7 @@ public class LevelSender : MonoBehaviour
 
     IEnumerator PlayLevel()
     {
-        current.OnBeginDay?.Invoke();
+        OnBeginDay?.Invoke(current);
         foreach (var levelAction in current.actions)
         {
             yield return new WaitUntil(() => levelAction.beginCondition);
@@ -50,5 +52,6 @@ public class LevelSender : MonoBehaviour
             yield return new WaitUntil(() => levelCreator.isEnded);
         }
         current = null;
+        OnEndDay?.Invoke();
     }
 }

@@ -22,7 +22,9 @@ public class SheetData : ScriptableObject
     public SerializedDictionary<Binder,UnityEvent> actions;
 
     [Header("Database")]
-    public int statA;
+    public string charachterId;
+    public string characterName;
+    public int pausesNumber;
     public int statB;
     public int statC;
 }
