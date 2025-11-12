@@ -147,7 +147,8 @@ public class Draggable : MonoBehaviour
         transform.position = currentDI.Pos;
         if (isDragging)
         {
-            transform.LookAt(_cam.transform, transform.up);
+            transform.rotation = Quaternion.LookRotation(-(_cam.transform.position - transform.position), transform.up);
+            Debug.Log("TR lookRot = " + transform.rotation);
         }
         else transform.rotation = currentDI.Rot;
 
