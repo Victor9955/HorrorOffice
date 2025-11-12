@@ -15,7 +15,11 @@ MonoBehaviour:
   sprite: {fileID: -3721825862264791463, guid: dce5602635ec6fd4da2e10ded12bed03, type: 3}
   rightBinder: 1
   actions:
-    _serializedList: []
+    _serializedList:
+    - Key: 1
+      Value:
+        m_PersistentCalls:
+          m_Calls: []
   statA: 0
   statB: 0
   statC: 0

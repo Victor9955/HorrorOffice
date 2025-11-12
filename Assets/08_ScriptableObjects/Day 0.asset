@@ -15,12 +15,15 @@ MonoBehaviour:
   OnBeginDay:
     m_PersistentCalls:
       m_Calls: []
+  startEmail: []
   actions:
   - character: {fileID: 11400000, guid: 7b76ae9dc38f953478e315d68ed67746, type: 2}
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: Hello
+      DefaultDialogueKey: MAX_Test
       dialogs:
-        _serializedList: []
+        _serializedList:
+        - Key: 1
+          Value: 

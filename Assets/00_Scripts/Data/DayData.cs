@@ -24,5 +24,6 @@ public struct SheetAction
 public class DayData : ScriptableObject
 {
     public UnityEvent OnBeginDay;
+    public List<Mail> startEmail;
     public List<SheetAction> actions;
 }
