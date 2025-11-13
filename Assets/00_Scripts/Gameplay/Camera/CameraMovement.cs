@@ -22,7 +22,10 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] Transform pc;
     [SerializeField] float fovPC;
 
-    bool isFocused = false;
+    [Header("QuitPC")]
+    [SerializeField] Vector2 triggerQuit;
+
+    [HideInInspector] public bool isFocused = false;
 
     Quaternion lastRotation;
     float lastFov;

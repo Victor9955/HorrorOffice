@@ -24,12 +24,15 @@ public class ComputerInteraction : MonoBehaviour
     [SerializeField] Collider interactionCol;
     List<Material> materials = new();
 
+    CameraMovement cam;
+
     private void Start()
     {
+        cam = Camera.main.GetComponent<CameraMovement>();
         quitAction.Enable();
         quitAction.performed += (Input) =>
         {
-            Camera.main.GetComponent<CameraMovement>().StopFocus();
+            cam.StopFocus();
             interactionCol.enabled = true;
         };
 
@@ -42,7 +45,6 @@ public class ComputerInteraction : MonoBehaviour
                     materials.Add(item);
                 }
             }
-
         });
     }
 
@@ -58,7 +60,7 @@ public class ComputerInteraction : MonoBehaviour
             isLoading = true;
             StartCoroutine(LoadRoutine());
         }
-        Camera.main.GetComponent<CameraMovement>().FocusPC();
+        cam.FocusPC();
         StopOver();
         interactionCol.enabled = false;
     }
@@ -68,7 +70,7 @@ public class ComputerInteraction : MonoBehaviour
         float size = 1f;
         DOTween.To(() => size, _ => size = _, 1.05f, 0.25f).OnUpdate(() =>
         {
-            
+            materials.ForEach(m => m.SetFloat("_Size", size));
         });
     }
 
@@ -102,5 +104,13 @@ public class ComputerInteraction : MonoBehaviour
         yield return new WaitForSeconds(loadTime);
 
         windowAnim.Close();
+    }
+
+    private void Update()
+    {
+        if(cam.isFocused && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            
+        }
     }
 }
