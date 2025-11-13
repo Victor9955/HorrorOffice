@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,7 +18,7 @@ public class ComputerInteraction : MonoBehaviour
     [SerializeField] TextMeshProUGUI usernameTMP;
     [SerializeField] TextMeshProUGUI passwordTMP;
     [SerializeField] WindowAnimation windowAnim;
-    [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] List<MeshRenderer> computerMeshs;
     [SerializeField] InputAction quitAction;
     [SerializeField] Collider interactionCol;
 
@@ -53,16 +54,16 @@ public class ComputerInteraction : MonoBehaviour
         float size = 1f;
         DOTween.To(() => size, _ => size = _, 1.05f, 0.25f).OnUpdate(() =>
         {
-            meshRenderer.materials[1].SetFloat("_Size",size);
+            computerMeshs.ForEach(m => m.materials[1].SetFloat("_Size", size));
         });
     }
 
     public void StopOver()
     {
-        float size = meshRenderer.materials[1].GetFloat("_Size");
+        float size = computerMeshs[0].materials[1].GetFloat("_Size");
         DOTween.To(() => size, _ => size = _, 1f, 0.25f).OnUpdate(() =>
         {
-            meshRenderer.materials[1].SetFloat("_Size", size);
+            computerMeshs.ForEach(m => m.materials[1].SetFloat("_Size", size));
         });
     }
     
