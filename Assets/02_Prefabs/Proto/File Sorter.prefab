@@ -49,12 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fileToSortPrefab: {fileID: 900574019958138232, guid: 27a179bb2be324e4ab517eff262535fe, type: 3}
   _fileSpawnTr: {fileID: 0}
-  _binderDataList:
-  - color: {r: 1, g: 0, b: 0, a: 1}
-  - color: {r: 0, g: 1, b: 0.09437704, a: 1}
-  - color: {r: 0, g: 0.066483974, b: 1, a: 1}
-  _sortUITr: {fileID: 0}
-  _textDelay: 0
+  _characterDisplay: {fileID: 0}
+  _openAnimDistance: 1
+  _openAnimDuration: 0.1
+  _binderDataList: 000000000000000000000000
   OnSetOpenEvent:
     m_PersistentCalls:
       m_Calls: []

@@ -13,9 +13,11 @@ public class FileSorting : MonoBehaviour
     [SerializeField] private Transform _fileSpawnTr;
     [SerializeField, Required] private CharacterDisplay _characterDisplay;
 
-    [Space(5)]
     [Header("Parameters")]
     [Space(5)]
+    [SerializeField] private float _openAnimDistance;
+    [SerializeField] private float _openAnimDuration;
+
     [SerializeField] private List<Binder> _binderDataList;
 
     [Header("Events")]
@@ -35,6 +37,7 @@ public class FileSorting : MonoBehaviour
     {
         _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
         SetupBinders();
+
     }
 
     private void SetupBinders()
@@ -42,7 +45,7 @@ public class FileSorting : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             FileBinder childBinder = transform.GetChild(i).GetComponent<FileBinder>();
-            childBinder.Init(_binderDataList[i]);
+            childBinder.Init(_binderDataList[i], _openAnimDistance, _openAnimDuration);
             _binderList.Add(childBinder);
         }
         Debug.Log($"{_binderList.Count} binders in the scene");
@@ -53,7 +56,7 @@ public class FileSorting : MonoBehaviour
     {
         foreach (FileBinder file in _binderList)
         {
-            file.isOpen = isOpen;
+            file.canReceive = isOpen;
         }
         OnSetOpenEvent.Invoke(isOpen);
 
