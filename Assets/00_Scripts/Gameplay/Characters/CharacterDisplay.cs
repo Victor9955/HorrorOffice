@@ -20,7 +20,7 @@ public class CharacterDisplay : MonoBehaviour
     private CharacterStaticInfo _currentCharacterInfo;
     private Coroutine _moveCoroutine;
 
-    public Action OnCharcterSpawned;
+    public Action<GameObject> OnCharcterSpawned;
     public Action OnCharacterEntered;
     public Action OnCharacterExited;
 
@@ -37,10 +37,11 @@ public class CharacterDisplay : MonoBehaviour
 
     public void SpawnCharacter(CharacterStaticInfo info,string dialogue, Action onArrived)
     {
-        OnCharcterSpawned?.Invoke();
+        
         SetCharacterObj(info);
         _currentCharacterObj.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
         _currentCharacterInfo = info;
+        OnCharcterSpawned?.Invoke(_currentCharacterObj);
         _moveCoroutine = StartCoroutine(Move(_officeTr.position, info._enterDuration, info._animCurve, () =>
         {
             OnCharacterEntered?.Invoke();
