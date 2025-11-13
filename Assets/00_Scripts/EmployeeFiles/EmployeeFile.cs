@@ -101,7 +101,7 @@ public class EmployeeFile : Draggable
                 }
 
             }
-            else Debug.LogError("Cant get da DropContainer :(");
+            else Debug.Log("Cant get da DropContainer :(");
         }
         else Debug.Log("Cant hit anything :(");
     }
