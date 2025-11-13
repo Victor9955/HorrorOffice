@@ -38,6 +38,7 @@ public class EmployeeFile : Draggable
     }
     private void InitObject(int fileIndex)
     {
+        Debug.Log($"init : ({_initDI.Pos},{_initDI.Rot}), tr : ({transform.position},{transform.rotation})");
         SetState(ref _initDI);
         name = $"SheetInstance_{fileIndex}";
         ResetDrag();
@@ -48,18 +49,34 @@ public class EmployeeFile : Draggable
         SpriteRend.sprite = _sheetData.sprite;
     }
 
+
+    protected override void DragTick()
+    {
+        var ray = CamRaycast();
+        if (ray.didHit)
+        {
+            bool didHitDesk = ray.hit.transform.CompareTag("Desk");
+            if (didHitDesk)
+            {
+                DragStateInfo deskDI = new
+                    (
+                        ray.hit.point + (ray.hit.normal * 0.2f),
+                        _initDI.Rot.x,
+                        _initDI.Rot.y,
+                        _initDI.Rot.z
+                    );
+                _targetDI = deskDI;
+            }
+        }
+        base.DragTick();
+    }
     public override void Drop()
     {
         base.Drop();
-
-        Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
-
-        RaycastHit hit;
-        bool didHit = Physics.Raycast(ray, out hit, 100, _layerMask);
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue, 2f);
-        if (didHit)
+        var ray = CamRaycast();
+        if (ray.didHit)
         {
-            if (hit.transform.gameObject.TryGetComponent(out IDropContainer container))
+            if (ray.hit.transform.gameObject.TryGetComponent(out IDropContainer container))
             {
                 if (container.CanReceive())
                 {
@@ -69,11 +86,31 @@ public class EmployeeFile : Draggable
                     OnDroppedUEvent?.Invoke();
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }
-            else Debug.Log("Cant Receive rn, not open >:(");
+                else if (ray.hit.transform.CompareTag("Desk"))
+                {
+                    DragStateInfo deskDI = new
+                        (
+                            ray.hit.point + (ray.hit.normal),
+                            _initDI.Rot.x,
+                            _initDI.Rot.y,
+                            _initDI.Rot.z
+                        );
+
+                }
+
             }
             else Debug.LogError("Cant get da DropContainer :(");
         }
         else Debug.Log("Cant hit anything :(");
     }
 
+    private (bool didHit, RaycastHit hit) CamRaycast()
+    {
+        Ray ray = _cam.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hit;
+        bool didHit = Physics.Raycast(ray, out hit, 100, _layerMask);
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue, 2f);
+        return (didHit, hit);
+    }
 }
