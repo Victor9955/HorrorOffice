@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c3e49100d4cf5342a1ce4b12cc722c2, type: 3}
-  m_Name: Maxens
+  m_Name: Connor test
   m_EditorClassIdentifier: 
   characterStaticInfo:
-    name: MaxensTest
-    dialogueKey: MAX
-    comingSprite: {fileID: 21300000, guid: 39b9cc5aa7cf30147b62eabea15ec600, type: 3}
-    givePaperSprite: {fileID: 0}
+    name: Connor Bradley
+    dialogueKey: CONNIE
+    comingSprite: {fileID: 21300000, guid: e40cc704138c5b74d86ca2532b4cc49d, type: 3}
+    givePaperSprite: {fileID: -1288701737944200222, guid: 3323e66bf3f6317479524f583d734ebb, type: 3}
     walkCurve:
       serializedVersion: 2
       m_Curve:
@@ -44,9 +44,9 @@ MonoBehaviour:
     happyAmount: 0
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
-    _enterDuration: 3
-    _exitDuration: 2
-    _walkMagnitude: 0.1
+    _enterDuration: 1.5
+    _exitDuration: 1.5
+    _walkMagnitude: 0.7
     _walkFrequency: 1
     _animCurve:
       serializedVersion: 2

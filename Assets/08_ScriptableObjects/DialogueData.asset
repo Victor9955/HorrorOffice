@@ -16,15 +16,19 @@ MonoBehaviour:
   language: 0
   dialogues:
     _serializedList:
-    - Key: MAX_Test
+    - Key: CONNIE_Test
       Value:
-      - 
-      - 
-    - Key: JEAN_Hello
+      - '"Hi'
+      - the name's Connie !"
+    - Key: ABBIE_Hello
       Value:
-      - Hello !
-      - 
+      - Hello my name is Abigail.
+      - Bonjour
     - Key: MAX_Hello
       Value:
-      - Hello, je suis maxens !
-      - 
+      - Hello
+      - Bonjour
+    - Key: ROSA_Hello dear
+      Value:
+      - Hello my dear !
+      - "Bonjour mon ch\xE9rie"
