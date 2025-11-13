@@ -557,6 +557,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3136291505284017914, guid: cb79e964fb6a397478ae79ce7e918d3a, type: 3}
   m_PrefabInstance: {fileID: 59441254}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &95732201 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4579302061741829134, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
+  m_PrefabInstance: {fileID: 887844656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &122137566
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3353,7 +3358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -248669.7, y: 90183.41}
+  m_AnchoredPosition: {x: -325336.03, y: 116976.65}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -3762,6 +3767,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!23 &655483582 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3092356736707116316, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
+  m_PrefabInstance: {fileID: 887844656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &681073762
 GameObject:
   m_ObjectHideFlags: 0
@@ -5091,17 +5101,33 @@ PrefabInstance:
       value: 1.5636
       objectReference: {fileID: 0}
     - target: {fileID: 3092356736707116316, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3092356736707116316, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2636b73c658403e4cb7d8ee2ba9d2423, type: 2}
+    - target: {fileID: 3092356736707116316, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ee53716618ea7594fb131b80d13328ca, type: 2}
     - target: {fileID: 3940604492872103948, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 3a12624633216104bad3db3d8330906d, type: 2}
     - target: {fileID: 4579302061741829134, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4579302061741829134, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 39b5dc0a0a9356c4ba272bda50117961, type: 2}
+    - target: {fileID: 4579302061741829134, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ee53716618ea7594fb131b80d13328ca, type: 2}
     - target: {fileID: 5818088447003944832, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
       propertyPath: m_Name
       value: PR_Computer_frame (1) Variant
@@ -6138,7 +6164,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -825.2022, y: 7242.5996}
+  m_AnchoredPosition: {x: -5761.2275, y: 47119.086}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1040725060
@@ -7364,32 +7390,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d8224028cfcf04d9b40525b7304867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createInfo:
-    name: JeanMicheTest
+  characterInfo:
+    name: 
     dialogueKey: 
-    comingSprite: {fileID: 21300000, guid: 8602c66017bcfe147b2a72762bc0e97d, type: 3}
+    comingSprite: {fileID: 0}
     givePaperSprite: {fileID: 0}
     walkCurve:
       serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
+      m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -7409,7 +7417,7 @@ MonoBehaviour:
   arrived: 0
   exited: 0
   characterDisplay: {fileID: 2041667330}
-  dialogueRef: {fileID: 11400000, guid: 3516b3d679eeb0c4eb6f04c219c681f4, type: 2}
+  dialogueData: {fileID: 11400000, guid: 3516b3d679eeb0c4eb6f04c219c681f4, type: 2}
 --- !u!1 &1220829716
 GameObject:
   m_ObjectHideFlags: 0
@@ -8452,7 +8460,10 @@ MonoBehaviour:
   usernameTMP: {fileID: 2054618588}
   passwordTMP: {fileID: 757180914}
   windowAnim: {fileID: 924103279}
-  meshRenderer: {fileID: 1682872140}
+  computerMeshs:
+  - {fileID: 1682872140}
+  - {fileID: 655483582}
+  - {fileID: 95732201}
   quitAction:
     m_Name: Quit
     m_Type: 0
@@ -12476,7 +12487,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008279185, y: 58891.93}
+  m_AnchoredPosition: {x: -0.00008279185, y: 101443.33}
   m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2021732821

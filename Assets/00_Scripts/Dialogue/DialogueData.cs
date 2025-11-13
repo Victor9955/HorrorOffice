@@ -31,7 +31,15 @@ public class DialogueData : ScriptableObject
 
     public bool GetDialogue(string characterID,string dialogueKey, out string dialogue)
     {
-        return GetDialogue(characterID + "_" + dialogueKey, out dialogue);
+        if(GetDialogue(characterID + "_" + dialogueKey, out dialogue))
+        {
+            return true;
+        }
+        else if(GetDialogue(dialogueKey, out dialogue))
+        {
+            return true;
+        }
+        return false;
     }
 
     [Button]

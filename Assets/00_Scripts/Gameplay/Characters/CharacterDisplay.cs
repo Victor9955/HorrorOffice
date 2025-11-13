@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class CharacterDisplay : MonoBehaviour
 {
-
     [Header("Refs")]
     [SerializeField] private Transform _enterTr;
     [SerializeField] private Transform _officeTr;

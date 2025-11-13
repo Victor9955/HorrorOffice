@@ -8,10 +8,8 @@ public struct CharacterStaticInfo
     public string dialogueKey;
     public Sprite comingSprite;
     public Sprite givePaperSprite;
-    public AnimationCurve walkCurve;
-    public int happyAmount;
     public Vector2 lookOffset;
-    public Binder lastBinder;
+   [HideInInspector] public Binder lastBinder;
 
 
     [Header("Anim Parameters")]

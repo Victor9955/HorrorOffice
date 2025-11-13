@@ -19,7 +19,7 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: JEAN_Hello
+      DefaultDialogueKey: Hello
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 5dc4ac72133ab7d49994c9b792510145, type: 2}
@@ -29,6 +29,4 @@ MonoBehaviour:
     dayDialogue:
       DefaultDialogueKey: Hello
       dialogs:
-        _serializedList:
-        - Key: 1
-          Value: 
+        _serializedList: []

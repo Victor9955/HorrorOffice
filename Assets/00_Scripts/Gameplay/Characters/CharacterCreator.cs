@@ -5,45 +5,37 @@ using UnityEngine;
 public class CharacterCreator : MonoBehaviour
 {
     [SerializeField,HideInInspector] // sheet position
-    CharacterStaticInfo createInfo;
+    CharacterStaticInfo characterInfo;
     DayDialogueData dialogue;
 
     [HideInInspector] public bool arrived;
     [HideInInspector] public bool exited;
 
     [SerializeField, Required] CharacterDisplay characterDisplay;
-    [SerializeField, Required] DialogueData dialogueRef;
+    [SerializeField, Required] DialogueData dialogueData;
 
     string toSay;
 
     public void CreateCharacter(CharacterStaticInfo info, DayDialogueData dialogueData)
     {
-        createInfo = info;
+        characterInfo = info;
         dialogue = dialogueData;
-
-
         exited = false;
     }
 
     public void Play()
     {
         toSay = string.Empty;
-        if (dialogue.dialogs.TryGetValue(createInfo.lastBinder, out string dialogueKey))
+        if (dialogue.dialogs.TryGetValue(characterInfo.lastBinder, out string dialogueKey))
         {
-            if (dialogueRef.GetDialogue(createInfo.dialogueKey, dialogueKey, out string dialogueStr))
-            {
-                toSay = dialogueStr;
-            }
+            dialogueData.GetDialogue(characterInfo.dialogueKey, dialogueKey, out toSay);
         }
         else
         {
-            if (dialogueRef.GetDialogue(createInfo.dialogueKey, dialogue.DefaultDialogueKey, out string dialogueStr))
-            {
-                toSay = dialogueStr;
-            }
+            dialogueData.GetDialogue(characterInfo.dialogueKey, dialogue.DefaultDialogueKey, out toSay);
         }
 
-        characterDisplay.SpawnCharacter(createInfo, toSay, () =>
+        characterDisplay.SpawnCharacter(characterInfo, toSay, () =>
         {
             arrived = true;
         });
