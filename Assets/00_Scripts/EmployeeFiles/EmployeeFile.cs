@@ -39,14 +39,15 @@ public class EmployeeFile : Draggable
     private void InitObject(int fileIndex)
     {
         Debug.Log($"init : ({_initDI.Pos},{_initDI.Rot}), tr : ({transform.position},{transform.rotation})");
-        SetState(ref _initDI);
         name = $"SheetInstance_{fileIndex}";
-        ResetDrag();
+        gameObject.SetActive(true);
+        _canBeDragged = _draggableOnReset;
     }
     private void InitData(SheetData sheetData)
     {
         _sheetData = sheetData;
         SpriteRend.sprite = _sheetData.sprite;
+        SetState(ref _initDI);
     }
 
 
@@ -68,6 +69,7 @@ public class EmployeeFile : Draggable
                 _targetDI = deskDI;
             }
         }
+        ;
         base.DragTick();
     }
     public override void Drop()
@@ -80,7 +82,7 @@ public class EmployeeFile : Draggable
             {
                 if (container.CanReceive())
                 {
-                    bool isMatched = container.Drop(this);
+                    bool hasDropped = container.Drop(this);
                     OnDropped?.Invoke(_sheetData.rightBinder);
 
                     OnDroppedUEvent?.Invoke();

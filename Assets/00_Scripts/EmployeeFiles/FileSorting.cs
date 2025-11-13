@@ -37,6 +37,7 @@ public class FileSorting : MonoBehaviour
     {
         _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
         SetupBinders();
+
     }
 
     private void SetupBinders()

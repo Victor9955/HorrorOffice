@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using static UnityEngine.UI.Image;
 
 
 public struct DragStateInfo
@@ -36,6 +37,14 @@ public struct DragStateInfo
         _yaw = original._yaw;
         _pitch = original._pitch;
         _roll = original._roll;
+    }
+
+    public DragStateInfo(Vector3 posOffset, Quaternion rot)
+    {
+        _posOffset = posOffset;
+        _yaw = rot.x;
+        _pitch = rot.y;
+        _roll = rot.z;
     }
 
     #endregion
@@ -87,7 +96,6 @@ public class Draggable : MonoBehaviour
     private void Start()
     {
         _cam = Camera.main;
-        _dragCoroutine = StartCoroutine(DragReturn());
     }
     #region Inputs
 
@@ -119,8 +127,8 @@ public class Draggable : MonoBehaviour
         while (_isPickedUp)
         {
             _targetDI = ComputePickedUpDrag();
-            
             DragTick();
+            transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
             yield return new WaitForSeconds(_draggingTick);
         }
         _dragCoroutine = StartCoroutine(DragReturn());
@@ -136,6 +144,7 @@ public class Draggable : MonoBehaviour
     private IEnumerator DragReturn()
     {
         float elapsed = 0;
+        transform.DORotate(_initDI.Rot.eulerAngles, 0.4f);
         while (elapsed < _dragReturnDuration)
         {
             elapsed += Time.deltaTime;
@@ -148,8 +157,9 @@ public class Draggable : MonoBehaviour
 
     private DragStateInfo ComputePickedUpDrag()
     {
-        transform.LookAt(_cam.transform, Vector3.up);
-        Quaternion rot = Quaternion.LookRotation((_cam.transform.position - transform.position), Vector3.up);
+        //transform.LookAt(_cam.transform, Vector3.up);
+        Quaternion rot = Quaternion.LookRotation((_cam.transform.position - transform.position).normalized, transform.up);
+
         return new DragStateInfo
             (
             CamToWorldPos + _pickedUpDI.Pos,
@@ -164,20 +174,14 @@ public class Draggable : MonoBehaviour
         Quaternion targetRot = dragInfo.Rot;
         Vector3 targetPos = dragInfo.Pos;
 
-        DragStateInfo currentDI = new
+        DragStateInfo newDI = new
             (
             DragLerp(transform.position, targetPos), // Lerp Pos
-            DragLerp(transform.rotation.x, targetRot.x), // Lerp Yaw
-            DragLerp(transform.rotation.y, targetRot.y), // Lerp Pitch
-            DragLerp(transform.rotation.z, targetRot.z) // Lerp Roll
+            DragLerp(transform.rotation, targetRot) // Lerp Yaw
             );
-        transform.position = currentDI.Pos;
-        transform.rotation = currentDI.Rot;
-        //if (isDragging)
-        //{
-        //    transform.rotation = Quaternion.LookRotation(-(_cam.transform.position - transform.position), transform.up);
-        //}
-        //else transform.rotation = currentDI.Rot;
+
+        transform.position = newDI.Pos;
+        transform.rotation = newDI.Rot;
 
     }
 
@@ -196,6 +200,16 @@ public class Draggable : MonoBehaviour
         return result;
     }
 
+    public Quaternion DragLerp(Quaternion P, Quaternion T)
+    {
+        if (_dragPosSpeed * Time.deltaTime > 1) return T;
+        Vector3 PVec = P.eulerAngles;
+        Vector3 TVec = T.eulerAngles;
+        Quaternion resultVec = Quaternion.Euler(PVec + (TVec - PVec) * _dragPosSpeed * Time.deltaTime);
+        return resultVec;
+    }
+
+
     #endregion
 
     protected void SetState(ref DragStateInfo setInfo, DragStateInfo targetInfo)
@@ -209,19 +223,11 @@ public class Draggable : MonoBehaviour
         DragStateInfo info = new
             (
             transform.position,
-            transform.rotation.eulerAngles.x,
-            transform.rotation.eulerAngles.y,
-            transform.rotation.eulerAngles.z
+            transform.rotation
             );
         setInfo = info;
         Utils.BigText("Pickup State saved", "white", 15);
     }
 
-    protected virtual void ResetDrag()
-    {
-        transform.position = _initDI.Pos;
-        transform.rotation = _initDI.Rot;
-        gameObject.SetActive(true);
-        _canBeDragged = _draggableOnReset;
-    }
+
 }
