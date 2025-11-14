@@ -68,6 +68,10 @@ public class EmployeeFile : Draggable
                     );
                 _targetDI = deskDI;
             }
+            if (ray.hit.transform.TryGetComponent<IDropContainer>(out IDropContainer binder))
+            {
+                if (binder.IsUnlocked()) binder.UpdateOpenState(true, true);
+            }
         }
         ;
         base.DragTick();
@@ -80,7 +84,7 @@ public class EmployeeFile : Draggable
         {
             if (ray.hit.transform.gameObject.TryGetComponent(out IDropContainer container))
             {
-                if (container.CanReceive())
+                if (container.IsUnlocked())
                 {
                     bool hasDropped = container.Drop(this);
                     OnDropped?.Invoke(_sheetData.rightBinder);
@@ -97,7 +101,7 @@ public class EmployeeFile : Draggable
                             _initDI.Rot.y,
                             _initDI.Rot.z
                         );
-
+                    _initDI = deskDI;
                 }
 
             }

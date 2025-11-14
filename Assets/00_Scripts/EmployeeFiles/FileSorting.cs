@@ -22,7 +22,7 @@ public class FileSorting : MonoBehaviour
 
     [Header("Events")]
     [Space(5)]
-    [SerializeField] private UnityEvent<bool> OnSetOpenEvent;
+    [SerializeField] private UnityEvent<bool> OnSetLockEvent;
     [SerializeField] private UnityEvent OnMatchCheckEvent;
 
     private bool _canDropFile;
@@ -36,8 +36,8 @@ public class FileSorting : MonoBehaviour
     private void Start()
     {
         _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
+        _characterDisplay.OnCharacterExited += () => SetBindersLockState(true);
         SetupBinders();
-
     }
 
     private void SetupBinders()
@@ -52,15 +52,15 @@ public class FileSorting : MonoBehaviour
 
     }
 
-    private void SetBindersOpenState(bool isOpen)
+    private void SetBindersLockState(bool isUnlocked)
     {
         foreach (FileBinder file in _binderList)
         {
-            file.canReceive = isOpen;
+            file.isUnlocked = isUnlocked;
         }
-        OnSetOpenEvent.Invoke(isOpen);
+        OnSetLockEvent.Invoke(isUnlocked);
 
-        if (isOpen) _currentFile.OnDropped += OnFileDropped;
+        if (isUnlocked) _currentFile.OnDropped += OnFileDropped;
         else _currentFile.OnDropped -= OnFileDropped;
 
     }
@@ -72,14 +72,14 @@ public class FileSorting : MonoBehaviour
         _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
         _currentFile.Init(data, _fileIndex);
         int randInd = Random.Range(0, _binderList.Count);
-        SetBindersOpenState(true);
+        SetBindersLockState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
 
 
     private void OnFileDropped(Binder binderType)
     {
-        SetBindersOpenState(false);
+        SetBindersLockState(false);
         //TODO Get Binder Dropped
         OnFileDroppedEvent?.Invoke(binderType);
     }
