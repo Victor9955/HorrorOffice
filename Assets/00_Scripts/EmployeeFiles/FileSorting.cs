@@ -73,7 +73,7 @@ public class FileSorting : MonoBehaviour
         _currentFile.Init(data, _fileIndex);
         int randInd = Random.Range(0, _binderList.Count);
         SetBindersOpenState(true);
-        Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
+        //Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
 
 

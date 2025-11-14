@@ -18,7 +18,7 @@ public class SearchingApp : MonoBehaviour, IApp
     [SerializeField] Scrollbar scrollbar;
     [SerializeField] TMP_InputField inputField;
     [SerializeField] LevelSender levelSender;
-    [SerializeField] DatabaseCharacterView view;
+    [SerializeField] DatabaseView view;
     [SerializeField] WindowAnimation viewAnim;
     Dictionary<string, GameObject> codes = new();
     Dictionary<string, SheetData> stats = new();
@@ -129,7 +129,7 @@ public class SearchingApp : MonoBehaviour, IApp
             KeyValuePair<string, GameObject> keyValuePair = codes.First(x => x.Value == self);
             if(stats.TryGetValue(keyValuePair.Key, out SheetData sheet))
             {
-                view.View(sheet);
+                view.Show(sheet);
             }
         }
     }
