@@ -9,42 +9,30 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
     [SerializeField] RectTransform contentAncor;
     [SerializeField] RectTransform mailViewAncor;
     [SerializeField] WindowAnimation mailWindow;
+    [SerializeField] GameplayEventSender gameplayEvents;
     [HideInInspector] public List<Mail> bin = new();
 
     MailView current;
     bool toBeDestroyed;
 
-    public void Open()
+    private void Start()
     {
-        while (bin.Count > 0)
-        {
-            bin[0].UnCheck();
-            bin.RemoveAt(0);
-        }
+        gameplayEvents.OnSendMail += ReiceiveMail;
     }
 
-    public void Delete()
+    public void ReiceiveMail(MailData mail)
     {
-        while (bin.Count > 0)
-        {
-            bin[0].Delete();
-            bin.RemoveAt(0);
-        }
+
     }
 
-    public void ReiceiveMail(Mail mail)
-    {
-        Mail cash = Instantiate(mail, contentAncor.transform);
-    }
-
-    public void OpenMail(MailView mail)
+    public void OpenMail(MailData mail)
     {
         GameObject cash = null;
         if (current != null)
         {
             cash = current.gameObject;
         }
-        current = Instantiate(mail, mailViewAncor);
+        //current = Instantiate(mail, mailViewAncor);
         current.myWindow = mailWindow;
         mailWindow.Open();
         if (toBeDestroyed && cash != null)
@@ -59,8 +47,8 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 
     }
 
-    public void CloseCurrentMail()
+    public void Open()
     {
-        toBeDestroyed = true;
+
     }
 }

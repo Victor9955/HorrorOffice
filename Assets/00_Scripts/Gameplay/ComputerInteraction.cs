@@ -25,15 +25,18 @@ public class ComputerInteraction : MonoBehaviour
     List<Material> materials = new();
 
     CameraMovement cam;
-
+    
     private void Start()
     {
         cam = Camera.main.GetComponent<CameraMovement>();
+        cam.OnFocusedChange += (focused) =>
+        {
+            interactionCol.enabled = !focused;
+        };
         quitAction.Enable();
         quitAction.performed += (Input) =>
         {
             cam.StopFocus();
-            interactionCol.enabled = true;
         };
 
         computerMeshs.ForEach((m) =>
@@ -62,7 +65,6 @@ public class ComputerInteraction : MonoBehaviour
         }
         cam.FocusPC();
         StopOver();
-        interactionCol.enabled = false;
     }
 
     public void Over()
@@ -104,13 +106,5 @@ public class ComputerInteraction : MonoBehaviour
         yield return new WaitForSeconds(loadTime);
 
         windowAnim.Close();
-    }
-
-    private void Update()
-    {
-        if(cam.isFocused && Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            
-        }
     }
 }
