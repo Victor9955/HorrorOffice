@@ -20,6 +20,11 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         gameplayEvents.OnSendMail += ReiceiveMail;
     }
 
+    private void OnDestroy()
+    {
+        gameplayEvents.OnSendMail -= ReiceiveMail;
+    }
+
     public void ReiceiveMail(MailData mail)
     {
 

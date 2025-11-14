@@ -23,6 +23,6 @@ public struct SheetAction
 [CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/LevelData")]
 public class DayData : ScriptableObject
 {
-    public List<Mail> startEmail;
+    public UnityEvent startEvent;
     public List<SheetAction> actions;
 }

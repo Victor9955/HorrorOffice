@@ -46,6 +46,7 @@ public class LevelSender : MonoBehaviour
     IEnumerator PlayLevel()
     {
         OnBeginDay?.Invoke(current);
+        current.startEvent?.Invoke();
         foreach (var levelAction in current.actions)
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
