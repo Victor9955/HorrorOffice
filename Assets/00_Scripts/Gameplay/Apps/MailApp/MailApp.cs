@@ -6,14 +6,12 @@ using UnityEngine;
 public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 {
     [SerializeField] Mail mailPrefab;
-    [SerializeField] RectTransform contentAncor;
+    [SerializeField] MailView mailView;
     [SerializeField] RectTransform mailViewAncor;
-    [SerializeField] WindowAnimation mailWindow;
     [SerializeField] GameplayEventSender gameplayEvents;
-    [HideInInspector] public List<Mail> bin = new();
 
-    MailView current;
-    bool toBeDestroyed;
+    Dictionary<Mail, MailData> reiceivedMail = new();
+
 
     private void Start()
     {
@@ -25,25 +23,19 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         gameplayEvents.OnSendMail -= ReiceiveMail;
     }
 
-    public void ReiceiveMail(MailData mail)
+    void ReiceiveMail(MailData mailData)
     {
-
+        Mail mailCash = Instantiate(mailPrefab,mailViewAncor);
+        reiceivedMail.Add(mailCash,mailData);
+        mailCash.mailData = mailData;
+        mailCash.mailAppRef = this;
     }
 
-    public void OpenMail(MailData mail)
+    public void OpenMail(Mail mail)
     {
-        GameObject cash = null;
-        if (current != null)
+        if(reiceivedMail.TryGetValue(mail, out MailData mailCash))
         {
-            cash = current.gameObject;
-        }
-        //current = Instantiate(mail, mailViewAncor);
-        current.myWindow = mailWindow;
-        mailWindow.Open();
-        if (toBeDestroyed && cash != null)
-        {
-            Destroy(cash);
-            toBeDestroyed = false;
+            mailView.Show(mailCash);
         }
     }
 

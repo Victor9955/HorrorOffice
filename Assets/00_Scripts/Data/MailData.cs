@@ -5,5 +5,5 @@ public class MailData : ScriptableObject
 {
     public string title;
     public CharacterData character;
-    [TextArea]public string mailText;
+    [TextArea(maxLines: 100,minLines: 1)]public string mailText;
 }

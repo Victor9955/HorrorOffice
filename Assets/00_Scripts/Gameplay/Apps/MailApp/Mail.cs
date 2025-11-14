@@ -1,26 +1,29 @@
 
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Mail : MonoBehaviour
 {
-    [SerializeField] Image pp;
-    [SerializeField] TextMeshProUGUI title;
-    [HideInInspector] public int mailId;
+    [SerializeField] TextMeshProUGUI titleTMP;
+    [SerializeField] Color nameColor;
     [HideInInspector] public MailData mailData;
-    Vector3 baseScale;
+    [HideInInspector] public MailApp mailAppRef;
 
+    Vector3 baseScale;
     private void Start()
     {
         baseScale = transform.localScale;
         transform.localScale = Vector3.zero;
         transform.DOScale(baseScale, 0.3f);
+        titleTMP.text = mailData.title;
+        titleTMP.text += $"\n <color=#{nameColor.ToHexString()}><" + mailData.character.staticInfo.name + ">";
     }
 
     public void OnClicked()
     {
-        Singleton.Instance<MailApp>().OpenMail(mailData);
+        mailAppRef.OpenMail(this);
     }
 }
