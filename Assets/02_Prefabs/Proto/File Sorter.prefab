@@ -51,9 +51,9 @@ MonoBehaviour:
   _fileSpawnTr: {fileID: 0}
   _characterDisplay: {fileID: 0}
   _openAnimDistance: 1
-  _openAnimDuration: 0.1
+  _openAnimDuration: 0.2
   _binderDataList: 000000000000000000000000
-  OnSetOpenEvent:
+  OnSetLockEvent:
     m_PersistentCalls:
       m_Calls: []
   OnMatchCheckEvent:

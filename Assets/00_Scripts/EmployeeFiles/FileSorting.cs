@@ -15,14 +15,15 @@ public class FileSorting : MonoBehaviour
 
     [Header("Parameters")]
     [Space(5)]
+    [SerializeField] private float _stackingDistance;
     [SerializeField] private float _openAnimDistance;
     [SerializeField] private float _openAnimDuration;
 
-    [SerializeField] private List<Binder> _binderDataList;
+    public List<Binder> _binderDataList;
 
     [Header("Events")]
     [Space(5)]
-    [SerializeField] private UnityEvent<bool> OnSetOpenEvent;
+    [SerializeField] private UnityEvent<bool> OnSetLockEvent;
     [SerializeField] private UnityEvent OnMatchCheckEvent;
 
     private bool _canDropFile;
@@ -35,32 +36,46 @@ public class FileSorting : MonoBehaviour
 
     private void Start()
     {
-        _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
-        SetupBinders();
-
+        Init();
     }
 
-    private void SetupBinders()
+    private void Init()
     {
+        _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
+        _characterDisplay.OnCharacterExited += () => SetBindersLockState(true);
+
+        SetupBinders();
+    }
+
+    [Button]
+    public void SetupBinders()
+    {
+        _binderList.Clear();
+        if (_binderDataList.Count <= 0) return;
         for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        for (int i = 0; i < _binderDataList.Count; i++)
         {
             FileBinder childBinder = transform.GetChild(i).GetComponent<FileBinder>();
             childBinder.Init(_binderDataList[i], _openAnimDistance, _openAnimDuration);
+            childBinder.transform.position = transform.position + (Vector3.up * (i * _stackingDistance / 10));
             _binderList.Add(childBinder);
         }
         Debug.Log($"{_binderList.Count} binders in the scene");
-
     }
 
-    private void SetBindersOpenState(bool isOpen)
+
+    private void SetBindersLockState(bool isUnlocked)
     {
         foreach (FileBinder file in _binderList)
         {
-            file.canReceive = isOpen;
+            file.isUnlocked = isUnlocked;
         }
-        OnSetOpenEvent.Invoke(isOpen);
+        OnSetLockEvent.Invoke(isUnlocked);
 
-        if (isOpen) _currentFile.OnDropped += OnFileDropped;
+        if (isUnlocked) _currentFile.OnDropped += OnFileDropped;
         else _currentFile.OnDropped -= OnFileDropped;
 
     }
@@ -72,14 +87,14 @@ public class FileSorting : MonoBehaviour
         _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
         _currentFile.Init(data, _fileIndex);
         int randInd = Random.Range(0, _binderList.Count);
-        SetBindersOpenState(true);
-        //Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
+        SetBindersLockState(true);
+        Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
 
 
     private void OnFileDropped(Binder binderType)
     {
-        SetBindersOpenState(false);
+        SetBindersLockState(false);
         //TODO Get Binder Dropped
         OnFileDroppedEvent?.Invoke(binderType);
     }

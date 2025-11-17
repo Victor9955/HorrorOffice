@@ -7,9 +7,11 @@ using UnityEngine;
 
 public class FileBinder : MonoBehaviour, IDropContainer
 {
+    [SerializeField] private Transform _childContainerTR;
 
     public Binder BinderType => _binderType;
-    public bool canReceive;
+    public bool animIsOpen;
+    public bool isUnlocked;
     private MeshRenderer _meshRend;
     private Binder _binderType;
 
@@ -18,7 +20,7 @@ public class FileBinder : MonoBehaviour, IDropContainer
 
     private bool _hasDropAnimEnded;
     private Vector3 _initPos;
-
+    private Coroutine _animRoutine;
     public MeshRenderer MeshRend
     {
         get
@@ -32,12 +34,16 @@ public class FileBinder : MonoBehaviour, IDropContainer
         }
     }
 
+
+
     private void Start()
     {
         _initPos = transform.position;
+        Utils.BigText(transform.childCount.ToString());
     }
     public void Init(Binder bindertype, float distance, float duration)
     {
+        gameObject.SetActive(true);
         _binderType = bindertype;
         _openAnimDistance = distance;
         _openAnimDuration = duration;
@@ -45,38 +51,57 @@ public class FileBinder : MonoBehaviour, IDropContainer
 
     private void OnMouseEnter()
     {
-        UpdateBinderState(true);
+        UpdateOpenState(true);
     }
 
     private void OnMouseExit()
     {
-        UpdateBinderState(false);
+        UpdateOpenState(false);
     }
 
     public bool Drop<T>(T dropped) where T : Draggable
     {
         EmployeeFile file = dropped as EmployeeFile;
-        UpdateBinderState(false);
-        if (canReceive)
-            if (file == null) throw new Exception("Bruh that aint no File");
-        return true;
+        if (file == null) throw new Exception("Bruh that aint no File");
+
+        if (isUnlocked)
+        {
+            if(_animRoutine != null) StopCoroutine(_animRoutine);
+            UpdateOpenState(false);
+        }
+        return isUnlocked;
     }
-    public bool CanReceive()
+    public bool IsUnlocked()
     {
-        return canReceive;
+        return isUnlocked;
     }
 
-    private void UpdateBinderState(bool isOpening)
+
+    public void UpdateOpenState(bool isOpening, bool isHovered = false)
     {
-        string state = isOpening ? "Opening" : "Closing";
+        if (isOpening == animIsOpen) return;
         Vector3 targetPos = isOpening ? _initPos + Vector3.back * _openAnimDistance : _initPos;
-        transform.DOMove(targetPos, _openAnimDuration, false);
+        animIsOpen = isOpening;
+        _childContainerTR.DOMove(targetPos, _openAnimDuration).SetEase(Ease.InOutSine);
+        if (isHovered )
+        {
+            if (_animRoutine != null) StopCoroutine(_animRoutine);
+            _animRoutine = StartCoroutine(OpenCoroutine());
+        }
+    }
+
+    private IEnumerator OpenCoroutine()
+    {
+        while (animIsOpen)
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+        UpdateOpenState(false);
     }
 
 
 
     #region Debug
-
 
     private void OnMouseDown()
     {
