@@ -11,6 +11,8 @@ public class Mail : MonoBehaviour
     [SerializeField] Color nameColor;
     [HideInInspector] public MailData mailData;
     [HideInInspector] public MailApp mailAppRef;
+    [HideInInspector] public bool wasOpened;
+    
 
     Vector3 baseScale;
     private void Start()
@@ -25,5 +27,6 @@ public class Mail : MonoBehaviour
     public void OnClicked()
     {
         mailAppRef.OpenMail(this);
+        wasOpened = true;
     }
 }

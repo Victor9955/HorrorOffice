@@ -16,11 +16,15 @@ public class CharacterCreator : MonoBehaviour
 
     string toSay;
 
-    public void CreateCharacter(CharacterStaticInfo info, DayDialogueData dialogueData)
+    public void CreateCharacter(CharacterStaticInfo info, DayDialogueData dialogueData, Sprite ovverideSprite = null)
     {
         characterInfo = info;
         dialogue = dialogueData;
         exited = false;
+        if(ovverideSprite != null)
+        {
+            characterInfo.comingSprite = ovverideSprite;
+        }
     }
 
     public void Play()

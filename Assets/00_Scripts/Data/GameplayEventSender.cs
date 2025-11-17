@@ -15,4 +15,12 @@ public class GameplayEventSender : ScriptableObject
         await Awaitable.WaitForSecondsAsync(UnityEngine.Random.Range(mailRandomWait.x, mailRandomWait.y));
         SendMail(mail);
     }
+
+    [SerializeField] MailData mail;
+
+    [Button]
+    void Test()
+    {
+        SendMailWait(mail);
+    }
 }
