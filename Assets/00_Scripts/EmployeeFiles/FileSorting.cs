@@ -15,10 +15,11 @@ public class FileSorting : MonoBehaviour
 
     [Header("Parameters")]
     [Space(5)]
+    [SerializeField] private float _stackingDistance;
     [SerializeField] private float _openAnimDistance;
     [SerializeField] private float _openAnimDuration;
 
-    [SerializeField] private List<Binder> _binderDataList;
+    public List<Binder> _binderDataList;
 
     [Header("Events")]
     [Space(5)]
@@ -35,22 +36,36 @@ public class FileSorting : MonoBehaviour
 
     private void Start()
     {
+        Init();
+    }
+
+    private void Init()
+    {
         _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
         _characterDisplay.OnCharacterExited += () => SetBindersLockState(true);
+
         SetupBinders();
     }
 
-    private void SetupBinders()
+    [Button]
+    public void SetupBinders()
     {
+        _binderList.Clear();
+        if (_binderDataList.Count <= 0) return;
         for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+        for (int i = 0; i < _binderDataList.Count; i++)
         {
             FileBinder childBinder = transform.GetChild(i).GetComponent<FileBinder>();
             childBinder.Init(_binderDataList[i], _openAnimDistance, _openAnimDuration);
+            childBinder.transform.position = transform.position + (Vector3.up * (i * _stackingDistance / 10));
             _binderList.Add(childBinder);
         }
         Debug.Log($"{_binderList.Count} binders in the scene");
-
     }
+
 
     private void SetBindersLockState(bool isUnlocked)
     {

@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class FileBinder : MonoBehaviour, IDropContainer
 {
+    [SerializeField] private Transform _childContainerTR;
 
     public Binder BinderType => _binderType;
     public bool animIsOpen;
@@ -20,7 +21,6 @@ public class FileBinder : MonoBehaviour, IDropContainer
     private bool _hasDropAnimEnded;
     private Vector3 _initPos;
     private Coroutine _animRoutine;
-    private Transform _childContainerMesh;
     public MeshRenderer MeshRend
     {
         get
@@ -35,17 +35,15 @@ public class FileBinder : MonoBehaviour, IDropContainer
     }
 
 
-    private void Awake()
-    {
-        _childContainerMesh = GetComponentInChildren<Transform>();
-    }
 
     private void Start()
     {
         _initPos = transform.position;
+        Utils.BigText(transform.childCount.ToString());
     }
     public void Init(Binder bindertype, float distance, float duration)
     {
+        gameObject.SetActive(true);
         _binderType = bindertype;
         _openAnimDistance = distance;
         _openAnimDuration = duration;
@@ -84,13 +82,12 @@ public class FileBinder : MonoBehaviour, IDropContainer
         if (isOpening == animIsOpen) return;
         Vector3 targetPos = isOpening ? _initPos + Vector3.back * _openAnimDistance : _initPos;
         animIsOpen = isOpening;
-        transform.DOMove(targetPos, _openAnimDuration).SetEase(Ease.InOutSine);
+        _childContainerTR.DOMove(targetPos, _openAnimDuration).SetEase(Ease.InOutSine);
         if (isHovered )
         {
             if (_animRoutine != null) StopCoroutine(_animRoutine);
             _animRoutine = StartCoroutine(OpenCoroutine());
         }
-
     }
 
     private IEnumerator OpenCoroutine()
