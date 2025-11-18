@@ -13,97 +13,64 @@ MonoBehaviour:
   m_Name: DialogueData
   m_EditorClassIdentifier: 
   url: https://docs.google.com/spreadsheets/d/e/2PACX-1vQpSvrM8mhpAdbZ-XlsNpr_OK69RDyARIT1DVzGfDExky9vAo1NE0-4TmXPlxgay1QcH0qHTSBb9CYV/pub?output=csv
-  comasReplacement: "\xF9"
   language: 0
   dialogues:
     _serializedList:
     - Key: CONNIE_Hello
       Value:
-      - '"Hey'
-      - ' pal."'
+      - Hi the name's Connie !
+      - Bonjour
     - Key: ABBIE_Hello
       Value:
-      - Hi... I'm new here. I hope everything is alright?
-      - "Bonjour\r"
+      - '"Hello my name is Abigail. I''m new here'
+      - I hope nothing is wrong with my paper."
     - Key: MAX_Hello
       Value:
-      - Good morning!
-      - "Bonjour\r"
-    - Key: 'ROSA_Hello '
+      - Hi nice to meet you !
+      - Bonjour
+    - Key: ROSA_Hello
       Value:
-      - Hello, dear!
-      - "Bonjour mon ch\xE9rie\r"
+      - Hello my dear !
+      - "Bonjour mon ch\xE9rie"
     - Key: LI_Hello
       Value:
-      - "Oh. You\u2019re new. Uh\u2026 hi."
-      - "Jour...\r"
+      - Hi!
+      - Jour...
     - Key: DEVI_Hello
       Value:
-      - "\u2026What? Is there something on my face?"
-      - "\r"
+      - ...
+      - 
     - Key: CONNIE_1
       Value:
-      - "Hey, fella!\xA4You\u2019re new here, am I right?\xA4\u2026eh, who am I kidding.\xA4Everyone
-        on this floor knows about our little newcomer.\xA4Sorry, 'guess that wasn\u2019t
-        the warm welcome you expected on your first day\u2026\xA4Ah, don\u2019t blame
-        them. They\u2019re a lil' on edge lately. Thought I\u2019d at least come
-        by and give you something of a greeting.\xA4\u2026Hey, y'know what? You seem
-        alright, so I\u2019m gonna clue you in on a little something.\xA4Tomorrow,
-        company\u2019s about to hand over some long overdue promotions to its best
-        soldiers.\xA4That\u2019s the reason everyone\u2019s shooting daggers at each
-        other right now.\xA4And of course, duty will fall on you to decide who\u2019s
-        most deserving of the honors.\xA4I know, \u2018might be a lil\u2019 overwhelming
-        to already undertake responsibilities like this just as you came in.\xA4I
-        mean, you don\u2019t even know anyone here! And it\u2019s not like you got
-        anyone rooting for you. If anything, most of them will want to tear you apart
-        as soon as you give them a warning.\xA4Take my bit of advice. Don\u2019t
-        let them. Doing what you do, you\u2019re bound to make some enemies anyway.
-        Can\u2019t please everyone.\xA4But earning a few friends here and there can
-        go a long way towards making you fit in.\xA4Anyways, just my two cents. Took
-        enough of your time, and need to go back to the deed myself. And remember:
-        I am rooting for you, pal!"
-      - "\r"
+      - '"Hey'
+      - "fella!\xA4You\u2019re new here"
     - Key: DEVI_1
       Value:
       - ...
-      - "\r"
+      - 
     - Key: MAX_1
       Value:
-      - "Oh! Sorry for surprising you.\xA4Didn\u2019t expect to see a new face here.
-        Forgot you were replacing the other guy.\xA4A shame. I quite liked him. Though
-        I\u2019m sure you\u2019ll fit right in as well!\xA4Anyway, nice to meet you!
-        Don\u2019t worry, I probably won\u2019t make your job too hard. My reports
-        are always flawless.\xA4See you tomorrow!"
-      - "\r"
+      - "\"Oh! Sorry for surprising you.\xA4Didn\u2019t expect to see a new face
+        here. Forgot you were replacing the other guy.\xA4A shame. I quite liked
+        him. Though I\u2019m sure you\u2019ll fit right in as well!\xA4Anyway"
+      - "nice to meet you! Don\u2019t worry"
     - Key: CONNIE_2_A
       Value:
-      - "Hey, pal!\xA4Nice one the other day. Very funny.\xA4\u2026Don\u2019t do
-        that again.\xA4But hey. No offense taken.\xA4\u2026\xA4So! Met any new friends?\xA4Not
-        much like you\u2019re spoiled for choice. It\u2019s only the four of us here.\xA4\u2026Five,
-        if you count Esteban; though the guy doesn\u2019t talk much.\xA4Ahem, neither
-        does Devi, to be honest.\xA4And Max\u2026 she\u2019s probably the worst of
-        the bunch.\xA4All smiles, and just ready to plant a dagger in your back when
-        you least expect it.\xA4Again, I\u2019d be wary of who you trust. It\u2019s
-        a shark tank here, and you wouldn\u2019t believe the lengths some people
-        go just to earn a promotion.\xA4Glad you\u2019re one of the good ones!"
-      - "\r"
+      - '"Hey'
+      - "pal!\xA4Nice one the other day. Very funny.\xA4\u2026Don\u2019t do that
+        again.\xA4But hey. No offense taken.\xA4\u2026\xA4So! Met any new friends?\xA4Not
+        much like you\u2019re spoiled for choice. It\u2019s only the four of us here.\xA4\u2026Five"
     - Key: CONNIE_2_B
       Value:
-      - "Hey, pal!\xA4Thanks for covering my ass yesterday.\xA4Knew you were a real
-        mate.\xA4Really appreciate it. And you know I\u2019ll return the favor.\xA4So!
-        Met any new friends?\xA4Not much like you\u2019re spoiled for choice. It\u2019s
-        only the four of us here.\xA4\u2026Five, if you count Esteban; though the
-        guy doesn\u2019t talk much.\xA4Ahem, neither does Devi, to be honest. And
-        Max\u2026 she\u2019s probably the worst of the bunch.\xA4All smiles, and
-        just ready to plant a dagger in your back when you least expect it.\xA4Again,
-        I\u2019d be wary of who you trust. It\u2019s a shark tank here, and you wouldn\u2019t
-        believe the lengths some people go just to earn a promotion.\xA4Glad you\u2019re
-        one of the good ones!"
-      - "\r"
+      - '"Hey'
+      - "pal!\xA4Thanks for covering my ass yesterday.\xA4Knew you were a real mate.\xA4Really
+        appreciate it. And you know I\u2019ll return the favor.\xA4So! Met any new
+        friends?\xA4Not much like you\u2019re spoiled for choice. It\u2019s only
+        the four of us here.\xA4\u2026Five"
     - Key: LI_1
       Value:
       - "Oh. You\u2019re new.\xA4Uh\u2026 hi."
-      - "\r"
+      - 
     - Key: DEVI_2
       Value:
       - "\u2026\xA4What? Is there something on my face?"
