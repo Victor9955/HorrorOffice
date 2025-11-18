@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections;
+using TMPro;
 using Unity.Properties;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ using UnityEngine;
 public class FileBinder : MonoBehaviour, IDropContainer
 {
     [SerializeField] private Transform _childContainerTR;
-
+    [SerializeField] private TMP_Text _text;
     public Binder BinderType => _binderType;
     public bool animIsOpen;
     public bool isUnlocked;
@@ -47,6 +48,7 @@ public class FileBinder : MonoBehaviour, IDropContainer
         _binderType = bindertype;
         _openAnimDistance = distance;
         _openAnimDuration = duration;
+        _text.text = _binderType.ToString();
     }
 
     private void OnMouseEnter()
