@@ -73,8 +73,8 @@ public class FileSorting : MonoBehaviour
         }
         OnSetLockEvent.Invoke(isUnlocked);
 
-        if (isUnlocked) _currentFile.OnDropped += OnFileDropped;
-        else _currentFile.OnDropped -= OnFileDropped;
+        if (isUnlocked) _currentFile.OnFileDroppedInSorter += OnFileDropped;
+        else _currentFile.OnFileDroppedInSorter -= OnFileDropped;
 
     }
 
