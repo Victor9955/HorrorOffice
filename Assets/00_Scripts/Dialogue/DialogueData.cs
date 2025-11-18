@@ -15,6 +15,7 @@ public enum Language
 public class DialogueData : ScriptableObject
 {
     [SerializeField] string url;
+    [SerializeField] string comasReplacement;
     public Language language;
     public SerializedDictionary<string, List<string>> dialogues;
     
@@ -79,9 +80,9 @@ public class DialogueData : ScriptableObject
             // Ensure we have enough columns (C, D, E at minimum)
             if (fields.Length >= 5)
             {
-                string key = fields[2].Trim(); // Column C
-                string english = fields[3].Trim(); // Column D
-                string french = fields[4].Trim(); // Column E
+                string key = fields[2]; // Column C
+                string english = fields[3].Replace(comasReplacement[0],','); // Column D
+                string french = fields[4].Replace(comasReplacement[0], ','); // Column E
 
                 if (!string.IsNullOrEmpty(key))
                 {
