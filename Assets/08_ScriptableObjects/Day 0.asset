@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
   m_Name: Day 0
   m_EditorClassIdentifier: 
-  startEmail: []
+  startEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  binders: 000000000200000001000000
   actions:
   - character: {fileID: 11400000, guid: 7b76ae9dc38f953478e315d68ed67746, type: 2}
+    overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 06f375389b8c9f54393865169f5bec30, type: 2}
@@ -31,6 +35,7 @@ MonoBehaviour:
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 5dc4ac72133ab7d49994c9b792510145, type: 2}
+    overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: e4866fa16f719d24a853f6d7ab92c2e4, type: 2}

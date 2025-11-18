@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1275764975832502377}
   m_Layer: 3
   m_Name: FileBinder
-  m_TagString: Untagged
+  m_TagString: Desk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,5 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b516138a3b184243859f01798357332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 0
   isOpen: 0
+  isUnlocked: 0

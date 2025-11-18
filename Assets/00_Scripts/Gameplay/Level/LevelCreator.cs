@@ -37,6 +37,10 @@ public class LevelCreator : MonoBehaviour
         Debug.Log("<color=green> CREATE LEVEL </color>");
 
         current = createInfo;
+        if(createInfo.overrideCharacterSprite != null)
+        {
+
+        }
         characterCreator.CreateCharacter(createInfo.character.staticInfo, createInfo.dayDialogue);
         isCreated = true;
         isEnded = false;

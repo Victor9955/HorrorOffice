@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,15 +22,33 @@ public class ComputerInteraction : MonoBehaviour
     [SerializeField] List<MeshRenderer> computerMeshs;
     [SerializeField] InputAction quitAction;
     [SerializeField] Collider interactionCol;
+    List<Material> materials = new();
 
+    CameraMovement cam;
+    
     private void Start()
     {
+        cam = Camera.main.GetComponent<CameraMovement>();
+        cam.OnFocusedChange += (focused) =>
+        {
+            interactionCol.enabled = !focused;
+        };
         quitAction.Enable();
         quitAction.performed += (Input) =>
         {
-            Camera.main.GetComponent<CameraMovement>().StopFocus();
-            interactionCol.enabled = true;
+            cam.StopFocus();
         };
+
+        computerMeshs.ForEach((m) =>
+        {
+            foreach (var item in m.materials)
+            {
+                if (item.HasFloat("_Size"))
+                {
+                    materials.Add(item);
+                }
+            }
+        });
     }
 
     private void OnDestroy()
@@ -44,9 +63,8 @@ public class ComputerInteraction : MonoBehaviour
             isLoading = true;
             StartCoroutine(LoadRoutine());
         }
-        Camera.main.GetComponent<CameraMovement>().FocusPC();
+        cam.FocusPC();
         StopOver();
-        interactionCol.enabled = false;
     }
 
     public void Over()
@@ -54,16 +72,16 @@ public class ComputerInteraction : MonoBehaviour
         float size = 1f;
         DOTween.To(() => size, _ => size = _, 1.05f, 0.25f).OnUpdate(() =>
         {
-            computerMeshs.ForEach(m => m.materials[1].SetFloat("_Size", size));
+            materials.ForEach(m => m.SetFloat("_Size", size));
         });
     }
 
     public void StopOver()
     {
-        float size = computerMeshs[0].materials[1].GetFloat("_Size");
+        float size = materials[0].GetFloat("_Size");
         DOTween.To(() => size, _ => size = _, 1f, 0.25f).OnUpdate(() =>
         {
-            computerMeshs.ForEach(m => m.materials[1].SetFloat("_Size", size));
+            materials.ForEach(m => m.SetFloat("_Size", size));
         });
     }
     

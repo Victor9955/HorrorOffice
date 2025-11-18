@@ -18,6 +18,9 @@ public struct CharacterStaticInfo
     public  float _walkMagnitude;
     public int _walkFrequency;
      public AnimationCurve _animCurve;
+
+    [Header("Mail")]
+    public Sprite mailPP;
 }
 
 public class CharacterData : ScriptableObject

@@ -15,6 +15,7 @@ public struct DayDialogueData
 public struct SheetAction
 {
     public CharacterData character;
+    public Sprite overrideCharacterSprite;
     public bool beginCondition;
     public List<SheetData> sheets;
     public DayDialogueData dayDialogue;
@@ -23,6 +24,7 @@ public struct SheetAction
 [CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/LevelData")]
 public class DayData : ScriptableObject
 {
-    public List<Mail> startEmail;
+    public UnityEvent startEvent;
+    public List<Binder> binders;
     public List<SheetAction> actions;
 }

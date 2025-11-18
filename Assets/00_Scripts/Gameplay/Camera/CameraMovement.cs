@@ -1,7 +1,7 @@
 using DG.Tweening;
 using HuntroxGames.Utils;
 using NaughtyAttributes;
-using System.Data.Common;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,13 +22,17 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] Transform pc;
     [SerializeField] float fovPC;
 
-    bool isFocused = false;
+    [Header("QuitPC")]
+    [SerializeField] Vector2 triggerQuit;
+
+    [HideInInspector] public bool isFocused = false;
+
+    public event Action<bool> OnFocusedChange;
 
     Quaternion lastRotation;
     float lastFov;
 
     float cameraRotation;
-
     private void Start()
     {
         lastFov = cameraRef.fieldOfView;
@@ -39,11 +43,12 @@ public class CameraMovement : MonoBehaviour
     [ConsoleCommand]
     public void StopFocus()
     {
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, lastFov, transitionSpeed);
         cameraTransform.DOLocalRotate(lastRotation.eulerAngles, transitionSpeed).OnComplete(() =>
         {
             isFocused = false;
+            OnFocusedChange?.Invoke(isFocused);
         });
-        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, lastFov, transitionSpeed);
     }
 
     public void FocusCharacter(CharacterData character, Vector3 position)
@@ -62,8 +67,7 @@ public class CameraMovement : MonoBehaviour
     public void FocusPC()
     {
         isFocused = true;
-
-        lastFov = cameraRef.fieldOfView;
+        OnFocusedChange?.Invoke(isFocused);
         lastRotation = cameraTransform.rotation;
 
         Quaternion lookRotation = Quaternion.LookRotation(pc.position - cameraTransform.position);
@@ -71,7 +75,7 @@ public class CameraMovement : MonoBehaviour
         finalRoation.x += offset.y;
         finalRoation.y += offset.x;
 
-        cameraTransform.DOLocalRotate(finalRoation,transitionSpeed);
+        cameraTransform.DOLocalRotate(finalRoation, transitionSpeed);
         DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed);
     }
 
@@ -98,6 +102,24 @@ public class CameraMovement : MonoBehaviour
             Vector3 finalRotation = lastRotation.eulerAngles;
             finalRotation.y = cameraRotation;
             lastRotation.eulerAngles = finalRotation;
+        }
+        else
+        {
+            if(Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                Vector2 mousePosition = Mouse.current.position.value;
+                //Rights
+                if (mousePosition.x > Screen.width - (triggerQuit.y * Screen.width))
+                {
+                    StopFocus();
+                }
+
+                //Left
+                if (mousePosition.x < (triggerQuit.x * Screen.width))
+                {
+                    StopFocus();
+                }
+            }
         }
     }
 }
