@@ -1,56 +1,50 @@
 using DG.Tweening;
+using HuntroxGames.Utils;
 using NaughtyAttributes;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 {
     [SerializeField] Mail mailPrefab;
-    [SerializeField] RectTransform contentAncor;
+    [SerializeField] MailView mailView;
     [SerializeField] RectTransform mailViewAncor;
-    [SerializeField] WindowAnimation mailWindow;
-    [HideInInspector] public List<Mail> bin = new();
+    [SerializeField] Image notifiaction;
+    [SerializeField] GameplayEventSender gameplayEvents;
 
-    MailView current;
-    bool toBeDestroyed;
+    Dictionary<Mail, MailData> reiceivedMail = new();
 
-    public void Open()
+    private void Start()
     {
-        while (bin.Count > 0)
-        {
-            bin[0].UnCheck();
-            bin.RemoveAt(0);
-        }
+        gameplayEvents.OnSendMail += ReiceiveMail;
     }
 
-    public void Delete()
+    private void OnDestroy()
     {
-        while (bin.Count > 0)
-        {
-            bin[0].Delete();
-            bin.RemoveAt(0);
-        }
+        gameplayEvents.OnSendMail -= ReiceiveMail;
     }
 
-    public void ReiceiveMail(Mail mail)
+    void ReiceiveMail(MailData mailData)
     {
-        Mail cash = Instantiate(mail, contentAncor.transform);
+        Mail mailCash = Instantiate(mailPrefab,mailViewAncor);
+        reiceivedMail.Add(mailCash,mailData);
+        mailCash.mailData = mailData;
+        mailCash.mailAppRef = this;
+        notifiaction.enabled = true;
     }
 
-    public void OpenMail(MailView mail)
+    public void OpenMail(Mail mail)
     {
-        GameObject cash = null;
-        if (current != null)
+        if(reiceivedMail.TryGetValue(mail, out MailData mailCash))
         {
-            cash = current.gameObject;
-        }
-        current = Instantiate(mail, mailViewAncor);
-        current.myWindow = mailWindow;
-        mailWindow.Open();
-        if (toBeDestroyed && cash != null)
-        {
-            Destroy(cash);
-            toBeDestroyed = false;
+            int seenMail = reiceivedMail.Keys.Where((m) => m.wasOpened).Count();
+            if(seenMail > 0)
+            {
+                notifiaction.enabled = false;
+            }
+            mailView.Show(mailCash);
         }
     }
 
@@ -59,8 +53,8 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 
     }
 
-    public void CloseCurrentMail()
+    public void Open()
     {
-        toBeDestroyed = true;
+
     }
 }

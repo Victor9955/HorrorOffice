@@ -42,9 +42,10 @@ public struct DragStateInfo
     public DragStateInfo(Vector3 posOffset, Quaternion rot)
     {
         _posOffset = posOffset;
-        _yaw = rot.x;
-        _pitch = rot.y;
-        _roll = rot.z;
+        Vector3 euleurRot = rot.eulerAngles;
+        _yaw = euleurRot.x;
+        _pitch = euleurRot.y;
+        _roll = euleurRot.z;
     }
 
     #endregion
@@ -68,9 +69,8 @@ public class Draggable : MonoBehaviour
     {
         get
         {
-            Vector3 mousePos = Mouse.current.position.value;
-            mousePos.z = _distance;
-            return _cam.ScreenToWorldPoint(mousePos);
+            //Vector3 mousePos = _cam.ScreenPointToRay(Mouse.current.position.value).GetPoint(_distance);
+            return _cam.ScreenPointToRay(Mouse.current.position.value).GetPoint(_distance);
         }
     }
 
@@ -126,12 +126,13 @@ public class Draggable : MonoBehaviour
         _isPickedUp = true;
         while (_isPickedUp)
         {
-            _targetDI = ComputePickedUpDrag();
+            //_targetDI = ComputePickedUpDrag();
             DragTick();
-            transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
+            //transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
             yield return new WaitForSeconds(_draggingTick);
         }
-        _dragCoroutine = StartCoroutine(DragReturn());
+
+        //_dragCoroutine = StartCoroutine(DragReturn());
         Debug.Log("Stop dragging");
     }
 
@@ -144,7 +145,7 @@ public class Draggable : MonoBehaviour
     private IEnumerator DragReturn()
     {
         float elapsed = 0;
-        transform.DORotate(_initDI.Rot.eulerAngles, 0.4f);
+        //transform.DORotate(_initDI.Rot.eulerAngles, 0.4f);
         while (elapsed < _dragReturnDuration)
         {
             elapsed += Time.deltaTime;
@@ -158,7 +159,7 @@ public class Draggable : MonoBehaviour
     private DragStateInfo ComputePickedUpDrag()
     {
         //transform.LookAt(_cam.transform, Vector3.up);
-        Quaternion rot = Quaternion.LookRotation((_cam.transform.position - transform.position).normalized, transform.up);
+        Quaternion rot = Quaternion.LookRotation((_cam.transform.position - transform.position).normalized, Vector3.up);
 
         return new DragStateInfo
             (
@@ -203,10 +204,11 @@ public class Draggable : MonoBehaviour
     public Quaternion DragLerp(Quaternion P, Quaternion T)
     {
         if (_dragPosSpeed * Time.deltaTime > 1) return T;
+        /*
         Vector3 PVec = P.eulerAngles;
         Vector3 TVec = T.eulerAngles;
-        Quaternion resultVec = Quaternion.Euler(PVec + (TVec - PVec) * _dragPosSpeed * Time.deltaTime);
-        return resultVec;
+        Quaternion resultVec = Quaternion.Euler(PVec + (TVec - PVec) * _dragPosSpeed * Time.deltaTime);*/
+        return Quaternion.Lerp(P,T,1f);
     }
 
 

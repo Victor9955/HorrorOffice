@@ -11,6 +11,7 @@ public enum Binder
     RAS
 }
 
+
 [CreateAssetMenu(fileName = "Sheet", menuName = "Scriptable Objects/Sheet")]
 public class SheetData : ScriptableObject
 {
@@ -22,7 +23,16 @@ public class SheetData : ScriptableObject
     public SerializedDictionary<Binder,UnityEvent> actions;
 
     [Header("Database")]
-    public int statA;
-    public int statB;
-    public int statC;
+    public string charachterId;
+    public string characterName;
+    public int pausesNumber;
+    public string beginTime;
+    public string breakfastTime;
+    [TextArea(1,20)] public string medicineTime;
+    public string HGrade;
+    public string EGrade;
+    public string AGrade;
+    public string LGrade;
+    public string TGrade;
+    public string HGradeTwo;
 }

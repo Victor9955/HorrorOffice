@@ -3,6 +3,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class EmployeeFile : Draggable
 {
@@ -10,7 +11,7 @@ public class EmployeeFile : Draggable
     private SheetData _sheetData;
     public SheetData GetSheetData => _sheetData;
 
-    private SpriteRenderer _spriteRend;
+    [SerializeField] private SpriteRenderer _spriteRend;
     private SpriteRenderer SpriteRend
     {
         get
@@ -38,7 +39,7 @@ public class EmployeeFile : Draggable
     }
     private void InitObject(int fileIndex)
     {
-        Debug.Log($"init : ({_initDI.Pos},{_initDI.Rot}), tr : ({transform.position},{transform.rotation})");
+        //Debug.Log($"init : ({_initDI.Pos},{_initDI.Rot}), tr : ({transform.position},{transform.rotation})");
         name = $"SheetInstance_{fileIndex}";
         gameObject.SetActive(true);
         _canBeDragged = _draggableOnReset;
@@ -59,27 +60,34 @@ public class EmployeeFile : Draggable
             bool didHitDesk = ray.hit.transform.CompareTag("Desk");
             if (didHitDesk)
             {
-                DragStateInfo deskDI = new
-                    (
-                        ray.hit.point + (ray.hit.normal * 0.2f),
-                        _initDI.Rot.x,
-                        _initDI.Rot.y,
-                        _initDI.Rot.z
+                _targetDI = new(
+                    ray.hit.point + (ray.hit.normal * 0.2f),
+                    Quaternion.LookRotation(-ray.hit.normal)
                     );
-                _targetDI = deskDI;
             }
             if (ray.hit.transform.TryGetComponent<IDropContainer>(out IDropContainer binder))
             {
-                if (binder.IsUnlocked()) binder.UpdateOpenState(true, true);
+                FileBinder fileBinder = binder as FileBinder;
+                _targetDI = new(
+                    fileBinder.GetFilePosition(),
+                    Quaternion.LookRotation(fileBinder.transform.up)
+                    );
             }
         }
-        ;
+        else
+        {
+            _targetDI = new(
+                CamToWorldPos,
+                Quaternion.LookRotation(_cam.transform.forward, Vector3.up)
+                );
+        }
         base.DragTick();
     }
     public override void Drop()
     {
         base.Drop();
         var ray = CamRaycast();
+        
         if (ray.didHit)
         {
             if (ray.hit.transform.gameObject.TryGetComponent(out IDropContainer container))
@@ -92,14 +100,12 @@ public class EmployeeFile : Draggable
                     OnDroppedUEvent?.Invoke();
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }
-                else if (ray.hit.transform.CompareTag("Desk"))
+                if (ray.hit.transform.CompareTag("Desk"))
                 {
                     DragStateInfo deskDI = new
                         (
                             ray.hit.point + (ray.hit.normal),
-                            _initDI.Rot.x,
-                            _initDI.Rot.y,
-                            _initDI.Rot.z
+                            Quaternion.LookRotation(-ray.hit.normal)
                         );
                     _initDI = deskDI;
                 }
@@ -116,7 +122,7 @@ public class EmployeeFile : Draggable
 
         RaycastHit hit;
         bool didHit = Physics.Raycast(ray, out hit, 100, _layerMask);
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue, 2f);
+        //Debug.DrawRay(ray.origin, ray.direction, Color.blue, 2f);
         return (didHit, hit);
     }
 }

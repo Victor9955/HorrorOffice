@@ -1,5 +1,6 @@
 using HuntroxGames.Utils;
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ using UnityEngine.InputSystem;
 public class LevelSender : MonoBehaviour
 {
     [SerializeField,Required] LevelCreator levelCreator;
+    [SerializeField,Required] FileSorting fileSorting;
+    [SerializeField] private Vector2 randomWaitTimeForCharacter;
 
     [SerializeField] List<DayData> days;
 
@@ -15,6 +18,8 @@ public class LevelSender : MonoBehaviour
     DayData current;
     [SerializeField] private bool debugBeginFirstDay;
 
+    public event Action<DayData> OnBeginDay;
+    public event Action OnEndDay;
 
     private void Start()
     {
@@ -24,7 +29,6 @@ public class LevelSender : MonoBehaviour
         }
     }
 
-
     [ConsoleCommand("BeginDay", "[Integer Input]")]
     public void BeginDay(int m_day)
     {
@@ -32,16 +36,25 @@ public class LevelSender : MonoBehaviour
         {
             day = m_day;
             current = days[day];
-            StartCoroutine(PlayLevel());
         }
+    }
+
+    public void StartSheetSorting()
+    {
+        StartCoroutine(PlayLevel());
     }
 
     IEnumerator PlayLevel()
     {
-        current.OnBeginDay?.Invoke();
+        OnBeginDay?.Invoke(current);
+        current.startEvent?.Invoke();
+        fileSorting._binderDataList = current.binders;
+        fileSorting.SetupBinders();
         foreach (var levelAction in current.actions)
         {
-            yield return new WaitUntil(() => levelAction.beginCondition);
+            yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
+
+            //yield return new WaitUntil(() => levelAction.beginCondition);
             levelCreator.CreateLevel(levelAction);
             yield return new WaitUntil(() => levelCreator.isCreated);
             StartCoroutine(levelCreator.Play());
@@ -50,5 +63,6 @@ public class LevelSender : MonoBehaviour
             yield return new WaitUntil(() => levelCreator.isEnded);
         }
         current = null;
+        OnEndDay?.Invoke();
     }
 }

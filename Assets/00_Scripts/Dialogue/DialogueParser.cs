@@ -24,8 +24,7 @@ public class DialogueParser : MonoBehaviour
             if (!string.IsNullOrWhiteSpace(lines[i]))
             {
                 string[] dataValues = lines[i].Split(new[] { '\t', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-                //throw new NotImplementedException();
-                // NEED TO CONVERT IT INTO A 'DIALOGUE' CLASS VRO
+                
             }
         }
     }

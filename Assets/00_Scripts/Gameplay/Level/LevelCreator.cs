@@ -8,8 +8,8 @@ using UnityEngine.Events;
 
 public class LevelCreator : MonoBehaviour
 {
-    [SerializeField, Required] CharacterCreator characterCreator;
-    [SerializeField, Required] FileSorting fileSorting;
+    [SerializeField,Required] CharacterCreator characterCreator;
+    [SerializeField,Required] FileSorting fileSorting;
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
@@ -37,6 +37,10 @@ public class LevelCreator : MonoBehaviour
         Debug.Log("<color=green> CREATE LEVEL </color>");
 
         current = createInfo;
+        if(createInfo.overrideCharacterSprite != null)
+        {
+
+        }
         characterCreator.CreateCharacter(createInfo.character.staticInfo, createInfo.dayDialogue);
         isCreated = true;
         isEnded = false;

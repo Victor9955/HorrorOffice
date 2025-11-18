@@ -2,24 +2,25 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterDisplay : MonoBehaviour
 {
-
     [Header("Refs")]
     [SerializeField] private Transform _enterTr;
     [SerializeField] private Transform _officeTr;
     [SerializeField] private Transform _exitTr;
 
     [SerializeField] private GameObject _characterPrefab;
+    [SerializeField] private TextMeshProUGUI dialogueTMP;
 
 
     private GameObject _currentCharacterObj;
     private CharacterStaticInfo _currentCharacterInfo;
     private Coroutine _moveCoroutine;
 
-    public Action OnCharcterSpawned;
+    public Action<GameObject> OnCharcterSpawned;
     public Action OnCharacterEntered;
     public Action OnCharacterExited;
 
@@ -34,11 +35,13 @@ public class CharacterDisplay : MonoBehaviour
         }));
     }
 
-    public void SpawnCharacter(CharacterStaticInfo info, Action onArrived)
+    public void SpawnCharacter(CharacterStaticInfo info,string dialogue, Action onArrived)
     {
-        OnCharcterSpawned?.Invoke();
+        
         SetCharacterObj(info);
+        _currentCharacterObj.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
         _currentCharacterInfo = info;
+        OnCharcterSpawned?.Invoke(_currentCharacterObj);
         _moveCoroutine = StartCoroutine(Move(_officeTr.position, info._enterDuration, info._animCurve, () =>
         {
             OnCharacterEntered?.Invoke();
@@ -74,8 +77,8 @@ public class CharacterDisplay : MonoBehaviour
 
             Vector3 newPos = Vector3.Lerp(initPos, endPos, t);
 
-            // Ajout de la vague sinusoïdale sur l’axe Y
-            float waveT = t * Mathf.PI * _currentCharacterInfo._walkFrequency;  // progression dans la sinusoïde
+            // Ajout de la vague sinusoï¿½dale sur lï¿½axe Y
+            float waveT = t * Mathf.PI * _currentCharacterInfo._walkFrequency;  // progression dans la sinusoï¿½de
             Vector3 waveMov = Mathf.Abs(Mathf.Sin(waveT)) * _currentCharacterInfo._walkMagnitude * _currentCharacterObj.transform.up;
             newPos += waveMov;
 

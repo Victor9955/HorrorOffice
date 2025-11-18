@@ -5,12 +5,11 @@ using UnityEngine;
 public struct CharacterStaticInfo
 {
     public string name;
+    public string dialogueKey;
     public Sprite comingSprite;
     public Sprite givePaperSprite;
-    public AnimationCurve walkCurve;
-    public int happyAmount;
     public Vector2 lookOffset;
-    public Binder lastBinder;
+   [HideInInspector] public Binder lastBinder;
 
 
     [Header("Anim Parameters")]
@@ -19,6 +18,9 @@ public struct CharacterStaticInfo
     public  float _walkMagnitude;
     public int _walkFrequency;
      public AnimationCurve _animCurve;
+
+    [Header("Mail")]
+    public Sprite mailPP;
 }
 
 public class CharacterData : ScriptableObject
