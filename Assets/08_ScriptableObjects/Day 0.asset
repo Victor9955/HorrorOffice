@@ -21,6 +21,14 @@ MonoBehaviour:
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
+    - {fileID: 11400000, guid: 06f375389b8c9f54393865169f5bec30, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 44103b76b7703cc46bb4051cc9964d19, type: 2}
+    beginCondition: 1
+    sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
       DefaultDialogueKey: Hello
@@ -28,6 +36,30 @@ MonoBehaviour:
         _serializedList: []
   - character: {fileID: 11400000, guid: 5dc4ac72133ab7d49994c9b792510145, type: 2}
     overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: e4866fa16f719d24a853f6d7ab92c2e4, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 86834131876558543b4d2e88d96903d8, type: 2}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 2978c19365c914947af0cb4562691fb3, type: 2}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: 672b9d1416ff9d849bfbbfdb6eb82eeb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 85625dd6d25797247acd41cea60f915a, type: 2}
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: ba8a0f3c1bc583141aef031525118a5a, type: 2}
