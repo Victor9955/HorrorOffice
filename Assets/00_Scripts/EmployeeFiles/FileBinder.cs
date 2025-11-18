@@ -1,20 +1,26 @@
+using DG.Tweening;
 using System;
+using System.Collections;
 using Unity.Properties;
 using UnityEngine;
 
-[Serializable]
-public class BinderData
-{
-    public Color color = Color.white;
-}
 
 public class FileBinder : MonoBehaviour, IDropContainer
 {
+    [SerializeField] private Transform _childContainerTR;
 
-    [SerializeField] private int _id;
-    public int Id => _id;
-    public bool isOpen;
+    public Binder BinderType => _binderType;
+    public bool animIsOpen;
+    public bool isUnlocked;
     private MeshRenderer _meshRend;
+    private Binder _binderType;
+
+    private float _openAnimDistance;
+    private float _openAnimDuration;
+
+    private bool _hasDropAnimEnded;
+    private Vector3 _initPos;
+    private Coroutine _animRoutine;
     public MeshRenderer MeshRend
     {
         get
@@ -27,30 +33,79 @@ public class FileBinder : MonoBehaviour, IDropContainer
             return _meshRend;
         }
     }
-    public Color MeshMatColor
+
+
+
+    private void Start()
     {
-        get => MeshRend.material.color;
-        private set => MeshRend.material.color = value;
+        _initPos = transform.position;
+        Utils.BigText(transform.childCount.ToString());
+    }
+    public void Init(Binder bindertype, float distance, float duration)
+    {
+        gameObject.SetActive(true);
+        _binderType = bindertype;
+        _openAnimDistance = distance;
+        _openAnimDuration = duration;
     }
 
-    public void Init(int id, BinderData data = null)
+    private void OnMouseEnter()
     {
-        _id = id;
-        if (data == null) return; // managing data like binder color etc
-        MeshMatColor = data.color;
-
+        UpdateOpenState(true);
     }
+
+    private void OnMouseExit()
+    {
+        UpdateOpenState(false);
+    }
+
     public bool Drop<T>(T dropped) where T : Draggable
     {
         EmployeeFile file = dropped as EmployeeFile;
         if (file == null) throw new Exception("Bruh that aint no File");
-        bool match = file.FileID == Id;
-        // Call fileSorting if true;
-        return match;
+
+        if (isUnlocked)
+        {
+            if(_animRoutine != null) StopCoroutine(_animRoutine);
+            UpdateOpenState(false);
+        }
+        return isUnlocked;
     }
-    public bool IsOpen()
+    public bool IsUnlocked()
     {
-        return isOpen;
+        return isUnlocked;
     }
 
+
+    public void UpdateOpenState(bool isOpening, bool isHovered = false)
+    {
+        if (isOpening == animIsOpen) return;
+        Vector3 targetPos = isOpening ? _initPos + Vector3.back * _openAnimDistance : _initPos;
+        animIsOpen = isOpening;
+        _childContainerTR.DOMove(targetPos, _openAnimDuration).SetEase(Ease.InOutSine);
+        if (isHovered )
+        {
+            if (_animRoutine != null) StopCoroutine(_animRoutine);
+            _animRoutine = StartCoroutine(OpenCoroutine());
+        }
+    }
+
+    private IEnumerator OpenCoroutine()
+    {
+        while (animIsOpen)
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+        UpdateOpenState(false);
+    }
+
+
+
+    #region Debug
+
+    private void OnMouseDown()
+    {
+        Debug.Log($"{name}'s type is {BinderType}");
+    }
+    #endregion
 }

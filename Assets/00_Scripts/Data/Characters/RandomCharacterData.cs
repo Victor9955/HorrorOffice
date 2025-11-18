@@ -1,16 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RandomCharacterData", menuName = "Scriptable Objects/RandomCharacterData")]
 public class RandomCharacterData : CharacterData
 {
-    public override CharacterStaticInfo staticInfo => CreateRandomCharacterStatic();
+    public override CharacterStaticInfo staticInfo => randoms[Random.Range(0,randoms.Count)];
 
-    CharacterStaticInfo CreateRandomCharacterStatic()
-    {
-        CharacterStaticInfo createInfo = new CharacterStaticInfo();
-
-        //TODO Set Random Values
-
-        return createInfo;
-    }
+    [SerializeField] List<CharacterStaticInfo> randoms = new();
 }

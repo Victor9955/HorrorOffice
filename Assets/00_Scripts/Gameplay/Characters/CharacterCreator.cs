@@ -5,37 +5,52 @@ using UnityEngine;
 public class CharacterCreator : MonoBehaviour
 {
     [SerializeField,HideInInspector] // sheet position
-    CharacterStaticInfo createInfo;
+    CharacterStaticInfo characterInfo;
+    DayDialogueData dialogue;
 
     [HideInInspector] public bool arrived;
     [HideInInspector] public bool exited;
 
     [SerializeField, Required] CharacterDisplay characterDisplay;
+    [SerializeField, Required] DialogueData dialogueData;
 
-    private void Start()
-    {
-        Singleton.Instance<GameManager>().OnCharacterEnter += () => arrived = true;
-    }
+    string toSay;
 
-    public void CreateCharacter(CharacterStaticInfo info)
+    public void CreateCharacter(CharacterStaticInfo info, DayDialogueData dialogueData, Sprite ovverideSprite = null)
     {
-        //TODO Setup Sprites walkCurve etc..
-        createInfo = info;
-        characterDisplay._animCurve = info.walkCurve;
-        arrived = false;
+        characterInfo = info;
+        dialogue = dialogueData;
         exited = false;
+        if(ovverideSprite != null)
+        {
+            characterInfo.comingSprite = ovverideSprite;
+        }
     }
 
     public void Play()
     {
-        //TODO Play Coming Animations
-        characterDisplay.SpawnCharacter(createInfo.comingSprite);
+        toSay = string.Empty;
+        if (dialogue.dialogs.TryGetValue(characterInfo.lastBinder, out string dialogueKey))
+        {
+            dialogueData.GetDialogue(characterInfo.dialogueKey, dialogueKey, out toSay);
+        }
+        else
+        {
+            dialogueData.GetDialogue(characterInfo.dialogueKey, dialogue.DefaultDialogueKey, out toSay);
+        }
+
+        characterDisplay.SpawnCharacter(characterInfo, toSay, () =>
+        {
+            arrived = true;
+        });
     }
 
     public void Back()
     {
-        //TODO Play Character go away
-        characterDisplay.OnCharacterDialogueEnd();
+        characterDisplay.CharacterLeave(() =>
+        {
+            exited = true;
+        });
         arrived = false;
     }
 }

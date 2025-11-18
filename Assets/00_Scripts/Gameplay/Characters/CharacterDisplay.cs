@@ -2,99 +2,70 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterDisplay : MonoBehaviour
 {
-
     [Header("Refs")]
     [SerializeField] private Transform _enterTr;
     [SerializeField] private Transform _officeTr;
     [SerializeField] private Transform _exitTr;
 
     [SerializeField] private GameObject _characterPrefab;
+    [SerializeField] private TextMeshProUGUI dialogueTMP;
 
-    [Header("Anim Parameters")]
-    [SerializeField] private bool _debugLoopEnterExitAnim;
-    [SerializeField] private float _enterDuration;
-    [SerializeField] private float _exitDuration;
-    [SerializeField] private float _walkMagnitude = 1;
-    [SerializeField] private int _walkFrequency = 1;
-    [SerializeField] public AnimationCurve _animCurve;
 
-    private GameObject _currentCharacter;
-    Queue<GameObject> characterQueue;
+    private GameObject _currentCharacterObj;
+    private CharacterStaticInfo _currentCharacterInfo;
     private Coroutine _moveCoroutine;
 
-    private void Awake()
+    public Action<GameObject> OnCharcterSpawned;
+    public Action OnCharacterEntered;
+    public Action OnCharacterExited;
+
+    public void CharacterLeave(Action onEnd)
     {
-        characterQueue = new();
-    }
-
-    private void Start()
-    {
-        Singleton.Instance<GameManager>().OnCharacterExit += OnCharacterExit;
-    }
-
-    #region Event Methods
-    public void OnCharacterDialogueEnd()
-    {
-        CharacterExit(Singleton.Instance<GameManager>().OnCharacterExit);
-    }
-    private void OnCharacterExit()
-    {
-        _currentCharacter.SetActive(false);
-        Destroy(_currentCharacter);
-    }
-
-    #endregion
-
-    #region Chara Queue
-
-    public void SpawnCharacter(Sprite character)
-    {
-        _currentCharacter = Instantiate(_characterPrefab, transform);
-        _currentCharacter.GetComponent<SpriteRenderer>().sprite = character;
-        _currentCharacter.SetActive(true);
-        _currentCharacter.transform.position = _enterTr.position;
-
-        CharacterEnter(Singleton.Instance<GameManager>().OnCharacterEnter);
-    }
-
-
-
-    #endregion
-
-    #region CharacterMovement Methods
-
-    void CharacterEnter(Action callback)
-    {
-        _moveCoroutine = StartCoroutine(Move(_officeTr.position, _enterDuration, _animCurve, callback));
-    }
-    void CharacterGoBackToSpawn(Action callback)
-    {
-        _moveCoroutine = StartCoroutine(Move(_enterTr.position, _enterDuration, _animCurve, callback));
-
-    }
-    void CharacterExit(Action callback)
-    {
-        _moveCoroutine = StartCoroutine(Move(_exitTr.position, _exitDuration, _animCurve, callback));
-    }
-
-    void CharacterStepForward()
-    {
-        Action huh = new(() =>
+        _moveCoroutine = StartCoroutine(Move(_exitTr.position, _currentCharacterInfo._exitDuration, _currentCharacterInfo._animCurve, () =>
         {
-            Debug.Log("Huh");
-        });
+            _currentCharacterObj.SetActive(false);
+            Destroy(_currentCharacterObj);
+            OnCharacterExited?.Invoke();
+            onEnd?.Invoke();
+        }));
+    }
 
-        huh.Invoke();
+    public void SpawnCharacter(CharacterStaticInfo info,string dialogue, Action onArrived)
+    {
+        
+        SetCharacterObj(info);
+        _currentCharacterObj.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
+        _currentCharacterInfo = info;
+        OnCharcterSpawned?.Invoke(_currentCharacterObj);
+        _moveCoroutine = StartCoroutine(Move(_officeTr.position, info._enterDuration, info._animCurve, () =>
+        {
+            OnCharacterEntered?.Invoke();
+            onArrived?.Invoke();
+        }));
+    }
+
+    private void SetCharacterObj(CharacterStaticInfo info)
+    {
+        _currentCharacterObj = Instantiate(_characterPrefab, transform);
+        _currentCharacterObj.GetComponent<SpriteRenderer>().sprite = info.comingSprite;
+        _currentCharacterObj.SetActive(true);
+        _currentCharacterObj.transform.position = _enterTr.position;
     }
 
     private IEnumerator Move(Vector3 endPos, float duration = 1f, AnimationCurve animCurve = null, Action callback = null)
     {
+        if(_moveCoroutine != null)
+        {
+            StopCoroutine(_moveCoroutine);
+        }
+
         float elapsed = 0f;
-        Vector3 initPos = _currentCharacter.transform.position;
+        Vector3 initPos = _currentCharacterObj.transform.position;
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -106,17 +77,17 @@ public class CharacterDisplay : MonoBehaviour
 
             Vector3 newPos = Vector3.Lerp(initPos, endPos, t);
 
-            // Ajout de la vague sinusoïdale sur l’axe Y
-            float waveT = t * Mathf.PI * _walkFrequency;  // progression dans la sinusoïde
-            Vector3 waveMov = Mathf.Abs(Mathf.Sin(waveT)) * _walkMagnitude * _currentCharacter.transform.up;
+            // Ajout de la vague sinusoï¿½dale sur lï¿½axe Y
+            float waveT = t * Mathf.PI * _currentCharacterInfo._walkFrequency;  // progression dans la sinusoï¿½de
+            Vector3 waveMov = Mathf.Abs(Mathf.Sin(waveT)) * _currentCharacterInfo._walkMagnitude * _currentCharacterObj.transform.up;
             newPos += waveMov;
 
-            _currentCharacter.transform.position = newPos;
+            _currentCharacterObj.transform.position = newPos;
 
             yield return null;
         }
-        _currentCharacter.transform.position = endPos;
+        _currentCharacterObj.transform.position = endPos;
+        _moveCoroutine = null;
         callback?.Invoke();
     }
-    #endregion
 }
