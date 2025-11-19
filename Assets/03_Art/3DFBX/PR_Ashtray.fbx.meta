@@ -3,7 +3,12 @@ guid: 94cbfe81ec84aa843849fdeed6facd85
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ashtray
+    second: {fileID: 2100000, guid: 1c7570da1db47124abbf13b9d26e3115, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
