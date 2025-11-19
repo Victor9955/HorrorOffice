@@ -14,16 +14,16 @@ public class DatabaseView : MonoBehaviour
     {
         _characterName.text = data.characterName;
         _characterIdTMP.text = data.charachterId;
-        _grades.text = "A fait " + data.pausesNumber.ToString() + " pauses";
-        _times.text = "Begin time : " + data.beginTime + "\n" + "Beakfast : " + data.breakfastTime;
+        _pauses.text = "A fait " + data.pausesNumber.ToString() + " pauses";
+        _times.text = "Begin time : " + data.beginTime + "\n" + "Breakfast : " + data.breakfastTime;
         _medsTimes.text = data.medicineTime;
 
         _grades.text = "";
-        _grades.text += "H : " + data.HGrade + "\n";
-        _grades.text += "E : " + data.EGrade + "\n";
-        _grades.text += "A : " + data.AGrade + "\n";
-        _grades.text += "L : " + data.LGrade + "\n";
-        _grades.text += "T : " + data.TGrade + "\n";
-        _grades.text += "H : " + data.HGradeTwo + "\n";
+        _grades.text += "H: " + data.HGrade + "\n";
+        _grades.text += "E: " + data.EGrade + "\n";
+        _grades.text += "A: " + data.AGrade + "\n";
+        _grades.text += "L: " + data.LGrade + "\n";
+        _grades.text += "T: " + data.TGrade + "\n";
+        _grades.text += "H: " + data.HGradeTwo + "\n";
     }
 }
