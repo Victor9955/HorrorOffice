@@ -8,7 +8,7 @@ public enum Binder
 {
     Rehabilitation,
     Promotion,
-    RAS
+    Clear
 }
 
 

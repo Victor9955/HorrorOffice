@@ -36,10 +36,11 @@ public class DialogueData : ScriptableObject
         {
             return true;
         }
-        else if(GetDialogue(dialogueKey, out dialogue))
+        if(GetDialogue(dialogueKey, out dialogue))
         {
             return true;
         }
+        Debug.Log("No Dialogue " + dialogueKey);
         return false;
     }
 
