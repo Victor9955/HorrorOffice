@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public enum Binder
 {
-    Fired,
+    Rehabilitation,
     Promotion,
     RAS
 }
