@@ -25,5 +25,5 @@ public struct CharacterStaticInfo
 
 public class CharacterData : ScriptableObject
 {
-    public virtual CharacterStaticInfo staticInfo { get; }
+    public virtual CharacterStaticInfo staticInfo { get; set; }
 }
