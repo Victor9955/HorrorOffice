@@ -35,7 +35,7 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         mailCash.mailAppRef = this;
         if(notifTween == null)
         {
-            notifTween = notification.DOShakeRotation(0.25f);
+            notifTween = notification.DOShakeRotation(0.25f, Vector3.forward * 20f);
             notifTween.SetLoops(-1);
         }
     }
@@ -47,6 +47,7 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
             int seenMail = reiceivedMail.Keys.Where((m) => m.wasOpened).Count();
             if(seenMail == 0)
             {
+                notifTween.Complete();
                 notifTween.Kill();
             }
             mailView.Show(mailCash);
