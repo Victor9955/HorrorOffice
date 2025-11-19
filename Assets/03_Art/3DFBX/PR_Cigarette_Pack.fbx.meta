@@ -3,7 +3,12 @@ guid: 371fb27945a73c141a9df7bc29a283bd
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: NewWave.001
+    second: {fileID: 2100000, guid: 576eaa3d3fb08c149b98c4c14c49500d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

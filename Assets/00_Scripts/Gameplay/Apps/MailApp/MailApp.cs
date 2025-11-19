@@ -11,11 +11,12 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
     [SerializeField] Mail mailPrefab;
     [SerializeField] MailView mailView;
     [SerializeField] RectTransform mailViewAncor;
-    [SerializeField] Image notifiaction;
+    [SerializeField] RectTransform notification;
     [SerializeField] GameplayEventSender gameplayEvents;
 
     Dictionary<Mail, MailData> reiceivedMail = new();
 
+    Tween notifTween;
     private void Start()
     {
         gameplayEvents.OnSendMail += ReiceiveMail;
@@ -32,7 +33,11 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         reiceivedMail.Add(mailCash,mailData);
         mailCash.mailData = mailData;
         mailCash.mailAppRef = this;
-        notifiaction.enabled = true;
+        if(notifTween == null)
+        {
+            notifTween = notification.DOShakeRotation(0.25f, Vector3.forward * 20f);
+            notifTween.SetLoops(-1);
+        }
     }
 
     public void OpenMail(Mail mail)
@@ -40,9 +45,10 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         if(reiceivedMail.TryGetValue(mail, out MailData mailCash))
         {
             int seenMail = reiceivedMail.Keys.Where((m) => m.wasOpened).Count();
-            if(seenMail > 0)
+            if(seenMail == 0)
             {
-                notifiaction.enabled = false;
+                notifTween.Complete();
+                notifTween.Kill();
             }
             mailView.Show(mailCash);
         }

@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections;
+using TMPro;
 using Unity.Properties;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ using UnityEngine;
 public class FileBinder : MonoBehaviour, IDropContainer
 {
     [SerializeField] private Transform _childContainerTR;
-
+    [SerializeField] private TMP_Text _text;
     public Binder BinderType => _binderType;
     public bool animIsOpen;
     public bool isUnlocked;
@@ -21,6 +22,8 @@ public class FileBinder : MonoBehaviour, IDropContainer
     private bool _hasDropAnimEnded;
     private Vector3 _initPos;
     private Coroutine _animRoutine;
+
+    [SerializeField] Vector3 _filePosOffset;
     public MeshRenderer MeshRend
     {
         get
@@ -47,6 +50,12 @@ public class FileBinder : MonoBehaviour, IDropContainer
         _binderType = bindertype;
         _openAnimDistance = distance;
         _openAnimDuration = duration;
+        _text.text = _binderType.ToString();
+    }
+
+    public Vector3 GetFilePosition()
+    {
+        return transform.position + _filePosOffset;
     }
 
     private void OnMouseEnter()
@@ -80,7 +89,7 @@ public class FileBinder : MonoBehaviour, IDropContainer
     public void UpdateOpenState(bool isOpening, bool isHovered = false)
     {
         if (isOpening == animIsOpen) return;
-        Vector3 targetPos = isOpening ? _initPos + Vector3.back * _openAnimDistance : _initPos;
+        Vector3 targetPos = isOpening ? _initPos - transform.forward * _openAnimDistance : _initPos;
         animIsOpen = isOpening;
         _childContainerTR.DOMove(targetPos, _openAnimDuration).SetEase(Ease.InOutSine);
         if (isHovered )

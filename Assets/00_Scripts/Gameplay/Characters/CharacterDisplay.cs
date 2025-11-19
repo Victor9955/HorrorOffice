@@ -13,7 +13,6 @@ public class CharacterDisplay : MonoBehaviour
     [SerializeField] private Transform _exitTr;
 
     [SerializeField] private GameObject _characterPrefab;
-    [SerializeField] private TextMeshProUGUI dialogueTMP;
 
 
     private GameObject _currentCharacterObj;
@@ -39,7 +38,7 @@ public class CharacterDisplay : MonoBehaviour
     {
         
         SetCharacterObj(info);
-        _currentCharacterObj.GetComponentInChildren<TextMeshProUGUI>().text = dialogue;
+        _currentCharacterObj.GetComponent<DialoguePlayer>().SetDialogue(dialogue);
         _currentCharacterInfo = info;
         OnCharcterSpawned?.Invoke(_currentCharacterObj);
         _moveCoroutine = StartCoroutine(Move(_officeTr.position, info._enterDuration, info._animCurve, () =>
@@ -88,6 +87,7 @@ public class CharacterDisplay : MonoBehaviour
         }
         _currentCharacterObj.transform.position = endPos;
         _moveCoroutine = null;
+        _currentCharacterObj.GetComponent<DialoguePlayer>().Say();
         callback?.Invoke();
     }
 }
