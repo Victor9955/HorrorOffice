@@ -37,15 +37,10 @@ public class FileBinder : MonoBehaviour, IDropContainer
         }
     }
 
-
-
-    private void Start()
-    {
-        _initPos = transform.position;
-        Utils.BigText(transform.childCount.ToString());
-    }
     public void Init(Binder bindertype, float distance, float duration)
     {
+        _initPos = transform.position;
+
         gameObject.SetActive(true);
         _binderType = bindertype;
         _openAnimDistance = distance;

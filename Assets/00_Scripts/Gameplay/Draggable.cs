@@ -105,7 +105,7 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseUp()
     {
-        Drop();
+        if(_isPickedUp) Drop();
     }
 
     #endregion

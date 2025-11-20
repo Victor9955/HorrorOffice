@@ -42,7 +42,11 @@ public class EmployeeFile : Draggable
         //Init Data
         _sheetData = data;
         SpriteRend.sprite = _sheetData.sprite;
-        SetState(ref _initDI);
+        _initDI = new(
+            transform.position,
+            transform.rotation
+            );
+        transform.DORotate(_initDI.Rot.eulerAngles, 2);
     }
 
     protected override void DragTick()
@@ -107,7 +111,7 @@ public class EmployeeFile : Draggable
         {
             Utils.BigText("hihihi");
             transform.DOMove(_initDI.Pos, _dragReturnDuration).SetEase(Ease.InOutSine).OnComplete(() => Debug.Log("Returned"));
-            transform.DORotate(_initDI.Rot.eulerAngles, _dragReturnDuration);
+            transform.DORotate(_initDI.Rot.eulerAngles, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
         }
     }
 
