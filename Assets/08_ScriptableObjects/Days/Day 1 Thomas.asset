@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
-  m_Name: Day 0
+  m_Name: Day 1 Thomas
   m_EditorClassIdentifier: 
   startEvent:
     m_PersistentCalls:
@@ -27,10 +27,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  binders: 000000000200000001000000
+  binders: 020000000100000001000000
   startActions: []
   actions:
-  - character: {fileID: 11400000, guid: 9a9df85651a02c64689322c8bf90c380, type: 2}
+  - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
