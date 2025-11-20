@@ -50,9 +50,10 @@ public class DialoguePlayer : MonoBehaviour
     {
         foreach (string s in phrases)
         {
+            dialogueTMP.text = s;
             float duration = s.Length * speed;
-            dialogueTMP.text = "";
-            Tween tween = DOTween.To(() => dialogueTMP.text, (str) => dialogueTMP.text = str, s, duration);
+            dialogueTMP.maxVisibleCharacters = 0;
+            Tween tween = DOTween.To(() => dialogueTMP.maxVisibleCharacters, (count) => dialogueTMP.maxVisibleCharacters = count, s.Length, duration);
             yield return tween.WaitForCompletion();
             yield return new WaitForSeconds(waitTimeBetweenPhrases);
         }
