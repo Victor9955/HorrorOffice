@@ -22,6 +22,9 @@ public class LevelCreator : MonoBehaviour
         fileSorting.OnFileDroppedEvent += (binder) =>
         {
             isFinished = true;
+            CharacterStaticInfo info = current.character.staticInfo;
+            info.lastBinder = binder;
+            current.character.staticInfo = info;
             foreach (var sheet in current.sheets)
             {
                 if(sheet.actions.TryGetValue(binder,out UnityEvent cash))
