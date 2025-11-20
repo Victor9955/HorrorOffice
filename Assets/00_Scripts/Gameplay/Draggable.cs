@@ -69,7 +69,7 @@ public class Draggable : MonoBehaviour
 
     //Info
     [SerializeField] protected bool _draggableOnInit = true;
-    protected bool _canBeDragged;
+    protected bool _isDraggable;
     protected bool _isPickedUp;
     // Drag Infos
     protected DragInfo _initDI;
@@ -96,7 +96,7 @@ public class Draggable : MonoBehaviour
     #region Inputs
     private void OnMouseDown()
     {
-        if (!_canBeDragged)
+        if (!_isDraggable)
         {
             Debug.Log($"Cant pickup {name} rn");
         }
@@ -122,7 +122,6 @@ public class Draggable : MonoBehaviour
             DragTick();
             yield return new WaitForSeconds(_draggingTick);
         }
-        Utils.BigText("huhuhuhu");
     }
 
     protected virtual void DragTick()

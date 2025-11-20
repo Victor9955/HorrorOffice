@@ -21,7 +21,15 @@ public class EmployeeFile : Draggable
             return _spriteRend;
         }
     }
+
+    public bool IsDraggable
+    {
+        get => _isDraggable;
+        set { _isDraggable = value; }
+    }
+
     public Action<Binder> OnFileDroppedInSorter;
+    [HideInInspector] public Action OnPickup;
     public UnityEvent OnDroppedUEvent;
     public Color FileColor
     {
@@ -37,7 +45,7 @@ public class EmployeeFile : Draggable
         //Init Object
         name = $"SheetInstance_{fileIndex}";
         gameObject.SetActive(true);
-        _canBeDragged = _draggableOnInit;
+        _isDraggable = _draggableOnInit;
 
         //Init Data
         _sheetData = data;
@@ -46,7 +54,7 @@ public class EmployeeFile : Draggable
             transform.position,
             transform.rotation
             );
-        transform.DORotate(_initDI.Rot.eulerAngles, 2);
+        //transform.DORotate(_initDI.Rot.eulerAngles, 2);
     }
 
     protected override void DragTick()

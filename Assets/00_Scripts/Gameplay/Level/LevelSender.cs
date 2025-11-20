@@ -26,6 +26,7 @@ public class LevelSender : MonoBehaviour
         if (debugBeginFirstDay)
         {
             BeginDay(0);
+            StartSheetSorting();
         }
     }
 
@@ -38,7 +39,6 @@ public class LevelSender : MonoBehaviour
             current = days[day];
         }
     }
-
     public void StartSheetSorting()
     {
         StartCoroutine(PlayLevel());

@@ -28,11 +28,15 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   binders: 000000000200000001000000
+  startActions: []
   actions:
   - character: {fileID: 11400000, guid: 9a9df85651a02c64689322c8bf90c380, type: 2}
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
+    - {fileID: 11400000, guid: 06f375389b8c9f54393865169f5bec30, type: 2}
+    - {fileID: 11400000, guid: 2e1a5fef561846146aed1236e4401d4d, type: 2}
+    - {fileID: 11400000, guid: 5e60eedd326395d4da726777b002b6ce, type: 2}
     - {fileID: 11400000, guid: 06f375389b8c9f54393865169f5bec30, type: 2}
     dayDialogue:
       DefaultDialogueKey: Hello
@@ -43,6 +47,7 @@ MonoBehaviour:
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    - {fileID: 11400000, guid: 06f375389b8c9f54393865169f5bec30, type: 2}
     dayDialogue:
       DefaultDialogueKey: Hello
       dialogs:
