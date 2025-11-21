@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using HuntroxGames.Utils;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,7 +27,6 @@ public class EmployeeFile : Draggable
     }
 
     public Action<Binder> OnFileDroppedInSorter;
-    [HideInInspector] public Action OnPickup;
     public UnityEvent OnDroppedUEvent;
     public Color FileColor
     {
@@ -49,14 +49,11 @@ public class EmployeeFile : Draggable
         SpriteRend.sprite = _sheetData.sprite;
         _initDI = new(
             transform.position,
-            transform.rotation.eulerAngles
+            transform.rotation
             );
-        transform.DORotate(_initDI.Rot.eulerAngles, 1);
 
-        //drop animation
-        transform.localPosition = Vector3.up * 0.67f;
-        transform.DOMove(_initDI.Pos, 0.5f);
-
+        transform.localPosition = _initDI.Pos;
+        transform.localRotation = _initDI.Rot;
     }
 
     protected override void DragTick()
@@ -68,7 +65,7 @@ public class EmployeeFile : Draggable
             {
                 _targetDI = new(
                     ray.hit.point + (ray.hit.normal * 0.2f),
-                    Quaternion.LookRotation(-ray.hit.normal)
+                    Quaternion.LookRotation(ray.hit.normal, Vector3.up)
                 );
             }
             if (ray.hit.transform.TryGetComponent<IDropContainer>(out IDropContainer binder)) //hovering on a sorter
@@ -76,17 +73,17 @@ public class EmployeeFile : Draggable
                 FileBinder fileBinder = binder as FileBinder;
                 _targetDI = new(
                     fileBinder.GetFilePosition(),
-                    Quaternion.LookRotation(fileBinder.transform.up)
+                    Quaternion.LookRotation(-fileBinder.transform.forward)
                 );
             }
         }
         else // if it isn't hovering on anything
         {
-            var newRot = new DragInfo(
+            var draggedDI = new DragInfo(
                 CamToWorldPos,
-                Quaternion.LookRotation(_cam.transform.forward, Vector3.up) /*.eulerAngles + new Vector3(0, 90, 0)*/
-            );
-            _targetDI = newRot;
+                Quaternion.LookRotation(_cam.transform.position - transform.position, Vector3.up)
+                );
+            _targetDI = draggedDI;
         }
         base.DragTick(); // apply DI
     }
@@ -97,6 +94,17 @@ public class EmployeeFile : Draggable
 
         if (ray.didHit) //dropped on anything where it can be dropped
         {
+            if (ray.hit.transform.CompareTag("Desk")) // Drop on desk
+            {
+                DragInfo deskDI = new
+                    (
+                        ray.hit.point + (ray.hit.normal),
+                    Quaternion.LookRotation(ray.hit.normal, Vector3.up)
+                        );
+                Utils.BigText("up :" + transform.up);
+                _initDI = deskDI;
+
+            }
             if (ray.hit.transform.gameObject.TryGetComponent(out IDropContainer container)) // drop in sorter
             {
                 if (container.IsUnlocked())
@@ -108,15 +116,7 @@ public class EmployeeFile : Draggable
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }
             }
-            if (ray.hit.transform.CompareTag("Desk")) // Drop on desk
-            {
-                DragInfo deskDI = new
-                    (
-                        ray.hit.point + (ray.hit.normal),
-                        Quaternion.LookRotation(-ray.hit.normal)
-                    );
-                _initDI = deskDI;
-            }
+
         }
         else
         {

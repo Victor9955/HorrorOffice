@@ -84,6 +84,9 @@ public class Draggable : MonoBehaviour
     protected DragInfo _targetDI;
     protected DragInfo _pickedUpDI;
 
+    [HideInInspector] public Action OnPickup;
+
+
     Coroutine _dragCoroutine;
     public Coroutine DragCoroutine
     {
@@ -125,6 +128,7 @@ public class Draggable : MonoBehaviour
     protected virtual IEnumerator Drag()
     {
         _isPickedUp = true;
+        OnPickup?.Invoke();
         while (_isPickedUp)
         {
             DragTick();
