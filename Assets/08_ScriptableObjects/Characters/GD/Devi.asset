@@ -17,31 +17,6 @@ MonoBehaviour:
     dialogueKey: DEVI
     comingSprite: {fileID: 21300000, guid: 07ee6b55281094b4388f049481d7b366, type: 3}
     givePaperSprite: {fileID: 0}
-    walkCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    happyAmount: 0
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
     _enterDuration: 3
@@ -72,3 +47,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    saySpeed: 0.05
+    waitBetweenPhrases: 1
+    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    mailPP: {fileID: 0}
