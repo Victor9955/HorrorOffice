@@ -59,6 +59,7 @@ public class LevelCreator : MonoBehaviour
         foreach (SheetData sheet in current.sheets)
         {
             fileSorting.OnNewFile(sheet);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

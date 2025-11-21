@@ -1,10 +1,7 @@
 ﻿using DG.Tweening;
-using NaughtyAttributes;
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEngine.Rendering.DebugUI.Table;
 
 public class EmployeeFile : Draggable
 {
@@ -52,9 +49,14 @@ public class EmployeeFile : Draggable
         SpriteRend.sprite = _sheetData.sprite;
         _initDI = new(
             transform.position,
-            transform.rotation
+            transform.rotation.eulerAngles
             );
-        //transform.DORotate(_initDI.Rot.eulerAngles, 2);
+        transform.DORotate(_initDI.Rot.eulerAngles, 1);
+
+        //drop animation
+        transform.localPosition = Vector3.up * 0.67f;
+        transform.DOMove(_initDI.Pos, 0.5f);
+
     }
 
     protected override void DragTick()
@@ -78,12 +80,13 @@ public class EmployeeFile : Draggable
                 );
             }
         }
-        else // if it isn't hoverwhere on anything
+        else // if it isn't hovering on anything
         {
-            _targetDI = new(
+            var newRot = new DragInfo(
                 CamToWorldPos,
-                Quaternion.LookRotation(_cam.transform.forward, Vector3.up)
+                Quaternion.LookRotation(_cam.transform.forward, Vector3.up) /*.eulerAngles + new Vector3(0, 90, 0)*/
             );
+            _targetDI = newRot;
         }
         base.DragTick(); // apply DI
     }

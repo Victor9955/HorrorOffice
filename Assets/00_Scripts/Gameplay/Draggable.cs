@@ -48,6 +48,14 @@ public struct DragInfo
         _roll = euleurRot.z;
     }
 
+    public DragInfo(Vector3 posOffset, Vector3 eulerAngles)
+    {
+        _posOffset = posOffset;
+        _yaw = eulerAngles.x;
+        _pitch = eulerAngles.y;
+        _roll = eulerAngles.z;
+    }
+
     #endregion
 }
 

@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -112,6 +113,7 @@ public class FileSorting : MonoBehaviour
         _activeFileList.Add(file);
         //file.OnPickup += FileStackRemoveFirst;
         FileStackUpdate();
+
     }
 
     private void FileStackUpdate()
@@ -120,12 +122,14 @@ public class FileSorting : MonoBehaviour
         for (int i = 0; i < _activeFileList.Count; i++)
         {
             EmployeeFile file = _activeFileList[i];
-            // applies position and rotation to pile up the files
-            file.transform.position = _filePoolTr.position + (Vector3.up * _fileStackingDistance * 0.1f * i );
-            Vector3 newEulerAnglesRot = Vector3.zero;
-            newEulerAnglesRot.y = Random.Range(_fileStackRotOffset.x, _fileStackRotOffset.y);
-            file.transform.localEulerAngles = newEulerAnglesRot;
 
+            // applies position and rotation to pile up the files
+            Vector3 newPos = _filePoolTr.position + (Vector3.up * _fileStackingDistance * 0.1f * i );
+            Vector3 newLocalEulerAngles = Vector3.zero;
+            newLocalEulerAngles.y = Random.Range(_fileStackRotOffset.x, _fileStackRotOffset.y);
+
+            file.transform.position = newPos;
+            file.transform.localEulerAngles = newLocalEulerAngles;
             file.IsDraggable = false;
         }
         _activeFileList.Last().IsDraggable = true;
