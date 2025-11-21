@@ -67,7 +67,7 @@ public class FileBinder : MonoBehaviour, IDropContainer
 
     private void OnMouseExit()
     {
-        UpdateOpenState(false);
+        UpdateOpenState(false, true);
     }
 
     public bool Drop<T>(T dropped) where T : Draggable
@@ -98,7 +98,7 @@ public class FileBinder : MonoBehaviour, IDropContainer
         {
             if (_animRoutine != null) StopCoroutine(_animRoutine);
             _animRoutine = StartCoroutine(OpenCoroutine());
-            if (isOpening && !_hoverSound.IsNull)
+            if (!_hoverSound.IsNull)
             {
                 RuntimeManager.PlayOneShot(_hoverSound, transform.position);
             }

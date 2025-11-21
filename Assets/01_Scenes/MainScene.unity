@@ -6494,7 +6494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2787564.2, y: 1005078.3}
+  m_AnchoredPosition: {x: -2886764.5, y: 1039173.2}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -11271,7 +11271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 778842.3}
+  m_AnchoredPosition: {x: 0, y: 827396.06}
   m_SizeDelta: {x: 0, y: 2920}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -11643,7 +11643,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 31652649}
   m_Direction: 2
   m_Value: -0.00000026537018
-  m_Size: 0.42499995
+  m_Size: 0.4236266
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14448,13 +14448,73 @@ PrefabInstance:
       propertyPath: '_binderDataList.Array.data[4]'
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2968356356588912344, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Path
+      value: event:/FOL/FOL_Drawer_Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968356356588912344, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data1
+      value: -1574021065
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968356356588912344, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data2
+      value: 1304804129
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968356356588912344, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data3
+      value: 190059139
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968356356588912344, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data4
+      value: -787658397
+      objectReference: {fileID: 0}
     - target: {fileID: 3378417380076769649, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
       propertyPath: m_TagString
       value: Desk
       objectReference: {fileID: 0}
+    - target: {fileID: 4282929947878923400, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Path
+      value: event:/FOL/FOL_Drawer_Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282929947878923400, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data1
+      value: -1574021065
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282929947878923400, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data2
+      value: 1304804129
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282929947878923400, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data3
+      value: 190059139
+      objectReference: {fileID: 0}
+    - target: {fileID: 4282929947878923400, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data4
+      value: -787658397
+      objectReference: {fileID: 0}
     - target: {fileID: 4369391916409615137, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
       propertyPath: m_TagString
       value: Desk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161718308495162172, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Path
+      value: event:/FOL/FOL_Drawer_Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161718308495162172, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data1
+      value: -1574021065
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161718308495162172, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data2
+      value: 1304804129
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161718308495162172, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data3
+      value: 190059139
+      objectReference: {fileID: 0}
+    - target: {fileID: 5161718308495162172, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
+      propertyPath: _hoverSound.Guid.Data4
+      value: -787658397
       objectReference: {fileID: 0}
     - target: {fileID: 5922393873320261317, guid: 09cc77ab76fd17e40a97b5a585c62c6f, type: 3}
       propertyPath: m_TagString
@@ -22251,7 +22311,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.00020884674, y: 787.5003}
+  m_AnchoredPosition: {x: -0.00020884674, y: 787.5002}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1965896864
@@ -22776,7 +22836,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008279185, y: 1723428.9}
+  m_AnchoredPosition: {x: -0.00008279185, y: 1771979}
   m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &2013485561
