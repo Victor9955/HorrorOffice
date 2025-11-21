@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1e3f73c5-b252-4e0d-913a-3f031c61a70f}">
+		<property name="assetPath">
+			<value>AMB/AMB_PAD/AMB_PAD_Office_Main_LP.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>30</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4dae4fc9-7576-4a3a-878d-88d49455c492}</destination>
+		</relationship>
+	</object>
+</objects>
