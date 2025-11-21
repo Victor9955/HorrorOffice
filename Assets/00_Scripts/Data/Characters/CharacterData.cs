@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -19,11 +20,16 @@ public struct CharacterStaticInfo
     public int _walkFrequency;
      public AnimationCurve _animCurve;
 
+    [Header("Dialogue Parameters")]
+    public float saySpeed;
+    public float waitBetweenPhrases;
+    public TMP_FontAsset font;
+
     [Header("Mail")]
     public Sprite mailPP;
 }
 
 public class CharacterData : ScriptableObject
 {
-    public virtual CharacterStaticInfo staticInfo { get; }
+    public virtual CharacterStaticInfo staticInfo { get; set; }
 }

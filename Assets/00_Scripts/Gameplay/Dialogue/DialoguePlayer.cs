@@ -10,10 +10,14 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private float waitTimeBetweenPhrases;
     [SerializeField] private float speed;
     [SerializeField] private TextMeshProUGUI dialogueTMP;
+    [SerializeField] private TMP_FontAsset defaultFont;
     string[] phrases;
 
-    public void SetDialogue(string dialogue)
+    CharacterStaticInfo current;
+
+    public void SetDialogue(CharacterStaticInfo character,string dialogue)
     {
+        current = character;
         dialogueTMP.transform.parent.gameObject.SetActive(false);
         if (dialogue.Contains(separarionChar))
         {
@@ -38,11 +42,20 @@ public class DialoguePlayer : MonoBehaviour
             phrases = new string[] { dialogue };
         }
         
+        if(current.font == null)
+        {
+            dialogueTMP.font = defaultFont;
+        }
+        else
+        {
+            dialogueTMP.font = current.font;
+        }
     }
 
     public void Say()
     {
         dialogueTMP.transform.parent.gameObject.SetActive(true);
+        dialogueTMP.font = defaultFont;
         StartCoroutine(Say(phrases));
     }
 
@@ -50,11 +63,12 @@ public class DialoguePlayer : MonoBehaviour
     {
         foreach (string s in phrases)
         {
-            float duration = s.Length * speed;
-            dialogueTMP.text = "";
-            Tween tween = DOTween.To(() => dialogueTMP.text, (str) => dialogueTMP.text = str, s, duration);
+            dialogueTMP.text = s;
+            float duration = s.Length * current.saySpeed;
+            dialogueTMP.maxVisibleCharacters = 0;
+            Tween tween = DOTween.To(() => dialogueTMP.maxVisibleCharacters, (count) => dialogueTMP.maxVisibleCharacters = count, s.Length, duration);
             yield return tween.WaitForCompletion();
-            yield return new WaitForSeconds(waitTimeBetweenPhrases);
+            yield return new WaitForSeconds(current.waitBetweenPhrases);
         }
     }
 }
