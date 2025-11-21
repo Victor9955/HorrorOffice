@@ -6494,7 +6494,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2254818.2, y: 804782.8}
+  m_AnchoredPosition: {x: -2462818.5, y: 876447.3}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -11271,7 +11271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 498425.75}
+  m_AnchoredPosition: {x: 0, y: 600010.8}
   m_SizeDelta: {x: 0, y: 2920}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -13774,6 +13774,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    saySpeed: 0
+    waitBetweenPhrases: 0
+    font: {fileID: 0}
     mailPP: {fileID: 0}
   arrived: 0
   exited: 0
@@ -13813,7 +13816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2429440, y: 689032}
+  m_AnchoredPosition: {x: -2921460, y: 826758.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1219672433
@@ -22162,7 +22165,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -352750.12, y: 384371.12}
+  m_AnchoredPosition: {x: -429680.9, y: 466074.5}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1965896864
@@ -22687,7 +22690,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008279185, y: 1443007.4}
+  m_AnchoredPosition: {x: -0.00008279185, y: 1544593.2}
   m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &2013485561
