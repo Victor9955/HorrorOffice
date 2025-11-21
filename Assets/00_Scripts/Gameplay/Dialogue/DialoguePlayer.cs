@@ -28,7 +28,8 @@ public class DialoguePlayer : MonoBehaviour
             {
                 if(item == separarionChar[0])
                 {
-                    str.TrimEnd();
+                    str = str.TrimEnd();
+                    str = str.TrimStart();
                     phrase.Add(str);
                     str = "";
                 }
