@@ -72,6 +72,9 @@
 		<property name="voiceStealing">
 			<value>2</value>
 		</property>
+		<property name="priority">
+			<value>1</value>
+		</property>
 	</object>
 	<object class="MarkerTrack" id="{affde8ba-7d33-45bd-9155-f9e3038ab3d2}" />
 	<object class="Timeline" id="{fa568ca7-5b49-48ae-ad75-a22286715f5b}">
@@ -139,7 +142,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>0.625</value>
+			<value>4.5</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{850cec43-79e8-4f33-bf77-b950ceb78f69}">
