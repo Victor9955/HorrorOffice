@@ -136,7 +136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 0}
+  m_AnchoredPosition: {x: 133, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5838771817506594484
@@ -269,7 +269,7 @@ MonoBehaviour:
   separarionChar: "\xA4"
   waitTimeBetweenPhrases: 5
   speed: 0.1
-  dialogueTMP: {fileID: 0}
+  dialogueTMP: {fileID: 518025877250546422}
   dialogueUI: {fileID: 6134152621443695089}
   defaultFont: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
 --- !u!1 &4136154359805735114
@@ -571,7 +571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 131.555, y: -50}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 263.11, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5972317122045684010
@@ -647,8 +647,8 @@ MonoBehaviour:
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 1
+  m_ChildScaleHeight: 1
   m_ReverseArrangement: 0

@@ -22,13 +22,13 @@ public class DialoguePlayer : MonoBehaviour
         dialogueUI.gameObject.SetActive(false);
         if (dialogue.Contains(separarionChar))
         {
-            List<string> test = new();
+            List<string> phrase = new();
             string str = "";
             foreach (char item in dialogue)
             {
                 if(item == separarionChar[0])
                 {
-                    test.Add(str);
+                    phrase.Add(str);
                     str = "";
                 }
                 else
@@ -36,7 +36,7 @@ public class DialoguePlayer : MonoBehaviour
                     str += item;
                 }
             }
-            phrases = test.ToArray();
+            phrases = phrase.ToArray();
         }
         else
         {
@@ -55,7 +55,7 @@ public class DialoguePlayer : MonoBehaviour
 
     public void Say()
     {
-        dialogueTMP.transform.parent.gameObject.SetActive(true);
+        dialogueUI.gameObject.SetActive(true);
         dialogueTMP.font = defaultFont;
         StartCoroutine(Say(phrases));
     }
