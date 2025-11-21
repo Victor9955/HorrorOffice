@@ -958,6 +958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 84719052}
   - component: {fileID: 84719053}
+  - component: {fileID: 84719054}
   m_Layer: 5
   m_Name: ButtonGuide
   m_TagString: Untagged
@@ -995,6 +996,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84719051}
   m_CullTransparentMesh: 1
+--- !u!114 &84719054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84719051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 307984281
+      Data2: 1146884131
+      Data3: 419055772
+      Data4: 635261366
+    Path: event:/UI/UI_Computer_Hover_App
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &86682760
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6368,6 +6400,13 @@ MonoBehaviour:
   mailViewAncor: {fileID: 1219672432}
   notification: {fileID: 2084739648}
   gameplayEvents: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+  _mailNotificationSound:
+    Guid:
+      Data1: 1613455058
+      Data2: 1140881930
+      Data3: -1059406441
+      Data4: -1226192403
+    Path: event:/SFX/SFX_Computer/SFX_Notif_Mail_OS
 --- !u!114 &528798315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6582,7 +6621,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3239789.2, y: 1163215.5}
+  m_AnchoredPosition: {x: -3674277, y: 1315602.5}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -8418,6 +8457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 721012627}
   - component: {fileID: 721012628}
+  - component: {fileID: 721012629}
   m_Layer: 5
   m_Name: ButtonMail
   m_TagString: Untagged
@@ -8455,6 +8495,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721012626}
   m_CullTransparentMesh: 1
+--- !u!114 &721012629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721012626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 307984281
+      Data2: 1146884131
+      Data3: 419055772
+      Data4: 635261366
+    Path: event:/UI/UI_Computer_Hover_App
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!23 &721967053 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7169496239672986654, guid: bb80368596db5bc4aa44ad2e208bad58, type: 3}
@@ -9131,6 +9202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804330955}
   - component: {fileID: 804330956}
+  - component: {fileID: 804330957}
   m_Layer: 5
   m_Name: ButtonNote
   m_TagString: Untagged
@@ -9168,6 +9240,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804330954}
   m_CullTransparentMesh: 1
+--- !u!114 &804330957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804330954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 307984281
+      Data2: 1146884131
+      Data3: 419055772
+      Data4: 635261366
+    Path: event:/UI/UI_Computer_Hover_App
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &817028423
 GameObject:
   m_ObjectHideFlags: 0
@@ -11424,7 +11527,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1002502.9}
+  m_AnchoredPosition: {x: 0, y: 1217438}
   m_SizeDelta: {x: 0, y: 2920}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -11795,8 +11898,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 31652650}
   m_HandleRect: {fileID: 31652649}
   m_Direction: 2
-  m_Value: -0.00000026537018
-  m_Size: 0.42499536
+  m_Value: -0.000001273777
+  m_Size: 0.42481685
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -14254,6 +14357,7 @@ Transform:
   m_Children:
   - {fileID: 360165171}
   - {fileID: 366136293}
+  - {fileID: 1897881973}
   m_Father: {fileID: 1468617046}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1229538675
@@ -17467,6 +17571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1540064445}
   - component: {fileID: 1540064447}
+  - component: {fileID: 1540064448}
   m_Layer: 5
   m_Name: ButtonDatabase
   m_TagString: Untagged
@@ -17503,6 +17608,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540064444}
   m_CullTransparentMesh: 1
+--- !u!114 &1540064448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540064444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 307984281
+      Data2: 1146884131
+      Data3: 419055772
+      Data4: 635261366
+    Path: event:/UI/UI_Computer_Hover_App
+  Event: 
+  EventPlayTrigger: 17
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1541555795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21990,6 +22126,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 677554533672228758, guid: 5a751091ab25f1e4ab510757dde44894, type: 3}
   m_PrefabInstance: {fileID: 1881637188}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1897881972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897881973}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1897881973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897881972}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1228839033}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1898632554
 GameObject:
   m_ObjectHideFlags: 0
@@ -22589,7 +22756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.00020884674, y: 787.5001}
+  m_AnchoredPosition: {x: -0.00020884674, y: 787.5008}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1965896864
@@ -23114,7 +23281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008279185, y: 1947085.6}
+  m_AnchoredPosition: {x: -0.00008279185, y: 2161996}
   m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &2013485561

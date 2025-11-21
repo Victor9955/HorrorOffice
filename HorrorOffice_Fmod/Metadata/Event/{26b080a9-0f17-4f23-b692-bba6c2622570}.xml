@@ -153,7 +153,7 @@
 			<value>Green Light 1</value>
 		</property>
 		<property name="name">
-			<value>RFX_Drone</value>
+			<value>RFX_Office</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{3ca72ca7-3ee1-4492-ab9f-5bb56c2a5351}</destination>
@@ -209,6 +209,9 @@
 	<object class="MultiSound" id="{f567d5ba-ee1f-4a5e-ac77-4128ceb2b3bf}">
 		<property name="name">
 			<value>AMB_RFX_Office_Phone</value>
+		</property>
+		<property name="volume">
+			<value>-9</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{7c632647-5b05-430a-bc2c-46e591822445}</destination>

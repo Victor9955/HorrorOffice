@@ -5,7 +5,7 @@
 			<value>Blue Light 1</value>
 		</property>
 		<property name="name">
-			<value>UI_ 2</value>
+			<value>UI_Computer_Hover_App</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
@@ -114,11 +114,17 @@
 	<object class="MixerBusPanner" id="{4a3df74c-a54d-4c81-b50a-3c2e997b9fbf}" />
 	<object class="SingleSound" id="{cffec806-9eb8-41f4-beec-09b781d8de77}">
 		<property name="color">
-			<value>Yellow Light 1</value>
+			<value>Blue Light 1</value>
 		</property>
 		<property name="name">
 			<value>UI</value>
 		</property>
+		<property name="volume">
+			<value>-12</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{5c064845-e9e1-4d9a-854e-27068a67452a}</destination>
+		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{de2cb55e-5ea7-4b9a-be3d-d77da8b531ac}" />
 	<object class="MixerBusFader" id="{f9b852f8-e094-4e92-9771-5a6cc0938324}" />
