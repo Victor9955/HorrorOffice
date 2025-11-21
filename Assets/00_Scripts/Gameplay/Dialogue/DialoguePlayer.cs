@@ -36,6 +36,7 @@ public class DialoguePlayer : MonoBehaviour
                     str += item;
                 }
             }
+            phrase.Add(str);
             phrases = phrase.ToArray();
         }
         else
@@ -62,35 +63,14 @@ public class DialoguePlayer : MonoBehaviour
 
     IEnumerator Say(string[] phrases)
     {
-        int test = 0;
         foreach (string s in phrases)
         {
             dialogueTMP.text = s;
             float duration = s.Length * current.saySpeed;
-
-            int meshIndex = dialogueTMP.textInfo.characterInfo[0].materialReferenceIndex;
-            int vertexIndex = dialogueTMP.textInfo.characterInfo[0].vertexIndex;
-            Color32[] vertexColors = dialogueTMP.textInfo.meshInfo[meshIndex].colors32;
-            vertexColors[vertexIndex + 0] = Color.red;
-            vertexColors[vertexIndex + 1] = Color.red;
-            vertexColors[vertexIndex + 2] = Color.red;
-            vertexColors[vertexIndex + 3] = Color.red;
-
-            dialogueTMP.textInfo.meshInfo[meshIndex].colors32 = vertexColors;
-            dialogueTMP.UpdateVertexData(TMP_VertexDataUpdateFlags.All);
-            if (test % 2 == 0)
-            {
-                dialogueTMP.textInfo.characterInfo[test].color = Color.red;
-            }
-            else
-            {
-                dialogueTMP.textInfo.characterInfo[test].color = Color.white;
-            }
-            test++;
             Tween tween = DOTween.To(() => dialogueTMP.maxVisibleCharacters, (count) => dialogueTMP.maxVisibleCharacters = count, s.Length, duration);
             tween.SetEase(Ease.Linear);
             yield return tween.WaitForCompletion();
-            yield return new WaitForSeconds(current.waitBetweenPhrases);
+            yield return new WaitForSecondsRealtime(current.waitBetweenPhrases);
         }
     }
 }
