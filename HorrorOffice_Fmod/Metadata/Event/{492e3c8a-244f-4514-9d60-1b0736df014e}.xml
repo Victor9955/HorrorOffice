@@ -5,7 +5,7 @@
 			<value>Green Light 1</value>
 		</property>
 		<property name="name">
-			<value>AMB_PAD_</value>
+			<value>AMB_PAD_Office</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
@@ -47,6 +47,9 @@
 		</relationship>
 	</object>
 	<object class="MasterTrack" id="{eb9aa6a8-2b2e-4aff-988c-e2675de09683}">
+		<relationship name="automationTracks">
+			<destination>{a186a100-3c0a-4aac-a716-1779042a8d4c}</destination>
+		</relationship>
 		<relationship name="modules">
 			<destination>{d74e8684-aa4b-4aed-9ae7-dd9e1a057af8}</destination>
 		</relationship>
@@ -85,6 +88,12 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{d7284cd0-ec4c-4334-a70d-f06dbd64c0e6}">
+		<property name="overridingInputFormat">
+			<value>0</value>
+		</property>
+		<relationship name="automators">
+			<destination>{dd3974a9-f80f-49bf-987d-07feb9803b5d}</destination>
+		</relationship>
 		<relationship name="modulators">
 			<destination>{48f8d120-5887-4f54-8b8d-b0211bdab54f}</destination>
 		</relationship>
@@ -98,9 +107,14 @@
 			<destination>{eaadd210-0b49-40ed-ba35-8c2d67534129}</destination>
 		</relationship>
 	</object>
+	<object class="AutomationTrack" id="{a186a100-3c0a-4aac-a716-1779042a8d4c}">
+		<relationship name="automator">
+			<destination>{dd3974a9-f80f-49bf-987d-07feb9803b5d}</destination>
+		</relationship>
+	</object>
 	<object class="MultiSound" id="{d74e8684-aa4b-4aed-9ae7-dd9e1a057af8}">
 		<relationship name="sounds">
-			<destination>{00e8c157-237b-4527-92ab-70d38a6ae112}</destination>
+			<destination>{e519ce38-95f4-4daa-92c7-e73c7752600c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{39186289-ea2a-437d-9faa-6c3d257ed978}">
@@ -109,6 +123,11 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{729c6d84-2311-45ed-99d7-ce84d7eaa1c7}" />
+	<object class="Automator" id="{dd3974a9-f80f-49bf-987d-07feb9803b5d}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>volume</value>
+		</property>
+	</object>
 	<object class="ADSRModulator" id="{48f8d120-5887-4f54-8b8d-b0211bdab54f}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
@@ -138,7 +157,7 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{19b3f237-927d-4630-aeb9-85d6c3fa3cae}" />
-	<object class="SingleSound" id="{00e8c157-237b-4527-92ab-70d38a6ae112}">
+	<object class="SingleSound" id="{e519ce38-95f4-4daa-92c7-e73c7752600c}">
 		<property name="color">
 			<value>Green Light 1</value>
 		</property>
@@ -146,18 +165,21 @@
 			<value>50</value>
 		</property>
 		<property name="name">
-			<value>PAD</value>
+			<value>AMB_PAD_Office</value>
 		</property>
 		<property name="looping">
 			<value>true</value>
 		</property>
 		<relationship name="modulators">
-			<destination>{a26c169a-820e-48a3-88a4-1fabc30c26f2}</destination>
+			<destination>{19438acd-7553-414e-8954-7a06d667f366}</destination>
+		</relationship>
+		<relationship name="audioFile">
+			<destination>{ec641edf-73a0-4bd9-bfaa-6d284add0fdd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{92d9f246-1a96-49fc-94da-02978c6df389}" />
 	<object class="MixerBusFader" id="{e0984399-ec3b-46bc-899a-5ce73f0e71c3}" />
-	<object class="RandomizerModulator" id="{a26c169a-820e-48a3-88a4-1fabc30c26f2}">
+	<object class="RandomizerModulator" id="{19438acd-7553-414e-8954-7a06d667f366}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>startOffset</value>
 		</property>
