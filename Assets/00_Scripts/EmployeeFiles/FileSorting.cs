@@ -137,7 +137,8 @@ public class FileSorting : MonoBehaviour
             // applies position and rotation to pile up the files
             Vector3 newPos = _filePoolTr.position + (Vector3.up * _fileStackingDistance * 0.1f * i );
             Vector3 newLocalEulerAngles = Vector3.zero;
-            newLocalEulerAngles.y = Random.Range(_fileStackRotOffset.x, _fileStackRotOffset.y);
+            newLocalEulerAngles.x = 90f;
+            newLocalEulerAngles.y = Random.Range(_fileStackRotOffset.y, _fileStackRotOffset.y);
 
             file.transform.position = newPos;
             file.transform.localEulerAngles = newLocalEulerAngles;

@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using HuntroxGames.Utils;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -65,25 +64,25 @@ public class EmployeeFile : Draggable
             {
                 _targetDI = new(
                     ray.hit.point + (ray.hit.normal * 0.2f),
-                    Quaternion.LookRotation(ray.hit.normal, Vector3.up)
+                    Quaternion.LookRotation(-ray.hit.normal)
                 );
+                Debug.DrawRay(ray.hit.point, ray.hit.normal);
             }
             if (ray.hit.transform.TryGetComponent<IDropContainer>(out IDropContainer binder)) //hovering on a sorter
             {
                 FileBinder fileBinder = binder as FileBinder;
                 _targetDI = new(
                     fileBinder.GetFilePosition(),
-                    Quaternion.LookRotation(-fileBinder.transform.forward)
+                    Quaternion.LookRotation(fileBinder.transform.up)
                 );
             }
         }
         else // if it isn't hovering on anything
         {
-            var draggedDI = new DragInfo(
+             _targetDI = new DragInfo(
                 CamToWorldPos,
-                Quaternion.LookRotation(_cam.transform.position - transform.position, Vector3.up)
+                Quaternion.LookRotation(_cam.transform.forward , Vector3.up)
                 );
-            _targetDI = draggedDI;
         }
         base.DragTick(); // apply DI
     }
@@ -101,7 +100,7 @@ public class EmployeeFile : Draggable
                         ray.hit.point + (ray.hit.normal),
                     Quaternion.LookRotation(ray.hit.normal, Vector3.up)
                         );
-                Utils.BigText("up :" + transform.up);
+                Debug.DrawRay(ray.hit.point, ray.hit.normal);
                 _initDI = deskDI;
 
             }
@@ -116,13 +115,12 @@ public class EmployeeFile : Draggable
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }
             }
-
         }
         else
         {
             Utils.BigText("hihihi");
             transform.DOMove(_initDI.Pos, _dragReturnDuration).SetEase(Ease.InOutSine).OnComplete(() => Debug.Log("Returned"));
-            transform.DORotate(_initDI.Rot.eulerAngles, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
+            transform.DOLocalRotate(Quaternion.LookRotation(Vector3.down).eulerAngles, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
         }
     }
 
