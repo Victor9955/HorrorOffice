@@ -21,7 +21,13 @@ public partial class SpriteChange : TMPCommand
 
     private partial void ExecuteCommand(AutoParametersData data, ICommandContext context)
     {
-        //TODO
-        //context.Writer.gameObject.GetComponent<>().ChangeSprite(data.spriteKey);
+        if(context.Writer.gameObject.TryGetComponent(out SpriteChanger dialoguePlayer))
+        {
+            dialoguePlayer.ChangeSprite(data.spriteKey);
+        }
+        else
+        {
+            Debug.Log("Couldnt Get Component in Parent");
+        }
     }
 }

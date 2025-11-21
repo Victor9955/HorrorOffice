@@ -14,7 +14,7 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TMP_FontAsset defaultFont;
     string[] phrases;
 
-    CharacterStaticInfo current;
+    [HideInInspector] public CharacterStaticInfo current;
 
     public void SetDialogue(CharacterStaticInfo character,string dialogue)
     {
@@ -55,6 +55,7 @@ public class DialoguePlayer : MonoBehaviour
             dialogueTMP.font = current.font;
         }
     }
+
 
     public void Say()
     {
