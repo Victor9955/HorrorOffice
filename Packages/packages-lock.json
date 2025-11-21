@@ -9,16 +9,25 @@
       },
       "hash": "ef7ac0aaad7e8d60415e9348c9d84b32cc3a6437"
     },
+    "com.luca3317.tmpeffects": {
+      "version": "https://github.com/Luca3317/TMPEffects.git?path=/Package",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.6"
+      },
+      "hash": "9840de5d5a60b0f7e30f23c7d5e1357420c9886e"
+    },
     "com.unity.2d.common": {
       "version": "9.1.1",
       "depth": 1,
       "source": "registry",
       "dependencies": {
+        "com.unity.burst": "1.8.4",
         "com.unity.2d.sprite": "1.0.0",
         "com.unity.mathematics": "1.1.0",
-        "com.unity.modules.uielements": "1.0.0",
         "com.unity.modules.animation": "1.0.0",
-        "com.unity.burst": "1.8.4"
+        "com.unity.modules.uielements": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -210,6 +219,14 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.unity.textmeshpro": {
+      "version": "5.0.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.ugui": "2.0.0"
+      }
     },
     "com.unity.timeline": {
       "version": "1.8.9",
