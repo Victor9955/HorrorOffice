@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
-  m_Name: Day 1 Thomas
+  m_Name: Day 2 Thomas
   m_EditorClassIdentifier: 
   startEvent:
     m_PersistentCalls:
@@ -20,7 +20,7 @@ MonoBehaviour:
         m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e0407964dc2834141ab0c170fa20b89b, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 3d7943928dad938428b9e9f101263041, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -31,6 +31,24 @@ MonoBehaviour:
   startActions: []
   actions:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
+    overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: 1
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+    overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: 1
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
