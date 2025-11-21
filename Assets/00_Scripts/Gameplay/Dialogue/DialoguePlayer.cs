@@ -10,6 +10,7 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private float waitTimeBetweenPhrases;
     [SerializeField] private float speed;
     [SerializeField] private TextMeshProUGUI dialogueTMP;
+    [SerializeField] private RectTransform dialogueUI;
     [SerializeField] private TMP_FontAsset defaultFont;
     string[] phrases;
 
@@ -18,16 +19,16 @@ public class DialoguePlayer : MonoBehaviour
     public void SetDialogue(CharacterStaticInfo character,string dialogue)
     {
         current = character;
-        dialogueTMP.transform.parent.gameObject.SetActive(false);
+        dialogueUI.gameObject.SetActive(false);
         if (dialogue.Contains(separarionChar))
         {
-            List<string> test = new();
+            List<string> phrase = new();
             string str = "";
             foreach (char item in dialogue)
             {
                 if(item == separarionChar[0])
                 {
-                    test.Add(str);
+                    phrase.Add(str);
                     str = "";
                 }
                 else
@@ -35,7 +36,8 @@ public class DialoguePlayer : MonoBehaviour
                     str += item;
                 }
             }
-            phrases = test.ToArray();
+            phrase.Add(str);
+            phrases = phrase.ToArray();
         }
         else
         {
@@ -54,7 +56,7 @@ public class DialoguePlayer : MonoBehaviour
 
     public void Say()
     {
-        dialogueTMP.transform.parent.gameObject.SetActive(true);
+        dialogueUI.gameObject.SetActive(true);
         dialogueTMP.font = defaultFont;
         StartCoroutine(Say(phrases));
     }
@@ -65,10 +67,10 @@ public class DialoguePlayer : MonoBehaviour
         {
             dialogueTMP.text = s;
             float duration = s.Length * current.saySpeed;
-            dialogueTMP.maxVisibleCharacters = 0;
             Tween tween = DOTween.To(() => dialogueTMP.maxVisibleCharacters, (count) => dialogueTMP.maxVisibleCharacters = count, s.Length, duration);
+            tween.SetEase(Ease.Linear);
             yield return tween.WaitForCompletion();
-            yield return new WaitForSeconds(current.waitBetweenPhrases);
+            yield return new WaitForSecondsRealtime(current.waitBetweenPhrases);
         }
     }
 }
