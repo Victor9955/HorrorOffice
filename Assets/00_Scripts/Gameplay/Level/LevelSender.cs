@@ -37,6 +37,9 @@ public class LevelSender : MonoBehaviour
         {
             day = m_day;
             current = days[day];
+            current.startEvent?.Invoke();
+            fileSorting._binderDataList = current.binders;
+            fileSorting.SetupBinders();
         }
     }
     public void StartSheetSorting()
@@ -47,13 +50,8 @@ public class LevelSender : MonoBehaviour
     IEnumerator PlayLevel()
     {
         OnBeginDay?.Invoke(current);
-        current.startEvent?.Invoke();
-        fileSorting._binderDataList = current.binders;
-        fileSorting.SetupBinders();
         foreach (var levelAction in current.actions)
         {
-            yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
-
             //yield return new WaitUntil(() => levelAction.beginCondition);
             levelCreator.CreateLevel(levelAction);
             yield return new WaitUntil(() => levelCreator.isCreated);
@@ -61,6 +59,7 @@ public class LevelSender : MonoBehaviour
             yield return new WaitUntil(() => levelCreator.isFinished);
             StartCoroutine(levelCreator.End());
             yield return new WaitUntil(() => levelCreator.isEnded);
+            yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
         }
         current = null;
         OnEndDay?.Invoke();

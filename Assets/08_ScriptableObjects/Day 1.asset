@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
   m_Name: Day 1
   m_EditorClassIdentifier: 
-  OnBeginDay:
+  startEvent:
     m_PersistentCalls:
       m_Calls: []
-  actions: []
-  dialogues: {fileID: 11400000, guid: d1125510ba234ac4eb07a7efcd02452e, type: 2}
+  binders: 000000000100000002000000
+  startActions: []
+  actions:
+  - character: {fileID: 11400000, guid: 86834131876558543b4d2e88d96903d8, type: 2}
+    overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
