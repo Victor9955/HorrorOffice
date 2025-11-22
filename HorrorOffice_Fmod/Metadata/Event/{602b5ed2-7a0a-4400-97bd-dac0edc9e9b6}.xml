@@ -8,7 +8,7 @@
 			<value>SFX_Notif_Mail_OS</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{6e54d882-3df0-41ff-ab13-b2afcedda07c}</destination>
@@ -119,10 +119,33 @@
 		<property name="name">
 			<value>SFX</value>
 		</property>
+		<property name="volume">
+			<value>-6</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{c191172d-8779-4452-a390-cdc3e6747ceb}</destination>
+			<destination>{e60b3fe8-68ca-4884-8dff-d05c56771b4c}</destination>
+		</relationship>
 		<relationship name="audioFile">
-			<destination>{7d3c9080-92d8-4e45-9303-735bf2d0b97d}</destination>
+			<destination>{5b7449bb-90ff-4f11-8084-3505399b8d7c}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{112dbba4-3ab7-4701-92f4-a13e89a24064}" />
 	<object class="MixerBusFader" id="{6d4da5a2-e2c5-4680-b97d-4c6f25e630ce}" />
+	<object class="RandomizerModulator" id="{c191172d-8779-4452-a390-cdc3e6747ceb}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="amount">
+			<value>3</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{e60b3fe8-68ca-4884-8dff-d05c56771b4c}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>6</value>
+		</property>
+	</object>
 </objects>

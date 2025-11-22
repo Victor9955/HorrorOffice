@@ -72,9 +72,6 @@
 		<property name="voiceStealing">
 			<value>2</value>
 		</property>
-		<property name="triggerCooldown">
-			<value>6200</value>
-		</property>
 	</object>
 	<object class="MarkerTrack" id="{dd5a1730-f496-48f7-893a-849f37014e04}" />
 	<object class="GroupTrack" id="{acd80f16-5d56-4d5e-839d-73c46d715bf1}">
@@ -188,7 +185,7 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-21</value>
+			<value>-16</value>
 		</property>
 		<property name="curveShape">
 			<value>0.202996641</value>
@@ -196,10 +193,10 @@
 	</object>
 	<object class="AutomationPoint" id="{50f800ef-5673-4590-9274-4fa7f57e4a5b}">
 		<property name="position">
-			<value>0.99293785310734461</value>
+			<value>1</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-12</value>
 		</property>
 	</object>
 </objects>
