@@ -73,7 +73,7 @@
 			<value>2</value>
 		</property>
 		<property name="minimumDistance">
-			<value>10</value>
+			<value>9.80000019</value>
 		</property>
 		<property name="maximumDistance">
 			<value>10</value>
@@ -145,11 +145,7 @@
 	</object>
 	<object class="MixerBusFader" id="{716a4874-060e-42f1-b3cb-71ccec0a48aa}" />
 	<object class="MixerBusFader" id="{51d207cf-42d5-467d-9b6a-0bf2b525e764}" />
-	<object class="SpatialiserEffect" id="{69ac59a3-da2c-46bb-9547-755503dd1491}">
-		<property name="distanceRolloffType">
-			<value>3</value>
-		</property>
-	</object>
+	<object class="SpatialiserEffect" id="{69ac59a3-da2c-46bb-9547-755503dd1491}" />
 	<object class="RandomizerModulator" id="{b13090e3-b37f-4693-9a56-b3d248b47846}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>

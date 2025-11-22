@@ -119,6 +119,9 @@
 		<property name="color">
 			<value>Yellow Light 1</value>
 		</property>
+		<property name="volume">
+			<value>-9</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{eeb3ef60-33ca-4b2e-b79b-eedf23476074}</destination>
 		</relationship>
@@ -137,7 +140,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>0.625</value>
+			<value>6.25</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{4ebd6e54-6710-48bc-99eb-ec08d11a622c}">
