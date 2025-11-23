@@ -52,7 +52,6 @@ public class SheetCell
 public class DialogueData : ScriptableObject
 {
     [SerializeField] string url;
-    [SerializeField] string comasReplacement;
     public Language language;
     public SerializedDictionary<string, List<string>> dialogues;
 
@@ -167,7 +166,7 @@ public class DialogueData : ScriptableObject
     {
         if (row.c != null && columnIndex < row.c.Length && row.c[columnIndex] != null)
         {
-            return row.c[columnIndex].v ?? "";
+            return row.c[columnIndex].v.TrimEnd().TrimStart() ?? "";
         }
         return "";
     }
@@ -185,12 +184,6 @@ public class DialogueData : ScriptableObject
             .Replace("\\u2018", "'")
             .Replace("\\n", "\n")
             .Replace("\\\"", "\"");
-
-        // Replace custom comas replacement if specified
-        if (!string.IsNullOrEmpty(comasReplacement) && comasReplacement.Length > 0)
-        {
-            cleanedText = cleanedText.Replace(comasReplacement[0], ',');
-        }
 
         return cleanedText;
     }
