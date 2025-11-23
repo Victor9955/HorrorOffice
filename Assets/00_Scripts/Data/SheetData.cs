@@ -7,8 +7,9 @@ using UnityEngine.Events;
 public enum Binder
 {
     Rehabilitation,
-    Promotion,
-    Clear
+    Growth,
+    Adequate,
+    Warning,
 }
 
 

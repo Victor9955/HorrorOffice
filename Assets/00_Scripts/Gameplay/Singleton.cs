@@ -27,7 +27,7 @@ public class Singleton : MonoBehaviour
                     Debug.LogAssertion("Singleton " + singleton.GetType().Name + " is no alone please kill the other one");
                     continue;
                 }
-                singletons.Add(singleton.GetType(), cash);
+                singletons.Add(singleton.GetType(), cash);  
                 if(cash.DoDontDestroyOnLoad)
                 {
                     DontDestroyOnLoad(singleton);
