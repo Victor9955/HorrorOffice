@@ -116,6 +116,12 @@
 		<property name="color">
 			<value>Yellow Light 1</value>
 		</property>
+		<property name="name">
+			<value>FOL_Keyboard</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{c1b5298b-3c3c-414c-a4bb-e061292f0a23}</destination>
+		</relationship>
 		<relationship name="sounds">
 			<destination>{07f6fd07-c02f-400b-8fef-792992eefba5}</destination>
 			<destination>{68650346-f2e0-4fa0-ace8-398cd9fa97cc}</destination>
@@ -131,6 +137,14 @@
 	</object>
 	<object class="MixerBusFader" id="{d8827ae6-c950-475d-ba90-bd26e7cd5c0e}" />
 	<object class="MixerBusFader" id="{8834381d-3be1-434f-8372-9486e18a2838}" />
+	<object class="RandomizerModulator" id="{c1b5298b-3c3c-414c-a4bb-e061292f0a23}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>0.625</value>
+		</property>
+	</object>
 	<object class="SingleSound" id="{07f6fd07-c02f-400b-8fef-792992eefba5}">
 		<relationship name="audioFile">
 			<destination>{7787f0d2-de9b-4a32-bc17-e262078fe7e3}</destination>
