@@ -79,10 +79,10 @@ public class EmployeeFile : Draggable
         }
         else // if it isn't hovering on anything
         {
-             _targetDI = new DragInfo(
-                CamToWorldPos,
-                Quaternion.LookRotation(_cam.transform.forward , Vector3.up)
-                );
+            _targetDI = new DragInfo(
+               CamToWorldPos,
+               Quaternion.LookRotation(_cam.transform.forward, Vector3.up)
+               );
         }
         base.DragTick(); // apply DI
     }
@@ -97,8 +97,8 @@ public class EmployeeFile : Draggable
             {
                 DragInfo deskDI = new
                     (
-                        ray.hit.point + (ray.hit.normal),
-                    Quaternion.LookRotation(ray.hit.normal, Vector3.up)
+                        ray.hit.point + (ray.hit.normal * 0.075f),
+                        Quaternion.LookRotation(ray.hit.normal, Vector3.up).eulerAngles
                         );
                 Debug.DrawRay(ray.hit.point, ray.hit.normal);
                 _initDI = deskDI;
@@ -118,9 +118,11 @@ public class EmployeeFile : Draggable
         }
         else
         {
+            Vector3 endRot = Quaternion.LookRotation(_cam.transform.forward, Vector3.up).eulerAngles + new Vector3(90f,0f,0f);
+            //endRot = _initDI.Rot.eulerAngles;
             Utils.BigText("hihihi");
             transform.DOMove(_initDI.Pos, _dragReturnDuration).SetEase(Ease.InOutSine).OnComplete(() => Debug.Log("Returned"));
-            transform.DOLocalRotate(Quaternion.LookRotation(Vector3.down).eulerAngles, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
+            transform.DOLocalRotate(endRot, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
         }
     }
 
