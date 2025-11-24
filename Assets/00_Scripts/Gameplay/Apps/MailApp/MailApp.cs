@@ -1,64 +1,61 @@
 using DG.Tweening;
+using HuntroxGames.Utils;
 using NaughtyAttributes;
 using System.Collections.Generic;
-using UnityEditor.PackageManager.UI;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 {
     [SerializeField] Mail mailPrefab;
-    [SerializeField] RectTransform contentAncor;
+    [SerializeField] MailView mailView;
     [SerializeField] RectTransform mailViewAncor;
-    [SerializeField] WindowAnimation mailWindow;
-    [HideInInspector] public List<Mail> bin = new();
+    [SerializeField] RectTransform notification;
+    [SerializeField] GameplayEventSender gameplayEvents;
+    [SerializeField] FMODUnity.EventReference _mailNotificationSound;
 
-    MailView current;
-    bool toBeDestroyed;
+    Dictionary<Mail, MailData> reiceivedMail = new();
 
-    public void Open()
+    Tween notifTween;
+    private void Start()
     {
-        while (bin.Count > 0)
+        gameplayEvents.OnSendMail += ReiceiveMail;
+    }
+
+    private void OnDestroy()
+    {
+        gameplayEvents.OnSendMail -= ReiceiveMail;
+    }
+
+    void ReiceiveMail(MailData mailData)
+    {
+        Mail mailCash = Instantiate(mailPrefab,mailViewAncor);
+        reiceivedMail.Add(mailCash,mailData);
+        mailCash.mailData = mailData;
+        mailCash.mailAppRef = this;
+        if(notifTween == null)
         {
-            bin[0].UnCheck();
-            bin.RemoveAt(0);
+            notifTween = notification.DOShakeRotation(0.25f, Vector3.forward * 20f);
+            notifTween.SetLoops(-1);
+        }
+        if(!_mailNotificationSound.IsNull)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(_mailNotificationSound, transform.position);
         }
     }
 
-    public void Delete()
+    public void OpenMail(Mail mail)
     {
-        while (bin.Count > 0)
+        if(reiceivedMail.TryGetValue(mail, out MailData mailCash))
         {
-            bin[0].Delete();
-            bin.RemoveAt(0);
-        }
-    }
-
-    [Button]
-    void TestReceiveMail()
-    {
-        ReiceiveMail(0);
-    }
-
-    public void ReiceiveMail(int id)
-    {
-        Mail cash = Instantiate(mailPrefab, contentAncor.transform);
-        cash.mailId = id;
-    }
-
-    public void OpenMail(MailView mail)
-    {
-        GameObject cash = null;
-        if (current != null)
-        {
-            cash = current.gameObject;
-        }
-        current = Instantiate(mail, mailViewAncor);
-        current.myWindow = mailWindow;
-        mailWindow.Open();
-        if (toBeDestroyed && cash != null)
-        {
-            Destroy(cash);
-            toBeDestroyed = false;
+            int seenMail = reiceivedMail.Keys.Where((m) => m.wasOpened).Count();
+            if(seenMail == 0)
+            {
+                notifTween.Complete();
+                notifTween.Kill();
+            }
+            mailView.Show(mailCash);
         }
     }
 
@@ -67,8 +64,8 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
 
     }
 
-    public void CloseCurrentMail()
+    public void Open()
     {
-        toBeDestroyed = true;
+
     }
 }

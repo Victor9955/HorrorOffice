@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{3e2754ea-ab31-41f8-9487-312367f8bf8b}">
+		<property name="name">
+			<value>PR_Elevator</value>
+		</property>
+		<relationship name="folder">
+			<destination>{c24188f7-c013-4826-8475-3f162f303f53}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{42f06d1f-b0c6-4924-b34b-48025aca649c}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{42f06d1f-b0c6-4924-b34b-48025aca649c}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

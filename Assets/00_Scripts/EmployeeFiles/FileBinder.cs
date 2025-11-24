@@ -1,20 +1,31 @@
+using DG.Tweening;
+using FMODUnity;
 using System;
+using System.Collections;
+using TMPro;
 using Unity.Properties;
 using UnityEngine;
 
-[Serializable]
-public class BinderData
-{
-    public Color color = Color.white;
-}
 
 public class FileBinder : MonoBehaviour, IDropContainer
 {
-
-    [SerializeField] private int _id;
-    public int Id => _id;
-    public bool isOpen;
+    [SerializeField] private Transform _childContainerTR;
+    [SerializeField] private TMP_Text _text;
+    [SerializeField] private EventReference _hoverSound;
+    public Binder BinderType => _binderType;
+    public bool animIsOpen;
+    public bool isUnlocked;
     private MeshRenderer _meshRend;
+    private Binder _binderType;
+
+    private float _openAnimDistance;
+    private float _openAnimDuration;
+
+    private bool _hasDropAnimEnded;
+    private Vector3 _initPos;
+    private Coroutine _animRoutine;
+
+    [SerializeField] Vector3 _filePosOffset;
     public MeshRenderer MeshRend
     {
         get
@@ -27,30 +38,89 @@ public class FileBinder : MonoBehaviour, IDropContainer
             return _meshRend;
         }
     }
-    public Color MeshMatColor
+
+
+
+    private void Start()
     {
-        get => MeshRend.material.color;
-        private set => MeshRend.material.color = value;
+        _initPos = transform.position;
+        Utils.BigText(transform.childCount.ToString());
+    }
+    public void Init(Binder bindertype, float distance, float duration)
+    {
+        gameObject.SetActive(true);
+        _binderType = bindertype;
+        _openAnimDistance = distance;
+        _openAnimDuration = duration;
+        _text.text = _binderType.ToString();
     }
 
-    public void Init(int id, BinderData data = null)
+    public Vector3 GetFilePosition()
     {
-        _id = id;
-        if (data == null) return; // managing data like binder color etc
-        MeshMatColor = data.color;
-
+        return transform.position + _filePosOffset;
     }
+
+    private void OnMouseEnter()
+    {
+        UpdateOpenState(true, true);
+    }
+
+    private void OnMouseExit()
+    {
+        UpdateOpenState(false, true);
+    }
+
     public bool Drop<T>(T dropped) where T : Draggable
     {
         EmployeeFile file = dropped as EmployeeFile;
         if (file == null) throw new Exception("Bruh that aint no File");
-        bool match = file.FileID == Id;
-        // Call fileSorting if true;
-        return match;
+
+        if (isUnlocked)
+        {
+            if(_animRoutine != null) StopCoroutine(_animRoutine);
+            UpdateOpenState(false);
+        }
+        return isUnlocked;
     }
-    public bool IsOpen()
+    public bool IsUnlocked()
     {
-        return isOpen;
+        return isUnlocked;
     }
 
+
+    public void UpdateOpenState(bool isOpening, bool isHovered = false)
+    {
+        if (isOpening == animIsOpen) return;
+        Vector3 targetPos = isOpening ? _initPos - transform.forward * _openAnimDistance : _initPos;
+        animIsOpen = isOpening;
+        _childContainerTR.DOMove(targetPos, _openAnimDuration).SetEase(Ease.InOutSine);
+        if (isHovered )
+        {
+            if (_animRoutine != null) StopCoroutine(_animRoutine);
+            _animRoutine = StartCoroutine(OpenCoroutine());
+            if (!_hoverSound.IsNull)
+            {
+                RuntimeManager.PlayOneShot(_hoverSound, transform.position);
+            }
+        }
+    }
+
+    private IEnumerator OpenCoroutine()
+    {
+        while (animIsOpen)
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+        UpdateOpenState(false);
+    }
+
+
+
+    #region Debug
+
+    private void OnMouseDown()
+    {
+        Debug.Log($"{name}'s type is {BinderType}");
+    }
+    #endregion
 }

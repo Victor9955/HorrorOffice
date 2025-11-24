@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
+  m_Name: Day 0
+  m_EditorClassIdentifier: 
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMail
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: e0407964dc2834141ab0c170fa20b89b, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  binders: 000000000200000001000000
+  startActions: []
+  actions:
+  - character: {fileID: 11400000, guid: 9a9df85651a02c64689322c8bf90c380, type: 2}
+    overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: 06f375389b8c9f54393865169f5bec30, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 44103b76b7703cc46bb4051cc9964d19, type: 2}
+    overrideCharacterSprite: {fileID: -7460193037895503351, guid: 709a25eeeb7863b4cbc436937638fc9f, type: 3}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 5dc4ac72133ab7d49994c9b792510145, type: 2}
+    overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: e4866fa16f719d24a853f6d7ab92c2e4, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 86834131876558543b4d2e88d96903d8, type: 2}
+    overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 2978c19365c914947af0cb4562691fb3, type: 2}
+    overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: 672b9d1416ff9d849bfbbfdb6eb82eeb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 85625dd6d25797247acd41cea60f915a, type: 2}
+    overrideCharacterSprite: {fileID: 0}
+    beginCondition: 1
+    sheets:
+    - {fileID: 11400000, guid: ba8a0f3c1bc583141aef031525118a5a, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: Hello
+      dialogs:
+        _serializedList: []
