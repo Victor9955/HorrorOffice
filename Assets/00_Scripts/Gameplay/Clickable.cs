@@ -1,3 +1,5 @@
+using DG.Tweening;
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,19 +9,40 @@ using UnityEngine.UIElements;
 
 public class Clickable : MonoBehaviour
 {
+    [SerializeField] private float _focusDuration;
+    [Space(5)]
     [SerializeField, Range(10f, 100f)] private float _viewDistanceFromObject = 100f;
     [SerializeField] private float _fov = 58;
-    //[SerializeField] private Vector3 _posOffset;
+
+
+
     private void OnValidate()
     {
-        Camera cam = Camera.main;
+        if (Camera.main == null) Debug.LogError("No MainCam ????");
+    }
 
-        if (cam == null) Debug.LogError("No MainCam ????");
+    private void Start()
+    {
+        Transform cam = Camera.main.transform;
+        Vector3 camObjDir = transform.position - cam.position;
+        Vector3 pos = transform.position + (-camObjDir * (_viewDistanceFromObject * 0.01f));
+        Quaternion rot = Quaternion.LookRotation(camObjDir, Vector3.up);
+        transform.position = pos;
+        transform.rotation = rot;
+
     }
 
     private void OnMouseDown()
     {
+        FocusCam();
+    }
 
+    private void FocusCam()
+    {
+        Camera.main.transform.DOMove(transform.position,_focusDuration);
+        Camera.main.transform.DORotate(transform.rotation.eulerAngles, _focusDuration);
+
+        throw new NotImplementedException();
     }
 
     private void OnDrawGizmosSelected()
