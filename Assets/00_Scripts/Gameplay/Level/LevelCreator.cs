@@ -13,7 +13,6 @@ public class LevelCreator : MonoBehaviour
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
-    [SerializeField] public bool debugStartFirstDay;
     SheetAction current;
     private Dictionary<CharacterData, Binder> CharacterSheetDict = new();
 
@@ -22,6 +21,9 @@ public class LevelCreator : MonoBehaviour
         fileSorting.OnFileDroppedEvent += (binder) =>
         {
             isFinished = true;
+            CharacterStaticInfo info = current.character.staticInfo;
+            info.lastBinder = binder;
+            current.character.staticInfo = info;
             foreach (var sheet in current.sheets)
             {
                 if(sheet.actions.TryGetValue(binder,out UnityEvent cash))
