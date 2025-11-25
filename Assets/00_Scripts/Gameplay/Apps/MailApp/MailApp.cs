@@ -6,13 +6,14 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
+public class MailApp : MonoBehaviour, IApp
 {
     [SerializeField] Mail mailPrefab;
     [SerializeField] MailView mailView;
     [SerializeField] RectTransform mailViewAncor;
     [SerializeField] RectTransform notification;
     [SerializeField] GameplayEventSender gameplayEvents;
+    [SerializeField] FMODUnity.EventReference _mailNotificationSound;
 
     Dictionary<Mail, MailData> reiceivedMail = new();
 
@@ -37,6 +38,10 @@ public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
         {
             notifTween = notification.DOShakeRotation(0.25f, Vector3.forward * 20f);
             notifTween.SetLoops(-1);
+        }
+        if(!_mailNotificationSound.IsNull)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(_mailNotificationSound, transform.position);
         }
     }
 

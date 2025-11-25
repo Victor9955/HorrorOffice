@@ -11,28 +11,19 @@ public class LevelSender : MonoBehaviour
     [SerializeField,Required] LevelCreator levelCreator;
     [SerializeField,Required] FileSorting fileSorting;
     [SerializeField] private Vector2 randomWaitTimeForCharacter;
-
     [SerializeField] List<DayData> days;
 
     int day;
     DayData current;
-    [SerializeField] private bool debugBeginFirstDay;
 
     public event Action<DayData> OnBeginDay;
     public event Action OnEndDay;
-
-    private void Start()
-    {
-        if (debugBeginFirstDay)
-        {
-            BeginDay(0);
-            StartSheetSorting();
-        }
-    }
+    public event Action OnEndGame;
 
     [ConsoleCommand("BeginDay", "[Integer Input]")]
     public void BeginDay(int m_day)
     {
+        if(m_day > days.Count -1 || m_day < 0) return;
         if (current == null) // when current = null current level is finished
         {
             day = m_day;
@@ -42,6 +33,7 @@ public class LevelSender : MonoBehaviour
             fileSorting.SetupBinders();
         }
     }
+
     public void StartSheetSorting()
     {
         StartCoroutine(PlayLevel());
@@ -62,6 +54,13 @@ public class LevelSender : MonoBehaviour
             yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
         }
         current = null;
-        OnEndDay?.Invoke();
+        if(day == days.Count -1)
+        {
+            OnEndGame?.Invoke();
+        }
+        else
+        {
+            OnEndDay?.Invoke();
+        }
     }
 }

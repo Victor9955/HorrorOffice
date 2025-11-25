@@ -5,7 +5,7 @@
 			<value>Blue Light 1</value>
 		</property>
 		<property name="name">
-			<value>UI_</value>
+			<value>UI_Hover</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
@@ -72,6 +72,9 @@
 		<property name="voiceStealing">
 			<value>2</value>
 		</property>
+		<property name="priority">
+			<value>3</value>
+		</property>
 	</object>
 	<object class="MarkerTrack" id="{03cb8d8c-afb9-405f-8c78-a79022f1a72b}" />
 	<object class="Timeline" id="{4c0668ed-b029-4a96-9bb7-9ed045663c67}">
@@ -119,6 +122,9 @@
 		<property name="name">
 			<value>UI</value>
 		</property>
+		<relationship name="audioFile">
+			<destination>{6d2979e8-95c1-4026-b757-225a3328bdbf}</destination>
+		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{2edb59bf-b464-4966-a572-9e33c322cfc6}" />
 	<object class="MixerBusFader" id="{732df248-e1e9-4398-8009-a2959eccbbf0}" />

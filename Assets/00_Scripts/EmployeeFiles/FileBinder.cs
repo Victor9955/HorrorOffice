@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FMODUnity;
 using System;
 using System.Collections;
 using TMPro;
@@ -10,6 +11,7 @@ public class FileBinder : MonoBehaviour, IDropContainer
 {
     [SerializeField] private Transform _childContainerTR;
     [SerializeField] private TMP_Text _text;
+    [SerializeField] private EventReference _hoverSound;
     public Binder BinderType => _binderType;
     public bool animIsOpen;
     public bool isUnlocked;
@@ -55,12 +57,12 @@ public class FileBinder : MonoBehaviour, IDropContainer
 
     private void OnMouseEnter()
     {
-        UpdateOpenState(true);
+        UpdateOpenState(true, true);
     }
 
     private void OnMouseExit()
     {
-        UpdateOpenState(false);
+        UpdateOpenState(false, true);
     }
 
     public bool Drop<T>(T dropped) where T : Draggable
@@ -91,6 +93,10 @@ public class FileBinder : MonoBehaviour, IDropContainer
         {
             if (_animRoutine != null) StopCoroutine(_animRoutine);
             _animRoutine = StartCoroutine(OpenCoroutine());
+            if (!_hoverSound.IsNull)
+            {
+                RuntimeManager.PlayOneShot(_hoverSound, transform.position);
+            }
         }
     }
 
