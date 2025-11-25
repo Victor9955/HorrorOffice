@@ -4,12 +4,14 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSender : MonoBehaviour
 {
@@ -18,11 +20,17 @@ public class LevelSender : MonoBehaviour
     [SerializeField] private Vector2 randomWaitTimeForCharacter;
     [SerializeField] List<DayData> days;
 
-    [Header("We are in the End game now")]
+    [Header("End Shift Button")]
+    [SerializeField] TextMeshProUGUI endShiftText;
+    [SerializeField] Image endShiftImage;
+    [SerializeField] Button endShiftButton;
+
+    [Header("End")]
     [SerializeField] bool beginFirstDay;
     [SerializeField] SceneAsset endGameScene;
     [SerializeField] Volume volume;
     [SerializeField] float vignetteTime = 0.25f;
+    [SerializeField] WindowAnimation evaluationRerport;
 
     static int day;
     DayData current;
@@ -78,6 +86,8 @@ public class LevelSender : MonoBehaviour
         {
             OnEndGame?.Invoke();
             EndDay();
+            endShiftButton.interactable = true;
+            endShiftImage.color = Color.red;
         }
         else
         {
@@ -90,10 +100,25 @@ public class LevelSender : MonoBehaviour
     [Button("End Day Test")]
     void EndDay()
     {
-        vignette.intensity.max = 1000f;
-        DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+        
+    }
+
+    public void EndShiftButtonCallback()
+    {
+        if(current == null)
         {
-            SceneManager.LoadScene(current.endDayScene.name);
-        });
+            vignette.intensity.max = 1000f;
+            DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+            {
+                SceneManager.LoadScene(current.endDayScene.name);
+            });
+        }
+        else
+        {
+            BeginDay();
+            endShiftButton.interactable = false;
+            endShiftText.text = "End Shift";
+            endShiftImage.color = Color.gray;
+        }
     }
 }
