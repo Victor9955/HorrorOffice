@@ -12,70 +12,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae42e645693bc94eb53327a841f2d48, type: 3}
   m_Name: DialogueData
   m_EditorClassIdentifier: 
-  url: https://docs.google.com/spreadsheets/d/e/2PACX-1vQpSvrM8mhpAdbZ-XlsNpr_OK69RDyARIT1DVzGfDExky9vAo1NE0-4TmXPlxgay1QcH0qHTSBb9CYV/pub?output=csv
+  url: https://docs.google.com/spreadsheets/d/1hli5HZp9HqQyXRmrdd8_ru4q1Pf69XGdN6vn5Fcwrpo/gviz/tq?tqx=out:json
   comasReplacement: "\xF9"
   language: 0
   dialogues:
     _serializedList:
     - Key: CONNIE_Hello
       Value:
-      - Hey, pal.
-      - "Bonjour\r"
+      - "<wave><color=red>Hey, pal.,</color>\nTest\n\xA4<wave><color=red>TestTwo</color>"
+      - Bonjour
     - Key: ABBIE_Hello
       Value:
       - Hi... I'm new here. I hope everything is alright?
-      - "Bonjour\r"
+      - Bonjour
     - Key: MAX_Hello
       Value:
       - Good morning!
-      - "Bonjour\r"
-    - Key: ROSA_Hello
+      - Bonjour
+    - Key: 'ROSA_Hello '
       Value:
       - Hello, dear!
-      - "Bonjour mon ch\xE9rie\r"
+      - "Bonjour mon ch\xE9rie"
     - Key: LI_Hello
       Value:
-      - "Oh. You\u2019re new. Uh\u2026 hi."
-      - "Jour...\r"
+      - "Oh. You\u2019re new. Uh\u2026 hi.<!sprite=test>"
+      - Jour...
     - Key: DEVI_Hello
       Value:
       - "\u2026What? Is there something on my face?"
-      - "\r"
-    - Key: CONNIE_1
+      - 
+    - Key: CONNIE_A
       Value:
-      - "Hey, fella!\xA4You\u2019re new here, am I right?\xA4\u2026eh, who am I kidding.\xA4Everyone
-        on this floor knows about our little newcomer.\xA4Sorry, 'guess that wasn\u2019t
-        the warm welcome you expected on your first day\u2026\xA4Ah, don\u2019t blame
-        them. They\u2019re a lil' on edge lately. Thought I\u2019d at least come
-        by and give you something of a greeting.\xA4\u2026Hey, y'know what? You seem
-        alright, so I\u2019m gonna clue you in on a little something.\xA4Tomorrow,
-        company\u2019s about to hand over some long overdue promotions to its best
-        soldiers.\xA4That\u2019s the reason everyone\u2019s shooting daggers at each
-        other right now.\xA4And of course, duty will fall on you to decide who\u2019s
-        most deserving of the honors.\xA4I know, \u2018might be a lil\u2019 overwhelming
-        to already undertake responsibilities like this just as you came in.\xA4I
-        mean, you don\u2019t even know anyone here! And it\u2019s not like you got
-        anyone rooting for you. If anything, most of them will want to tear you apart
-        as soon as you give them a warning.\xA4Take my bit of advice. Don\u2019t
-        let them. Doing what you do, you\u2019re bound to make some enemies anyway.
-        Can\u2019t please everyone.\xA4But earning a few friends here and there can
-        go a long way towards making you fit in.\xA4Anyways, just my two cents. Took
-        enough of your time, and need to go back to the deed myself. And remember:
-        I am rooting for you, pal!"
-      - "\r"
-    - Key: DEVI_1
+      - "Hey, fella!\n\n\xA4You\u2019re new here,\nam I right?\n\n\xA4\u2026eh, who
+        am I kidding.\n\n\xA4'Whole floor knows about\nour little newcomer!\n\n\xA4Sorry,
+        'guess that wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4Ah, don\u2019t
+        blame them.\nEverybody\u2019s on edge lately.\n\n\xA4Thought I\u2019d at
+        least come by\nand greet you properly.\n\n\xA4Anyway, took enough of your
+        time.\n\n\xA4See you tomorrow, pal!"
+      - 
+    - Key: DEVI_A
       Value:
       - ...
-      - "\r"
-    - Key: MAX_1
+      - 
+    - Key: MAX_A
       Value:
       - "Oh! Sorry for surprising you.\xA4Didn\u2019t expect to see a new face here.
         Forgot you were replacing the other guy.\xA4A shame. I quite liked him. Though
         I\u2019m sure you\u2019ll fit right in as well!\xA4Anyway, nice to meet you!
         Don\u2019t worry, I probably won\u2019t make your job too hard. My reports
         are always flawless.\xA4See you tomorrow!"
-      - "\r"
-    - Key: CONNIE_2_A
+      - 
+    - Key: CONNIE_B_Bad
       Value:
       - "Hey, pal!\xA4Nice one the other day. Very funny.\xA4\u2026Don\u2019t do
         that again.\xA4But hey. No offense taken.\xA4\u2026\xA4So! Met any new friends?\xA4Not
@@ -86,8 +73,8 @@ MonoBehaviour:
         you least expect it.\xA4Again, I\u2019d be wary of who you trust. It\u2019s
         a shark tank here, and you wouldn\u2019t believe the lengths some people
         go just to earn a promotion.\xA4Glad you\u2019re one of the good ones!"
-      - "\r"
-    - Key: CONNIE_2_B
+      - 
+    - Key: CONNIE_B_Good
       Value:
       - "Hey, pal!\xA4Thanks for covering my ass yesterday.\xA4Knew you were a real
         mate.\xA4Really appreciate it. And you know I\u2019ll return the favor.\xA4So!
@@ -99,12 +86,16 @@ MonoBehaviour:
         I\u2019d be wary of who you trust. It\u2019s a shark tank here, and you wouldn\u2019t
         believe the lengths some people go just to earn a promotion.\xA4Glad you\u2019re
         one of the good ones!"
-      - "\r"
-    - Key: LI_1
+      - 
+    - Key: LI_A
       Value:
-      - "Oh. You\u2019re new.\xA4Uh\u2026 hi."
-      - "\r"
-    - Key: DEVI_2
+      - "Oh. You\u2019re new.\n\n\xA4Uh\u2026 hi."
+      - 
+    - Key: DEVI_B
       Value:
       - "\u2026\xA4What? Is there something on my face?"
+      - 
+    - Key: ESTEBAN_A
+      Value:
+      - ...
       - 

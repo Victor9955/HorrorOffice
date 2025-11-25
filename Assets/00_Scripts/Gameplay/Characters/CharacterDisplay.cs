@@ -38,7 +38,7 @@ public class CharacterDisplay : MonoBehaviour
     {
         
         SetCharacterObj(info);
-        _currentCharacterObj.GetComponent<DialoguePlayer>().SetDialogue(dialogue);
+        _currentCharacterObj.GetComponent<DialoguePlayer>().SetDialogue(info, dialogue);
         _currentCharacterInfo = info;
         OnCharcterSpawned?.Invoke(_currentCharacterObj);
         _moveCoroutine = StartCoroutine(Move(_officeTr.position, info._enterDuration, info._animCurve, () =>
