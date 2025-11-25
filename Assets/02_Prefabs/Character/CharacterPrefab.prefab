@@ -209,6 +209,29 @@ MonoBehaviour:
   dialogueTMP: {fileID: 518025877250546422}
   dialogueUI: {fileID: 6134152621443695089}
   defaultFont: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
+  current:
+    name: 
+    dialogueKey: 
+    sprites:
+      _serializedList: []
+    comingSprite: {fileID: 0}
+    givePaperSprite: {fileID: 0}
+    lookOffset: {x: 0, y: 0}
+    lastBinder: 0
+    _enterDuration: 0
+    _exitDuration: 0
+    _walkMagnitude: 0
+    _walkFrequency: 0
+    _animCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    saySpeed: 0
+    waitBetweenPhrases: 0
+    font: {fileID: 0}
+    mailPP: {fileID: 0}
 --- !u!1 &4136154359805735114
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +246,7 @@ GameObject:
   - component: {fileID: 7274194577669656605}
   - component: {fileID: 5715202314917560992}
   - component: {fileID: 2155283949523698897}
+  - component: {fileID: 8659916929427655259}
   m_Layer: 5
   m_Name: DialogueTMP
   m_TagString: Untagged
@@ -246,7 +270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32.870003, y: -22.005001}
+  m_AnchoredPosition: {x: 32.870003, y: -32}
   m_SizeDelta: {x: 45.74, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2657349273580079203
@@ -469,6 +493,20 @@ MonoBehaviour:
   initDatabase: 1
   previewUpdatesPerSecond: 60
   previewTimeScale: 1
+--- !u!114 &8659916929427655259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4136154359805735114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8aa1ecececdbc64bac31049e05d1ad5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 381768874903173482}
+  dialoguePlayer: {fileID: 7373934005842406109}
 --- !u!1 &4955329474687998842
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 95d12eb395304584fb3222705bb0e650, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6433a29b7391c24ca31e2be004d7ff3, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -546,7 +584,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.5
 --- !u!114 &787102855649304449
 MonoBehaviour:
   m_ObjectHideFlags: 0
