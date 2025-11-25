@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MailApp : MonoBehaviour, IApp, ISingletonMonobehavior
+public class MailApp : MonoBehaviour, IApp
 {
     [SerializeField] Mail mailPrefab;
     [SerializeField] MailView mailView;
