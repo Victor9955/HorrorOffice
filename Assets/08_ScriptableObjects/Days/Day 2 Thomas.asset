@@ -36,16 +36,7 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
     dayDialogue:
-      DefaultDialogueKey: A
-      dialogs:
-        _serializedList: []
-  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
-    overrideCharacterSprite: {fileID: 0}
-    beginCondition: 1
-    sheets:
-    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
-    dayDialogue:
-      DefaultDialogueKey: A
+      DefaultDialogueKey: 1
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
@@ -54,15 +45,15 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
     dayDialogue:
-      DefaultDialogueKey: A
+      DefaultDialogueKey: 1
       dialogs:
         _serializedList: []
-  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
+  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
     dayDialogue:
-      DefaultDialogueKey: A
+      DefaultDialogueKey: 1
       dialogs:
         _serializedList: []

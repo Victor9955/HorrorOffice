@@ -1,4 +1,3 @@
-using AYellowpaper.SerializedCollections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,9 +7,6 @@ public struct CharacterStaticInfo
 {
     public string name;
     public string dialogueKey;
-
-    public SerializedDictionary<string, Sprite> sprites;
-
     public Sprite comingSprite;
     public Sprite givePaperSprite;
     public Vector2 lookOffset;
@@ -22,7 +18,7 @@ public struct CharacterStaticInfo
     public float _exitDuration;
     public  float _walkMagnitude;
     public int _walkFrequency;
-    public AnimationCurve _animCurve;
+     public AnimationCurve _animCurve;
 
     [Header("Dialogue Parameters")]
     public float saySpeed;

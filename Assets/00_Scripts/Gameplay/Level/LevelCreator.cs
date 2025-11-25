@@ -13,6 +13,7 @@ public class LevelCreator : MonoBehaviour
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
+    [SerializeField] public bool debugStartFirstDay;
     SheetAction current;
     private Dictionary<CharacterData, Binder> CharacterSheetDict = new();
 
