@@ -36,6 +36,8 @@ public class EmployeeFile : Draggable
         }
     }
 
+    DragInfo lastOnDeskInfo;
+
     public void Init(SheetData data, int fileIndex)
     {
         //Init Object
@@ -55,6 +57,11 @@ public class EmployeeFile : Draggable
         transform.localRotation = _initDI.Rot;
     }
 
+    private void Update()
+    {
+        Debug.DrawRay(_initDI.Pos , Quaternion.LookRotation(_initDI.Rot.eulerAngles) * Vector3.forward, Color.red);
+    }
+
     protected override void DragTick()
     {
         var ray = CamRaycast();
@@ -66,7 +73,7 @@ public class EmployeeFile : Draggable
                     ray.hit.point + (ray.hit.normal * 0.2f),
                     Quaternion.LookRotation(-ray.hit.normal)
                 );
-                Debug.DrawRay(ray.hit.point, ray.hit.normal);
+                lastOnDeskInfo = _targetDI;
             }
             if (ray.hit.transform.TryGetComponent<IDropContainer>(out IDropContainer binder)) //hovering on a sorter
             {
@@ -93,17 +100,6 @@ public class EmployeeFile : Draggable
 
         if (ray.didHit) //dropped on anything where it can be dropped
         {
-            if (ray.hit.transform.CompareTag("Desk")) // Drop on desk
-            {
-                DragInfo deskDI = new
-                    (
-                        ray.hit.point + (ray.hit.normal * 0.075f),
-                        Quaternion.LookRotation(ray.hit.normal, Vector3.up).eulerAngles
-                        );
-                Debug.DrawRay(ray.hit.point, ray.hit.normal);
-                _initDI = deskDI;
-
-            }
             if (ray.hit.transform.gameObject.TryGetComponent(out IDropContainer container)) // drop in sorter
             {
                 if (container.IsUnlocked())
@@ -118,11 +114,8 @@ public class EmployeeFile : Draggable
         }
         else
         {
-            Vector3 endRot = Quaternion.LookRotation(_cam.transform.forward, Vector3.up).eulerAngles + new Vector3(90f,22.5f,0f);
-            //endRot = _initDI.Rot.eulerAngles;
-            Utils.BigText("hihihi");
-            transform.DOMove(_initDI.Pos, _dragReturnDuration).SetEase(Ease.InOutSine).OnComplete(() => Debug.Log("Returned"));
-            transform.DOLocalRotate(endRot, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
+            transform.DOMove(lastOnDeskInfo.Pos, _dragReturnDuration).SetEase(Ease.InOutSine).OnComplete(() => Debug.Log("Returned"));
+            transform.DORotate(lastOnDeskInfo.Rot.eulerAngles, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
         }
     }
 

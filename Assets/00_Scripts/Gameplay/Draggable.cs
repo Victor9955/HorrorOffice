@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
+using static UnityEngine.Rendering.DebugUI.Table;
 using static UnityEngine.UI.Image;
 
 
@@ -18,7 +19,7 @@ public struct DragInfo
     private float _pitch;
     private float _roll;
 
-    public Quaternion Rot => Quaternion.Euler(_pitch, _yaw, _roll);
+    public Quaternion Rot;
     public Vector3 Pos => _posOffset;
 
 
@@ -26,6 +27,7 @@ public struct DragInfo
     public DragInfo(Vector3 posOffset, float yaw, float pitch, float roll)
     {
         _posOffset = posOffset;
+        Rot = Quaternion.Euler(yaw, pitch, roll);
         _yaw = yaw;
         _pitch = pitch;
         _roll = roll;
@@ -34,6 +36,7 @@ public struct DragInfo
     public DragInfo(DragInfo original)
     {
         _posOffset = original._posOffset;
+        Rot = original.Rot;
         _yaw = original._yaw;
         _pitch = original._pitch;
         _roll = original._roll;
@@ -42,6 +45,7 @@ public struct DragInfo
     public DragInfo(Vector3 posOffset, Quaternion rot)
     {
         _posOffset = posOffset;
+        Rot = rot;
         Vector3 euleurRot = rot.eulerAngles;
         _yaw = euleurRot.x;
         _pitch = euleurRot.y;
@@ -51,6 +55,7 @@ public struct DragInfo
     public DragInfo(Vector3 posOffset, Vector3 eulerAngles)
     {
         _posOffset = posOffset;
+        Rot = Quaternion.Euler(eulerAngles.x, eulerAngles.y, eulerAngles.z);
         _yaw = eulerAngles.x;
         _pitch = eulerAngles.y;
         _roll = eulerAngles.z;
