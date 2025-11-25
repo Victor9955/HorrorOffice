@@ -118,7 +118,7 @@ public class EmployeeFile : Draggable
         }
         else
         {
-            Vector3 endRot = Quaternion.LookRotation(_cam.transform.forward, Vector3.up).eulerAngles + new Vector3(90f,0f,0f);
+            Vector3 endRot = Quaternion.LookRotation(_cam.transform.forward, Vector3.up).eulerAngles + new Vector3(90f,22.5f,0f);
             //endRot = _initDI.Rot.eulerAngles;
             Utils.BigText("hihihi");
             transform.DOMove(_initDI.Pos, _dragReturnDuration).SetEase(Ease.InOutSine).OnComplete(() => Debug.Log("Returned"));
