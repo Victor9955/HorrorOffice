@@ -125,7 +125,7 @@ public class DialogueData : ScriptableObject
             // Extract values from cells
             string characterId = GetCellValue(row, 0);
             string dialogueId = GetCellValue(row, 1);
-            string key = GetCellValue(row, 2);
+            string key = GetCellValue(row, 2).Trim(new char[]{ '\n', ' '});
             string english = GetCellValue(row, 3);
             string french = GetCellValue(row, 4);
 
