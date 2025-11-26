@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static TMPEffects.CharacterData.CharData;
 
 public class CharacterDisplay : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class CharacterDisplay : MonoBehaviour
 
     public void CharacterLeave(Action onEnd)
     {
+        _currentCharacterObj.GetComponent<DialoguePlayer>().Hide();
         _moveCoroutine = StartCoroutine(Move(_exitTr.position, _currentCharacterInfo._exitDuration, _currentCharacterInfo._animCurve, () =>
         {
             _currentCharacterObj.SetActive(false);

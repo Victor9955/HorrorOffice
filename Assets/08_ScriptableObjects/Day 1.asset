@@ -15,15 +15,14 @@ MonoBehaviour:
   startEvent:
     m_PersistentCalls:
       m_Calls: []
-  binders: 000000000100000002000000
+  endDayScene: 1
+  binders: 000000000200000001000000
   startActions: []
   actions:
   - character: {fileID: 11400000, guid: 86834131876558543b4d2e88d96903d8, type: 2}
-    overrideCharacterSprite: {fileID: 0}
-    beginCondition: 1
     sheets:
-    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
     dayDialogue:
-      DefaultDialogueKey: Hello
+      DefaultDialogueKey: B_Bad
       dialogs:
         _serializedList: []
