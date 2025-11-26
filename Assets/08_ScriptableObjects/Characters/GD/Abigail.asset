@@ -17,6 +17,31 @@ MonoBehaviour:
     dialogueKey: ABBIE
     comingSprite: {fileID: 21300000, guid: a7c44d726325e8241b24cada7d4d9795, type: 3}
     givePaperSprite: {fileID: -7460193037895503351, guid: 709a25eeeb7863b4cbc436937638fc9f, type: 3}
+    walkCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    happyAmount: 0
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
     _enterDuration: 2
@@ -47,7 +72,3 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    saySpeed: 0.05
-    waitBetweenPhrases: 1
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    mailPP: {fileID: 0}

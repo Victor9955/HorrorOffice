@@ -1,39 +1,49 @@
 using NaughtyAttributes;
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class FileSorting : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] private EmployeeFile _fileToSortPrefab;
-    [SerializeField] private Transform _fileSpawnTr;
+    [SerializeField] private Transform _filePoolTr;
     [SerializeField, Required] private CharacterDisplay _characterDisplay;
 
-    [Header("Parameters")]
+    [Header("Binder Parameters")]
     [Space(5)]
-    [SerializeField] private float _stackingDistance;
+    [SerializeField] private float _binderStackingDistance;
     [SerializeField] private float _openAnimDistance;
     [SerializeField] private float _openAnimDuration;
-
     public List<Binder> _binderDataList;
 
-    [Header("Events")]
-    [Space(5)]
-    [SerializeField] private UnityEvent<bool> OnSetLockEvent;
-    [SerializeField] private UnityEvent OnMatchCheckEvent;
+    [Header("File Stack Parameters")]
+    [SerializeField] private float _fileStackingDistance = 2;
+    [SerializeField] private Vector2 _fileStackRotOffset;
+
+    //[Header("Events")]
+    //[Space(5)]
+    //[SerializeField] private UnityEvent<bool> OnSetLockEvent;
+    //[SerializeField] private UnityEvent OnMatchCheckEvent;
 
     private bool _canDropFile;
     private EmployeeFile _currentFile;
     private List<FileBinder> _binderList = new();
+    private List<EmployeeFile> _activeFileList = new();
+    private List<EmployeeFile> _fileList = new();
     private Coroutine _newFileCoroutine;
     private int _fileIndex = 0;
 
     public event Action<Binder> OnFileDroppedEvent;
 
+    private void Awake()
+    {
+        _binderList.Clear();
+        _activeFileList.Clear();
+    }
     private void Start()
     {
         Init();
@@ -43,7 +53,11 @@ public class FileSorting : MonoBehaviour
     {
         _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
         _characterDisplay.OnCharacterExited += () => SetBindersLockState(true);
+        SetupBinders();
+        _binderList.Clear();
+        FileStackUpdate();
     }
+    #region Binder Methods
 
     [Button]
     public void SetupBinders()
@@ -58,7 +72,7 @@ public class FileSorting : MonoBehaviour
         {
             FileBinder childBinder = transform.GetChild(i).GetComponent<FileBinder>();
             childBinder.Init(_binderDataList[i], _openAnimDistance, _openAnimDuration);
-            childBinder.transform.position = transform.position + (Vector3.up * (i * _stackingDistance / 10));
+            childBinder.transform.position = transform.position + (Vector3.up * (i * _binderStackingDistance / 10));
             _binderList.Add(childBinder);
         }
         Debug.Log($"{_binderList.Count} binders in the scene");
@@ -71,24 +85,69 @@ public class FileSorting : MonoBehaviour
         {
             file.isUnlocked = isUnlocked;
         }
-        OnSetLockEvent.Invoke(isUnlocked);
+        //OnSetLockEvent.Invoke(isUnlocked);
 
-        if (isUnlocked) _currentFile.OnDropped += OnFileDropped;
-        else _currentFile.OnDropped -= OnFileDropped;
+        if (isUnlocked) _currentFile.OnFileDroppedInSorter += OnFileDropped;
+        else _currentFile.OnFileDroppedInSorter -= OnFileDropped;
 
     }
 
+    #endregion
     public void OnNewFile(SheetData data)
     {
-        _canDropFile = false;
         _fileIndex++;
-        _currentFile = Instantiate(_fileToSortPrefab, _fileSpawnTr);
+        _currentFile = Instantiate(_fileToSortPrefab, _filePoolTr);
+        _fileList.Add(_currentFile);
+
+        //Addfile to stack
+        FileStackAdd(_currentFile);
+
         _currentFile.Init(data, _fileIndex);
+
+        FileStackUpdate(); // set files in a stack and applies lil rot offset 
         int randInd = Random.Range(0, _binderList.Count);
         SetBindersLockState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
 
+    private void FileStackAdd(EmployeeFile file)
+    {
+        _activeFileList.Add(file);
+        file.OnPickup += FileStackRemoveTopFile;
+        FileStackUpdate();
+
+    }
+
+    private void FileStackRemoveTopFile()
+    {
+        EmployeeFile file = _activeFileList.Last();
+        _activeFileList.Remove(file);
+        Debug.Log("now count " + _activeFileList.Count);
+        file.OnPickup -= FileStackRemoveTopFile;
+        FileStackUpdate();
+    }
+
+    private void FileStackUpdate()
+    {
+        if (_activeFileList.Count <= 0) return;
+        for (int i = 0; i < _activeFileList.Count; i++)
+        {
+            EmployeeFile file = _activeFileList[i];
+
+            // applies position and rotation to pile up the files
+            Vector3 newPos = _filePoolTr.position + (Vector3.up * _fileStackingDistance * 0.1f * i );
+            Vector3 newLocalEulerAngles = Vector3.zero;
+            newLocalEulerAngles.x = 90f;
+            newLocalEulerAngles.y = Random.Range(_fileStackRotOffset.y, _fileStackRotOffset.y);
+
+            file.transform.position = newPos;
+            file.transform.localEulerAngles = newLocalEulerAngles;
+            file.IsDraggable = false;
+        }
+
+        Debug.Log(_activeFileList.Last().name);
+        _activeFileList.Last().IsDraggable = true;
+    }
 
     private void OnFileDropped(Binder binderType)
     {

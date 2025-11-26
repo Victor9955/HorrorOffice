@@ -14,7 +14,7 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TMP_FontAsset defaultFont;
     string[] phrases;
 
-    [HideInInspector] public CharacterStaticInfo current;
+    CharacterStaticInfo current;
 
     public void SetDialogue(CharacterStaticInfo character,string dialogue)
     {
@@ -28,8 +28,6 @@ public class DialoguePlayer : MonoBehaviour
             {
                 if(item == separarionChar[0])
                 {
-                    str = str.TrimEnd();
-                    str = str.TrimStart();
                     phrase.Add(str);
                     str = "";
                 }
@@ -55,7 +53,6 @@ public class DialoguePlayer : MonoBehaviour
             dialogueTMP.font = current.font;
         }
     }
-
 
     public void Say()
     {

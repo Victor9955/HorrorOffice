@@ -15,10 +15,6 @@ MonoBehaviour:
   characterStaticInfo:
     name: Lushan Li
     dialogueKey: LI
-    sprites:
-      _serializedList:
-      - Key: test
-        Value: {fileID: 21300000, guid: 66c78e567f040d1418aa47dcb4665857, type: 3}
     comingSprite: {fileID: 21300000, guid: 59e3c526d893020478acecef3ec92915, type: 3}
     givePaperSprite: {fileID: 6787092529591086062, guid: eeb18a0b02f0c58448778270c6d39cdd, type: 3}
     lookOffset: {x: 0, y: 0}
@@ -51,7 +47,4 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    saySpeed: 0
-    waitBetweenPhrases: 0
-    font: {fileID: 0}
     mailPP: {fileID: 0}
