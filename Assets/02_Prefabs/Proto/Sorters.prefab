@@ -48,17 +48,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fileToSortPrefab: {fileID: 900574019958138232, guid: 27a179bb2be324e4ab517eff262535fe, type: 3}
-  _fileSpawnTr: {fileID: 0}
+  _filePoolTr: {fileID: 0}
   _characterDisplay: {fileID: 0}
-  _openAnimDistance: 0
-  _openAnimDuration: 0
-  _binderDataList: 
-  OnSetLockEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnMatchCheckEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  _binderStackingDistance: 3
+  _openAnimDistance: 0.2
+  _openAnimDuration: 0.2
+  _binderDataList: 020000000100000000000000
+  _fileStackingDistance: 2
+  _fileStackRotOffset: {x: 0, y: 0}
 --- !u!1001 &3982831848787203233
 PrefabInstance:
   m_ObjectHideFlags: 0
