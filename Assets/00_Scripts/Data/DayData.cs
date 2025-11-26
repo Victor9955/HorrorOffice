@@ -16,8 +16,6 @@ public struct DayDialogueData
 public struct SheetAction
 {
     public CharacterData character;
-    public Sprite overrideCharacterSprite;
-    public bool beginCondition;
     public List<SheetData> sheets;
     public DayDialogueData dayDialogue;
 }
@@ -26,7 +24,7 @@ public struct SheetAction
 public class DayData : ScriptableObject
 {
     public UnityEvent startEvent;
-    public SceneAsset endDayScene;
+    public int endDayScene;
     public List<Binder> binders;
     public List<SheetAction> startActions;
     public List<SheetAction> actions;

@@ -5,7 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -27,7 +26,7 @@ public class LevelSender : MonoBehaviour
 
     [Header("End")]
     [SerializeField] bool beginFirstDay;
-    [SerializeField] SceneAsset endGameScene;
+    [SerializeField] int endGameScene;
     [SerializeField] Volume volume;
     [SerializeField] float vignetteTime = 0.25f;
     [SerializeField] WindowAnimation evaluationRerport;
@@ -50,7 +49,6 @@ public class LevelSender : MonoBehaviour
         BeginDay();
     }
 
-    [ConsoleCommand("BeginDay")]
     public void BeginDay()
     {
         if (current == null) // when current = null current level is finished
@@ -85,22 +83,15 @@ public class LevelSender : MonoBehaviour
         if (day == days.Count -1)
         {
             OnEndGame?.Invoke();
-            EndDay();
             endShiftButton.interactable = true;
             endShiftImage.color = Color.red;
         }
         else
         {
             OnEndDay?.Invoke();
-            SceneManager.LoadScene(endGameScene.name);
+            SceneManager.LoadScene(endGameScene);
         }
         current = null;
-    }
-
-    [Button("End Day Test")]
-    void EndDay()
-    {
-        
     }
 
     public void EndShiftButtonCallback()
@@ -110,12 +101,12 @@ public class LevelSender : MonoBehaviour
             vignette.intensity.max = 1000f;
             DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
             {
-                SceneManager.LoadScene(current.endDayScene.name);
+                SceneManager.LoadScene(current.endDayScene);
             });
         }
         else
         {
-            BeginDay();
+            StartSheetSorting();
             endShiftButton.interactable = false;
             endShiftText.text = "End Shift";
             endShiftImage.color = Color.gray;

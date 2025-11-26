@@ -166,7 +166,7 @@ public class DialogueData : ScriptableObject
     {
         if (row.c != null && columnIndex < row.c.Length && row.c[columnIndex] != null)
         {
-            return row.c[columnIndex].v.TrimEnd().TrimStart() ?? "";
+            return row.c[columnIndex].v ?? "";
         }
         return "";
     }
