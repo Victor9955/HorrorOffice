@@ -3,7 +3,22 @@ guid: a4da9d03fc224624d9d06e0e1a650455
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Buttons
+    second: {fileID: 2100000, guid: 98c82f470e1a4e5428b215528393c61e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DoorRight.001
+    second: {fileID: 2100000, guid: e25e679ad9acda048a16e064e6c0fec4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Indicator
+    second: {fileID: 2100000, guid: 83141e92c999ef448b2199409a58386d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
