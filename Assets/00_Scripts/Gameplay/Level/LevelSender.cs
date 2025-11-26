@@ -81,18 +81,8 @@ public class LevelSender : MonoBehaviour
             yield return new WaitUntil(() => levelCreator.isEnded);
             yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
         }
-        day = Mathf.Clamp(day + 1, 0, days.Count - 1);
-        if (day == days.Count -1)
-        {
-            OnEndGame?.Invoke();
-            endShiftButton.interactable = true;
-            endShiftImage.color = Color.red;
-        }
-        else
-        {
-            OnEndDay?.Invoke();
-            SceneManager.LoadScene(endGameScene);
-        }
+        endShiftButton.interactable = true;
+        endShiftImage.color = Color.red;
         current = null;
     }
 
@@ -100,11 +90,24 @@ public class LevelSender : MonoBehaviour
     {
         if(current == null)
         {
-            vignette.intensity.max = 1000f;
-            DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+            if (day == days.Count - 1)
             {
-                SceneManager.LoadScene(endDayIndex);
-            });
+                vignette.intensity.max = 1000f;
+                DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+                {
+                    day = Mathf.Clamp(day + 1, 0, days.Count);
+                    SceneManager.LoadScene(endGameScene);
+                });
+            }
+            else
+            {
+                vignette.intensity.max = 1000f;
+                DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+                {
+                    day = Mathf.Clamp(day + 1, 0, days.Count);
+                    SceneManager.LoadScene(endDayIndex);
+                });
+            }
         }
         else
         {
