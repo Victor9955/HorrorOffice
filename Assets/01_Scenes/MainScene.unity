@@ -19567,7 +19567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10392596, y: 3696365.8}
+  m_AnchoredPosition: {x: -10412551, y: 3703213.2}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -36150,7 +36150,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4571964.5}
+  m_AnchoredPosition: {x: 0, y: 4581674.5}
   m_SizeDelta: {x: 0, y: 2920}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -37380,7 +37380,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 31652649}
   m_Direction: 2
   m_Value: -0.00000005307404
-  m_Size: 0.42499995
+  m_Size: 0.41353944
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -43081,9 +43081,17 @@ MonoBehaviour:
   cameraRef: {fileID: 1185831071}
   cameraTransform: {fileID: 1185831072}
   transitionSpeed: 0.25
-  triggerAmounts: {x: 0.1, y: 0.1}
+  triggerAmountsA: {x: 0.3, y: 0.3}
+  triggerAmountsB: {x: 0.225, y: 0.225}
+  triggerAmountsC: {x: 0.145, y: 0.145}
+  triggerAmountsD: {x: 0.0675, y: 0.0675}
+  triggerAmountsE: {x: 0.0225, y: 0.225}
   rotationClamp: {x: -4, y: 50}
-  rotationSpeed: 50
+  rotationSpeedA: 10
+  rotationSpeedB: 15
+  rotationSpeedC: 20
+  rotationSpeedD: 25
+  rotationSpeedE: 35
   offset: {x: -4, y: 0.25}
   pc: {fileID: 1902982588}
   fovPC: 14.5
@@ -72800,7 +72808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.00020884674, y: 787.50006}
+  m_AnchoredPosition: {x: -0.00020884674, y: 787.5001}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &1956988116
@@ -74239,7 +74247,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008279185, y: 5516208}
+  m_AnchoredPosition: {x: -0.00008279185, y: 5525918}
   m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!1001 &1996587907
