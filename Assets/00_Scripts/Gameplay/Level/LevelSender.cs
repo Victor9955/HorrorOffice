@@ -39,6 +39,7 @@ public class LevelSender : MonoBehaviour
     public event Action OnEndDay;
     public event Action OnEndGame;
 
+    int endDayIndex = 0;
     private void Start()
     {
         if(beginFirstDay)
@@ -57,6 +58,7 @@ public class LevelSender : MonoBehaviour
             current.startEvent?.Invoke();
             fileSorting._binderDataList = current.binders;
             fileSorting.SetupBinders();
+            endDayIndex = current.endDayScene;
         }
     }
 
@@ -101,7 +103,7 @@ public class LevelSender : MonoBehaviour
             vignette.intensity.max = 1000f;
             DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
             {
-                SceneManager.LoadScene(current.endDayScene);
+                SceneManager.LoadScene(endDayIndex);
             });
         }
         else

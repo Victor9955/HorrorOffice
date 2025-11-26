@@ -56,6 +56,11 @@ public class DialoguePlayer : MonoBehaviour
         }
     }
 
+    public void Hide()
+    {
+        dialogueTMP.transform.parent.gameObject.SetActive(false);
+    }
+
 
     public void Say()
     {
