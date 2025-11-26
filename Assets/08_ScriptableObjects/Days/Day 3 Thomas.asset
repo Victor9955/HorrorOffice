@@ -43,7 +43,7 @@ MonoBehaviour:
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
-    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
+    - {fileID: 11400000, guid: 5e60eedd326395d4da726777b002b6ce, type: 2}
     dayDialogue:
       DefaultDialogueKey: 1
       dialogs:
@@ -52,7 +52,7 @@ MonoBehaviour:
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
-    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
+    - {fileID: 11400000, guid: 2daabc736d255f74c853b4a93a4472ea, type: 2}
     dayDialogue:
       DefaultDialogueKey: 1
       dialogs:
@@ -61,16 +61,23 @@ MonoBehaviour:
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
-    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
+    - {fileID: 11400000, guid: 794578f8599e7064680bbce9ab368102, type: 2}
     dayDialogue:
       DefaultDialogueKey: 2
       dialogs:
-        _serializedList: []
+        _serializedList:
+        - Key: 3
+          Value: "\xA4Nice one the other day. Very funny.  \xA4<sprite=Surprised>\u2026Don\u2019t
+            do that again?  \xA4<sprite=Default>But hey. No offence taken.  \xA4\u2026"
+        - Key: 2
+          Value: "\xA4<sprite=Happy>Thanks for covering my ass yesterday.  \xA4Knew
+            you were a real mate.  \xA4<sprite=Default>Really appreciate it. And
+            you know I\u2019ll return the favour."
   - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
     overrideCharacterSprite: {fileID: 0}
     beginCondition: 1
     sheets:
-    - {fileID: 11400000, guid: d7a40cba5cc8ffa44a24c09ec7339bf2, type: 2}
+    - {fileID: 11400000, guid: 8e7aa261a6bedf64693a2aa53d6d5b7d, type: 2}
     dayDialogue:
       DefaultDialogueKey: 2
       dialogs:
