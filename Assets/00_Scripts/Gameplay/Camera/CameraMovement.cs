@@ -5,6 +5,15 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+public enum FocusState
+{
+    Unfocused,
+    PC,
+    Object,
+    Character
+}
+
 public class CameraMovement : MonoBehaviour
 {
     [Header("Camera")]
@@ -24,8 +33,10 @@ public class CameraMovement : MonoBehaviour
 
     [Header("QuitPC")]
     [SerializeField] Vector2 triggerQuit;
+    [SerializeField] Vector2 objectTriggerQuit;
 
-    [HideInInspector] public bool isFocused = false;
+    [HideInInspector] public FocusState focusState = FocusState.Unfocused;
+    [HideInInspector] public bool isFocusing = false;
 
     public event Action<bool> OnFocusedChange;
 
@@ -46,29 +57,38 @@ public class CameraMovement : MonoBehaviour
         DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, lastFov, transitionSpeed);
         cameraTransform.DOLocalRotate(lastRotation.eulerAngles, transitionSpeed).OnComplete(() =>
         {
-            isFocused = false;
-            OnFocusedChange?.Invoke(isFocused);
+            focusState = FocusState.Unfocused;
+            OnFocusedChange?.Invoke(false);
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 0);
         });
     }
 
     public void FocusCharacter(CharacterData character, Vector3 position)
     {
-        isFocused = true;
+        focusState = FocusState.Character;
+        isFocusing = true;
+
         Quaternion lookRotation = Quaternion.LookRotation(position - cameraTransform.position);
         Vector3 finalRoation = lookRotation.eulerAngles;
         finalRoation.x += character.staticInfo.lookOffset.y;
         finalRoation.y += character.staticInfo.lookOffset.x;
 
         cameraTransform.DORotate(finalRoation, transitionSpeed);
-        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed);
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
+            {
+                focusState = FocusState.Character;
+                isFocusing = false;
+            }
+        );
     }
 
     [ConsoleCommand]
     public void FocusPC()
     {
-        isFocused = true;
-        OnFocusedChange?.Invoke(isFocused);
+        focusState = FocusState.PC;
+        isFocusing = true;
+
+        OnFocusedChange?.Invoke(true);
         lastRotation = cameraTransform.rotation;
 
         Quaternion lookRotation = Quaternion.LookRotation(pc.position - cameraTransform.position);
@@ -77,51 +97,100 @@ public class CameraMovement : MonoBehaviour
         finalRoation.y += offset.x;
 
         cameraTransform.DOLocalRotate(finalRoation, transitionSpeed);
-        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed);
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
+        {
+            focusState = FocusState.PC;
+            isFocusing = false;
+        }
+        );
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 1);
     }
 
+    public void FocusClickable(Clickable subject)
+    {
+        focusState = FocusState.Object;
+        isFocusing = true;
+
+        OnFocusedChange?.Invoke(true);
+        lastRotation = cameraTransform.rotation;
+
+        Vector3 finalRot = subject.RotationInEulerAngles;
+
+        cameraTransform.DOLocalRotate(finalRot, transitionSpeed);
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, subject.Fov, transitionSpeed).OnComplete(() =>
+        {
+            focusState = FocusState.Object;
+            isFocusing = false;
+        }
+        );
+    }
+
+
     private void Update()
     {
-        if(!isFocused)
+        if (isFocusing) return;
+
+        switch (focusState)
         {
-            cameraTransform.rotation = lastRotation;
+            case FocusState.Unfocused:
+                cameraTransform.rotation = lastRotation;
 
-            Vector2 mousePosition = Mouse.current.position.value;
-            //Rights
-            if(mousePosition.x > Screen.width - (triggerAmounts.y * Screen.width))
-            {
-                cameraRotation += rotationSpeed * Time.deltaTime;
-            }
-
-            //Left
-            if (mousePosition.x < (triggerAmounts.x * Screen.width))
-            {
-                cameraRotation -= rotationSpeed * Time.deltaTime;
-            }
-
-            cameraRotation = Mathf.Clamp(cameraRotation, rotationClamp.x, rotationClamp.y);
-            Vector3 finalRotation = lastRotation.eulerAngles;
-            finalRotation.y = cameraRotation;
-            lastRotation.eulerAngles = finalRotation;
-        }
-        else
-        {
-            if(Mouse.current.leftButton.wasPressedThisFrame)
-            {
                 Vector2 mousePosition = Mouse.current.position.value;
                 //Rights
-                if (mousePosition.x > Screen.width - (triggerQuit.y * Screen.width))
+                if (mousePosition.x > Screen.width - (triggerAmounts.y * Screen.width))
                 {
-                    StopFocus();
+                    cameraRotation += rotationSpeed * Time.deltaTime;
                 }
 
                 //Left
-                if (mousePosition.x < (triggerQuit.x * Screen.width))
+                if (mousePosition.x < (triggerAmounts.x * Screen.width))
                 {
-                    StopFocus();
+                    cameraRotation -= rotationSpeed * Time.deltaTime;
                 }
-            }
+
+                cameraRotation = Mathf.Clamp(cameraRotation, rotationClamp.x, rotationClamp.y);
+                Vector3 finalRotation = lastRotation.eulerAngles;
+                finalRotation.y = cameraRotation;
+                lastRotation.eulerAngles = finalRotation;
+                break;
+
+            case FocusState.PC:
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    Vector2 mousePos = Mouse.current.position.value;
+                    //Rights
+                    if (mousePos.x > Screen.width - (triggerQuit.y * Screen.width))
+                    {
+                        StopFocus();
+                    }
+
+                    //Left
+                    if (mousePos.x < (triggerQuit.x * Screen.width))
+                    {
+                        StopFocus();
+                    }
+                }
+                break;
+
+            case FocusState.Object:
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    Vector2 mousePos = Mouse.current.position.value;
+                    //Rights
+                    if (mousePos.x > Screen.width - (objectTriggerQuit.y * Screen.width))
+                    {
+                        StopFocus();
+                    }
+
+                    //Left
+                    if (mousePos.x < (objectTriggerQuit.x * Screen.width))
+                    {
+                        StopFocus();
+                    }
+                }
+                break;
+
         }
+
     }
 }
