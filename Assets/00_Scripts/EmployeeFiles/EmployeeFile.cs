@@ -115,8 +115,8 @@ public class EmployeeFile : Draggable
         }
         else
         {
-            transform.DOMove(lastOnDeskInfo.Pos, _dragReturnDuration).SetEase(Ease.InOutSine).OnComplete(() => Debug.Log("Returned"));
-            transform.DORotate(lastOnDeskInfo.Rot.eulerAngles, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
+            transform.DOMove(lastOnDeskInfo.Pos, _dragReturnDuration).SetEase(Ease.InOutSine);
+            DOTween.To(() => transform.rotation, (q) => transform.rotation = q, lastOnDeskInfo.Rot.eulerAngles, _dragReturnDuration);
         }
     }
 
@@ -126,7 +126,6 @@ public class EmployeeFile : Draggable
 
         RaycastHit hit;
         bool didHit = Physics.Raycast(ray, out hit, 100, _layerMask);
-        //Debug.DrawRay(ray.origin, ray.direction, Color.blue, 2f);
         return (didHit, hit);
     }
 }

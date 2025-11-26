@@ -105,7 +105,6 @@ public class FileSorting : MonoBehaviour
         _currentFile.Init(data, _fileIndex);
 
         FileStackUpdate(); // set files in a stack and applies lil rot offset 
-        int randInd = Random.Range(0, _binderList.Count);
         SetBindersLockState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
