@@ -1,7 +1,9 @@
-﻿using DG.Tweening;
+﻿using NaughtyAttributes;
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class EmployeeFile : Draggable
 {
@@ -18,14 +20,7 @@ public class EmployeeFile : Draggable
             return _spriteRend;
         }
     }
-
-    public bool IsDraggable
-    {
-        get => _isDraggable;
-        set { _isDraggable = value; }
-    }
-
-    public Action<Binder> OnFileDroppedInSorter;
+    public Action<Binder> OnDropped;
     public UnityEvent OnDroppedUEvent;
     public Color FileColor
     {
@@ -36,87 +31,89 @@ public class EmployeeFile : Draggable
         }
     }
 
-    DragInfo lastOnDeskInfo;
-
     public void Init(SheetData data, int fileIndex)
     {
-        //Init Object
+        InitObject(fileIndex);
+        InitData(data);
+        //ResetFilePosition();
+    }
+    private void InitObject(int fileIndex)
+    {
+        //Debug.Log($"init : ({_initDI.Pos},{_initDI.Rot}), tr : ({transform.position},{transform.rotation})");
         name = $"SheetInstance_{fileIndex}";
         gameObject.SetActive(true);
-        _isDraggable = _draggableOnInit;
-
-        //Init Data
-        _sheetData = data;
-        SpriteRend.sprite = _sheetData.sprite;
-        _initDI = new(
-            transform.position,
-            transform.rotation
-            );
-
-        transform.localPosition = _initDI.Pos;
-        transform.localRotation = _initDI.Rot;
+        _canBeDragged = _draggableOnReset;
     }
-
-    private void Update()
+    private void InitData(SheetData sheetData)
     {
-        Debug.DrawRay(_initDI.Pos , Quaternion.LookRotation(_initDI.Rot.eulerAngles) * Vector3.forward, Color.red);
+        _sheetData = sheetData;
+        SpriteRend.sprite = _sheetData.sprite;
+        SetState(ref _initDI);
     }
+
 
     protected override void DragTick()
     {
         var ray = CamRaycast();
-        if (ray.didHit) // the object is hovering above something
+        if (ray.didHit)
         {
-            if (ray.hit.transform.CompareTag("Desk")) // hovering on desk
+            bool didHitDesk = ray.hit.transform.CompareTag("Desk");
+            if (didHitDesk)
             {
                 _targetDI = new(
                     ray.hit.point + (ray.hit.normal * 0.2f),
                     Quaternion.LookRotation(-ray.hit.normal)
-                );
-                lastOnDeskInfo = _targetDI;
+                    );
             }
-            if (ray.hit.transform.TryGetComponent<IDropContainer>(out IDropContainer binder)) //hovering on a sorter
+            if (ray.hit.transform.TryGetComponent<IDropContainer>(out IDropContainer binder))
             {
                 FileBinder fileBinder = binder as FileBinder;
                 _targetDI = new(
                     fileBinder.GetFilePosition(),
                     Quaternion.LookRotation(fileBinder.transform.up)
-                );
+                    );
             }
         }
-        else // if it isn't hovering on anything
+        else
         {
-            _targetDI = new DragInfo(
-               CamToWorldPos,
-               Quaternion.LookRotation(_cam.transform.forward, Vector3.up)
-               );
+            _targetDI = new(
+                CamToWorldPos,
+                Quaternion.LookRotation(_cam.transform.forward, Vector3.up)
+                );
         }
-        base.DragTick(); // apply DI
+        base.DragTick();
     }
     public override void Drop()
     {
         base.Drop();
         var ray = CamRaycast();
-
-        if (ray.didHit) //dropped on anything where it can be dropped
+        
+        if (ray.didHit)
         {
-            if (ray.hit.transform.gameObject.TryGetComponent(out IDropContainer container)) // drop in sorter
+            if (ray.hit.transform.gameObject.TryGetComponent(out IDropContainer container))
             {
                 if (container.IsUnlocked())
                 {
                     bool hasDropped = container.Drop(this);
-                    OnFileDroppedInSorter?.Invoke(_sheetData.rightBinder);
+                    OnDropped?.Invoke(_sheetData.rightBinder);
 
                     OnDroppedUEvent?.Invoke();
                     gameObject.SetActive(!_getsConsumedOnCorrectDrop);
                 }
+                if (ray.hit.transform.CompareTag("Desk"))
+                {
+                    DragStateInfo deskDI = new
+                        (
+                            ray.hit.point + (ray.hit.normal),
+                            Quaternion.LookRotation(-ray.hit.normal)
+                        );
+                    _initDI = deskDI;
+                }
+
             }
+            else Debug.Log("Cant get da DropContainer :(");
         }
-        else
-        {
-            transform.DOMove(lastOnDeskInfo.Pos, _dragReturnDuration).SetEase(Ease.InOutSine).OnComplete(() => Debug.Log("Returned"));
-            transform.DORotate(lastOnDeskInfo.Rot.eulerAngles, _dragReturnDuration).OnComplete(() => Debug.Log("pluh"));
-        }
+        else Debug.Log("Cant hit anything :(");
     }
 
     private (bool didHit, RaycastHit hit) CamRaycast()

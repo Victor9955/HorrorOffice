@@ -48,6 +48,7 @@ public class CameraMovement : MonoBehaviour
         {
             isFocused = false;
             OnFocusedChange?.Invoke(isFocused);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 0);
         });
     }
 
@@ -77,6 +78,7 @@ public class CameraMovement : MonoBehaviour
 
         cameraTransform.DOLocalRotate(finalRoation, transitionSpeed);
         DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 1);
     }
 
     private void Update()

@@ -8,57 +8,44 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
-using static UnityEngine.Rendering.DebugUI.Table;
 using static UnityEngine.UI.Image;
 
 
-public struct DragInfo
+public struct DragStateInfo
 {
     private Vector3 _posOffset;
     private float _yaw;
     private float _pitch;
     private float _roll;
 
-    public Quaternion Rot;
+    public Quaternion Rot => Quaternion.Euler(_pitch, _yaw, _roll);
     public Vector3 Pos => _posOffset;
 
 
     #region Constructors
-    public DragInfo(Vector3 posOffset, float yaw, float pitch, float roll)
+    public DragStateInfo(Vector3 posOffset, float yaw, float pitch, float roll)
     {
         _posOffset = posOffset;
-        Rot = Quaternion.Euler(yaw, pitch, roll);
         _yaw = yaw;
         _pitch = pitch;
         _roll = roll;
     }
 
-    public DragInfo(DragInfo original)
+    public DragStateInfo(DragStateInfo original)
     {
         _posOffset = original._posOffset;
-        Rot = original.Rot;
         _yaw = original._yaw;
         _pitch = original._pitch;
         _roll = original._roll;
     }
 
-    public DragInfo(Vector3 posOffset, Quaternion rot)
+    public DragStateInfo(Vector3 posOffset, Quaternion rot)
     {
         _posOffset = posOffset;
-        Rot = rot;
         Vector3 euleurRot = rot.eulerAngles;
         _yaw = euleurRot.x;
         _pitch = euleurRot.y;
         _roll = euleurRot.z;
-    }
-
-    public DragInfo(Vector3 posOffset, Vector3 eulerAngles)
-    {
-        _posOffset = posOffset;
-        Rot = Quaternion.Euler(eulerAngles.x, eulerAngles.y, eulerAngles.z);
-        _yaw = eulerAngles.x;
-        _pitch = eulerAngles.y;
-        _roll = eulerAngles.z;
     }
 
     #endregion
@@ -78,19 +65,22 @@ public class Draggable : MonoBehaviour
 
     //Refs
     protected Camera _cam;
-    public Vector3 CamToWorldPos => _cam.ScreenPointToRay(Mouse.current.position.value).GetPoint(_distance);
+    public Vector3 CamToWorldPos
+    {
+        get
+        {
+            //Vector3 mousePos = _cam.ScreenPointToRay(Mouse.current.position.value).GetPoint(_distance);
+            return _cam.ScreenPointToRay(Mouse.current.position.value).GetPoint(_distance);
+        }
+    }
 
     //Info
-    [SerializeField] protected bool _draggableOnInit = true;
-    protected bool _isDraggable;
+    [SerializeField] protected bool _draggableOnReset = true;
+    protected bool _canBeDragged;
     protected bool _isPickedUp;
-    // Drag Infos
-    protected DragInfo _initDI;
-    protected DragInfo _targetDI;
-    protected DragInfo _pickedUpDI;
-
-    [HideInInspector] public Action OnPickup;
-
+    protected DragStateInfo _initDI;
+    protected DragStateInfo _targetDI;
+    protected DragStateInfo _pickedUpDI;
 
     Coroutine _dragCoroutine;
     public Coroutine DragCoroutine
@@ -103,16 +93,15 @@ public class Draggable : MonoBehaviour
             _dragCoroutine = value;
         }
     }
-
     private void Start()
     {
         _cam = Camera.main;
     }
-
     #region Inputs
+
     private void OnMouseDown()
     {
-        if (!_isDraggable)
+        if (!_canBeDragged)
         {
             Debug.Log($"Cant pickup {name} rn");
         }
@@ -121,7 +110,7 @@ public class Draggable : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if(_isPickedUp) Drop();
+        Drop();
     }
 
     #endregion
@@ -132,13 +121,19 @@ public class Draggable : MonoBehaviour
     }
     protected virtual IEnumerator Drag()
     {
+
+        Debug.Log("Start dragging");
         _isPickedUp = true;
-        OnPickup?.Invoke();
         while (_isPickedUp)
         {
+            //_targetDI = ComputePickedUpDrag();
             DragTick();
+            //transform.rotation = Quaternion.LookRotation(transform.position - _cam.transform.position);
             yield return new WaitForSeconds(_draggingTick);
         }
+
+        //_dragCoroutine = StartCoroutine(DragReturn());
+        Debug.Log("Stop dragging");
     }
 
     protected virtual void DragTick()
@@ -147,12 +142,26 @@ public class Draggable : MonoBehaviour
         ApplyDrag(_targetDI);
     }
 
-    private DragInfo ComputePickedUpDrag()
+    private IEnumerator DragReturn()
+    {
+        float elapsed = 0;
+        //transform.DORotate(_initDI.Rot.eulerAngles, 0.4f);
+        while (elapsed < _dragReturnDuration)
+        {
+            elapsed += Time.deltaTime;
+            ApplyDrag(_initDI, false);
+            yield return new WaitForSeconds(_draggingTick);
+        }
+        Debug.Log("Returned");
+
+    }
+
+    private DragStateInfo ComputePickedUpDrag()
     {
         //transform.LookAt(_cam.transform, Vector3.up);
         Quaternion rot = Quaternion.LookRotation((_cam.transform.position - transform.position).normalized, Vector3.up);
 
-        return new DragInfo
+        return new DragStateInfo
             (
             CamToWorldPos + _pickedUpDI.Pos,
             rot.x,
@@ -161,12 +170,12 @@ public class Draggable : MonoBehaviour
             );
     }
 
-    protected void ApplyDrag(DragInfo dragInfo, bool isDragging = true)
+    protected void ApplyDrag(DragStateInfo dragInfo, bool isDragging = true)
     {
         Quaternion targetRot = dragInfo.Rot;
         Vector3 targetPos = dragInfo.Pos;
 
-        DragInfo newDI = new
+        DragStateInfo newDI = new
             (
             DragLerp(transform.position, targetPos), // Lerp Pos
             DragLerp(transform.rotation, targetRot) // Lerp Yaw
@@ -199,21 +208,21 @@ public class Draggable : MonoBehaviour
         Vector3 PVec = P.eulerAngles;
         Vector3 TVec = T.eulerAngles;
         Quaternion resultVec = Quaternion.Euler(PVec + (TVec - PVec) * _dragPosSpeed * Time.deltaTime);*/
-        return Quaternion.Lerp(P, T, 1f);
+        return Quaternion.Lerp(P,T,1f);
     }
 
 
     #endregion
 
-    protected void SetState(ref DragInfo setInfo, DragInfo targetInfo)
+    protected void SetState(ref DragStateInfo setInfo, DragStateInfo targetInfo)
     {
         setInfo = targetInfo;
         Utils.BigText("Pickup State saved", "white", 15);
 
     }
-    protected void SetState(ref DragInfo setInfo)
+    protected void SetState(ref DragStateInfo setInfo)
     {
-        DragInfo info = new
+        DragStateInfo info = new
             (
             transform.position,
             transform.rotation
