@@ -10,6 +10,7 @@ public class EmployeeFile : Draggable
     public SheetData GetSheetData => _sheetData;
 
     [SerializeField] private SpriteRenderer _spriteRend;
+    [SerializeField] private float _deskHeight = 0.1f;
     private SpriteRenderer SpriteRend
     {
         get
@@ -70,8 +71,8 @@ public class EmployeeFile : Draggable
             if (ray.hit.transform.CompareTag("Desk")) // hovering on desk
             {
                 _targetDI = new(
-                    ray.hit.point + (ray.hit.normal * 0.2f),
-                    Quaternion.LookRotation(-ray.hit.normal)
+                    ray.hit.point + (ray.hit.normal.normalized * _deskHeight),
+                    Quaternion.LookRotation(_cam.transform.up) * Quaternion.Euler(0, 0, 180)
                 );
                 lastOnDeskInfo = _targetDI;
             }
@@ -88,7 +89,7 @@ public class EmployeeFile : Draggable
         {
             _targetDI = new DragInfo(
                CamToWorldPos,
-               Quaternion.LookRotation(_cam.transform.forward, Vector3.up)
+               Quaternion.LookRotation(-_cam.transform.forward)
                );
         }
         base.DragTick(); // apply DI

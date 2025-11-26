@@ -133,15 +133,8 @@ public class FileSorting : MonoBehaviour
         for (int i = 0; i < _activeFileList.Count; i++)
         {
             EmployeeFile file = _activeFileList[i];
-
-            // applies position and rotation to pile up the files
-            Vector3 newPos = _filePoolTr.position + (Vector3.up * _fileStackingDistance * 0.1f * i);
-            Vector3 newLocalEulerAngles = Vector3.zero;
-            newLocalEulerAngles.x = 90f;
-            newLocalEulerAngles.y = Random.Range(_fileStackRotOffset.y, _fileStackRotOffset.y);
-
-            file.transform.position = newPos;
-            file.transform.localEulerAngles = newLocalEulerAngles;
+            file.transform.position = _filePoolTr.position + (Vector3.up * _fileStackingDistance * i);
+            file.transform.rotation = _filePoolTr.rotation;
             file.IsDraggable = false;
         }
 
