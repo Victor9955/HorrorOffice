@@ -1,10 +1,16 @@
+using DG.Tweening;
 using HuntroxGames.Utils;
 using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSender : MonoBehaviour
 {
@@ -13,24 +19,46 @@ public class LevelSender : MonoBehaviour
     [SerializeField] private Vector2 randomWaitTimeForCharacter;
     [SerializeField] List<DayData> days;
 
-    int day;
+    [Header("End Shift Button")]
+    [SerializeField] TextMeshProUGUI endShiftText;
+    [SerializeField] Image endShiftImage;
+    [SerializeField] Button endShiftButton;
+
+    [Header("End")]
+    [SerializeField] bool beginFirstDay;
+    [SerializeField] int endGameScene;
+    [SerializeField] Volume volume;
+    [SerializeField] float vignetteTime = 0.25f;
+    [SerializeField] WindowAnimation evaluationRerport;
+
+    static int day;
     DayData current;
+    Vignette vignette = null;
 
     public event Action<DayData> OnBeginDay;
     public event Action OnEndDay;
     public event Action OnEndGame;
 
-    [ConsoleCommand("BeginDay", "[Integer Input]")]
-    public void BeginDay(int m_day)
+    int endDayIndex = 0;
+    private void Start()
     {
-        if(m_day > days.Count -1 || m_day < 0) return;
+        if(beginFirstDay)
+        {
+            day = 0;
+        }
+        volume.profile.TryGet<Vignette>(out vignette);
+        BeginDay();
+    }
+
+    public void BeginDay()
+    {
         if (current == null) // when current = null current level is finished
         {
-            day = m_day;
             current = days[day];
             current.startEvent?.Invoke();
             fileSorting._binderDataList = current.binders;
             fileSorting.SetupBinders();
+            endDayIndex = current.endDayScene;
         }
     }
 
@@ -53,14 +81,40 @@ public class LevelSender : MonoBehaviour
             yield return new WaitUntil(() => levelCreator.isEnded);
             yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
         }
+        endShiftButton.interactable = true;
+        endShiftImage.color = Color.red;
         current = null;
-        if(day == days.Count -1)
+    }
+
+    public void EndShiftButtonCallback()
+    {
+        if(current == null)
         {
-            OnEndGame?.Invoke();
+            if (day == days.Count - 1)
+            {
+                vignette.intensity.max = 1000f;
+                DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+                {
+                    day = Mathf.Clamp(day + 1, 0, days.Count);
+                    SceneManager.LoadScene(endGameScene);
+                });
+            }
+            else
+            {
+                vignette.intensity.max = 1000f;
+                DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+                {
+                    day = Mathf.Clamp(day + 1, 0, days.Count);
+                    SceneManager.LoadScene(endDayIndex);
+                });
+            }
         }
         else
         {
-            OnEndDay?.Invoke();
+            StartSheetSorting();
+            endShiftButton.interactable = false;
+            endShiftText.text = "End Shift";
+            endShiftImage.color = Color.gray;
         }
     }
 }
