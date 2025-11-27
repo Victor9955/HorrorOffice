@@ -18793,7 +18793,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3301553.2, y: 1064395.9}
+  m_AnchoredPosition: {x: -3137818.2, y: 1014949.2}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -34509,7 +34509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1578988.4}
+  m_AnchoredPosition: {x: 0, y: 1505793.5}
   m_SizeDelta: {x: 0, y: 2920}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -41817,22 +41817,24 @@ MonoBehaviour:
   cameraRef: {fileID: 1185831071}
   cameraTransform: {fileID: 1185831072}
   transitionSpeed: 0.25
-  triggerAmountsA: {x: 0, y: 0}
-  triggerAmountsB: {x: 0, y: 0}
-  triggerAmountsC: {x: 0, y: 0}
-  triggerAmountsD: {x: 0, y: 0}
-  triggerAmountsE: {x: 0, y: 0}
-  rotationClamp: {x: -4, y: 4}
-  rotationSpeedA: 0
-  rotationSpeedB: 0
-  rotationSpeedC: 0
-  rotationSpeedD: 0
-  rotationSpeedE: 0
+  triggerAmounts: {x: 0.3, y: 0.3}
+  triggerAmounts2: {x: 0.225, y: 0.225}
+  triggerAmounts3: {x: 0.145, y: 0.145}
+  triggerAmounts4: {x: 0.0675, y: 0.0675}
+  triggerAmounts5: {x: 0.0225, y: 0.0225}
+  rotationClamp: {x: -35, y: 35}
+  rotationSpeed: 10
+  rotationSpeed2: 15
+  rotationSpeed3: 20
+  rotationSpeed4: 25
+  rotationSpeed5: 35
   offset: {x: -4, y: 0.25}
   pc: {fileID: 1902982588}
   fovPC: 14.5
   triggerQuit: {x: 0.2, y: 0.05}
-  isFocused: 0
+  objectTriggerQuit: {x: 0, y: 0}
+  focusState: 0
+  isFocusing: 0
 --- !u!114 &1185831076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43017,7 +43019,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -392760, y: 108347.5}
+  m_AnchoredPosition: {x: -92520, y: 25790}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1219672433
@@ -66152,9 +66154,8 @@ MonoBehaviour:
   fileSorting: {fileID: 1252445957}
   randomWaitTimeForCharacter: {x: 0.5, y: 0.65}
   days:
-  - {fileID: 11400000, guid: c8e035f172816f84da978ef5ebeceb1d, type: 2}
   - {fileID: 11400000, guid: dc610e98e4636534b9d2f5b1e7ef4c16, type: 2}
-  - {fileID: 11400000, guid: 2204fbd7c6e4fb84c97d260cdedcda72, type: 2}
+  - {fileID: 11400000, guid: c8e035f172816f84da978ef5ebeceb1d, type: 2}
   endShiftText: {fileID: 1633881120}
   endShiftImage: {fileID: 802239263}
   endShiftButton: {fileID: 802239262}
@@ -69166,7 +69167,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -76264.07, y: 56828.42}
+  m_AnchoredPosition: {x: -17137.531, y: 13137.277}
   m_SizeDelta: {x: -473, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956545016
@@ -70804,7 +70805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008279185, y: 1446449.8}
+  m_AnchoredPosition: {x: -0.00008279185, y: 1373254.9}
   m_SizeDelta: {x: 0, y: 1500}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1994667982
