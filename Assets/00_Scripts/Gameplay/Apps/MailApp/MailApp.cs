@@ -14,6 +14,7 @@ public class MailApp : MonoBehaviour, IApp
     [SerializeField] RectTransform notification;
     [SerializeField] GameplayEventSender gameplayEvents;
     [SerializeField] FMODUnity.EventReference _mailNotificationSound;
+    [SerializeField] List<LayoutGroup> layouts;
 
     Dictionary<Mail, MailData> reiceivedMail = new();
 
@@ -56,6 +57,12 @@ public class MailApp : MonoBehaviour, IApp
                 notifTween.Kill();
             }
             mailView.Show(mailCash);
+
+            foreach(var layout in layouts)
+            {
+                layout.CalculateLayoutInputHorizontal();
+                layout.CalculateLayoutInputVertical();
+            }
         }
     }
 

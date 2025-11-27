@@ -25,5 +25,7 @@ public class MailView : MonoBehaviour
         titleTMP.text = mailData.title;
         mailTextTMP.text = mailData.mailText;
         pp.sprite = mailData.character.staticInfo.mailPP;
+        titleTMP.ForceMeshUpdate();
+        mailTextTMP.ForceMeshUpdate();
     }
 }

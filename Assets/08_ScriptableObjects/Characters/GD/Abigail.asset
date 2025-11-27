@@ -15,6 +15,8 @@ MonoBehaviour:
   characterStaticInfo:
     name: Abigail Levi
     dialogueKey: ABBIE
+    sprites:
+      _serializedList: []
     comingSprite: {fileID: 21300000, guid: a7c44d726325e8241b24cada7d4d9795, type: 3}
     givePaperSprite: {fileID: -7460193037895503351, guid: 709a25eeeb7863b4cbc436937638fc9f, type: 3}
     lookOffset: {x: 0, y: 0}
@@ -48,6 +50,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     saySpeed: 0.05
-    waitBetweenPhrases: 1
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    timeBetweenPhrases: 0.5
+    waitTime: 4
+    font: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
     mailPP: {fileID: 0}
