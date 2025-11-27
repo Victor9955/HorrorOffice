@@ -56,11 +56,7 @@ public class EmployeeFile : Draggable
 
         lastOnDeskInfo = _initDI;
     }
-
-    private void Update()
-    {
-        Debug.DrawRay(_initDI.Pos, Quaternion.LookRotation(_initDI.Rot.eulerAngles) * Vector3.forward, Color.red);
-    }
+    FileBinder fileBinder;
 
     protected override void DragTick()
     {
@@ -77,11 +73,15 @@ public class EmployeeFile : Draggable
             }
             if (ray.hit.transform.TryGetComponent<IDropContainer>(out IDropContainer binder)) //hovering on a sorter
             {
-                FileBinder fileBinder = binder as FileBinder;
+                fileBinder = binder as FileBinder;
                 _targetDI = new(
                     fileBinder.GetFilePosition(),
                     Quaternion.LookRotation(fileBinder.transform.up)
                 );
+            }
+            else
+            {
+                fileBinder = null;
             }
         }
         else // if it isn't hovering on anything
@@ -96,21 +96,13 @@ public class EmployeeFile : Draggable
     public override void Drop()
     {
         base.Drop();
-        var ray = CamRaycast();
 
-        if (ray.didHit) //dropped on anything where it can be dropped
+        if (fileBinder != null) //dropped on anything where it can be dropped
         {
-            if (ray.hit.transform.gameObject.TryGetComponent(out IDropContainer container)) // drop in sorter
-            {
-                if (container.IsUnlocked())
-                {
-                    bool hasDropped = container.Drop(this);
-                    OnFileDroppedInSorter?.Invoke(_sheetData.rightBinder);
-
-                    OnDroppedUEvent?.Invoke();
-                    gameObject.SetActive(!_getsConsumedOnCorrectDrop);
-                }
-            }
+            fileBinder.Drop(this);
+            OnFileDroppedInSorter?.Invoke(fileBinder.BinderType);
+            OnDroppedUEvent?.Invoke();
+            gameObject.SetActive(!_getsConsumedOnCorrectDrop);
         }
         else
         {
