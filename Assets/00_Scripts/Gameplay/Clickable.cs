@@ -46,14 +46,6 @@ public class Clickable : MonoBehaviour
         if (!IsCamFocused) _camMovement.FocusClickable(this);
     }
 
-    private void FocusCam()
-    {
-        Utils.BigText("click");
-        Camera.main.transform.DOMove(_position, _focusDuration).SetEase(Ease.InOutQuad);
-        Camera.main.transform.DORotate(_rotation.eulerAngles, _focusDuration).SetEase(Ease.InOutQuad);
-        Camera.main.DOFieldOfView(_fov, _focusDuration).SetEase(Ease.InOutQuad);
-    }
-
     private void OnDrawGizmosSelected()
     {
         // Draw its frustum
