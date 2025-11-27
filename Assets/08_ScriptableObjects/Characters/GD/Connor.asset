@@ -15,6 +15,14 @@ MonoBehaviour:
   characterStaticInfo:
     name: Connor Bradley
     dialogueKey: CONNIE
+    sprites:
+      _serializedList:
+      - Key: Default
+        Value: {fileID: 21300000, guid: a22c1257771219f42b0959e6bc8c3079, type: 3}
+      - Key: Angry
+        Value: {fileID: 21300000, guid: fc9bfb1011aaf134685a0736525f69be, type: 3}
+      - Key: Surprised
+        Value: {fileID: 21300000, guid: 2f75e152feb78944fa6b020daabafda3, type: 3}
     comingSprite: {fileID: 21300000, guid: e40cc704138c5b74d86ca2532b4cc49d, type: 3}
     givePaperSprite: {fileID: -1288701737944200222, guid: 3323e66bf3f6317479524f583d734ebb, type: 3}
     lookOffset: {x: 0, y: 0}
