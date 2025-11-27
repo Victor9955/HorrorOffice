@@ -16,7 +16,6 @@ public struct CharacterStaticInfo
     public Vector2 lookOffset;
    [HideInInspector] public Binder lastBinder;
 
-
     [Header("Anim Parameters")]
     public float _enterDuration;
     public float _exitDuration;

@@ -1,6 +1,7 @@
 using AYellowpaper.SerializedCollections;
 using NaughtyAttributes;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,8 +16,6 @@ public struct DayDialogueData
 public struct SheetAction
 {
     public CharacterData character;
-    public Sprite overrideCharacterSprite;
-    public bool beginCondition;
     public List<SheetData> sheets;
     public DayDialogueData dayDialogue;
 }
@@ -25,6 +24,7 @@ public struct SheetAction
 public class DayData : ScriptableObject
 {
     public UnityEvent startEvent;
+    public int endDayScene;
     public List<Binder> binders;
     public List<SheetAction> startActions;
     public List<SheetAction> actions;

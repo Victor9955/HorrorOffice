@@ -56,6 +56,11 @@ public class DialoguePlayer : MonoBehaviour
         }
     }
 
+    public void Hide()
+    {
+        dialogueTMP.transform.parent.gameObject.SetActive(false);
+    }
+
 
     public void Say()
     {
@@ -69,6 +74,7 @@ public class DialoguePlayer : MonoBehaviour
         foreach (string s in phrases)
         {
             dialogueTMP.text = s;
+            dialogueTMP.maxVisibleCharacters = 0;
             float duration = s.Length * current.saySpeed;
             Tween tween = DOTween.To(() => dialogueTMP.maxVisibleCharacters, (count) => dialogueTMP.maxVisibleCharacters = count, s.Length, duration);
             tween.SetEase(Ease.Linear);
