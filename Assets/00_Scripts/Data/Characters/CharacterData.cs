@@ -25,7 +25,8 @@ public struct CharacterStaticInfo
 
     [Header("Dialogue Parameters")]
     public float saySpeed;
-    public float waitBetweenPhrases;
+    public float timeBetweenPhrases;
+    public float waitTime;
     public TMP_FontAsset font;
 
     [Header("Mail")]

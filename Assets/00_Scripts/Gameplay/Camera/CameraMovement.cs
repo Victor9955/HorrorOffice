@@ -13,9 +13,17 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float transitionSpeed;
 
     [Header("Movement")]
-    [SerializeField] Vector2 triggerAmounts;
+    [SerializeField] Vector2 triggerAmountsA;
+    [SerializeField] Vector2 triggerAmountsB;
+    [SerializeField] Vector2 triggerAmountsC;
+    [SerializeField] Vector2 triggerAmountsD;
+    [SerializeField] Vector2 triggerAmountsE;
     [SerializeField] Vector2 rotationClamp;
-    [SerializeField] float rotationSpeed;
+    [SerializeField] float rotationSpeedA;
+    [SerializeField] float rotationSpeedB;
+    [SerializeField] float rotationSpeedC;
+    [SerializeField] float rotationSpeedD;
+    [SerializeField] float rotationSpeedE;
 
     [Header("PC")]
     [SerializeField] Vector2 offset;
@@ -89,15 +97,62 @@ public class CameraMovement : MonoBehaviour
 
             Vector2 mousePosition = Mouse.current.position.value;
             //Rights
-            if(mousePosition.x > Screen.width - (triggerAmounts.y * Screen.width))
+            if(mousePosition.x > Screen.width - (triggerAmountsA.y * Screen.width))
             {
-                cameraRotation += rotationSpeed * Time.deltaTime;
+                cameraRotation += rotationSpeedA * Time.deltaTime;
             }
 
             //Left
-            if (mousePosition.x < (triggerAmounts.x * Screen.width))
+            if (mousePosition.x < (triggerAmountsA.x * Screen.width))
             {
-                cameraRotation -= rotationSpeed * Time.deltaTime;
+                cameraRotation -= rotationSpeedA * Time.deltaTime;
+            }
+
+            //Rights
+            if (mousePosition.x > Screen.width - (triggerAmountsB.y * Screen.width))
+            {
+                cameraRotation += rotationSpeedB * Time.deltaTime;
+            }
+
+            //Left
+            if (mousePosition.x < (triggerAmountsB.x * Screen.width))
+            {
+                cameraRotation -= rotationSpeedB * Time.deltaTime;
+            }
+            //Rights
+            if (mousePosition.x > Screen.width - (triggerAmountsC.y * Screen.width))
+            {
+                cameraRotation += rotationSpeedC * Time.deltaTime;
+            }
+
+            //Left
+            if (mousePosition.x < (triggerAmountsC.x * Screen.width))
+            {
+                cameraRotation -= rotationSpeedC * Time.deltaTime;
+            }
+
+            //Rights
+            if (mousePosition.x > Screen.width - (triggerAmountsD.y * Screen.width))
+            {
+                cameraRotation += rotationSpeedD * Time.deltaTime;
+            }
+
+            //Left
+            if (mousePosition.x < (triggerAmountsD.x * Screen.width))
+            {
+                cameraRotation -= rotationSpeedD * Time.deltaTime;
+            }
+
+            //Rights
+            if (mousePosition.x > Screen.width - (triggerAmountsE.y * Screen.width))
+            {
+                cameraRotation += rotationSpeedE * Time.deltaTime;
+            }
+
+            //Left
+            if (mousePosition.x < (triggerAmountsE.x * Screen.width))
+            {
+                cameraRotation -= rotationSpeedE * Time.deltaTime;
             }
 
             cameraRotation = Mathf.Clamp(cameraRotation, rotationClamp.x, rotationClamp.y);
