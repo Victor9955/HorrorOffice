@@ -185,9 +185,17 @@ MonoBehaviour:
   cameraRef: {fileID: 21469087}
   cameraTransform: {fileID: 21469088}
   transitionSpeed: 0.25
-  triggerAmounts: {x: 0.1, y: 0.1}
+  triggerAmountsA: {x: 0, y: 0}
+  triggerAmountsB: {x: 0, y: 0}
+  triggerAmountsC: {x: 0, y: 0}
+  triggerAmountsD: {x: 0, y: 0}
+  triggerAmountsE: {x: 0, y: 0}
   rotationClamp: {x: -4, y: 4}
-  rotationSpeed: 50
+  rotationSpeedA: 0
+  rotationSpeedB: 0
+  rotationSpeedC: 0
+  rotationSpeedD: 0
+  rotationSpeedE: 0
   offset: {x: -4, y: 0.25}
   pc: {fileID: 0}
   fovPC: 14.5
@@ -422,8 +430,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueData: {fileID: 11400000, guid: 3516b3d679eeb0c4eb6f04c219c681f4, type: 2}
   characterDisplay: {fileID: 1976823738}
-  testCharacter: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
-  testKey: CONNIE_A
+  testCharacter: {fileID: 11400000, guid: 514aaac62036cba419b9157239295ecc, type: 2}
+  testKey: MAXINE_DayThree
 --- !u!1001 &1976823736
 PrefabInstance:
   m_ObjectHideFlags: 0

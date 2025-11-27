@@ -18,11 +18,11 @@ MonoBehaviour:
     _serializedList:
     - Key: CONNIE_Hello
       Value:
-      - Hey, pal.
+      - "<wave><color=red>Hey, pal.,</color>\nTest\n\xA4<wave><color=red>TestTwo</color>"
       - Bonjour
     - Key: ABBIE_Hello
       Value:
-      - Hi... I'm new here.\nI hope everything is alright?
+      - Hi... I'm new here. I hope everything is alright?
       - Bonjour
     - Key: MAX_Hello
       Value:
@@ -35,10 +35,18 @@ MonoBehaviour:
     - Key: LI_Hello
       Value:
       - "Oh. You\u2019re new. Uh\u2026 hi."
-      - Jour...
+      - "Hey pal!\xA4Nice one the other day. Very funny.\xA4\u2026Don\u2019t do that
+        again.\xA4But hey. No offense taken.\xA4\u2026\xA4So! Met any new friends?\xA4Not
+        much like you\u2019re spoiled for choice. It\u2019s only the four of us here.\xA4\u2026Five
+        if you count Esteban; though the guy doesn\u2019t talk much.\xA4Ahem neither
+        does Devi to be honest.\xA4And Max\u2026 she\u2019s probably the worst of
+        the bunch.\xA4All smiles and just ready to plant a dagger in your back when
+        you least expect it.\xA4Again I\u2019d be wary of who you trust. It\u2019s
+        a shark tank here and you wouldn\u2019t believe the lengths some people go
+        just to earn a promotion.\xA4Glad you\u2019re one of the good ones!"
     - Key: DEVI_Hello
       Value:
-      - "\u2026What? <!wait=1>\\nIs there something on my face?"
+      - "\u2026What? Is there something on my face?"
       - 
     - Key: CONNIE_A
       Value:
@@ -57,21 +65,22 @@ MonoBehaviour:
       Value:
       - "Oh! Sorry for surprising you.\xA4Didn\u2019t expect to see a new face here.
         Forgot you were replacing the other guy.\xA4A shame. I quite liked him. Though
-        I\u2019m sure you\u2019ll fit right in as well!\xA4Anyway\xF9 nice to meet
-        you! Don\u2019t worry\xF9 I probably won\u2019t make your job too hard. My
-        reports are always flawless.\xA4See you tomorrow!"
+        I\u2019m sure you\u2019ll fit right in as well!\xA4Anyway nice to meet you!
+        Don\u2019t worry I probably won\u2019t make your job too hard. My reports
+        are always flawless.\xA4See you tomorrow!"
       - 
     - Key: CONNIE_B_Bad
       Value:
-      - "Hey pal!\xA4Nice one the other day. Very funny.\xA4\u2026Don\u2019t do that
-        again.\xA4But hey. No offense taken.\xA4\u2026\xA4So! Met any new friends?\xA4Not
-        much like you\u2019re spoiled for choice. It\u2019s only the four of us here.\xA4\u2026Five
-        if you count Esteban though the guy doesn\u2019t talk much.\xA4Ahem neither
-        does Devi to be honest.\xA4And Max\u2026 she\u2019s probably the worst of
-        the bunch.\xA4All smiles and just ready to plant a dagger in your back when
-        you least expect it.\xA4Again\xF9 I\u2019d be wary of who you trust. It\u2019s
-        a shark tank here\xF9 and you wouldn\u2019t believe the lengths some people
-        go just to earn a promotion.\xA4Glad you\u2019re one of the good ones!"
+      - "Hey\xF9 pal!\xA4Nice one the other day. Very funny.\xA4\u2026Don\u2019t
+        do that again.\xA4But hey. No offense taken.\xA4\u2026\xA4So! Met any new
+        friends?\xA4Not much like you\u2019re spoiled for choice. It\u2019s only
+        the four of us here.\xA4\u2026Five\xF9 if you count Esteban; though the guy
+        doesn\u2019t talk much.\xA4Ahem\xF9 neither does Devi\xF9 to be honest.\xA4And
+        Max\u2026 she\u2019s probably the worst of the bunch.\xA4All smiles\xF9 and
+        just ready to plant a dagger in your back when you least expect it.\xA4Again\xF9
+        I\u2019d be wary of who you trust. It\u2019s a shark tank here\xF9 and you
+        wouldn\u2019t believe the lengths some people go just to earn a promotion.\xA4Glad
+        you\u2019re one of the good ones!"
       - 
     - Key: CONNIE_B_Good
       Value:
@@ -79,7 +88,7 @@ MonoBehaviour:
         real mate.\xA4Really appreciate it. And you know I\u2019ll return the favor.\xA4So!
         Met any new friends?\xA4Not much like you\u2019re spoiled for choice. It\u2019s
         only the four of us here.\xA4\u2026Five\xF9 if you count Esteban; though
-        the guy doesn\u2019t talk much.\xA4Ahem\xF9 neither does Devi\xF9 to be honest.
+        the guy doesn\u2019t talk much.\xA4Ahem\xF9 neither does Devi to be honest.
         And Max\u2026 she\u2019s probably the worst of the bunch.\xA4All smiles\xF9
         and just ready to plant a dagger in your back when you least expect it.\xA4Again\xF9
         I\u2019d be wary of who you trust. It\u2019s a shark tank here\xF9 and you
@@ -101,14 +110,14 @@ MonoBehaviour:
     - Key: MAXINE_DayThree
       Value:
       - "Oh! Sorry for surprising you.\n\n\xA4Didn\u2019t expect to see a new face
-        here. Forgot you were replacing the other gal.\n\n\xA4A shame. I quite liked
-        her. <sprite=Wink>Though I\u2019m sure you\u2019ll fit right in as well!\n\n\xA4<sprite=Default>You
-        know, I think you\u2019re going to bring some much-needed life up here.\n\n\xA4Floor
+        here. \nForgot you were replacing the other gal.\n\xA4A shame. I quite liked
+        her. \n<!sprite=Wink>Though I\u2019m sure you\u2019ll fit right in as well!\n\xA4<!sprite=Default>You
+        know, I think you\u2019re going \nto bring some much-needed life up here.\n\xA4Floor
         was getting pretty dull with only the four of us.\n\n\xA4\u2026Five, if you
-        count Esteban, though the guy doesn\u2019t talk much.\n\n\xA4Ahem, neither
-        does Devi, to be honest.\n\n\xA4Anyway, nice to meet you! Don\u2019t worry,
-        I probably won\u2019t make your job too hard. \n\n\xA4<sprite=Wink>Haven\u2019t
-        failed a single report ever since I joined, and I well intend to continue!\n\n\xA4See
+        count Esteban, \nthough the guy doesn\u2019t talk much.\n\xA4Ahem, neither
+        does Devi, to be honest.\n\n\xA4Anyway, nice to meet you! \nDon\u2019t worry,
+        I probably won\u2019t make your job too hard. \n\xA4<!sprite=Wink>Haven\u2019t
+        failed a single report ever since I joined, \nand I well intend to continue!\n\xA4See
         you tomorrow!"
       - 
     - Key: CONNOR_DayThree
