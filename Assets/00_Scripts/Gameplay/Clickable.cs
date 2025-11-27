@@ -53,6 +53,7 @@ public class Clickable : MonoBehaviour
     private void OnMouseDown()
     {
         if (!IsCamFocused) _camMovement.FocusClickable(this);
+        // activate text ui
     }
 
     private void OnDrawGizmosSelected()
