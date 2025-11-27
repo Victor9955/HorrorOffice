@@ -14,7 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMail
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d61754f714442f242a3338bf08c3eb4e, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMailWait
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f594b5384e245304494fb85676c53e89, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   endDayScene: 1
   binders: 0300000002000000
   startActions: []
@@ -30,9 +54,9 @@ MonoBehaviour:
       DefaultDialogueKey: DayOne
       dialogs:
         _serializedList: []
-  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
+  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
     sheets:
-    - {fileID: 11400000, guid: bd2ced9832e7e2048a8a71f4831ea3c4, type: 2}
+    - {fileID: 11400000, guid: 5d83d9ae101e7ed4ebb7a70a7d1f2669, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayThree
       dialogs:
@@ -44,9 +68,9 @@ MonoBehaviour:
       DefaultDialogueKey: DayThree
       dialogs:
         _serializedList: []
-  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
+  - character: {fileID: 11400000, guid: 0e8a80593e9ed8a4988e7546d4f06759, type: 2}
     sheets:
-    - {fileID: 11400000, guid: 5d83d9ae101e7ed4ebb7a70a7d1f2669, type: 2}
+    - {fileID: 11400000, guid: bd2ced9832e7e2048a8a71f4831ea3c4, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayThree
       dialogs:
