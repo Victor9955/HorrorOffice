@@ -23,8 +23,16 @@ public class CameraMovement : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] Vector2 triggerAmounts;
+    [SerializeField] Vector2 triggerAmounts2;
+    [SerializeField] Vector2 triggerAmounts3;
+    [SerializeField] Vector2 triggerAmounts4;
+    [SerializeField] Vector2 triggerAmounts5;
     [SerializeField] Vector2 rotationClamp;
     [SerializeField] float rotationSpeed;
+    [SerializeField] float rotationSpeed2;
+    [SerializeField] float rotationSpeed3;
+    [SerializeField] float rotationSpeed4;
+    [SerializeField] float rotationSpeed5;
 
     [Header("PC")]
     [SerializeField] Vector2 offset;
@@ -146,6 +154,54 @@ public class CameraMovement : MonoBehaviour
                 if (mousePosition.x < (triggerAmounts.x * Screen.width))
                 {
                     cameraRotation -= rotationSpeed * Time.deltaTime;
+                }
+
+                //Rights2
+                if (mousePosition.x > Screen.width - (triggerAmounts2.y * Screen.width))
+                {
+                    cameraRotation += rotationSpeed2 * Time.deltaTime;
+                }
+                
+                //Left2
+                if (mousePosition.x < (triggerAmounts2.x * Screen.width))
+                {
+                    cameraRotation -= rotationSpeed2 * Time.deltaTime;
+                }
+
+                //Rights3
+                if (mousePosition.x > Screen.width - (triggerAmounts3.y * Screen.width))
+                {
+                    cameraRotation += rotationSpeed3 * Time.deltaTime;
+                }
+
+                //Left3
+                if (mousePosition.x < (triggerAmounts3.x * Screen.width))
+                {
+                    cameraRotation -= rotationSpeed3 * Time.deltaTime;
+                }
+
+                //Rights4
+                if (mousePosition.x > Screen.width - (triggerAmounts4.y * Screen.width))
+                {
+                    cameraRotation += rotationSpeed4 * Time.deltaTime;
+                }
+
+                //Left4
+                if (mousePosition.x < (triggerAmounts4.x * Screen.width))
+                {
+                    cameraRotation -= rotationSpeed4 * Time.deltaTime;
+                }
+
+                //Rights5
+                if (mousePosition.x > Screen.width - (triggerAmounts5.y * Screen.width))
+                {
+                    cameraRotation += rotationSpeed5 * Time.deltaTime;
+                }
+
+                //Left5
+                if (mousePosition.x < (triggerAmounts5.x * Screen.width))
+                {
+                    cameraRotation -= rotationSpeed5 * Time.deltaTime;
                 }
 
                 cameraRotation = Mathf.Clamp(cameraRotation, rotationClamp.x, rotationClamp.y);
