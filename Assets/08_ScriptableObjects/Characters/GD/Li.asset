@@ -16,7 +16,11 @@ MonoBehaviour:
     name: Lushan Li
     dialogueKey: LI
     sprites:
-      _serializedList: []
+      _serializedList:
+      - Key: Default
+        Value: {fileID: 21300000, guid: a5537db1dbf34c74cabd6eea449008a2, type: 3}
+      - Key: Glasses
+        Value: {fileID: 21300000, guid: 82677a529d9a2fa40bb6857c2ea816f9, type: 3}
     comingSprite: {fileID: 21300000, guid: 59e3c526d893020478acecef3ec92915, type: 3}
     givePaperSprite: {fileID: 0}
     lookOffset: {x: 0, y: 0}
@@ -24,7 +28,7 @@ MonoBehaviour:
     _enterDuration: 2
     _exitDuration: 3
     _walkMagnitude: 0.3
-    _walkFrequency: 1
+    _walkFrequency: 5
     _animCurve:
       serializedVersion: 2
       m_Curve:
@@ -50,7 +54,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     saySpeed: 0.05
-    timeBetweenPhrases: 0.5
-    waitTime: 4
-    font: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
+    timeBetweenPhrases: 1
+    waitTime: 1
+    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     mailPP: {fileID: 0}

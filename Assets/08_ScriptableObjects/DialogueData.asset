@@ -48,41 +48,42 @@ MonoBehaviour:
       Value:
       - "\u2026What? Is there something on my face?"
       - 
-    - Key: CONNIE_A
-      Value:
-      - "Hey, fella!\n\n\xA4You\u2019re new here,\nam I right?\n\n\xA4\u2026eh, who
-        am I kidding.\n\n\xA4'Whole floor knows about\nour little newcomer!\n\n\xA4Sorry,
-        'guess that wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4Ah, don\u2019t
-        blame them.\nEverybody\u2019s on edge lately.\n\n\xA4Thought I\u2019d at
-        least come by\nand greet you properly.\n\n\xA4Anyway, took enough of your
-        time.\n\n\xA4See you tomorrow, pal!"
-      - 
-    - Key: DEVI_A
+    - Key: ESTEBAN_DayOne
       Value:
       - ...
       - 
-    - Key: MAX_A
+    - Key: LI_DayTwo
       Value:
-      - "Oh! Sorry for surprising you.\xA4Didn\u2019t expect to see a new face here.
-        Forgot you were replacing the other guy.\xA4A shame. I quite liked him. Though
-        I\u2019m sure you\u2019ll fit right in as well!\xA4Anyway nice to meet you!
-        Don\u2019t worry I probably won\u2019t make your job too hard. My reports
-        are always flawless.\xA4See you tomorrow!"
+      - "Oh. You\u2019re new.\n\n\xA4Uh\u2026 hi."
       - 
-    - Key: CONNIE_B_Bad
+    - Key: CONNIE_DayTwo
       Value:
-      - "Hey\xF9 pal!\xA4Nice one the other day. Very funny.\xA4\u2026Don\u2019t
-        do that again.\xA4But hey. No offense taken.\xA4\u2026\xA4So! Met any new
-        friends?\xA4Not much like you\u2019re spoiled for choice. It\u2019s only
-        the four of us here.\xA4\u2026Five\xF9 if you count Esteban; though the guy
-        doesn\u2019t talk much.\xA4Ahem\xF9 neither does Devi\xF9 to be honest.\xA4And
-        Max\u2026 she\u2019s probably the worst of the bunch.\xA4All smiles\xF9 and
-        just ready to plant a dagger in your back when you least expect it.\xA4Again\xF9
-        I\u2019d be wary of who you trust. It\u2019s a shark tank here\xF9 and you
-        wouldn\u2019t believe the lengths some people go just to earn a promotion.\xA4Glad
-        you\u2019re one of the good ones!"
+      - "<!sprite=Happy>Hey, fella!\n\n\xA4<!sprite=Default>You\u2019re new here,\nam
+        I right?\n\n\xA4\u2026eh, who am I kidding.\n\n\xA4<!sprite=Happy>'Whole
+        floor knows about\nour little newcomer!\n\n\xA4Sorry, 'guess that wasn\u2019t
+        the\nwarm welcome you expected\u2026\n\n\xA4<!sprite=Default>Ah, don\u2019t
+        blame them.\nEverybody\u2019s on edge lately.\n\n\xA4Thought I\u2019d at
+        least come by\nand greet you properly.\n\n\xA4Anyway, took enough of your
+        time.\n\n\xA4<!sprite=Happy>See you tomorrow, pal!"
       - 
-    - Key: CONNIE_B_Good
+    - Key: DEVI_DayTwo
+      Value:
+      - ...
+      - 
+    - Key: MAX_DayThree
+      Value:
+      - "Oh! Sorry for surprising you.\n\n\xA4Didn\u2019t expect to see a new face
+        here. Forgot you were replacing the other gal.\n\n\xA4A shame. I quite liked
+        her. <sprite=Wink>Though I\u2019m sure you\u2019ll fit right in as well!\n\n\xA4<sprite=Default>You
+        know, I think you\u2019re going to bring some much-needed life up here.\n\n\xA4Floor
+        was getting pretty dull with only the four of us.\n\n\xA4\u2026Five, if you
+        count Esteban, though the guy doesn\u2019t talk much.\n\n\xA4Ahem, neither
+        does Devi, to be honest.\n\n\xA4Anyway, nice to meet you! Don\u2019t worry,
+        I probably won\u2019t make your job too hard. \n\n\xA4<sprite=Wink>Haven\u2019t
+        failed a single report ever since I joined, and I well intend to continue!\n\n\xA4See
+        you tomorrow!"
+      - 
+    - Key: CONNIE_DayThree
       Value:
       - "Hey\xF9 pal!\xA4Thanks for covering my ass yesterday.\xA4Knew you were a
         real mate.\xA4Really appreciate it. And you know I\u2019ll return the favor.\xA4So!
@@ -95,41 +96,7 @@ MonoBehaviour:
         wouldn\u2019t believe the lengths some people go just to earn a promotion.\xA4Glad
         you\u2019re one of the good ones!"
       - 
-    - Key: LI_A
-      Value:
-      - "Oh. You\u2019re new.\n\n\xA4Uh\u2026 hi."
-      - 
-    - Key: DEVI_B
+    - Key: DEVI_DayThree
       Value:
       - "\u2026\xA4What? Is there something on my face?"
-      - 
-    - Key: ESTEBAN_A
-      Value:
-      - ...
-      - 
-    - Key: MAXINE_DayTwo
-      Value:
-      - "Oh! Sorry for surprising you.\n\n\xA4Didn\u2019t expect to see a new face
-        here. \nForgot you were replacing the other gal.\n\xA4A shame. I quite liked
-        her. \n<!sprite=Wink>Though I\u2019m sure you\u2019ll fit right in as well!\n\xA4<!sprite=Default>You
-        know, I think you\u2019re going \nto bring some much-needed life up here.\n\xA4Floor
-        was getting pretty dull with only the four of us.\n\n\xA4\u2026Five, if you
-        count Esteban, \nthough the guy doesn\u2019t talk much.\n\xA4Ahem, neither
-        does Devi, to be honest.\n\n\xA4Anyway, nice to meet you! \nDon\u2019t worry,
-        I probably won\u2019t make your job too hard. \n\xA4<!sprite=Wink>Haven\u2019t
-        failed a single report ever since I joined, \nand I well intend to continue!\n\xA4See
-        you tomorrow!"
-      - 
-    - Key: CONNOR_DayTwo
-      Value:
-      - "\xA4<sprite=Happy>So! Met any new friends?\n\n\xA4Saw you talking with Max
-        earlier.\nI\u2019d be careful in your place.\n\n\xA4<sprite=Default>All smiles,
-        and just ready to plant a dagger in your back when you least expect it.\n\n\xA4Again,
-        I\u2019d be wary of who you trust. \n\n\xA4It\u2019s a shark tank here, and
-        you wouldn\u2019t believe the lengths some people go just to earn a promotion.\n\n\xA4<sprite=Happy>Glad
-        you\u2019re one of the good ones!"
-      - 
-    - Key: DEVI_DayTwo
-      Value:
-      - "\u2026\n\n\xA4What? Is there something on my face?"
       - 
