@@ -9,12 +9,13 @@ using UnityEngine.UIElements;
 
 public class Clickable : MonoBehaviour
 {
-    [Header("Animation")]
-    [SerializeField] private float _focusDuration;
-
     [Space(5), Header("Focus settings")]
     [SerializeField, Range(10f, 100f)] private float _viewDistanceFromObject = 100f;
     [SerializeField] private float _fov = 58;
+    [SerializeField]private string _innerDialogueID;
+
+    [Header("Animation")]
+    [SerializeField] private float _focusDuration;
 
     [Space(5), Header("Unfocus limits")]
     [SerializeField] private Vector2 _verticalLimits = Vector2.zero;
@@ -54,6 +55,8 @@ public class Clickable : MonoBehaviour
     {
         if (!IsCamFocused) _camMovement.FocusClickable(this);
         // activate text ui
+        HUDController.instance.SetThoughtActive(true);
+        HUDController.instance.SetThoughtText(_innerDialogueID);
     }
 
     private void OnDrawGizmosSelected()

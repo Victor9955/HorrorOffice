@@ -63,6 +63,7 @@ public class CameraMovement : MonoBehaviour
             OnFocusedChange?.Invoke(false);
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 0);
         });
+        HUDController.instance.SetThoughtActive(false);
     }
 
     public void FocusCharacter(CharacterData character, Vector3 position)

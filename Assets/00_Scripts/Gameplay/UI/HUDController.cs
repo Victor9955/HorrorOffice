@@ -1,32 +1,53 @@
+using DG.Tweening;
+using HuntroxGames.Utils;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
     public static HUDController instance;
 
     [Header("Refs")]
-    [SerializeField] GameObject charThought;
-    [SerializeField] DialogueData dialogueData;
+    [SerializeField] private CanvasGroup _charThoughtObj;
+    [SerializeField] private TMP_Text _textCharThought;
+    [SerializeField] private DialogueData _dialogueData;
+    [Header("Character Thought Settings")]
+    [SerializeField] private float _fadeDuration;
 
-    private TMP_Text textCharThought;
+    private float _initAlpha;
 
     private void Awake()
     {
         if (instance == null) instance = this;
-        
+        Debug.Log(instance.name);
+        _initAlpha = _charThoughtObj.GetComponentInChildren<Image>().color.a;
     }
 
 
     public void SetThoughtText(string id)
     {
-        dialogueData.GetDialogue(id, out string dialogue);
+        _dialogueData.GetDialogue(id, out string dialogue);
+        _textCharThought.text = dialogue;
     }
     public void SetThoughtActive(bool active)
     {
         if (active)
         {
-            charThought.SetActive(active);
+
+            _charThoughtObj.gameObject.SetActive(active);
+            DOVirtual.Float(0f, _initAlpha, _fadeDuration, (a) =>
+            {
+                _charThoughtObj.alpha = a;
+            });
+        }
+        else
+        {
+            DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
+            {
+                _charThoughtObj.alpha = a;
+            })
+            .OnComplete(() => _charThoughtObj.gameObject.SetActive(active));
         }
     }
 }
