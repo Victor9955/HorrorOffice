@@ -9,23 +9,32 @@ using UnityEngine.UIElements;
 
 public class Clickable : MonoBehaviour
 {
+    [Header("Animation")]
     [SerializeField] private float _focusDuration;
-    [Space(5)]
+
+    [Space(5), Header("Focus settings")]
     [SerializeField, Range(10f, 100f)] private float _viewDistanceFromObject = 100f;
     [SerializeField] private float _fov = 58;
 
+    [Space(5), Header("Unfocus limits")]
+    [SerializeField] private Vector2 _verticalLimits = Vector2.zero;
+    [SerializeField] private Vector2 _horizontalLimits = Vector2.zero;
 
     private bool IsCamFocused => _camMovement.focusState != FocusState.Unfocused;
 
-    //Cam Info
+    // cam info
     private Vector3 _position;
     private Vector3 _dir;
-    private Quaternion _rotation;
-    public Vector3 RotationInEulerAngles => _rotation.eulerAngles;
+    public Vector3 RotationInEulerAngles => _rotationInEulerAngles;
+    private Vector3 _rotationInEulerAngles;
     public float Fov => _fov;
 
-    CameraMovement _camMovement;
+    // unfocus limits
+    public Vector2 HorizontalLimits => _horizontalLimits;
+    public Vector2 VerticalLimits => _verticalLimits;
 
+    //private refs
+    CameraMovement _camMovement;
 
 
     private void Start()
@@ -37,7 +46,7 @@ public class Clickable : MonoBehaviour
         Vector3 pos = transform.position + (-camObjDir * (_viewDistanceFromObject * 0.01f));
         Quaternion rot = Quaternion.LookRotation(camObjDir, Vector3.up);
         _position = pos;
-        _rotation = rot;
+        _rotationInEulerAngles = rot.eulerAngles;
         _dir = camObjDir.normalized;
     }
 

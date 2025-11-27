@@ -33,7 +33,9 @@ public class CameraMovement : MonoBehaviour
 
     [Header("QuitPC")]
     [SerializeField] Vector2 triggerQuit;
-    [SerializeField] Vector2 objectTriggerQuit;
+    [Space(10)]
+    [SerializeField] private Vector2 unfocusHorizontalLimits;
+    [SerializeField] private Vector2 unfocusVerticalLimits;
 
     [HideInInspector] public FocusState focusState = FocusState.Unfocused;
     [HideInInspector] public bool isFocusing = false;
@@ -123,6 +125,8 @@ public class CameraMovement : MonoBehaviour
             isFocusing = false;
         }
         );
+        unfocusHorizontalLimits = subject.HorizontalLimits;
+        unfocusVerticalLimits = subject.VerticalLimits;
     }
 
 
@@ -130,6 +134,7 @@ public class CameraMovement : MonoBehaviour
     {
         if (isFocusing) return;
 
+        Debug.Log("Focus State : " + focusState.ToString());
         switch (focusState)
         {
             case FocusState.Unfocused:
@@ -176,14 +181,19 @@ public class CameraMovement : MonoBehaviour
                 if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     Vector2 mousePos = Mouse.current.position.value;
-                    //Rights
-                    if (mousePos.x > Screen.width - (objectTriggerQuit.y * Screen.width))
+
+                    // right & left limits
+                    bool clickedOffRightLimit = mousePos.x < (unfocusHorizontalLimits.y * Screen.width);
+                    bool clickedOffLeftLimit = mousePos.x > Screen.width - (unfocusHorizontalLimits.y * Screen.width);
+                    if (clickedOffLeftLimit || clickedOffRightLimit)
                     {
                         StopFocus();
                     }
 
-                    //Left
-                    if (mousePos.x < (objectTriggerQuit.x * Screen.width))
+                    // top & bottom limits
+                    bool clickedOffTopLimit = mousePos.y < (unfocusVerticalLimits.x * Screen.height);
+                    bool clickedOffBottomLimit = mousePos.y > Screen.height - (unfocusVerticalLimits.y * Screen.height);
+                    if (clickedOffTopLimit || clickedOffBottomLimit)
                     {
                         StopFocus();
                     }
