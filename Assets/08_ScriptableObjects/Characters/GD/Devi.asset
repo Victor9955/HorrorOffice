@@ -15,6 +15,8 @@ MonoBehaviour:
   characterStaticInfo:
     name: Devika Maraji
     dialogueKey: DEVI
+    sprites:
+      _serializedList: []
     comingSprite: {fileID: 21300000, guid: 07ee6b55281094b4388f049481d7b366, type: 3}
     givePaperSprite: {fileID: 0}
     lookOffset: {x: 0, y: 0}
@@ -48,6 +50,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     saySpeed: 0.05
-    waitBetweenPhrases: 1
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    timeBetweenPhrases: 0.5
+    waitTime: 4
+    font: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
     mailPP: {fileID: 0}

@@ -54,8 +54,7 @@ public class EmployeeFile : Draggable
             transform.rotation
             );
 
-        transform.localPosition = _initDI.Pos;
-        transform.localRotation = _initDI.Rot;
+        lastOnDeskInfo = _initDI;
     }
 
     private void Update()

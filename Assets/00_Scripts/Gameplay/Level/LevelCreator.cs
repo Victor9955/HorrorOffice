@@ -20,7 +20,6 @@ public class LevelCreator : MonoBehaviour
     {
         fileSorting.OnFileDroppedEvent += (binder) =>
         {
-            isFinished = true;
             CharacterStaticInfo info = current.character.staticInfo;
             info.lastBinder = binder;
             current.character.staticInfo = info;
@@ -54,6 +53,17 @@ public class LevelCreator : MonoBehaviour
         foreach (SheetData sheet in current.sheets)
         {
             fileSorting.OnNewFile(sheet);
+        }
+
+        yield return new WaitForSecondsRealtime(current.character.staticInfo.waitTime);
+        if(!DialoguePlayer.IsTalking)
+        {
+            isFinished = true;
+        }
+        else
+        {
+            yield return new WaitUntil(() => !DialoguePlayer.IsTalking);
+            isFinished = true;
         }
     }
 
