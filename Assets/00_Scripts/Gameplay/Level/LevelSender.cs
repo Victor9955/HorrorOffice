@@ -36,6 +36,7 @@ public class LevelSender : MonoBehaviour
     Vignette vignette = null;
 
     public event Action<DayData> OnBeginDay;
+    public event Action<DayData> OnInitDatabase;
     public event Action OnEndDay;
     public event Action OnEndGame;
 
@@ -59,6 +60,7 @@ public class LevelSender : MonoBehaviour
             fileSorting._binderDataList = current.binders;
             fileSorting.SetupBinders();
             endDayIndex = current.endDayScene;
+            OnInitDatabase?.Invoke(current);
         }
     }
 
