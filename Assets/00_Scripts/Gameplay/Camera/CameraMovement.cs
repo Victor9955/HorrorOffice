@@ -41,10 +41,12 @@ public class CameraMovement : MonoBehaviour
 
     [Header("QuitPC")]
     [SerializeField] Vector2 triggerQuit;
-    [SerializeField] Vector2 objectTriggerQuit;
+    [Space(10)]
+    [SerializeField] private Vector2 unfocusHorizontalLimits;
+    [SerializeField] private Vector2 unfocusVerticalLimits;
 
     [HideInInspector] public FocusState focusState = FocusState.Unfocused;
-    [HideInInspector] public bool isFocusing = false;
+    [HideInInspector] public bool ischangingFocus = false;
 
     public event Action<bool> OnFocusedChange;
 
@@ -62,19 +64,22 @@ public class CameraMovement : MonoBehaviour
     [ConsoleCommand]
     public void StopFocus()
     {
-        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, lastFov, transitionSpeed);
-        cameraTransform.DOLocalRotate(lastRotation.eulerAngles, transitionSpeed).OnComplete(() =>
+        ischangingFocus = true;
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, lastFov, transitionSpeed).SetEase(Ease.InOutCirc);
+        cameraTransform.DOLocalRotate(lastRotation.eulerAngles, transitionSpeed).SetEase(Ease.InOutCirc).OnComplete(() =>
         {
             focusState = FocusState.Unfocused;
             OnFocusedChange?.Invoke(false);
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 0);
+            ischangingFocus = false;
         });
+        HUDController.instance.SetThoughtActive(false);
     }
 
     public void FocusCharacter(CharacterData character, Vector3 position)
     {
         focusState = FocusState.Character;
-        isFocusing = true;
+        ischangingFocus = true;
 
         Quaternion lookRotation = Quaternion.LookRotation(position - cameraTransform.position);
         Vector3 finalRoation = lookRotation.eulerAngles;
@@ -85,7 +90,7 @@ public class CameraMovement : MonoBehaviour
         DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
             {
                 focusState = FocusState.Character;
-                isFocusing = false;
+                ischangingFocus = false;
             }
         );
     }
@@ -94,7 +99,7 @@ public class CameraMovement : MonoBehaviour
     public void FocusPC()
     {
         focusState = FocusState.PC;
-        isFocusing = true;
+        ischangingFocus = true;
 
         OnFocusedChange?.Invoke(true);
         lastRotation = cameraTransform.rotation;
@@ -108,7 +113,7 @@ public class CameraMovement : MonoBehaviour
         DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
         {
             focusState = FocusState.PC;
-            isFocusing = false;
+            ischangingFocus = false;
         }
         );
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 1);
@@ -117,27 +122,32 @@ public class CameraMovement : MonoBehaviour
     public void FocusClickable(Clickable subject)
     {
         focusState = FocusState.Object;
-        isFocusing = true;
+        ischangingFocus = true;
 
         OnFocusedChange?.Invoke(true);
         lastRotation = cameraTransform.rotation;
 
         Vector3 finalRot = subject.RotationInEulerAngles;
 
-        cameraTransform.DOLocalRotate(finalRot, transitionSpeed);
-        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, subject.Fov, transitionSpeed).OnComplete(() =>
-        {
-            focusState = FocusState.Object;
-            isFocusing = false;
-        }
+        cameraTransform.DOLocalRotate(finalRot, subject.FocusDuration).SetEase(Ease.InOutQuad);
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, subject.Fov, subject.FocusDuration)
+            .SetEase(Ease.InOutQuad)
+            .OnComplete(() =>
+            {
+                focusState = FocusState.Object;
+                ischangingFocus = false;
+                unfocusHorizontalLimits = subject.HorizontalLimits;
+                unfocusVerticalLimits = subject.VerticalLimits;
+            }
         );
     }
 
 
     private void Update()
     {
-        if (isFocusing) return;
+        if (ischangingFocus) return;
 
+        Debug.Log("Focus State : " + focusState.ToString());
         switch (focusState)
         {
             case FocusState.Unfocused:
@@ -232,14 +242,19 @@ public class CameraMovement : MonoBehaviour
                 if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
                     Vector2 mousePos = Mouse.current.position.value;
-                    //Rights
-                    if (mousePos.x > Screen.width - (objectTriggerQuit.y * Screen.width))
+
+                    // right & left limits
+                    bool clickedOffRightLimit = mousePos.x < (unfocusHorizontalLimits.y * Screen.width);
+                    bool clickedOffLeftLimit = mousePos.x > Screen.width - (unfocusHorizontalLimits.y * Screen.width);
+                    if (clickedOffLeftLimit || clickedOffRightLimit)
                     {
                         StopFocus();
                     }
 
-                    //Left
-                    if (mousePos.x < (objectTriggerQuit.x * Screen.width))
+                    // top & bottom limits
+                    bool clickedOffTopLimit = mousePos.y < (unfocusVerticalLimits.x * Screen.height);
+                    bool clickedOffBottomLimit = mousePos.y > Screen.height - (unfocusVerticalLimits.y * Screen.height);
+                    if (clickedOffTopLimit || clickedOffBottomLimit)
                     {
                         StopFocus();
                     }
