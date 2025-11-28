@@ -29,7 +29,7 @@ public class SearchingApp : MonoBehaviour, IApp
 
     private void Awake()
     {
-        levelSender.OnBeginDay += InitDataBase;
+        levelSender.OnInitDatabase += InitDataBase;
         levelSender.OnEndDay += EndDay;
     }
 
@@ -57,7 +57,7 @@ public class SearchingApp : MonoBehaviour, IApp
 
     private void EndDay()
     {
-        levelSender.OnBeginDay -= InitDataBase;
+        levelSender.OnInitDatabase -= InitDataBase;
         levelSender.OnEndDay -= EndDay;
     }
 
