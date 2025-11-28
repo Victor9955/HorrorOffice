@@ -27,13 +27,16 @@ public class SearchingApp : MonoBehaviour, IApp
 
     [SerializeField] List<string> jobsKey = new();
 
+    private void Awake()
+    {
+        levelSender.OnBeginDay += InitDataBase;
+        levelSender.OnEndDay += EndDay;
+    }
 
     private void Start()
     {
         contentAncor.sizeDelta = new Vector2(0,size * content.cellSize.y);
         RandomCode(size);
-        levelSender.OnBeginDay += InitDataBase;
-        levelSender.OnEndDay += EndDay;
     }
 
     private void InitDataBase(DayData day)
