@@ -22,17 +22,35 @@ MonoBehaviour:
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
     _enterDuration: 2
-    _exitDuration: 2
-    _walkMagnitude: 2
-    _walkFrequency: 2
+    _exitDuration: 3
+    _walkMagnitude: 0.3
+    _walkFrequency: 5
     _animCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     saySpeed: 0.05
-    timeBetweenPhrases: 0.5
-    waitTime: 4
+    timeBetweenPhrases: 1
+    waitTime: 5
     font: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
     mailPP: {fileID: 0}
