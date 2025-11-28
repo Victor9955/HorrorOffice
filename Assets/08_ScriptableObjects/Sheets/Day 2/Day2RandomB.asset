@@ -15,7 +15,23 @@ MonoBehaviour:
   sprite: {fileID: -5318265322279374848, guid: 2818c18957bd5574bb2d8d1e60c8c1af, type: 3}
   rightBinder: 2
   actions:
-    _serializedList: []
+    _serializedList:
+    - Key: 3
+      Value:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+            m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+            m_MethodName: SendMail
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 11400000, guid: b8ba446f1e8d6d442a5f3e7b4a6d3efd, type: 2}
+              m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
   charachterId: RH-1534-D94
   characterName: Otis Brown
   pausesNumber: 0
