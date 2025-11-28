@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -27,13 +28,12 @@ public class LevelSender : MonoBehaviour
     [Header("End")]
     [SerializeField] bool beginFirstDay;
     [SerializeField] int endGameScene;
-    [SerializeField] Volume volume;
+    [SerializeField] Material fullscreenVignette;
     [SerializeField] float vignetteTime = 0.25f;
     [SerializeField] WindowAnimation evaluationRerport;
 
     static int day;
     DayData current;
-    Vignette vignette = null;
 
     public event Action<DayData> OnBeginDay;
     public event Action<DayData> OnInitDatabase;
@@ -47,7 +47,6 @@ public class LevelSender : MonoBehaviour
         {
             day = 0;
         }
-        volume.profile.TryGet<Vignette>(out vignette);
         BeginDay();
     }
 
@@ -88,14 +87,23 @@ public class LevelSender : MonoBehaviour
         current = null;
     }
 
+    private void OnDestroy()
+    {
+        fullscreenVignette.SetFloat("_EyesClosed", 1f);
+        fullscreenVignette.SetFloat("_Smoothness", 0f);
+    }
+
     public void EndShiftButtonCallback()
     {
         if(current == null)
         {
             if (day == days.Count - 1)
             {
-                vignette.intensity.max = 1000f;
-                DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+                DOVirtual.Float(1f, 0f, vignetteTime, (eye) =>
+                {
+                    fullscreenVignette.SetFloat("_EyesClosed", eye);
+                    fullscreenVignette.SetFloat("_Smoothness", eye);
+                }).OnComplete(() =>
                 {
                     day = Mathf.Clamp(day + 1, 0, days.Count);
                     SceneManager.LoadScene(endGameScene);
@@ -103,8 +111,11 @@ public class LevelSender : MonoBehaviour
             }
             else
             {
-                vignette.intensity.max = 1000f;
-                DOTween.To(() => vignette.intensity.value, (i) => vignette.intensity.value = i, vignette.intensity.max, vignetteTime).OnComplete(() =>
+                DOVirtual.Float(1f, 0f, vignetteTime, (eye) =>
+                {
+                    fullscreenVignette.SetFloat("_EyesClosed", eye);
+                    fullscreenVignette.SetFloat("_Smoothness", eye);
+                }).OnComplete(() =>
                 {
                     day = Mathf.Clamp(day + 1, 0, days.Count);
                     SceneManager.LoadScene(endDayIndex);
