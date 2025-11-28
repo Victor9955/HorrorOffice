@@ -18,20 +18,26 @@ public class LevelCreator : MonoBehaviour
 
     private void Start()
     {
-        fileSorting.OnFileDroppedEvent += (binder) =>
+        fileSorting.OnFileDroppedEvent += ReceiveBinder;
+    }
+
+    private void OnDestroy()
+    {
+        
+    }
+
+    void ReceiveBinder(Binder binder)
+    {
+        CharacterStaticInfo info = current.character.staticInfo;
+        info.lastBinder = binder;
+        current.character.staticInfo = info;
+        foreach (var sheet in current.sheets)
         {
-            isFinished = true;
-            CharacterStaticInfo info = current.character.staticInfo;
-            info.lastBinder = binder;
-            current.character.staticInfo = info;
-            foreach (var sheet in current.sheets)
+            if (sheet.actions.TryGetValue(binder, out UnityEvent cash))
             {
-                if(sheet.actions.TryGetValue(binder,out UnityEvent cash))
-                {
-                    cash?.Invoke();
-                }
+                cash?.Invoke();
             }
-        };
+        }
     }
 
     public void CreateLevel(SheetAction createInfo)
@@ -54,6 +60,17 @@ public class LevelCreator : MonoBehaviour
         foreach (SheetData sheet in current.sheets)
         {
             fileSorting.OnNewFile(sheet);
+        }
+
+        yield return new WaitForSecondsRealtime(current.character.staticInfo.waitTime);
+        if(!DialoguePlayer.IsTalking)
+        {
+            isFinished = true;
+        }
+        else
+        {
+            yield return new WaitUntil(() => !DialoguePlayer.IsTalking);
+            isFinished = true;
         }
     }
 

@@ -15,14 +15,16 @@ MonoBehaviour:
   characterStaticInfo:
     name: Esteban
     dialogueKey: ESTEBAN
+    sprites:
+      _serializedList: []
     comingSprite: {fileID: 21300000, guid: 5c53b83dd1e294a44a7aeca211175d9f, type: 3}
     givePaperSprite: {fileID: 21300000, guid: 5c53b83dd1e294a44a7aeca211175d9f, type: 3}
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
-    _enterDuration: 0
-    _exitDuration: 0
-    _walkMagnitude: 0
-    _walkFrequency: 0
+    _enterDuration: 2
+    _exitDuration: 2
+    _walkMagnitude: 2
+    _walkFrequency: 2
     _animCurve:
       serializedVersion: 2
       m_Curve: []
@@ -30,6 +32,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     saySpeed: 0.05
-    waitBetweenPhrases: 1
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    timeBetweenPhrases: 0.5
+    waitTime: 4
+    font: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
     mailPP: {fileID: 0}

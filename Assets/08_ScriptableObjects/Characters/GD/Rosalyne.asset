@@ -15,14 +15,22 @@ MonoBehaviour:
   characterStaticInfo:
     name: Rosalyne Muamba
     dialogueKey: ROSA
-    comingSprite: {fileID: 21300000, guid: cad8e9de66d1c0f4d8a5e3b4dc5c9e67, type: 3}
+    sprites:
+      _serializedList:
+      - Key: Default
+        Value: {fileID: 21300000, guid: 2c8bfcb209e1ef34998f9201061c152a, type: 3}
+      - Key: Eyes
+        Value: {fileID: 21300000, guid: c96fc1aaa4f45b0499c6c865aed8eb30, type: 3}
+      - Key: Serious
+        Value: {fileID: 21300000, guid: a1fb44fea51395f499791618a5c52873, type: 3}
+    comingSprite: {fileID: 21300000, guid: 2c8bfcb209e1ef34998f9201061c152a, type: 3}
     givePaperSprite: {fileID: 0}
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
     _enterDuration: 3
     _exitDuration: 2
     _walkMagnitude: 0.1
-    _walkFrequency: 1
+    _walkFrequency: 5
     _animCurve:
       serializedVersion: 2
       m_Curve:
@@ -48,6 +56,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     saySpeed: 0.05
-    waitBetweenPhrases: 1
+    timeBetweenPhrases: 1
+    waitTime: 1
     font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     mailPP: {fileID: 0}
