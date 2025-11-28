@@ -110,6 +110,7 @@ public class FileSorting : MonoBehaviour
     private void FileStackAdd(EmployeeFile file)
     {
         _activeFileList.Add(file);
+        file.transform.rotation = _filePoolTr.rotation;
         file.OnPickup += FileStackRemoveTopFile;
         FileStackUpdate();
 
@@ -131,7 +132,6 @@ public class FileSorting : MonoBehaviour
         {
             EmployeeFile file = _activeFileList[i];
             file.transform.position = _filePoolTr.position + (Vector3.up * _fileStackingDistance * i);
-            file.transform.rotation = _filePoolTr.rotation;
             file.IsDraggable = false;
         }
         _activeFileList.Last().IsDraggable = true;
@@ -140,7 +140,6 @@ public class FileSorting : MonoBehaviour
     private void OnFileDropped(Binder binderType)
     {
         SetBindersLockState(false);
-        //TODO Get Binder Dropped
         OnFileDroppedEvent?.Invoke(binderType);
     }
 }

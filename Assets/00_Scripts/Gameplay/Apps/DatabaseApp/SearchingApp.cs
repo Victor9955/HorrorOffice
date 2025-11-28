@@ -38,11 +38,10 @@ public class SearchingApp : MonoBehaviour, IApp
 
     private void InitDataBase(DayData day)
     {
-        foreach (var item in day.actions)
+        foreach (var action in day.actions)
         {
-            if(item.sheets[0])
+            foreach (var sheet in action.sheets)
             {
-                SheetData sheet = item.sheets[0];
                 if (codes.ContainsKey(sheet.charachterId) || stats.ContainsKey(sheet.charachterId)) continue;
                 Button cash = Instantiate(idPrefab, contentAncor);
                 cash.GetComponentInChildren<TextMeshProUGUI>().text = sheet.charachterId;
