@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
+  m_Name: Day 1
+  m_EditorClassIdentifier: 
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMail
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 270c549e737743240a739da9afc15d6a, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMailWait
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f12ed5bfd7ab62a41b674825930cbb6c, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endDayScene: 1
+  binders: 0300000002000000
+  startActions: []
+  actions:
+  - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 8beabc96c033e89459a19e1f9163eb8b, type: 2}
+    - {fileID: 11400000, guid: 53a663a52633f33478071e2957f82e91, type: 2}
+    - {fileID: 11400000, guid: c6c46334553a5474ab2f2af939397f63, type: 2}
+    - {fileID: 11400000, guid: ab676d6d8519d344d928c6140d5b3164, type: 2}
+    - {fileID: 11400000, guid: b98740ebf4bc3d84aaf8309e3a695e5b, type: 2}
+    - {fileID: 11400000, guid: 46d843a2c8355644d9fc8d174d5b2082, type: 2}
+    - {fileID: 11400000, guid: 39fd56610012d554c86387ef70fa3883, type: 2}
+    - {fileID: 11400000, guid: 426a898208f6a8f4a81def95375838e2, type: 2}
+    - {fileID: 11400000, guid: c2aee68fd27fc38489d3b391aaa6a1c0, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: DayOne
+      dialogs:
+        _serializedList: []

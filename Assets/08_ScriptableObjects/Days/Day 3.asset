@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
+  m_Name: Day 3
+  m_EditorClassIdentifier: 
+  startEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMail
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d61754f714442f242a3338bf08c3eb4e, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMailWait
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: f594b5384e245304494fb85676c53e89, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  endDayScene: 1
+  binders: 0300000002000000
+  startActions: []
+  actions:
+  - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 445b3abd7d2466e4bad1a08cfb67690f, type: 2}
+    - {fileID: 11400000, guid: 0d4f0de950fec884983f8423e6b8a6b3, type: 2}
+    - {fileID: 11400000, guid: bca1f09bd67bdc24693842f55ef6e9f1, type: 2}
+    - {fileID: 11400000, guid: 17ae7a213ee9b6c49b57c6fc13888eec, type: 2}
+    - {fileID: 11400000, guid: d022db7ebe6b4f04f8d23884f4b832ae, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: DayOne
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 5d83d9ae101e7ed4ebb7a70a7d1f2669, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: DayThree
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 514aaac62036cba419b9157239295ecc, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 173a1d3b426064146883458d9a2723cf, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: DayThree
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 0e8a80593e9ed8a4988e7546d4f06759, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: bd2ced9832e7e2048a8a71f4831ea3c4, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: DayThree
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: be88a730e5792654db317b06da430430, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: DayThree
+      dialogs:
+        _serializedList: []

@@ -16,7 +16,6 @@ public struct CharacterStaticInfo
     public Vector2 lookOffset;
    [HideInInspector] public Binder lastBinder;
 
-
     [Header("Anim Parameters")]
     public float _enterDuration;
     public float _exitDuration;
@@ -26,7 +25,8 @@ public struct CharacterStaticInfo
 
     [Header("Dialogue Parameters")]
     public float saySpeed;
-    public float waitBetweenPhrases;
+    public float timeBetweenPhrases;
+    public float waitTime;
     public TMP_FontAsset font;
 
     [Header("Mail")]

@@ -27,22 +27,24 @@ public class SearchingApp : MonoBehaviour, IApp
 
     [SerializeField] List<string> jobsKey = new();
 
+    private void Awake()
+    {
+        levelSender.OnInitDatabase += InitDataBase;
+        levelSender.OnEndDay += EndDay;
+    }
 
     private void Start()
     {
         contentAncor.sizeDelta = new Vector2(0,size * content.cellSize.y);
         RandomCode(size);
-        levelSender.OnBeginDay += InitDataBase;
-        levelSender.OnEndDay += EndDay;
     }
 
     private void InitDataBase(DayData day)
     {
-        foreach (var item in day.actions)
+        foreach (var action in day.actions)
         {
-            if(item.sheets[0])
+            foreach (var sheet in action.sheets)
             {
-                SheetData sheet = item.sheets[0];
                 if (codes.ContainsKey(sheet.charachterId) || stats.ContainsKey(sheet.charachterId)) continue;
                 Button cash = Instantiate(idPrefab, contentAncor);
                 cash.GetComponentInChildren<TextMeshProUGUI>().text = sheet.charachterId;
@@ -55,7 +57,7 @@ public class SearchingApp : MonoBehaviour, IApp
 
     private void EndDay()
     {
-        levelSender.OnBeginDay -= InitDataBase;
+        levelSender.OnInitDatabase -= InitDataBase;
         levelSender.OnEndDay -= EndDay;
     }
 
