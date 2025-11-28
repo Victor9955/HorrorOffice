@@ -4,17 +4,18 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class MailApp : MonoBehaviour, IApp
 {
     [SerializeField] Mail mailPrefab;
     [SerializeField] MailView mailView;
+    [SerializeField] RectTransform mailViewRect;
     [SerializeField] RectTransform mailViewAncor;
     [SerializeField] RectTransform notification;
     [SerializeField] GameplayEventSender gameplayEvents;
     [SerializeField] FMODUnity.EventReference _mailNotificationSound;
-    [SerializeField] List<LayoutGroup> layouts;
 
     Dictionary<Mail, MailData> reiceivedMail = new();
 
@@ -57,13 +58,21 @@ public class MailApp : MonoBehaviour, IApp
                 notifTween.Kill();
             }
             mailView.Show(mailCash);
-
-            foreach(var layout in layouts)
-            {
-                layout.CalculateLayoutInputHorizontal();
-                layout.CalculateLayoutInputVertical();
-            }
+            RecalculateSize();
         }
+    }
+
+    void RecalculateSize()
+    {
+        float size = 0f;
+
+        foreach(RectTransform rectT in mailViewRect)
+        {
+            size += rectT.sizeDelta.y;
+        }
+        Vector2 rec = mailViewRect.sizeDelta;
+        rec.y = size;
+        mailViewRect.sizeDelta = rec;
     }
 
     public void Close()
