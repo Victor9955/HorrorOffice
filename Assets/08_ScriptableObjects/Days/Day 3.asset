@@ -20,7 +20,7 @@ MonoBehaviour:
         m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 270c549e737743240a739da9afc15d6a, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: d61754f714442f242a3338bf08c3eb4e, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
         m_MethodName: SendMailWait
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f12ed5bfd7ab62a41b674825930cbb6c, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: f594b5384e245304494fb85676c53e89, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -45,39 +45,39 @@ MonoBehaviour:
   actions:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
     sheets:
-    - {fileID: 11400000, guid: 8beabc96c033e89459a19e1f9163eb8b, type: 2}
-    - {fileID: 11400000, guid: 53a663a52633f33478071e2957f82e91, type: 2}
-    - {fileID: 11400000, guid: c6c46334553a5474ab2f2af939397f63, type: 2}
-    - {fileID: 11400000, guid: ab676d6d8519d344d928c6140d5b3164, type: 2}
-    - {fileID: 11400000, guid: b98740ebf4bc3d84aaf8309e3a695e5b, type: 2}
+    - {fileID: 11400000, guid: 445b3abd7d2466e4bad1a08cfb67690f, type: 2}
+    - {fileID: 11400000, guid: 0d4f0de950fec884983f8423e6b8a6b3, type: 2}
+    - {fileID: 11400000, guid: bca1f09bd67bdc24693842f55ef6e9f1, type: 2}
+    - {fileID: 11400000, guid: 17ae7a213ee9b6c49b57c6fc13888eec, type: 2}
+    - {fileID: 11400000, guid: d022db7ebe6b4f04f8d23884f4b832ae, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayThree
+      DefaultDialogueKey: DayOne
       dialogs:
         _serializedList: []
-  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
+  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
     sheets:
-    - {fileID: 11400000, guid: 69f274579f980214a853ce18dc2db138, type: 2}
+    - {fileID: 11400000, guid: 5d83d9ae101e7ed4ebb7a70a7d1f2669, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayThree
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 514aaac62036cba419b9157239295ecc, type: 2}
     sheets:
-    - {fileID: 11400000, guid: 39fd56610012d554c86387ef70fa3883, type: 2}
+    - {fileID: 11400000, guid: 173a1d3b426064146883458d9a2723cf, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayThree
       dialogs:
         _serializedList: []
-  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
+  - character: {fileID: 11400000, guid: 0e8a80593e9ed8a4988e7546d4f06759, type: 2}
     sheets:
-    - {fileID: 11400000, guid: d4c813ee9b3b5f248b6065fd61e3a587, type: 2}
+    - {fileID: 11400000, guid: bd2ced9832e7e2048a8a71f4831ea3c4, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayThree
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
     sheets:
-    - {fileID: 11400000, guid: e31ff23df5f78f94cb20630116b2911c, type: 2}
+    - {fileID: 11400000, guid: be88a730e5792654db317b06da430430, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayThree
       dialogs:
