@@ -1,6 +1,7 @@
 using DG.Tweening;
 using HuntroxGames.Utils;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] private float _fadeDuration;
 
     private float _initAlpha;
+    private CameraMovement _cam;
 
     private void Awake()
     {
@@ -24,6 +26,10 @@ public class HUDController : MonoBehaviour
         _initAlpha = _charThoughtObj.GetComponentInChildren<Image>().color.a;
     }
 
+    private void Start()
+    {
+        _cam = Camera.main.GetComponent<CameraMovement>();
+    }
 
     public void SetThoughtText(string id)
     {
@@ -47,7 +53,10 @@ public class HUDController : MonoBehaviour
             {
                 _charThoughtObj.alpha = a;
             })
-            .OnComplete(() => _charThoughtObj.gameObject.SetActive(active));
+            .OnComplete(() =>
+            {
+                if (!_cam.ischangingFocus) _charThoughtObj.gameObject.SetActive(active);
+            });
         }
     }
 }

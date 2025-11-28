@@ -12,7 +12,7 @@ public class Clickable : MonoBehaviour
     [Space(5), Header("Focus settings")]
     [SerializeField, Range(10f, 100f)] private float _viewDistanceFromObject = 100f;
     [SerializeField] private float _fov = 58;
-    [SerializeField]private string _innerDialogueID;
+    [SerializeField] private string _innerDialogueID;
 
     [Header("Animation")]
     [SerializeField] private float _focusDuration;
@@ -22,6 +22,7 @@ public class Clickable : MonoBehaviour
     [SerializeField] private Vector2 _horizontalLimits = Vector2.zero;
 
     private bool IsCamFocused => _camMovement.focusState != FocusState.Unfocused;
+    private bool IsChangingFocus => _camMovement.ischangingFocus;
 
     // cam info
     private Vector3 _position;
@@ -33,6 +34,7 @@ public class Clickable : MonoBehaviour
     // unfocus limits
     public Vector2 HorizontalLimits => _horizontalLimits;
     public Vector2 VerticalLimits => _verticalLimits;
+    public float FocusDuration => _focusDuration;
 
     //private refs
     CameraMovement _camMovement;
@@ -53,10 +55,13 @@ public class Clickable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!IsCamFocused) _camMovement.FocusClickable(this);
-        // activate text ui
-        HUDController.instance.SetThoughtActive(true);
-        HUDController.instance.SetThoughtText(_innerDialogueID);
+        if (!IsCamFocused && !IsChangingFocus)
+        {
+            HUDController.instance.SetThoughtActive(true);
+            HUDController.instance.SetThoughtText(_innerDialogueID);
+            _camMovement.FocusClickable(this);
+            // activate text ui
+        }
     }
 
     private void OnDrawGizmosSelected()

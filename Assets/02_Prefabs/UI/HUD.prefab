@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55.45
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -154,7 +154,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &598783538235493336
 RectTransform:
   m_ObjectHideFlags: 0
@@ -172,8 +172,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -164.84337, y: -106}
-  m_SizeDelta: {x: -329.6867, y: -212}
+  m_AnchoredPosition: {x: -576.165, y: -335.518}
+  m_SizeDelta: {x: -1152.33, y: -671.035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7563513605773335113
 CanvasRenderer:
@@ -282,8 +282,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 31
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -300,10 +300,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -340,6 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee670d267e1ff446b96d9670b712022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charThought: {fileID: 0}
-  dialogueData: {fileID: 0}
-  _fadeDuration: 0
+  _charThoughtObj: {fileID: 7283021689470845250}
+  _textCharThought: {fileID: 7923132159242157080}
+  _dialogueData: {fileID: 11400000, guid: 3516b3d679eeb0c4eb6f04c219c681f4, type: 2}
+  _fadeDuration: 0.4
