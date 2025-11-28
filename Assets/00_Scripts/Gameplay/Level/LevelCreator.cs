@@ -23,20 +23,17 @@ public class LevelCreator : MonoBehaviour
 
     private void OnDestroy()
     {
-        
+        fileSorting.OnFileDroppedEvent -= ReceiveBinder;
     }
 
-    void ReceiveBinder(Binder binder)
+    void ReceiveBinder(Binder binder, SheetData sheetData)
     {
         CharacterStaticInfo info = current.character.staticInfo;
         info.lastBinder = binder;
         current.character.staticInfo = info;
-        foreach (var sheet in current.sheets)
+        if(sheetData.actions.TryGetValue(binder, out UnityEvent actionEvent))
         {
-            if (sheet.actions.TryGetValue(binder, out UnityEvent cash))
-            {
-                cash?.Invoke();
-            }
+            actionEvent?.Invoke();
         }
     }
 

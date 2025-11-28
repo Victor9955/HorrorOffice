@@ -36,7 +36,7 @@ public class FileSorting : MonoBehaviour
     private Coroutine _newFileCoroutine;
     private int _fileIndex = 0;
 
-    public event Action<Binder> OnFileDroppedEvent;
+    public event Action<Binder,SheetData> OnFileDroppedEvent;
 
     private void Awake()
     {
@@ -137,9 +137,9 @@ public class FileSorting : MonoBehaviour
         _activeFileList.Last().IsDraggable = true;
     }
 
-    private void OnFileDropped(Binder binderType)
+    private void OnFileDropped(Binder binderType, SheetData sheetData)
     {
         SetBindersLockState(false);
-        OnFileDroppedEvent?.Invoke(binderType);
+        OnFileDroppedEvent?.Invoke(binderType, sheetData);
     }
 }
