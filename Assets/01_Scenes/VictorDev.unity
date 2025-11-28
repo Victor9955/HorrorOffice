@@ -18546,7 +18546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1903963, y: 752075.6}
+  m_AnchoredPosition: {x: -2435977, y: 960401.56}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -34342,7 +34342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1566784.8}
+  m_AnchoredPosition: {x: 0, y: 1815886.6}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -41998,9 +41998,10 @@ MonoBehaviour:
   pc: {fileID: 1902982588}
   fovPC: 14.5
   triggerQuit: {x: 0.2, y: 0.05}
-  objectTriggerQuit: {x: 0, y: 0}
+  unfocusHorizontalLimits: {x: 0, y: 0}
+  unfocusVerticalLimits: {x: 0, y: 0}
   focusState: 0
-  isFocusing: 0
+  ischangingFocus: 0
 --- !u!114 &1185831076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43260,7 +43261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -206640, y: 73950}
+  m_AnchoredPosition: {x: -2004480, y: 711322.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1219672433
@@ -69260,7 +69261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 33019.633}
+  m_AnchoredPosition: {x: 0, y: 299913.22}
   m_SizeDelta: {x: -473.0007, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956545016
