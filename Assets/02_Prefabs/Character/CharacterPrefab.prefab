@@ -272,6 +272,7 @@ MonoBehaviour:
   dialogueTMP: {fileID: 518025877250546422}
   dialogueUI: {fileID: 6134152621443695089}
   defaultFont: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
+  writer: {fileID: 7274194577669656605}
   current:
     name: 
     dialogueKey: 
@@ -334,8 +335,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 32, y: -32}
-  m_SizeDelta: {x: 13.92, y: 0}
+  m_AnchoredPosition: {x: 40.445, y: -32}
+  m_SizeDelta: {x: 60.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2657349273580079203
 CanvasRenderer:
@@ -365,7 +366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <wave>...
+  m_text: Je test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
   m_sharedMaterial: {fileID: 5179109703141641612, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
@@ -479,7 +480,7 @@ MonoBehaviour:
   sceneKeywordDatabase: {fileID: 0}
   database: {fileID: 11400000, guid: 290ad04254a96934aa269d5b8d258008, type: 2}
   maySkip: 1
-  writeOnStart: 1
+  writeOnStart: 0
   writeOnNewText: 1
   useScaledTime: 1
   delays:
@@ -612,7 +613,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 50, y: -32}
-  m_SizeDelta: {x: 64, y: 0}
+  m_SizeDelta: {x: 80.89, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5972317122045684010
 CanvasRenderer:
