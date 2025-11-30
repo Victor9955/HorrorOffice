@@ -63,20 +63,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  endDayScene: 1
   binders: 000000000200000001000000
+  startActions: []
   actions:
   - character: {fileID: 11400000, guid: 9a9df85651a02c64689322c8bf90c380, type: 2}
-    overrideCharacterSprite: {fileID: 0}
-    beginCondition: 1
     sheets:
+    - {fileID: 11400000, guid: 2daabc736d255f74c853b4a93a4472ea, type: 2}
+    - {fileID: 11400000, guid: 2daabc736d255f74c853b4a93a4472ea, type: 2}
     - {fileID: 11400000, guid: 2daabc736d255f74c853b4a93a4472ea, type: 2}
     dayDialogue:
       DefaultDialogueKey: Hello
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 2978c19365c914947af0cb4562691fb3, type: 2}
-    overrideCharacterSprite: {fileID: 0}
-    beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 5e60eedd326395d4da726777b002b6ce, type: 2}
     dayDialogue:
@@ -84,8 +84,6 @@ MonoBehaviour:
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 5dc4ac72133ab7d49994c9b792510145, type: 2}
-    overrideCharacterSprite: {fileID: 0}
-    beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 9ef95d8932ef07f4c9276e70f141f5c8, type: 2}
     dayDialogue:
@@ -93,8 +91,6 @@ MonoBehaviour:
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 44103b76b7703cc46bb4051cc9964d19, type: 2}
-    overrideCharacterSprite: {fileID: 0}
-    beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: e1b96083914adf34fa13a82bd6e8630e, type: 2}
     dayDialogue:
@@ -102,8 +98,6 @@ MonoBehaviour:
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 85625dd6d25797247acd41cea60f915a, type: 2}
-    overrideCharacterSprite: {fileID: 0}
-    beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 8e7aa261a6bedf64693a2aa53d6d5b7d, type: 2}
     dayDialogue:
@@ -111,8 +105,6 @@ MonoBehaviour:
       dialogs:
         _serializedList: []
   - character: {fileID: 11400000, guid: 86834131876558543b4d2e88d96903d8, type: 2}
-    overrideCharacterSprite: {fileID: 0}
-    beginCondition: 1
     sheets:
     - {fileID: 11400000, guid: 2e1a5fef561846146aed1236e4401d4d, type: 2}
     dayDialogue:

@@ -1,6 +1,8 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPEffects.Components;
 using TMPro;
 using UnityEngine;
 
@@ -12,13 +14,28 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueTMP;
     [SerializeField] private RectTransform dialogueUI;
     [SerializeField] private TMP_FontAsset defaultFont;
+    [SerializeField] private TMPWriter writer;
     string[] phrases;
 
     [HideInInspector] public CharacterStaticInfo current;
 
+    bool doHideUI = false;
+    bool saidOnce = false;
+
+    public static bool IsTalking;
+
+    private void Start()
+    {
+        writer.OnFinishWriter.AddListener((writer) =>
+        {
+            finished = true;
+        });
+    }
+
     public void SetDialogue(CharacterStaticInfo character,string dialogue)
     {
         current = character;
+        saidOnce = false;
         dialogueUI.gameObject.SetActive(false);
         if (dialogue.Contains(separarionChar))
         {
@@ -54,26 +71,59 @@ public class DialoguePlayer : MonoBehaviour
         {
             dialogueTMP.font = current.font;
         }
+        doHideUI = phrases[0] == "";
     }
 
+    public void Hide()
+    {
+        dialogueUI.gameObject.SetActive(false);
+    }
+
+    public void BeginDialogue()
+    {
+        if(!saidOnce)
+        {
+            saidOnce = true;
+            StartCoroutine(Say(phrases));
+        }
+    }
 
     public void Say()
     {
-        dialogueUI.gameObject.SetActive(true);
-        dialogueTMP.font = defaultFont;
-        StartCoroutine(Say(phrases));
+        if(doHideUI)
+        {
+            dialogueUI.gameObject.SetActive(false);
+        }
+        else
+        {
+            dialogueUI.gameObject.SetActive(true);
+        }
+        if(current.font  != null)
+        {
+            dialogueTMP.font = current.font;
+        }
+        else
+        {
+            dialogueTMP.font = defaultFont;
+        }
+        dialogueTMP.text = "<wave>...";
     }
+
+    bool finished;
 
     IEnumerator Say(string[] phrases)
     {
+        IsTalking = true;
+        finished = false;
+
         foreach (string s in phrases)
         {
             dialogueTMP.text = s;
-            float duration = s.Length * current.saySpeed;
-            Tween tween = DOTween.To(() => dialogueTMP.maxVisibleCharacters, (count) => dialogueTMP.maxVisibleCharacters = count, s.Length, duration);
-            tween.SetEase(Ease.Linear);
-            yield return tween.WaitForCompletion();
-            yield return new WaitForSecondsRealtime(current.waitBetweenPhrases);
+            writer.DefaultDelays.delay = current.saySpeed;
+            yield return new WaitUntil(() => finished);
+            finished = false;
+            yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
         }
+        IsTalking = false;
     }
 }

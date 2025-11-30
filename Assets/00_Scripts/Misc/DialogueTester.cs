@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class DialogueTester : MonoBehaviour
 {
+    [Header("Refs")]
     [SerializeField] private DialogueData dialogueData;
-    [SerializeField] private TextMeshProUGUI tmp;
+    [SerializeField] CharacterDisplay characterDisplay;
 
-
+    [Header("Test")]
+    [SerializeField] CharacterData testCharacter;
     [SerializeField] private string testKey;
 
     [Button]
@@ -15,7 +17,7 @@ public class DialogueTester : MonoBehaviour
     {
         if(dialogueData.GetDialogue(testKey, out string dialogue))
         {
-            tmp.text = dialogue;
+            characterDisplay.SpawnCharacter(testCharacter.staticInfo, dialogue, null);
         }
     }
 }
