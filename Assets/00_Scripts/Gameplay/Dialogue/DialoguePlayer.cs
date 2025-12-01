@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPEffects.Components;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueTMP;
     [SerializeField] private RectTransform dialogueUI;
     [SerializeField] private TMP_FontAsset defaultFont;
+    [SerializeField] private TMPWriter writer;
     string[] phrases;
 
     [HideInInspector] public CharacterStaticInfo current;
@@ -21,6 +23,14 @@ public class DialoguePlayer : MonoBehaviour
     bool saidOnce = false;
 
     public static bool IsTalking;
+
+    private void Start()
+    {
+        writer.OnFinishWriter.AddListener((writer) =>
+        {
+            finished = true;
+        });
+    }
 
     public void SetDialogue(CharacterStaticInfo character,string dialogue)
     {
@@ -99,17 +109,19 @@ public class DialoguePlayer : MonoBehaviour
         dialogueTMP.text = "<wave>...";
     }
 
+    bool finished;
+
     IEnumerator Say(string[] phrases)
     {
         IsTalking = true;
+        finished = false;
+
         foreach (string s in phrases)
         {
             dialogueTMP.text = s;
-            dialogueTMP.maxVisibleCharacters = 0;
-            float duration = s.Length * current.saySpeed;
-            Tween tween = DOTween.To(() => dialogueTMP.maxVisibleCharacters, (count) => dialogueTMP.maxVisibleCharacters = count, s.Length, duration);
-            tween.SetEase(Ease.Linear);
-            yield return tween.WaitForCompletion();
+            writer.DefaultDelays.delay = current.saySpeed;
+            yield return new WaitUntil(() => finished);
+            finished = false;
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
         }
         IsTalking = false;
