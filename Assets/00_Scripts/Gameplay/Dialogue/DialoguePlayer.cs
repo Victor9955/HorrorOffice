@@ -23,15 +23,6 @@ public class DialoguePlayer : MonoBehaviour
     bool saidOnce = false;
 
     public static bool IsTalking;
-
-    private void Start()
-    {
-        writer.OnFinishWriter.AddListener((writer) =>
-        {
-            finished = true;
-        });
-    }
-
     public void SetDialogue(CharacterStaticInfo character,string dialogue)
     {
         current = character;
@@ -108,6 +99,8 @@ public class DialoguePlayer : MonoBehaviour
         }
         dialogueTMP.text = "<wave>...";
     }
+
+    public void SetFinished() => finished = true;
 
     bool finished;
 
