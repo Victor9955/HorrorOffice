@@ -50,21 +50,30 @@ MonoBehaviour:
       - 
     - Key: ESTEBAN_DayOne
       Value:
-      - ...Backlog.
+      - "\u2026\n\n\xA4...\n\n\xA4\u2026\n\n\xA4<!sprite=Pissed>...\n\n\xA4Backlog."
+      - 
+    - Key: ESTEBAN_DayTwo
+      Value:
+      - "\u2026\n\n\xA4So...\n\n\xA4...\n\n\xA4<!sprite=Pissed>\u2026<!wait=0.5>Backlog."
+      - 
+    - Key: ESTEBAN_DayThree
+      Value:
+      - "Backlog.\n\n\xA4<!sprite=Happy>And...\n\n\xA4...\n\n\xA4<!sprite=Default>...\n\n\xA4<!sprite=Pissed>Nevermind."
       - 
     - Key: LI_DayTwo
       Value:
-      - "Oh. You\u2019re new.\n\n\xA4Uh\u2026 hi."
+      - "Oh.<!wait=1> You\u2019re new.\n\n\xA4Uh\u2026<!wait=1> hi."
       - 
     - Key: CONNIE_DayTwo
       Value:
       - "<!sprite=Happy>Hey, fella!\n\n\xA4<!sprite=Default>You\u2019re new here,\nam
-        I right?\n\n\xA4\u2026eh, who am I kidding.\n\n\xA4<!sprite=Happy>'Whole
-        floor knows about\nour little newcomer!\n\n\xA4Sorry, 'guess that wasn\u2019t
-        the\nwarm welcome you expected\u2026\n\n\xA4<!sprite=Default>Ah, don\u2019t
-        blame them.\nEverybody\u2019s on edge lately.\n\n\xA4Thought I\u2019d at
-        least come by\nand greet you properly.\n\n\xA4Anyway, took enough of your
-        time.\n\n\xA4<!sprite=Happy>See you tomorrow, pal!"
+        I right?\n\n\xA4\u2026<!wait=0.5>eh,<!wait=0.5> who am I kidding.\n\n\xA4<!sprite=Happy>'Whole
+        floor knows about\nour little newcomer!\n\n\xA4Sorry,<!wait=0.5> 'guess that
+        wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4<!sprite=Default>Ah,
+        don\u2019t blame them.<!wait=1>\nEverybody\u2019s on edge lately.\n\n\xA4Thought
+        I\u2019d at least come by\nand greet you properly.\n\n\xA4Anyway,<!wait=0.5>
+        took enough of your time.\n\n\xA4<!sprite=Happy>See you tomorrow,<!wait=0.5>
+        pal!"
       - 
     - Key: DEVI_DayTwo
       Value:
@@ -74,10 +83,10 @@ MonoBehaviour:
       Value:
       - "Oh! <!wait=1>Sorry for surprising you.\n\n\xA4I did not expect to see a
         new face here.<!wait=1>\nForgot you were replacing <wave amplitude=1 uniformity=0.5>\u2588\u2588\u2588\u2588\u2588\u2588\n\n\xA4A
-        shame. <!wait=1>I quite liked her. \n<!sprite=Wink>Though I\u2019m sure you\u2019ll
-        fit right in as well!\n\n\xA4<!sprite=Default>You know,<!wait=0.5> I think
-        you\u2019re gonna bring \nsome much-needed life up here.\n\n\xA4Floor was
-        getting pretty dull \nwith only the four of us.\n\n\xA4\u2026<!wait=0.5>Five,
+        shame. <!wait=1>I quite liked her. <!wait=1>\n<!sprite=Wink>Though I\u2019m
+        sure you\u2019ll fit right in as well!\n\n\xA4<!sprite=Default>You know,<!wait=0.5>
+        I think you\u2019re gonna bring \nsome much-needed life up here.\n\n\xA4Floor
+        was getting pretty dull \nwith only the four of us.\n\n\xA4\u2026<!wait=0.5>Five,
         if you count Esteban, though \nthe guy doesn\u2019t talk much.\n\n\xA4Ahem,<!wait=0.5>
         neither does Devi,<!wait=0.5> to be honest.\n\n\xA4Anyway,<!wait=0.5> nice
         to meet you! \n\n\xA4Don\u2019t worry,<!wait=0.5> I probably \nwon\u2019t
