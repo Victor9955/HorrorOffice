@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
-  m_Name: J3 - Mail 1
+  m_Name: TestNegatif Schedule not Filled
   m_EditorClassIdentifier: 
-  title: Special Announcement
+  title: 'Warning: Filling Error'
   character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
-  mailText: 'Good morning!
+  mailText: 'It has come to our notice that you''ve made a sorting mistake.
 
 
-    Today marks a very special day, where our most <b>promising
-    elements</b> will be granted the right to GROW!
+    Please
+    remain focused during your further endeavour.
 
 
-    You will receive further
-    communication on the specific requirements in an <b>additional email</b>.'
+    <b>[THIS IS AN AUTOMATED
+    MESSAGE. PLEASE DO NOT REPLY.]</b>'
