@@ -137,7 +137,7 @@ public class Draggable : MonoBehaviour
         while (_isPickedUp)
         {
             DragTick();
-            yield return new WaitForSeconds(_draggingTick);
+            yield return new WaitForSecondsRealtime(_draggingTick);
         }
     }
 
@@ -181,25 +181,19 @@ public class Draggable : MonoBehaviour
     public float DragLerp(float P, float T)
     {
         if (_dragPosSpeed * Time.deltaTime > 1) return T;
-        float result = P + (T - P) * _dragPosSpeed * Time.deltaTime;
-        return result;
+        return Mathf.Lerp(P,T,Time.deltaTime * _dragPosSpeed);
     }
 
     public Vector3 DragLerp(Vector3 P, Vector3 T)
     {
         if (_dragPosSpeed * Time.deltaTime > 1) return T;
-        Vector3 result = P + (T - P) * _dragPosSpeed * Time.deltaTime;
-        return result;
+        return Vector3.Lerp(P,T, _dragPosSpeed * Time.deltaTime);
     }
 
     public Quaternion DragLerp(Quaternion P, Quaternion T)
     {
         if (_dragPosSpeed * Time.deltaTime > 1) return T;
-        /*
-        Vector3 PVec = P.eulerAngles;
-        Vector3 TVec = T.eulerAngles;
-        Quaternion resultVec = Quaternion.Euler(PVec + (TVec - PVec) * _dragPosSpeed * Time.deltaTime);*/
-        return Quaternion.Lerp(P, T, 1f);
+        return Quaternion.Lerp(P, T, _dragPosSpeed * Time.deltaTime);
     }
 
 
