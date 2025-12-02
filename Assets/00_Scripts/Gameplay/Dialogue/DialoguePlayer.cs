@@ -88,6 +88,7 @@ public class DialoguePlayer : MonoBehaviour
         else
         {
             dialogueUI.gameObject.SetActive(true);
+            dialogueTMP.text = "<wave>...";
         }
         if(current.font  != null)
         {
@@ -97,7 +98,6 @@ public class DialoguePlayer : MonoBehaviour
         {
             dialogueTMP.font = defaultFont;
         }
-        dialogueTMP.text = "<wave>...";
     }
 
     public void SetFinished() => finished = true;
@@ -108,9 +108,9 @@ public class DialoguePlayer : MonoBehaviour
     {
         IsTalking = true;
         finished = false;
-
         foreach (string s in phrases)
         {
+            writer.StartWriter();
             dialogueTMP.text = s;
             writer.DefaultDelays.delay = current.saySpeed;
             yield return new WaitUntil(() => finished);
