@@ -20,7 +20,7 @@ MonoBehaviour:
         m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e797513643c002f47a27130a125af8b1, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 3d7943928dad938428b9e9f101263041, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -32,7 +32,19 @@ MonoBehaviour:
         m_MethodName: SendMailWait
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 37e75e62b1abe834295c7b26327d71e8, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: e0bce90cbb653fb45b546f93a33168d3, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMailWait
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d60f928657d8a9142a1b30ad24c98aeb, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -50,20 +62,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 7b1f5e18497c6f24b9ab4fcbe61c4cab, type: 2}
     - {fileID: 11400000, guid: fe65d9d5a5c935e4da352fefcff802c8, type: 2}
     - {fileID: 11400000, guid: 1e82cde5c62f7ff4fa1d6971804445e7, type: 2}
-    dayDialogue:
-      DefaultDialogueKey: DayOne
-      dialogs:
-        _serializedList: []
-  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
-    sheets:
-    - {fileID: 11400000, guid: 3d664626dcbb14a4db40c2d83d9945b1, type: 2}
-    dayDialogue:
-      DefaultDialogueKey: DayTwo
-      dialogs:
-        _serializedList: []
-  - character: {fileID: 11400000, guid: 514aaac62036cba419b9157239295ecc, type: 2}
-    sheets:
-    - {fileID: 11400000, guid: df585f71f1b7c9e499743390855f01e8, type: 2}
+    - {fileID: 11400000, guid: ab676d6d8519d344d928c6140d5b3164, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayTwo
       dialogs:
@@ -78,6 +77,13 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
     sheets:
     - {fileID: 11400000, guid: 1c027b4bef808c84bb4d13b43df6c35e, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: DayTwo
+      dialogs:
+        _serializedList: []
+  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 3d664626dcbb14a4db40c2d83d9945b1, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayTwo
       dialogs:
