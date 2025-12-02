@@ -39,10 +39,8 @@ public class EmployeeFile : Draggable
 
     DragInfo lastOnDeskInfo;
 
-    public void Init(SheetData data, int fileIndex)
+    public void Init(SheetData data)
     {
-        //Init Object
-        name = $"SheetInstance_{fileIndex}";
         gameObject.SetActive(true);
         _isDraggable = _draggableOnInit;
 
