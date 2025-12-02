@@ -20,7 +20,7 @@ MonoBehaviour:
         m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 270c549e737743240a739da9afc15d6a, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: e0407964dc2834141ab0c170fa20b89b, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -32,7 +32,19 @@ MonoBehaviour:
         m_MethodName: SendMailWait
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: f12ed5bfd7ab62a41b674825930cbb6c, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: ef7d05f194ac3c14aa4430c12910eb41, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMailWait
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: adfefd44ccc212d4bae42c4b19af2767, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
