@@ -28,9 +28,12 @@ public class LevelCreator : MonoBehaviour
 
     void ReceiveBinder(Binder binder, SheetData sheetData)
     {
-        CharacterStaticInfo info = current.character.staticInfo;
-        info.lastBinder = binder;
-        current.character.staticInfo = info;
+        if(sheetData.character != null)
+        {
+            CharacterStaticInfo info = sheetData.character.staticInfo;
+            info.lastBinder = binder;
+            current.character.staticInfo = info;
+        }
         if(sheetData.actions.TryGetValue(binder, out UnityEvent actionEvent))
         {
             actionEvent?.Invoke();
