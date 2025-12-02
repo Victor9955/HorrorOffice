@@ -157,13 +157,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bc5b4289f1d434baf377b6315827fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 0.501
+  _distance: 1
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
   _getsConsumedOnCorrectDrop: 1
-  _dragPosSpeed: 15
-  _dragRotSpeed: 7
+  _dragPosSpeed: 25
+  _dragRotSpeed: 25
   _draggingTick: 0.01
   _dragReturnDuration: 0.4
   _draggableOnInit: 1
