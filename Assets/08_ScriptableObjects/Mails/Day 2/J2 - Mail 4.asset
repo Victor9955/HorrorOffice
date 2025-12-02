@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
+  m_Name: J2 - Mail 4
+  m_EditorClassIdentifier: 
+  title: 'Warning: Self-Report Data Mismatch'
+  character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+  mailText: 'Greetings,
+
+    
+
+    Due to increasingly frequent discrepancies between
+    the self-rating of employees in the <b>MARKETING SERVICE</b> and our own recorded
+    data, we will now require you to systematically verify <b>H.E.A.L.T.H.</b> values
+    from that particular service with the employee <b>DATABASE</b>.
+
+    
+
+    Sincerely,
+
+    
+
+    <b>Nurturing
+    Service Direction</b>'
