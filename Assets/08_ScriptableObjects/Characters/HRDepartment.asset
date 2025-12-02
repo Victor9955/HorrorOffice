@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HRDepartment
   m_EditorClassIdentifier: 
   characterStaticInfo:
-    name: Human Resources Department
+    name: HR Department
     dialogueKey: HR
     sprites:
       _serializedList: []
@@ -32,6 +32,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     saySpeed: 0
-    waitBetweenPhrases: 0
+    timeBetweenPhrases: 0
+    waitTime: 0
     font: {fileID: 0}
     mailPP: {fileID: 21300000, guid: 4cc16b25a3c47ad489a854ed63ac03d5, type: 3}

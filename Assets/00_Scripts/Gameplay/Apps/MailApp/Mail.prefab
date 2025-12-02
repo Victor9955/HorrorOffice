@@ -262,7 +262,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'TITLETEST
 
-    <color=#6f7374><TestName>'
+    <color=#6f7374><size=12.5><TestName>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
   m_sharedMaterial: {fileID: 5179109703141641612, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
@@ -289,10 +289,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.75
-  m_fontSizeBase: 18
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 15
   m_fontSizeMax: 72
   m_fontStyle: 0

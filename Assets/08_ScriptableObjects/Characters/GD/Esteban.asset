@@ -15,21 +15,48 @@ MonoBehaviour:
   characterStaticInfo:
     name: Esteban
     dialogueKey: ESTEBAN
+    sprites:
+      _serializedList:
+      - Key: Default
+        Value: {fileID: 21300000, guid: 5c53b83dd1e294a44a7aeca211175d9f, type: 3}
+      - Key: Pissed
+        Value: {fileID: 21300000, guid: 18e0e320f275175448dd1d6f4c803b5e, type: 3}
+      - Key: Smile
+        Value: {fileID: 21300000, guid: 74c62d72d1a93434faa654eaaab5c2f3, type: 3}
     comingSprite: {fileID: 21300000, guid: 5c53b83dd1e294a44a7aeca211175d9f, type: 3}
     givePaperSprite: {fileID: 21300000, guid: 5c53b83dd1e294a44a7aeca211175d9f, type: 3}
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
-    _enterDuration: 0
-    _exitDuration: 0
-    _walkMagnitude: 0
-    _walkFrequency: 0
+    _enterDuration: 2
+    _exitDuration: 3
+    _walkMagnitude: 0.3
+    _walkFrequency: 5
     _animCurve:
       serializedVersion: 2
-      m_Curve: []
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 34
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    saySpeed: 0.05
-    waitBetweenPhrases: 1
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    saySpeed: 0.03
+    timeBetweenPhrases: 0.75
+    waitTime: 5
+    font: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
     mailPP: {fileID: 0}

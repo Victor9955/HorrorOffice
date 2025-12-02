@@ -18,11 +18,11 @@ MonoBehaviour:
     _serializedList:
     - Key: CONNIE_Hello
       Value:
-      - Hey, pal.
+      - "<wave><color=red>Hey, pal.,</color>\nTest\n\xA4<wave><color=red>TestTwo</color>"
       - Bonjour
     - Key: ABBIE_Hello
       Value:
-      - Hi... I'm new here.\nI hope everything is alright?
+      - Hi... I'm new here. I hope everything is alright?
       - Bonjour
     - Key: MAX_Hello
       Value:
@@ -35,92 +35,89 @@ MonoBehaviour:
     - Key: LI_Hello
       Value:
       - "Oh. You\u2019re new. Uh\u2026 hi."
-      - Jour...
-    - Key: DEVI_Hello
-      Value:
-      - "\u2026What? <!wait=1>\\nIs there something on my face?"
-      - 
-    - Key: CONNIE_A
-      Value:
-      - "Hey, fella!\n\n\xA4You\u2019re new here,\nam I right?\n\n\xA4\u2026eh, who
-        am I kidding.\n\n\xA4'Whole floor knows about\nour little newcomer!\n\n\xA4Sorry,
-        'guess that wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4Ah, don\u2019t
-        blame them.\nEverybody\u2019s on edge lately.\n\n\xA4Thought I\u2019d at
-        least come by\nand greet you properly.\n\n\xA4Anyway, took enough of your
-        time.\n\n\xA4See you tomorrow, pal!"
-      - 
-    - Key: DEVI_A
-      Value:
-      - ...
-      - 
-    - Key: MAX_A
-      Value:
-      - "Oh! Sorry for surprising you.\xA4Didn\u2019t expect to see a new face here.
-        Forgot you were replacing the other guy.\xA4A shame. I quite liked him. Though
-        I\u2019m sure you\u2019ll fit right in as well!\xA4Anyway\xF9 nice to meet
-        you! Don\u2019t worry\xF9 I probably won\u2019t make your job too hard. My
-        reports are always flawless.\xA4See you tomorrow!"
-      - 
-    - Key: CONNIE_B_Bad
-      Value:
       - "Hey pal!\xA4Nice one the other day. Very funny.\xA4\u2026Don\u2019t do that
         again.\xA4But hey. No offense taken.\xA4\u2026\xA4So! Met any new friends?\xA4Not
         much like you\u2019re spoiled for choice. It\u2019s only the four of us here.\xA4\u2026Five
-        if you count Esteban though the guy doesn\u2019t talk much.\xA4Ahem neither
+        if you count Esteban; though the guy doesn\u2019t talk much.\xA4Ahem neither
         does Devi to be honest.\xA4And Max\u2026 she\u2019s probably the worst of
         the bunch.\xA4All smiles and just ready to plant a dagger in your back when
-        you least expect it.\xA4Again\xF9 I\u2019d be wary of who you trust. It\u2019s
-        a shark tank here\xF9 and you wouldn\u2019t believe the lengths some people
-        go just to earn a promotion.\xA4Glad you\u2019re one of the good ones!"
-      - 
-    - Key: CONNIE_B_Good
+        you least expect it.\xA4Again I\u2019d be wary of who you trust. It\u2019s
+        a shark tank here and you wouldn\u2019t believe the lengths some people go
+        just to earn a promotion.\xA4Glad you\u2019re one of the good ones!"
+    - Key: DEVI_Hello
       Value:
-      - "Hey\xF9 pal!\xA4Thanks for covering my ass yesterday.\xA4Knew you were a
-        real mate.\xA4Really appreciate it. And you know I\u2019ll return the favor.\xA4So!
-        Met any new friends?\xA4Not much like you\u2019re spoiled for choice. It\u2019s
-        only the four of us here.\xA4\u2026Five\xF9 if you count Esteban; though
-        the guy doesn\u2019t talk much.\xA4Ahem\xF9 neither does Devi\xF9 to be honest.
-        And Max\u2026 she\u2019s probably the worst of the bunch.\xA4All smiles\xF9
-        and just ready to plant a dagger in your back when you least expect it.\xA4Again\xF9
-        I\u2019d be wary of who you trust. It\u2019s a shark tank here\xF9 and you
-        wouldn\u2019t believe the lengths some people go just to earn a promotion.\xA4Glad
-        you\u2019re one of the good ones!"
+      - "\u2026What? Is there something on my face?"
       - 
-    - Key: LI_A
+    - Key: ESTEBAN_DayOne
       Value:
-      - "Oh. You\u2019re new.\n\n\xA4Uh\u2026 hi."
+      - "\u2026\n\n\xA4...\n\n\xA4\u2026\n\n\xA4<!sprite=Pissed>...\n\n\xA4Backlog."
       - 
-    - Key: DEVI_B
+    - Key: ESTEBAN_DayTwo
       Value:
-      - "\u2026\xA4What? Is there something on my face?"
+      - "\u2026\n\n\xA4So...\n\n\xA4...\n\n\xA4<!sprite=Pissed>\u2026<!wait=0.5>Backlog."
       - 
-    - Key: ESTEBAN_A
+    - Key: ESTEBAN_DayThree
+      Value:
+      - "Backlog.\n\n\xA4<!sprite=Happy>And...\n\n\xA4...\n\n\xA4<!sprite=Default>...\n\n\xA4<!sprite=Pissed>Nevermind."
+      - 
+    - Key: LI_DayTwo
+      Value:
+      - "Oh.<!wait=1> You\u2019re new.\n\n\xA4Uh\u2026<!wait=1> hi."
+      - 
+    - Key: CONNIE_DayTwo
+      Value:
+      - "<!sprite=Happy>Hey, fella!\n\n\xA4<!sprite=Default>You\u2019re new here,\nam
+        I right?\n\n\xA4\u2026<!wait=0.5>eh,<!wait=0.5> who am I kidding.\n\n\xA4<!sprite=Happy>'Whole
+        floor knows about\nour little newcomer!\n\n\xA4Sorry,<!wait=0.5> 'guess that
+        wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4<!sprite=Default>Ah,
+        don\u2019t blame them.<!wait=1>\nEverybody\u2019s on edge lately.\n\n\xA4Thought
+        I\u2019d at least come by\nand greet you properly.\n\n\xA4Anyway,<!wait=0.5>
+        took enough of your time.\n\n\xA4<!sprite=Happy>See you tomorrow,<!wait=0.5>
+        pal!"
+      - 
+    - Key: DEVI_DayTwo
       Value:
       - ...
       - 
-    - Key: MAXINE_DayThree
+    - Key: MAX_DayTwo
       Value:
-      - "Oh! Sorry for surprising you.\n\n\xA4Didn\u2019t expect to see a new face
-        here. Forgot you were replacing the other gal.\n\n\xA4A shame. I quite liked
-        her. <sprite=Wink>Though I\u2019m sure you\u2019ll fit right in as well!\n\n\xA4<sprite=Default>You
-        know, I think you\u2019re going to bring some much-needed life up here.\n\n\xA4Floor
-        was getting pretty dull with only the four of us.\n\n\xA4\u2026Five, if you
-        count Esteban, though the guy doesn\u2019t talk much.\n\n\xA4Ahem, neither
-        does Devi, to be honest.\n\n\xA4Anyway, nice to meet you! Don\u2019t worry,
-        I probably won\u2019t make your job too hard. \n\n\xA4<sprite=Wink>Haven\u2019t
-        failed a single report ever since I joined, and I well intend to continue!\n\n\xA4See
+      - "Oh! <!wait=1>Sorry for surprising you.\n\n\xA4I did not expect to see a
+        new face here.<!wait=1>\nForgot you were replacing <wave amplitude=1 uniformity=0.5>\u2588\u2588\u2588\u2588\u2588\u2588\n\n\xA4A
+        shame. <!wait=1>I quite liked her. <!wait=1>\n<!sprite=Wink>Though I\u2019m
+        sure you\u2019ll fit right in as well!\n\n\xA4<!sprite=Default>You know,<!wait=0.5>
+        I think you\u2019re gonna bring \nsome much-needed life up here.\n\n\xA4Floor
+        was getting pretty dull \nwith only the four of us.\n\n\xA4\u2026<!wait=0.5>Five,
+        if you count Esteban, though \nthe guy doesn\u2019t talk much.\n\n\xA4Ahem,<!wait=0.5>
+        neither does Devi,<!wait=0.5> to be honest.\n\n\xA4Anyway,<!wait=0.5> nice
+        to meet you! \n\n\xA4Don\u2019t worry,<!wait=0.5> I probably \nwon\u2019t
+        make your job too hard. \n\n\xA4<!sprite=Wink>Haven\u2019t failed a single
+        report ever since I joined,<!wait=0.5>\nand I well intend to continue!\n\n\xA4See
         you tomorrow!"
       - 
-    - Key: CONNOR_DayThree
+    - Key: CONNIE_DayThree_Good
       Value:
-      - "\xA4<sprite=Happy>So! Met any new friends?\n\n\xA4Saw you talking with Max
-        earlier.\nI\u2019d be careful in your place.\n\n\xA4<sprite=Default>All smiles,
-        and just ready to plant a dagger in your back when you least expect it.\n\n\xA4Again,
+      - "Hey, pal!\n\n\xA4<!sprite=Happy>Thanks for covering \nmy ass yesterday.\n\n\xA4Knew
+        you were \na real mate.\n\n\xA4<!sprite=Default>Really appreciate it. And
+        you \nknow I\u2019ll return the favour.\n\n\xA4<sprite=Happy>So! Met any
+        new friends?\n\n\xA4Saw you talking with Max earlier.\nI\u2019d be careful
+        in your place.\n\n\xA4<!sprite=Default>All smiles, and just ready to plant
+        \na dagger in your back when you least expect it.\n\n\xA4Again, I\u2019d
+        be wary of who you trust. \n\n\xA4It\u2019s a shark tank here, and you wouldn\u2019t
+        believe \nthe lengths some people go just to earn a promotion.\n\n\xA4<!sprite=Happy>Glad
+        you\u2019re one of the good ones!"
+      - 
+    - Key: CONNIE_DayThree_Bad
+      Value:
+      - "Hey, pal!\n\n\xA4Nice one the other day.\nVery funny.\n\n\xA4<!sprite=Surprised>\u2026Don\u2019t
+        do that again?\n\n\xA4<!sprite=Default>But hey. \nNo offence taken.\n\n\xA4<sprite=Happy>So!
+        Met any new friends?\n\n\xA4Saw you talking with Max earlier.\nI\u2019d be
+        careful in your place.\n\n\xA4<!sprite=Default>All smiles, and just ready
+        to plant \na dagger in your back when you least expect it.\n\n\xA4Again,
         I\u2019d be wary of who you trust. \n\n\xA4It\u2019s a shark tank here, and
-        you wouldn\u2019t believe the lengths some people go just to earn a promotion.\n\n\xA4<sprite=Happy>Glad
+        you wouldn\u2019t believe \nthe lengths some people go just to earn a promotion.\n\n\xA4<!sprite=Happy>Glad
         you\u2019re one of the good ones!"
       - 
     - Key: DEVI_DayThree
       Value:
-      - "\u2026\n\n\xA4What? Is there something on my face?"
+      - "\u2026\n\n\xA4\u2026What? Is there something \non my face?"
       - 
