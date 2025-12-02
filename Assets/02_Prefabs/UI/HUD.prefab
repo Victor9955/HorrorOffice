@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4569752373510131268}
   - component: {fileID: 7923132159242157080}
   m_Layer: 5
-  m_Name: InnerDialogue
+  m_Name: InnerDialogueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,12 +149,12 @@ GameObject:
   - component: {fileID: 8014942157819306841}
   - component: {fileID: 7283021689470845250}
   m_Layer: 5
-  m_Name: Bg
+  m_Name: InnerDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &598783538235493336
 RectTransform:
   m_ObjectHideFlags: 0
