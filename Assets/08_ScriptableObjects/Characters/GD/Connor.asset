@@ -19,6 +19,8 @@ MonoBehaviour:
       _serializedList:
       - Key: Default
         Value: {fileID: 21300000, guid: a22c1257771219f42b0959e6bc8c3079, type: 3}
+      - Key: Happy
+        Value: {fileID: 21300000, guid: 9fe7f9de225ebc04d864553b5853784a, type: 3}
       - Key: Angry
         Value: {fileID: 21300000, guid: fc9bfb1011aaf134685a0736525f69be, type: 3}
       - Key: Surprised
@@ -55,8 +57,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    saySpeed: 0.03
-    timeBetweenPhrases: 0.75
+    saySpeed: 0.05
+    timeBetweenPhrases: 1.25
     waitTime: 5
     font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     mailPP: {fileID: 0}

@@ -77,6 +77,10 @@ public class DialoguePlayer : MonoBehaviour
             saidOnce = true;
             StartCoroutine(Say(phrases));
         }
+        else
+        {
+            writer.SkipWriter();
+        }
     }
 
     public void Say()

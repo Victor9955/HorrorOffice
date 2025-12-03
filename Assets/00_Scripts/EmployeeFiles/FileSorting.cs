@@ -32,9 +32,8 @@ public class FileSorting : MonoBehaviour
     private bool _canDropFile;
     private EmployeeFile _currentFile;
     private List<FileBinder> _binderList = new();
-    private List<EmployeeFile> _activeFileList = new();
+    private Stack<EmployeeFile> _activeFileList = new();
     private Coroutine _newFileCoroutine;
-    private int _fileIndex = 0;
 
     public event Action<Binder,SheetData> OnFileDroppedEvent;
 
@@ -54,7 +53,6 @@ public class FileSorting : MonoBehaviour
         _characterDisplay.OnCharacterExited += () => SetBindersLockState(true);
         SetupBinders();
         _binderList.Clear();
-        FileStackUpdate();
     }
     #region Binder Methods
 
@@ -94,49 +92,29 @@ public class FileSorting : MonoBehaviour
     #endregion
     public void OnNewFile(SheetData data)
     {
-        _fileIndex++;
         _currentFile = Instantiate(_fileToSortPrefab, _filePoolTr);
 
-        //Addfile to stack
-        FileStackAdd(_currentFile);
+        _currentFile.transform.rotation = _filePoolTr.rotation * Quaternion.Euler(0,0, Random.Range(_fileStackRotOffset.x,_fileStackRotOffset.y));
+        _currentFile.transform.position = _filePoolTr.position;
+        if (_activeFileList.TryPeek(out EmployeeFile employeeFile))
+        {
+            _currentFile.transform.position = employeeFile.transform.position + Vector3.up * _fileStackingDistance;
+        }
+        _activeFileList.Push(_currentFile);
+        _currentFile.OnPickup += FileStackRemoveTopFile;
 
-        _currentFile.Init(data, _fileIndex);
+        _currentFile.Init(data);
 
-        FileStackUpdate(); // set files in a stack and applies lil rot offset 
         SetBindersLockState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
-
-    private void FileStackAdd(EmployeeFile file)
-    {
-        _activeFileList.Add(file);
-        file.transform.rotation = _filePoolTr.rotation;
-        file.OnPickup += FileStackRemoveTopFile;
-        FileStackUpdate();
-
-    }
-
     private void FileStackRemoveTopFile()
     {
-        EmployeeFile file = _activeFileList.Last();
-        _activeFileList.Remove(file);
-        Debug.Log("now count " + _activeFileList.Count);
-        file.OnPickup -= FileStackRemoveTopFile;
-        FileStackUpdate();
-    }
-
-    private void FileStackUpdate()
-    {
-        if (_activeFileList.Count <= 0) return;
-        for (int i = 0; i < _activeFileList.Count; i++)
+        if(_activeFileList.TryPop(out EmployeeFile employeeFile))
         {
-            EmployeeFile file = _activeFileList[i];
-            file.transform.position = _filePoolTr.position + (Vector3.up * _fileStackingDistance * i);
-            file.IsDraggable = false;
+            employeeFile.OnPickup -= FileStackRemoveTopFile;
         }
-        _activeFileList.Last().IsDraggable = true;
     }
-
     private void OnFileDropped(Binder binderType, SheetData sheetData)
     {
         SetBindersLockState(false);
