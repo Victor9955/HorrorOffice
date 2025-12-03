@@ -16,6 +16,8 @@ public enum Binder
 [CreateAssetMenu(fileName = "Sheet", menuName = "Scriptable Objects/Sheet")]
 public class SheetData : ScriptableObject
 {
+    public CharacterData character;
+
     [Header("Sheet")]
     [ShowAssetPreview]
     public Sprite sprite;
