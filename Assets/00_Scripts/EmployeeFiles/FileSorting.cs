@@ -82,11 +82,12 @@ public class FileSorting : MonoBehaviour
         {
             file.isUnlocked = isUnlocked;
         }
-        //OnSetLockEvent.Invoke(isUnlocked);
 
-        if (isUnlocked) _currentFile.OnFileDroppedInSorter += OnFileDropped;
-        else _currentFile.OnFileDroppedInSorter -= OnFileDropped;
-
+        if(_currentFile != null)
+        {
+            if (isUnlocked) _currentFile.OnFileDroppedInSorter += OnFileDropped;
+            else _currentFile.OnFileDroppedInSorter -= OnFileDropped;
+        }
     }
 
     #endregion

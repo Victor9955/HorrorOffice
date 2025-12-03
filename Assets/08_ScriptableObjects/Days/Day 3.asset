@@ -17,7 +17,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
         m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-        m_MethodName: SendMailWait
+        m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: f3667569fb2125045a4f38665d6e341d, type: 2}
@@ -29,7 +29,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
         m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-        m_MethodName: SendMailWait
+        m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 6f5047c1ed263f94086f016070f6f574, type: 2}
@@ -41,7 +41,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
         m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-        m_MethodName: SendMailWait
+        m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 8258d176f3d1c26469a64d8c522b02bc, type: 2}
