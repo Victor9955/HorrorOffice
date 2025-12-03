@@ -12,6 +12,7 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private float waitTimeBetweenPhrases;
     [SerializeField] private float speed;
     [SerializeField] private TextMeshProUGUI dialogueTMP;
+    [SerializeField] private TextMeshProUGUI characterNameTMP;
     [SerializeField] private RectTransform dialogueUI;
     [SerializeField] private TMP_FontAsset defaultFont;
     [SerializeField] private TMPWriter writer;
@@ -57,12 +58,15 @@ public class DialoguePlayer : MonoBehaviour
         if(current.font == null)
         {
             dialogueTMP.font = defaultFont;
+            characterNameTMP.font = defaultFont;
         }
         else
         {
             dialogueTMP.font = current.font;
+            characterNameTMP.font = current.font;
         }
         doHideUI = phrases[0] == "";
+        characterNameTMP.text = current.name;
     }
 
     public void Hide()
@@ -76,6 +80,10 @@ public class DialoguePlayer : MonoBehaviour
         {
             saidOnce = true;
             StartCoroutine(Say(phrases));
+        }
+        else
+        {
+            writer.SkipWriter();
         }
     }
 
