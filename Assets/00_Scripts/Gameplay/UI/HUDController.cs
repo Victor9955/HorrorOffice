@@ -29,34 +29,36 @@ public class HUDController : MonoBehaviour
     private void Start()
     {
         _cam = Camera.main.GetComponent<CameraMovement>();
+        SetThoughtActive(false);
+
     }
 
-    public void SetThoughtText(string id)
+public void SetThoughtText(string id)
+{
+    _dialogueData.GetDialogue(id, out string dialogue);
+    _textCharThought.text = dialogue;
+}
+public void SetThoughtActive(bool active)
+{
+    if (active)
     {
-        _dialogueData.GetDialogue(id, out string dialogue);
-        _textCharThought.text = dialogue;
-    }
-    public void SetThoughtActive(bool active)
-    {
-        if (active)
-        {
 
-            _charThoughtObj.gameObject.SetActive(active);
-            DOVirtual.Float(0f, _initAlpha, _fadeDuration, (a) =>
-            {
-                _charThoughtObj.alpha = a;
-            });
-        }
-        else
+        _charThoughtObj.gameObject.SetActive(active);
+        DOVirtual.Float(0f, _initAlpha, _fadeDuration, (a) =>
         {
-            DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
-            {
-                _charThoughtObj.alpha = a;
-            })
-            .OnComplete(() =>
-            {
-                if (!_cam.ischangingFocus) _charThoughtObj.gameObject.SetActive(active);
-            });
-        }
+            _charThoughtObj.alpha = a;
+        });
     }
+    else
+    {
+        DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
+        {
+            _charThoughtObj.alpha = a;
+        })
+        .OnComplete(() =>
+        {
+            if (!_cam.ischangingFocus) _charThoughtObj.gameObject.SetActive(active);
+        });
+    }
+}
 }
