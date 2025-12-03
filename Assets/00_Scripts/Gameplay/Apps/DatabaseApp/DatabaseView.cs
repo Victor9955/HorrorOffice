@@ -1,29 +1,34 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+
+[System.Serializable]
+struct TMPInput
+{
+    public string before;
+    public TextMeshProUGUI input;
+}
 
 public class DatabaseView : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _characterIdTMP;
-    [SerializeField] TextMeshProUGUI _characterName;
-    [SerializeField] TextMeshProUGUI _pauses;
-    [SerializeField] TextMeshProUGUI _grades;
-    [SerializeField] TextMeshProUGUI _times;
-    [SerializeField] TextMeshProUGUI _medsTimes;
+    [SerializeField] TMPInput id;
+    [SerializeField] TMPInput characterName;
+    [SerializeField] TMPInput characterDepartement;
+    [SerializeField] TMPInput characterService;
+    [SerializeField] TMPInput characterPosition;
+
+    [SerializeField] List<TextMeshProUGUI> _grades = new();
 
     public void Show(SheetData data)
     {
-        _characterName.text = data.characterName;
-        _characterIdTMP.text = data.charachterId;
-        _pauses.text = "A fait " + data.pausesNumber.ToString() + " pauses";
-        _times.text = "Begin time : " + data.beginTime + "\n" + "Breakfast : " + data.breakfastTime;
-        _medsTimes.text = data.medicineTime;
+        id.input.text = id.before + data.charachterId;
+        characterName.input.text = characterName.before + data.characterName;
 
-        _grades.text = "";
-        _grades.text += "H: " + data.HGrade + "\n";
-        _grades.text += "E: " + data.EGrade + "\n";
-        _grades.text += "A: " + data.AGrade + "\n";
-        _grades.text += "L: " + data.LGrade + "\n";
-        _grades.text += "T: " + data.TGrade + "\n";
-        _grades.text += "H: " + data.HGradeTwo + "\n";
+        _grades[0].text = data.HGrade;
+        _grades[1].text = data.EGrade;
+        _grades[2].text = data.AGrade;
+        _grades[3].text = data.LGrade;
+        _grades[4].text = data.TGrade;
+        _grades[5].text = data.HGradeTwo;
     }
 }
