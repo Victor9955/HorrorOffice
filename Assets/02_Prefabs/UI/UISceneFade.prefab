@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8183499607558999538}
   - component: {fileID: 5501551262997612168}
   - component: {fileID: 6085049140263116114}
+  - component: {fileID: 3285106959280019188}
   m_Layer: 5
   m_Name: UISceneFade
   m_TagString: Untagged
@@ -102,6 +103,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &3285106959280019188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561780181089103928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e8bbdd40cd3b84aa0fd28e66d6330d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _leftDoorTR: {fileID: 0}
+  _rightDoorTR: {fileID: 0}
+  _light: {fileID: 0}
+  _fadeImg: {fileID: 382321857821284462}
+  _openDistance: 1.25
+  _openDuration: 1
+  _fadeDuration: 2
 --- !u!1 &8759010383174938486
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1032270245211199364
 RectTransform:
   m_ObjectHideFlags: 0
