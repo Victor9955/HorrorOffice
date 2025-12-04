@@ -10,13 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99a740d1a2d7566498b6f836d99eb043, type: 3}
-  m_Name: Day2RandomC
+  m_Name: Day3_1RandomB
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 3efca832ee4d1df4d995f10164f617f4, type: 3}
+  sprite: {fileID: 21300000, guid: 45d676451c43c1f4385636c5896c2991, type: 3}
   rightBinder: 2
   actions:
     _serializedList:
+    - Key: 1
+      Value:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+            m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+            m_MethodName: SendMail
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 11400000, guid: 1e4f6bc295f780c4fb38741314920b69, type: 2}
+              m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - Key: 3
       Value:
         m_PersistentCalls:
@@ -33,15 +49,14 @@ MonoBehaviour:
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-  charachterId: RH-1534-D94
-  characterName: Otis Brown
-  pausesNumber: 0
-  beginTime: x
-  breakfastTime: x
-  medicineTime: 
+  charachterId: PR-8732-V93
+  characterName: Elias Dias
+  departement: Public Relation
+  service: Communication
+  position: Junior Manager
   HGrade: A
-  EGrade: D
+  EGrade: C
   AGrade: B
-  LGrade: B
-  TGrade: A
-  HGradeTwo: A
+  LGrade: A
+  TGrade: E
+  HGradeTwo: C

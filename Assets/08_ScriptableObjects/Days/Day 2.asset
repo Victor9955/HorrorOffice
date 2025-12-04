@@ -67,7 +67,6 @@ MonoBehaviour:
   actions:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
     sheets:
-    - {fileID: 11400000, guid: 2ff04b2b9c5410b47899a242e8b726f5, type: 2}
     - {fileID: 11400000, guid: 66c71e513c1c1f7479376ce55c21cadc, type: 2}
     - {fileID: 11400000, guid: 96aa5c0a7a9a9084fb4062e124fd3453, type: 2}
     dayDialogue:
@@ -78,7 +77,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
-    sheets: []
+    sheets:
+    - {fileID: 11400000, guid: b741fb76defb3bb4d8dc83eb78fb1e7f, type: 2}
     dayDialogue:
       DefaultDialogueKey: One
       dialogs:
@@ -88,7 +88,7 @@ MonoBehaviour:
         m_Calls: []
   - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
     sheets:
-    - {fileID: 11400000, guid: b741fb76defb3bb4d8dc83eb78fb1e7f, type: 2}
+    - {fileID: 11400000, guid: bf64d93c7ab39b54db4e093f723d0b19, type: 2}
     dayDialogue:
       DefaultDialogueKey: LI_One
       dialogs:
@@ -97,7 +97,8 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - character: {fileID: 11400000, guid: 0e8a80593e9ed8a4988e7546d4f06759, type: 2}
-    sheets: []
+    sheets:
+    - {fileID: 11400000, guid: 2ff04b2b9c5410b47899a242e8b726f5, type: 2}
     dayDialogue:
       DefaultDialogueKey: ABBIE_One
       dialogs:

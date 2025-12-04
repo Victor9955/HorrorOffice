@@ -7,6 +7,7 @@ using TMPEffects.Components;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class DialoguePlayer : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueTMP;
     [SerializeField] private TextMeshProUGUI nameTMP;
     [SerializeField] private RectTransform dialogueUI;
+    [SerializeField] private RectTransform dialogueBG;
+    [SerializeField] private VerticalLayoutGroup v;
     [SerializeField] private TMP_FontAsset defaultFont;
     [SerializeField] private TMPWriter writer;
     [SerializeField] private UIEffect spawnEffect;
@@ -124,6 +127,8 @@ public class DialoguePlayer : MonoBehaviour
             writer.StartWriter();
             dialogueTMP.text = s;
             writer.DefaultDelays.delay = current.saySpeed;
+            dialogueBG.sizeDelta = dialogueBG.sizeDelta * 1.001f;
+            dialogueBG.ForceUpdateRectTransforms();
             yield return new WaitUntil(() => finished);
             finished = false;
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
