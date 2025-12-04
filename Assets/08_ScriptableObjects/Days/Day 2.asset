@@ -68,10 +68,11 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
     sheets:
     - {fileID: 11400000, guid: 7b1f5e18497c6f24b9ab4fcbe61c4cab, type: 2}
+    - {fileID: 11400000, guid: ab676d6d8519d344d928c6140d5b3164, type: 2}
     - {fileID: 11400000, guid: 8bd6820d0817e274c8546f081282440b, type: 2}
     - {fileID: 11400000, guid: 23c1a5929a348f248968f21c94b664b2, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayTwo
+      DefaultDialogueKey: ESTEBAN_DayTwo
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -81,9 +82,17 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: 1c027b4bef808c84bb4d13b43df6c35e, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayTwo
+      DefaultDialogueKey: CONNIE_DayTwo_Good
       dialogs:
-        _serializedList: []
+        _serializedList:
+        - Key: 1
+          Value: CONNIE_DayTwo_Good
+        - Key: 2
+          Value: CONNIE_DayTwo_Good
+        - Key: 3
+          Value: CONNIE_DayTwo_Bad
+        - Key: 0
+          Value: CONNIE_DayTwo_Bad
     finishedEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -91,7 +100,7 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: 3d664626dcbb14a4db40c2d83d9945b1, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayTwo
+      DefaultDialogueKey: LI_DayTwo
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -101,7 +110,7 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: 490f83f0be6cea7439312842a6cbcbeb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayTwo
+      DefaultDialogueKey: DEVI_DayTwo
       dialogs:
         _serializedList: []
     finishedEvent:

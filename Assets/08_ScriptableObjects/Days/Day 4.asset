@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
-  m_Name: Day 1
+  m_Name: Day 4
   m_EditorClassIdentifier: 
   startEvent:
     m_PersistentCalls:
@@ -20,7 +20,7 @@ MonoBehaviour:
         m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: e0407964dc2834141ab0c170fa20b89b, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: f3667569fb2125045a4f38665d6e341d, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
         m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: ef7d05f194ac3c14aa4430c12910eb41, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 6f5047c1ed263f94086f016070f6f574, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -44,25 +44,22 @@ MonoBehaviour:
         m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: adfefd44ccc212d4bae42c4b19af2767, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 8258d176f3d1c26469a64d8c522b02bc, type: 2}
           m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  binders: 0300000002000000
+  binders: 030000000200000001000000
   actions:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
     sheets:
-    - {fileID: 11400000, guid: c2aee68fd27fc38489d3b391aaa6a1c0, type: 2}
-    - {fileID: 11400000, guid: 46d843a2c8355644d9fc8d174d5b2082, type: 2}
-    - {fileID: 11400000, guid: b98740ebf4bc3d84aaf8309e3a695e5b, type: 2}
-    - {fileID: 11400000, guid: c6c46334553a5474ab2f2af939397f63, type: 2}
-    - {fileID: 11400000, guid: 53a663a52633f33478071e2957f82e91, type: 2}
-    - {fileID: 11400000, guid: 8beabc96c033e89459a19e1f9163eb8b, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
     dayDialogue:
-      DefaultDialogueKey: ESTEBAN_DayOne
+      DefaultDialogueKey: ESTEBAN_DayThree
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -72,17 +69,27 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: CONNIE_DayOne
+      DefaultDialogueKey: CONNIE_DayLong
       dialogs:
         _serializedList: []
     finishedEvent:
       m_PersistentCalls:
         m_Calls: []
-  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
+  - character: {fileID: 11400000, guid: 514aaac62036cba419b9157239295ecc, type: 2}
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: LI_DayOne
+      DefaultDialogueKey: 
+      dialogs:
+        _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - character: {fileID: 11400000, guid: 32bbf338ef665c443bba5b8d3e8db30b, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: ROSALYNE_DayFour
       dialogs:
         _serializedList: []
     finishedEvent:

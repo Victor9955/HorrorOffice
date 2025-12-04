@@ -51,9 +51,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  endDayScene: 1
   binders: 030000000200000001000000
-  startActions: []
   actions:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
     sheets:
@@ -61,27 +59,61 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0d4f0de950fec884983f8423e6b8a6b3, type: 2}
     - {fileID: 11400000, guid: 445b3abd7d2466e4bad1a08cfb67690f, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayThree
+      DefaultDialogueKey: ESTEBAN_DayThree
       dialogs:
         _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - character: {fileID: 11400000, guid: 514aaac62036cba419b9157239295ecc, type: 2}
     sheets:
     - {fileID: 11400000, guid: 173a1d3b426064146883458d9a2723cf, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayThree
+      DefaultDialogueKey: MAX_DayThree
       dialogs:
         _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
     sheets:
     - {fileID: 11400000, guid: be88a730e5792654db317b06da430430, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayThree_Good
+      DefaultDialogueKey: CONNIE_DayThree_Good
       dialogs:
-        _serializedList: []
+        _serializedList:
+        - Key: 1
+          Value: CONNIE_DayThree_Good
+        - Key: 2
+          Value: CONNIE_DayThree_Good
+        - Key: 3
+          Value: CONNIE_DayThree_Bad
+        - Key: 0
+          Value: CONNIE_DayThree_Bad
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
     sheets:
     - {fileID: 11400000, guid: 5d83d9ae101e7ed4ebb7a70a7d1f2669, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayThree
+      DefaultDialogueKey: DEVI_DayThree
       dialogs:
         _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - character: {fileID: 11400000, guid: 0e8a80593e9ed8a4988e7546d4f06759, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: ABBIE_DayThree
+      dialogs:
+        _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  endEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endDayScene: 1
