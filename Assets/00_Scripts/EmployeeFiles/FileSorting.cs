@@ -76,7 +76,6 @@ public class FileSorting : MonoBehaviour
         Debug.Log($"{_binderList.Count} binders in the scene");
     }
 
-
     private void SetBindersLockState(bool isUnlocked)
     {
         foreach (FileBinder file in _binderList)
@@ -92,6 +91,8 @@ public class FileSorting : MonoBehaviour
     }
 
     #endregion
+
+
     public void OnNewFile(SheetData data)
     {
         _currentFile = Instantiate(_fileToSortPrefab, _filePoolTr);
@@ -100,12 +101,7 @@ public class FileSorting : MonoBehaviour
         _currentFile.transform.position = _filePoolTr.position;
         if (_activeFileList.TryPeek(out EmployeeFile employeeFile))
         {
-            Vector3 endPos = employeeFile.transform.position + Vector3.up * _fileStackingDistance;
-            /*
-            _currentFile.transform.position += Vector3.up * 5f;
-            _currentFile.transform.DOMove(endPos, 0.5f);*/
-
-            _currentFile.transform.position = endPos;
+            _currentFile.transform.position = employeeFile.transform.position + Vector3.up * _fileStackingDistance;
         }
         _activeFileList.Push(_currentFile);
         _currentFile.OnPickup += FileStackRemoveTopFile;
@@ -115,6 +111,7 @@ public class FileSorting : MonoBehaviour
         SetBindersLockState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
+
     private void FileStackRemoveTopFile()
     {
         if(_activeFileList.TryPop(out EmployeeFile employeeFile))
