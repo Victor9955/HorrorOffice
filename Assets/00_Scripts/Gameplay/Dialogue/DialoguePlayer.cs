@@ -1,3 +1,4 @@
+using Coffee.UIEffects;
 using DG.Tweening;
 using System;
 using System.Collections;
@@ -16,6 +17,7 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private RectTransform dialogueUI;
     [SerializeField] private TMP_FontAsset defaultFont;
     [SerializeField] private TMPWriter writer;
+    [SerializeField] private UIEffect spawnEffect;
     string[] phrases;
 
     [HideInInspector] public CharacterStaticInfo current;
@@ -97,6 +99,10 @@ public class DialoguePlayer : MonoBehaviour
         {
             dialogueUI.gameObject.SetActive(true);
             dialogueTMP.text = "<wave>...";
+            DOVirtual.Float(1f, 0f, 0.35f, (t) =>
+            {
+                spawnEffect.transitionRate = t;
+            }).OnComplete(() => spawnEffect.enabled = false);
         }
     }
 
