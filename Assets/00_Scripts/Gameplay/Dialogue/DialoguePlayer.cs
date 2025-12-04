@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPEffects.Components;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialoguePlayer : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TMP_FontAsset defaultFont;
     [SerializeField] private TMPWriter writer;
     [SerializeField] private UIEffect spawnEffect;
+    [SerializeField] private float fadeTime = 1f;
+    [SerializeField] private UnityEvent onClicked;
     string[] phrases;
 
     [HideInInspector] public CharacterStaticInfo current;
@@ -82,6 +85,7 @@ public class DialoguePlayer : MonoBehaviour
         {
             saidOnce = true;
             StartCoroutine(Say(phrases));
+            onClicked?.Invoke();
         }
         else
         {
@@ -99,7 +103,8 @@ public class DialoguePlayer : MonoBehaviour
         {
             dialogueUI.gameObject.SetActive(true);
             dialogueTMP.text = "<wave>...";
-            DOVirtual.Float(1f, 0f, 0.35f, (t) =>
+            spawnEffect.transitionRate = 1f;
+            DOVirtual.Float(1f, 0f, fadeTime, (t) =>
             {
                 spawnEffect.transitionRate = t;
             }).OnComplete(() => spawnEffect.enabled = false);
