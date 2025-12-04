@@ -98,10 +98,14 @@ public class FileSorting : MonoBehaviour
 
         _currentFile.transform.rotation = _filePoolTr.rotation * Quaternion.Euler(0,0, Random.Range(_fileStackRotOffset.x,_fileStackRotOffset.y));
         _currentFile.transform.position = _filePoolTr.position;
-        _currentFile.transform.DOShakeScale(0.5f,0.5f,5);
         if (_activeFileList.TryPeek(out EmployeeFile employeeFile))
         {
-            _currentFile.transform.position = employeeFile.transform.position + Vector3.up * _fileStackingDistance;
+            Vector3 endPos = employeeFile.transform.position + Vector3.up * _fileStackingDistance;
+            /*
+            _currentFile.transform.position += Vector3.up * 5f;
+            _currentFile.transform.DOMove(endPos, 0.5f);*/
+
+            _currentFile.transform.position = endPos;
         }
         _activeFileList.Push(_currentFile);
         _currentFile.OnPickup += FileStackRemoveTopFile;
