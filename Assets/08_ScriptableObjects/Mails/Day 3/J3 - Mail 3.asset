@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: 'RE: Warning: Self-Report Data Mismatch'
   character: {fileID: 11400000, guid: 6e731307e1799234cada5ca4daea2a06, type: 2}
-  mailText: "Greetings,\r\n\r\nIt is our pleasure to announce that the data discrepancy
-    issues with self-reports from the <b>MARKETING SERVICE</b> have been solved,
-    and no longer require <b>cross-checks</b> with the employee database. \r\n\r\nSincerely,\r\n\r\n<b>Nurturing
-    Service Direction</b>"
+  hasDelay: 0
+  hasRandomDelay: 0
+  delay: 0
+  maxDelay: 0
+  mailText: "<size=12>Greetings,\r\n\r\nIt is our pleasure to announce that the data
+    discrepancy issues with self-reports from the <b>MARKETING SERVICE</b> have been
+    solved, and no longer require <b>cross-checks</b> with the employee database.
+    \r\n\r\nSincerely,\r\n\r\n<b>Nurturing Service Direction</b>"
