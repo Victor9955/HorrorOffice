@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: 'Warning: Filling Error'
   character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
-  mailText: "It has come to our notice that you've made a sorting mistake.\n\n- Grade
-    too low \n\nPlease remain focused during your further endeavour.\n\n<b>[THIS
+  hasDelay: 0
+  hasRandomDelay: 0
+  delay: 0
+  maxDelay: 0
+  mailText: "<size=12>It has come to our notice that you've made a sorting mistake.\n\n-
+    Grade too low \n\nPlease remain focused during your further endeavours.\n\n<b>[THIS
     IS AN AUTOMATED MESSAGE. PLEASE DO NOT REPLY.]</b>"

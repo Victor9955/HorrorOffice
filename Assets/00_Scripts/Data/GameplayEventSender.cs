@@ -1,26 +1,36 @@
 using NaughtyAttributes;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "MailSender", menuName = "Scriptable Objects/MailSender")]
 public class GameplayEventSender : ScriptableObject
 {
     public Action<MailData> OnSendMail;
-    public void SendMail(MailData mail) => OnSendMail?.Invoke(mail);
-
-    [SerializeField] Vector2 mailRandomWait;
-
-    public async void SendMailWait(MailData mail)
+    public Action AddHelpFullness;
+    public async void SendMail(MailData mail)
     {
-        await Awaitable.WaitForSecondsAsync(UnityEngine.Random.Range(mailRandomWait.x, mailRandomWait.y));
-        SendMail(mail);
+        if(mail.hasDelay)
+        {
+            if(mail.hasRandomDelay)
+            {
+                await Awaitable.WaitForSecondsAsync(UnityEngine.Random.Range(mail.delay, mail.maxDelay));
+            }
+            else
+            {
+                await Awaitable.WaitForSecondsAsync(mail.delay);
+            }
+        }
+        OnSendMail?.Invoke(mail);
     }
 
-    [SerializeField] MailData mail;
-
-    [Button]
-    void Test()
+    public void AddHelpfullness()
     {
-        SendMailWait(mail);
+        AddHelpFullness?.Invoke();
+    }
+
+    public void LoadScene(int index)
+    {
+        SceneManager.LoadScene(index);
     }
 }

@@ -29,7 +29,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
         m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-        m_MethodName: SendMailWait
+        m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: ef7d05f194ac3c14aa4430c12910eb41, type: 2}
@@ -41,7 +41,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
         m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-        m_MethodName: SendMailWait
+        m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: adfefd44ccc212d4bae42c4b19af2767, type: 2}
@@ -51,19 +51,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  endDayScene: 1
   binders: 0300000002000000
-  startActions: []
   actions:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
     sheets:
-    - {fileID: 11400000, guid: c2aee68fd27fc38489d3b391aaa6a1c0, type: 2}
-    - {fileID: 11400000, guid: 46d843a2c8355644d9fc8d174d5b2082, type: 2}
-    - {fileID: 11400000, guid: b98740ebf4bc3d84aaf8309e3a695e5b, type: 2}
-    - {fileID: 11400000, guid: c6c46334553a5474ab2f2af939397f63, type: 2}
-    - {fileID: 11400000, guid: 53a663a52633f33478071e2957f82e91, type: 2}
-    - {fileID: 11400000, guid: 8beabc96c033e89459a19e1f9163eb8b, type: 2}
+    - {fileID: 11400000, guid: 53473b3547164a148b1c1e04ef18fb8d, type: 2}
+    - {fileID: 11400000, guid: 9bc9982656e90494eb9f52e1d7d43e9e, type: 2}
+    - {fileID: 11400000, guid: 06fedaa7318a404499685e0c97ea1355, type: 2}
+    - {fileID: 11400000, guid: 58aea9b17376aa145b2b2cf7f850de72, type: 2}
+    - {fileID: 11400000, guid: dbce6c9b666fec84a981b7bd4d18f456, type: 2}
+    - {fileID: 11400000, guid: 6ce100c130abe5649b18c0ae16700baf, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DayOne
+      DefaultDialogueKey: ESTEBAN_DayOne
       dialogs:
         _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+    sheets: []
+    dayDialogue:
+      DefaultDialogueKey: CONNIE_DayOne
+      dialogs:
+        _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: LI_DayOne
+      dialogs:
+        _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  endEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endDayScene: 1

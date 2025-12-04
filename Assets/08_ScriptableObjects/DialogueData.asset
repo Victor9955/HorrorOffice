@@ -50,21 +50,30 @@ MonoBehaviour:
       - 
     - Key: ESTEBAN_DayOne
       Value:
-      - ".<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>\n\n\xA4Ahem...\n\n\xA4<!sprite=Pissed>.<!wait=0.25>.<!wait=0.25>.\n\n\xA4Backlog."
+      - ".<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>\n\n\xA4Ahem...\n\n\xA4<!sprite=Pissed>.<!wait=0.25>.<!wait=0.25>.\n\n\xA4Backlog.<!drop>"
       - 
     - Key: ESTEBAN_DayTwo
       Value:
-      - ".<!wait=0.25>.<!wait=0.25>.\n\n\xA4So...\n\n\xA4.<!wait=0.25>.<!wait=0.25>.\n\n\xA4<!sprite=Pissed><!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.5>Backlog."
+      - ".<!wait=0.25>.<!wait=0.25>.\n\n\xA4So...\n\n\xA4.<!wait=0.25>.<!wait=0.25>.\n\n\xA4<!sprite=Pissed><!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.5>Backlog.<!drop>"
       - 
     - Key: ESTEBAN_DayThree
       Value:
-      - "Backlog.\n\n\xA4<!sprite=Happy>And...\n\n\xA4...\n\n\xA4<!sprite=Default>...\n\n\xA4<!sprite=Pissed>Nevermind."
+      - "Backlog.<!drop>\n\n\xA4<!sprite=Happy>And...\n\n\xA4...\n\n\xA4<!sprite=Default>...\n\n\xA4<!sprite=Pissed>Nevermind."
+      - 
+    - Key: LI_DayOne
+      Value:
+      - "Oh.<!wait=0.75><!sprite=Glasses> You\u2019re new.<!drop>\n\n\xA4Uh\u2026\n\n\xA4<!sprite=Default>Hi."
       - 
     - Key: LI_DayTwo
       Value:
-      - "Oh.<!wait=0.75><!sprite=Glasses> You\u2019re new.\n\n\xA4Uh\u2026\n\n\xA4<!sprite=Default>Hi."
+      - "Today's a great day!<!wait=0,5> \n\n\xA4<!sprite=Glasses>I finally achieved
+        the 150 new-punton fusion.<!wait=0,5>\n\n\xA4<!sprite=Default>No need to
+        thank me,<!wait=1> I'm just doing my job.<!wait=1>\n\n\xA4What?<!wait=0,5>\n\n\xA4What
+        do you mean you don't know what a \"new-punton\" is?<!wait=1>\n\n\xA4<!sprite=Glasses>A
+        new-punton is the equivalent of 2000 old-punton.<!wait=1.5> \n\n\xA4Obviously.<!wait=0.5>.<!wait=0.5>.<!wait=0.5><!sprite=Glasses>\n\n\xA4<!sprite=Default>How
+        did you not know that?<!wait=1><!sprite=Default><!drop>"
       - 
-    - Key: CONNIE_DayTwo
+    - Key: CONNIE_DayOne
       Value:
       - "<!sprite=Happy>Hey, fella!\n\n\xA4<!sprite=Default>You\u2019re new here,<!wait=0.5>\nam
         I right?\n\n\xA4\u2026<!wait=0.5>eh,<!wait=0.5> who am I kidding.\n\n\xA4<!sprite=Happy>'Whole
@@ -72,7 +81,7 @@ MonoBehaviour:
         wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4<!sprite=Default>Ah,
         don\u2019t blame them.<!wait=1>\nEverybody\u2019s on edge lately.\n\n\xA4Thought
         I\u2019d at least come by\nand greet you properly.\n\n\xA4Anyway,<!wait=0.5>
-        took enough of your time.\n\n\xA4<!sprite=Happy>See you tomorrow,<!wait=0.5>
+        took enough of your time.<!drop>\n\n\xA4<!sprite=Happy>See you tomorrow,<!wait=0.5>
         pal!"
       - 
     - Key: DEVI_DayTwo
@@ -84,9 +93,9 @@ MonoBehaviour:
       - "Oh! <!wait=1>Sorry for surprising you.\n\n\xA4I did not expect to see a
         new face here.<!wait=1>\nForgot you were replacing <wave amplitude=1 uniformity=0.5>\u2588\u2588\u2588\u2588\u2588\u2588\n\n\xA4A
         shame. <!wait=1>I quite liked her. <!wait=1>\n<!sprite=Wink>Though I\u2019m
-        sure you\u2019ll fit right in as well!\n\n\xA4<!sprite=Default>You know,<!wait=0.5>
-        I think you\u2019re gonna bring \nsome much-needed life up here.\n\n\xA4Floor
-        was getting pretty dull \nwith only the four of us.\n\n\xA4.<!wait=0.25>.<!wait=0.25>.<!wait=0.5>Five,
+        sure you\u2019ll fit right in as well!<!drop>\n\n\xA4<!sprite=Default>You
+        know,<!wait=0.5> I think you\u2019re gonna bring \nsome much-needed life
+        up here.\n\n\xA4Floor was getting pretty dull \nwith only the four of us.\n\n\xA4.<!wait=0.25>.<!wait=0.25>.<!wait=0.5>Five,
         if you count Esteban, though \nthe guy doesn\u2019t talk much.\n\n\xA4Ahem,<!wait=0.5>
         neither does Devi,<!wait=0.5> to be honest.\n\n\xA4Anyway,<!wait=0.5> nice
         to meet you! \n\n\xA4Don\u2019t worry,<!wait=0.5> I probably \nwon\u2019t
@@ -94,11 +103,11 @@ MonoBehaviour:
         report ever since I joined,<!wait=0.5>\nand I well intend to continue!\n\n\xA4See
         you tomorrow!"
       - 
-    - Key: CONNIE_DayThree_Good
+    - Key: CONNIE_DayTwo_Good
       Value:
       - "Hey,<!wait=0.5> pal!\n\n\xA4<!sprite=Happy>Thanks for covering \nmy ass
         yesterday.\n\n\xA4Knew you were \na real mate.\n\n\xA4<!sprite=Default>Really
-        appreciate it.<!wait=0.5> And you \nknow I\u2019ll return the favour.\n\n\xA4<sprite=Happy>So!<!wait=0.5>
+        appreciate it.<!wait=0.5> And you \nknow I\u2019ll return the favour.<!drop>\n\n\xA4<sprite=Happy>So!<!wait=0,5>
         Met any new friends?\n\n\xA4Saw you talking with Max earlier.<!wait=1>\nI\u2019d
         be careful in your place.\n\n\xA4<!sprite=Default>All smiles,<!wait=0.5>
         and just ready to plant \na dagger in your back when you least expect it.\n\n\xA4Again,<!wait=0.5>
@@ -106,10 +115,10 @@ MonoBehaviour:
         and you wouldn\u2019t believe \nthe lengths some people go just to earn a
         promotion.\n\n\xA4<!sprite=Happy>Glad you\u2019re one of the good ones!"
       - 
-    - Key: CONNIE_DayThree_Bad
+    - Key: CONNIE_DayTwo_Bad
       Value:
       - "Hey, pal!\n\n\xA4Nice one the other day.\nVery funny.\n\n\xA4<!sprite=Surprised>\u2026Don\u2019t
-        do that again?\n\n\xA4<!sprite=Default>But hey. \nNo offence taken.\n\n\xA4<sprite=Happy>So!
+        do that again?\n\n\xA4<!sprite=Default>But hey. \nNo offence taken.<!drop>\n\n\xA4<!sprite=Happy>So!<!wait=0,5>
         Met any new friends?\n\n\xA4Saw you talking with Max earlier.\nI\u2019d be
         careful in your place.\n\n\xA4<!sprite=Default>All smiles, and just ready
         to plant \na dagger in your back when you least expect it.\n\n\xA4Again,
@@ -119,7 +128,7 @@ MonoBehaviour:
       - 
     - Key: DEVI_DayThree
       Value:
-      - ".<!wait=0.25>.<!wait=0.25>.\n\n\xA4.<!wait=0.25>.<!wait=0.2>.<!wait=1>What?<!wait=0.5>
+      - "<!drop>.<!wait=0.25>.<!wait=0.25>.\n\n\xA4.<!wait=0.25>.<!wait=0.2>.<!wait=1>What?<!wait=0.5>
         Is there something \non my face?"
       - 
     - Key: CONNIE _DayFourShort
@@ -130,9 +139,9 @@ MonoBehaviour:
         PLANTING A DAGGER IN MY BACK??!<!wait=1>\n\n\xA4But hey\u2026 it\u2019s ok
         sooner or later I\u2019ll get this promotion.<!sprite=Dafault><!wait=1>\n\n\xA4Mark
         my words cause when that happens.\n\n\xA4<b>I</b><!wait=0.5> will make your
-        life even more miserable than it already is!\u201D"
+        life even more miserable than it already is!<!drop>"
       - 
-    - Key: CONNIE _DayFourLong
+    - Key: CONNIE_DayFourLong
       Value:
       - "\u201CHEY WHAT THE HELL?!!<!wait=0.5><!sprite=Angry>\n\n\xA4WHY *** ****
         DIDN\u2019T I GET A PROMOTION?<!wait=1>\n\n\xA4<b>I</b>'ve been in this company
@@ -146,7 +155,31 @@ MonoBehaviour:
         PLANTING A DAGGER IN MY BACK??!<!wait=1>\n\n\xA4But hey\u2026 it\u2019s ok
         sooner or later I\u2019ll get this promotion.<!sprite=Dafault><!wait=1>\n\n\xA4Mark
         my words cause when that happens.\n\n\xA4<b>I</b><!wait=0.5> will make your
-        life even more miserable than it already is!\u201D"
+        life even more miserable than it already is!<!drop>"
+      - 
+    - Key: ABBIE_DayThree
+      Value:
+      - "Hey!<!wait=1> How are you doing?<!wait=1>\n\n\xA4<!sprite=StressedPostIt>Me?<!wait=1>
+        I'm doing my best,<!wait=0.5> but there's a lot to learn.<!wait=1>\n\n\xA4I
+        hope I did nothing wrong with my sheet.<!wait=0.5><!drop>\n\n\xA4<!sprite=DepressedPostIt>Last
+        time my manager got pretty angry,<!wait=1> he wouldn't stop screaming at
+        me.<!wait=2>\n\n\xA4<!sprite=HappyPostIt>Haha.<!wait=1.5>\n\n\xA4<!sprite=DepressedPostIt>I
+        sure let him down...<!wait=2><!sprite=StressedPostIt>but it won't happen
+        again.<!wait=0.5>\n\n\xA4I'll definitly fit in!<!wait=1>"
+      - 
+    - Key: ROSALYNE_DayFour
+      Value:
+      - "Hello my dear!<!wait=1>\n\n\xA4What a wonderful place to be...<!wait=1>\n\n\xA4...<!wait=1>\n\n\xA4It\u2019s
+        the beginning of a brand new chapter for me.<!wait=0.5>\n\n\xA4And for us.<!wait=1.5>\n\n\xA4I
+        am looking forward to working with you in the future!<!wait=1>\n\n\xA4I sincerely
+        hope that we will develop<!wait=0.5> the best,<!wait=0.5> working environment
+        possible.<!wait=1.5>\n\n\xA4So all of our coworkers will finally do their
+        best.<!wait=1>\n\n\xA4<!sprite=Serious>It's important you know...<!wait=1.5>\n\n\xA4<!sprite=Default>It's
+        for the best,<!wait=1> for everyone.<!wait=1>\n\n\xA4Having a work space
+        where you feel free,<!wait=1> confident,<!wait=1> and loved.<!wait=2>\n\n\xA4Everyone
+        feeling this way is really important to me!<!wait=1>\n\n\xA4<!sprite=Serious>It
+        really is\u2026<!wait=1.5>\n\n\xA4<!sprite=Default>Once again,<!wait=1> I'm
+        counting on you!<!wait=1><!drop>\n\n\xA4Bye bye!<!wait=1>"
       - 
     - Key: Ledger_details
       Value:
@@ -179,13 +212,9 @@ MonoBehaviour:
       - 
     - Key: PictureFrame_details
       Value:
-      - 'Probably from a couple of years ago.
-
-        They seemed happier back then.
-        Feels like completely different people now.
-
-        There''s one face I
-        don''t recognize here.'
+      - "Probably from a couple of years ago.\n\xA4They seemed happier back then.
+        \xA4Feels like completely different people now.\n\xA4There's one face I don't
+        recognize here."
       - 
     - Key: Printer_details
       Value:
@@ -197,7 +226,9 @@ MonoBehaviour:
       - 
     - Key: PosterA_details
       Value:
-      - Wouldn't hurt trying
+      - 'Feels like that one is... staring at me?
+
+        Gives me the creeps.'
       - 
     - Key: PosterB_details
       Value:
@@ -218,73 +249,5 @@ MonoBehaviour:
       - 
     - Key: Pen_details
       Value:
-      - Dad gave this one to me.
-      - 
-    - Key: Ledger_details
-      Value:
-      - Pretty handy.
-      - 
-    - Key: Calculator_details
-      Value:
-      - Didn't do any math for a long time this might help
-      - 
-    - Key: Glass_details
-      Value:
-      - Some fresh water wouldn't hurt
-      - 
-    - Key: Cup_details
-      Value:
-      - Not bad, but I could do without the chemical aftertaste.
-      - 
-    - Key: BookA_details
-      Value:
-      - "\"Ensuring Proper Office Behaviour: A Complete Compendium\".\n\xA4Provides
-        two different methods to knock someone out."
-      - 
-    - Key: BookB_details
-      Value:
-      - '"A Game of Crowns". I wonder if this will get popular.'
-      - 
-    - Key: BookC_details
-      Value:
-      - ...
-      - 
-    - Key: PictureFrame_details
-      Value:
-      - "Probably from a couple of years ago.\n\xA4They seemed happier back then.
-        \xA4Feels like completely different people now.\n\xA4There's one face I don't
-        recognize here."
-      - 
-    - Key: Printer_details
-      Value:
-      - These older models never betray.
-      - 
-    - Key: Pills_details
-      Value:
-      - 'They give them away for free. That''s... nice. '
-      - 
-    - Key: PosterA_details
-      Value:
-      - Wouldn't hurt trying
-      - 
-    - Key: PosterB_details
-      Value:
-      - Hopefully, I won't ever need this.
-      - 
-    - Key: Window_details
-      Value:
-      - "All of us cover \nthe buildings in snow and frost \nwe in warm clothes "
-      - Tous se recouvrent,            les batiments de neige,        et nous d'habits
-        chauds
-    - Key: Camera _details
-      Value:
-      - Cheese...
-      - 
-    - Key: Cigarettes_details
-      Value:
-      - The price is unbelievable here
-      - 
-    - Key: Pen_details
-      Value:
-      - "Dad gave this one to me \xA4Such a nice gift"
+      - Dad gave this one to me. Such a nice gift
       - 

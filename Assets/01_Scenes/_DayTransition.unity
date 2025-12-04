@@ -335,17 +335,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &829355902 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 382321857821284462, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
-  m_PrefabInstance: {fileID: 8802451278458034920}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &873895458
 GameObject:
   m_ObjectHideFlags: 0
@@ -1723,6 +1712,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3285106959280019188, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
+      propertyPath: _light
+      value: 
+      objectReference: {fileID: 8738732075738480071}
+    - target: {fileID: 3285106959280019188, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
+      propertyPath: _leftDoorTR
+      value: 
+      objectReference: {fileID: 1668703593}
+    - target: {fileID: 3285106959280019188, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
+      propertyPath: _rightDoorTR
+      value: 
+      objectReference: {fileID: 2117332481}
     - target: {fileID: 6561780181089103928, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
       propertyPath: m_Name
       value: UISceneFade
@@ -1738,35 +1739,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6561780181089103928, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8802451278458034922}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
---- !u!1 &8802451278458034921 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6561780181089103928, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
+--- !u!114 &8802451278458034922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3285106959280019188, guid: 3ff7f6dd64d35064cb89e0417144ea55, type: 3}
   m_PrefabInstance: {fileID: 8802451278458034920}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8802451278458034922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8802451278458034921}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b3e8bbdd40cd3b84aa0fd28e66d6330d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _leftDoorTR: {fileID: 1668703593}
-  _rightDoorTR: {fileID: 2117332481}
-  _light: {fileID: 8738732075738480071}
-  _fadeImg: {fileID: 829355902}
-  _openDistance: 1.25
-  _openDuration: 1
-  _fadeDuration: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

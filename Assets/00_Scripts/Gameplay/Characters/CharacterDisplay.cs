@@ -53,7 +53,7 @@ public class CharacterDisplay : MonoBehaviour
     private void SetCharacterObj(CharacterStaticInfo info)
     {
         _currentCharacterObj = Instantiate(_characterPrefab, transform);
-        _currentCharacterObj.GetComponent<SpriteRenderer>().sprite = info.comingSprite;
+        _currentCharacterObj.GetComponentInChildren<SpriteRenderer>().sprite = info.comingSprite;
         _currentCharacterObj.SetActive(true);
         _currentCharacterObj.transform.position = _enterTr.position;
     }

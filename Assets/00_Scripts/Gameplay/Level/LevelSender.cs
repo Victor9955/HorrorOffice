@@ -30,9 +30,8 @@ public class LevelSender : MonoBehaviour
     [SerializeField] int endGameScene;
     [SerializeField] Material fullscreenVignette;
     [SerializeField] float vignetteTime = 0.25f;
-    [SerializeField] WindowAnimation evaluationRerport;
 
-    static int day;
+    public static int day;
     DayData current;
 
     public event Action<DayData> OnBeginDay;
@@ -80,11 +79,13 @@ public class LevelSender : MonoBehaviour
             yield return new WaitUntil(() => levelCreator.isFinished);
             StartCoroutine(levelCreator.End());
             yield return new WaitUntil(() => levelCreator.isEnded);
+            levelAction.finishedEvent?.Invoke();
             yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
         }
         endShiftButton.interactable = true;
         endShiftImage.color = Color.red;
         current = null;
+        OnEndDay?.Invoke();
     }
 
     private void OnDestroy()
