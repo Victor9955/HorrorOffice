@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99a740d1a2d7566498b6f836d99eb043, type: 3}
-  m_Name: Day3Devi
+  m_Name: Day3RandomC
   m_EditorClassIdentifier: 
-  sprite: {fileID: 820709367640470626, guid: a0540ef1d393170439415eae4431ca49, type: 3}
-  rightBinder: 2
+  character: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4bc4c062f2b64024aaf59e49b7d58a3c, type: 3}
+  rightBinder: 3
   actions:
     _serializedList:
     - Key: 1
@@ -25,14 +26,14 @@ MonoBehaviour:
             m_MethodName: SendMail
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: b8ba446f1e8d6d442a5f3e7b4a6d3efd, type: 2}
+              m_ObjectArgument: {fileID: 11400000, guid: 6c5afe7480a5145459f8be3a63fa9e05, type: 2}
               m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    - Key: 3
+    - Key: 2
       Value:
         m_PersistentCalls:
           m_Calls:
@@ -41,22 +42,22 @@ MonoBehaviour:
             m_MethodName: SendMail
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: b8ba446f1e8d6d442a5f3e7b4a6d3efd, type: 2}
+              m_ObjectArgument: {fileID: 11400000, guid: 6c5afe7480a5145459f8be3a63fa9e05, type: 2}
               m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-  charachterId: PR-1694-W83
-  characterName: Employe Devika Maraji
+  charachterId: PR-9838-L53
+  characterName: Employe Ellie Strand
   pausesNumber: 0
   beginTime: x
   breakfastTime: x
   medicineTime: 
-  HGrade: B
-  EGrade: A
-  AGrade: E
-  LGrade: D
-  TGrade: B
-  HGradeTwo: A
+  HGrade: A
+  EGrade: C
+  AGrade: B
+  LGrade: A
+  TGrade: D
+  HGradeTwo: B

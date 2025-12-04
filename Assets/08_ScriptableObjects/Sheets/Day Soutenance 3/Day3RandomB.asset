@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a740d1a2d7566498b6f836d99eb043, type: 3}
   m_Name: Day3RandomB
   m_EditorClassIdentifier: 
-  sprite: {fileID: -5318265322279374848, guid: 01d83761957ed7a4f9709a74dd301b24, type: 3}
-  rightBinder: 3
+  character: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 45d676451c43c1f4385636c5896c2991, type: 3}
+  rightBinder: 2
   actions:
     _serializedList:
     - Key: 1
@@ -25,14 +26,14 @@ MonoBehaviour:
             m_MethodName: SendMail
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: b8ba446f1e8d6d442a5f3e7b4a6d3efd, type: 2}
+              m_ObjectArgument: {fileID: 11400000, guid: 1e4f6bc295f780c4fb38741314920b69, type: 2}
               m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    - Key: 2
+    - Key: 3
       Value:
         m_PersistentCalls:
           m_Calls:
@@ -41,7 +42,7 @@ MonoBehaviour:
             m_MethodName: SendMail
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: b8ba446f1e8d6d442a5f3e7b4a6d3efd, type: 2}
+              m_ObjectArgument: {fileID: 11400000, guid: 7bfe491bc3d46594ea2bcbc040de5f24, type: 2}
               m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
               m_IntArgument: 0
               m_FloatArgument: 0
