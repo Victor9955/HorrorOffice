@@ -21,6 +21,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private float _openDistance;
     [SerializeField] private float _openDuration;
     [SerializeField] private float _fadeDuration;
+    [SerializeField] private Material eyes;
 
     private int _sceneIndex;
     private float _initLightIntens;
@@ -44,6 +45,8 @@ public class UIMainMenu : MonoBehaviour
         })
         .SetEase(Ease.InOutQuad)
         .OnComplete(() => _fadeImg.gameObject.SetActive(false));
+        eyes.SetFloat("_EyesClosed", 1f);
+        eyes.SetFloat("_Smoothness", 1f);
 
     }
     public void FadeToScene(int index)

@@ -71,35 +71,35 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 66c71e513c1c1f7479376ce55c21cadc, type: 2}
     - {fileID: 11400000, guid: 96aa5c0a7a9a9084fb4062e124fd3453, type: 2}
     dayDialogue:
-      DefaultDialogueKey: ESTEBAN_DayTwo
+      DefaultDialogueKey: ESTEBAN_Two
       dialogs:
         _serializedList: []
     finishedEvent:
       m_PersistentCalls:
         m_Calls: []
   - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
-    sheets:
-    - {fileID: 11400000, guid: b741fb76defb3bb4d8dc83eb78fb1e7f, type: 2}
+    sheets: []
     dayDialogue:
-      DefaultDialogueKey: CONNIE_DayTwo_Good
+      DefaultDialogueKey: One
       dialogs:
-        _serializedList:
-        - Key: 1
-          Value: CONNIE_DayTwo_Good
-        - Key: 2
-          Value: CONNIE_DayTwo_Good
-        - Key: 3
-          Value: CONNIE_DayTwo_Bad
-        - Key: 0
-          Value: CONNIE_DayTwo_Bad
+        _serializedList: []
     finishedEvent:
       m_PersistentCalls:
         m_Calls: []
   - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
     sheets:
-    - {fileID: 11400000, guid: bf64d93c7ab39b54db4e093f723d0b19, type: 2}
+    - {fileID: 11400000, guid: b741fb76defb3bb4d8dc83eb78fb1e7f, type: 2}
     dayDialogue:
-      DefaultDialogueKey: LI_DayTwo
+      DefaultDialogueKey: LI_One
+      dialogs:
+        _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - character: {fileID: 11400000, guid: 0e8a80593e9ed8a4988e7546d4f06759, type: 2}
+    sheets: []
+    dayDialogue:
+      DefaultDialogueKey: ABBIE_One
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -107,9 +107,9 @@ MonoBehaviour:
         m_Calls: []
   - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
     sheets:
-    - {fileID: 11400000, guid: 339ab58a63f79c842a0ab90447a04ccd, type: 2}
+    - {fileID: 11400000, guid: bf64d93c7ab39b54db4e093f723d0b19, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DEVI_DayTwo
+      DefaultDialogueKey: DEVI_One
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -118,4 +118,4 @@ MonoBehaviour:
   endEvent:
     m_PersistentCalls:
       m_Calls: []
-  endDayScene: 1
+  endDayScene: 2

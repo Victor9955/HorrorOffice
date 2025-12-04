@@ -30,11 +30,12 @@ public class FileSorting : MonoBehaviour
     //[SerializeField] private UnityEvent<bool> OnSetLockEvent;
     //[SerializeField] private UnityEvent OnMatchCheckEvent;
 
-    private bool _canDropFile;
     private EmployeeFile _currentFile;
     private List<FileBinder> _binderList = new();
     private Stack<EmployeeFile> _activeFileList = new();
     private Coroutine _newFileCoroutine;
+
+    public int fileToSort => _activeFileList.Count;
 
     public event Action<Binder,SheetData> OnFileDroppedEvent;
 
@@ -50,7 +51,6 @@ public class FileSorting : MonoBehaviour
 
     private void Init()
     {
-        _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
         _characterDisplay.OnCharacterExited += () => SetBindersLockState(true);
         SetupBinders();
         _binderList.Clear();

@@ -59,7 +59,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0d4f0de950fec884983f8423e6b8a6b3, type: 2}
     - {fileID: 11400000, guid: 445b3abd7d2466e4bad1a08cfb67690f, type: 2}
     dayDialogue:
-      DefaultDialogueKey: ESTEBAN_DayThree
+      DefaultDialogueKey: ESTEBAN_Three
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -69,7 +69,7 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: 173a1d3b426064146883458d9a2723cf, type: 2}
     dayDialogue:
-      DefaultDialogueKey: MAX_DayThree
+      DefaultDialogueKey: MAX_One
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -79,25 +79,17 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: be88a730e5792654db317b06da430430, type: 2}
     dayDialogue:
-      DefaultDialogueKey: CONNIE_DayThree_Good
+      DefaultDialogueKey: Two_Bad
       dialogs:
-        _serializedList:
-        - Key: 1
-          Value: CONNIE_DayThree_Good
-        - Key: 2
-          Value: CONNIE_DayThree_Good
-        - Key: 3
-          Value: CONNIE_DayThree_Bad
-        - Key: 0
-          Value: CONNIE_DayThree_Bad
+        _serializedList: []
     finishedEvent:
       m_PersistentCalls:
         m_Calls: []
-  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
+  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
     sheets:
     - {fileID: 11400000, guid: 5d83d9ae101e7ed4ebb7a70a7d1f2669, type: 2}
     dayDialogue:
-      DefaultDialogueKey: DEVI_DayThree
+      DefaultDialogueKey: LI_Two
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -107,7 +99,7 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: ABBIE_DayThree
+      DefaultDialogueKey: ABBIE_Two
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -116,4 +108,4 @@ MonoBehaviour:
   endEvent:
     m_PersistentCalls:
       m_Calls: []
-  endDayScene: 1
+  endDayScene: 2
