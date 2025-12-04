@@ -1,6 +1,5 @@
 using DG.Tweening;
 using HuntroxGames.Utils;
-using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -18,6 +17,7 @@ public class UIMainMenu : MonoBehaviour
     [Space(10)]
     [Space]
     [Header("Anim Settings")]
+    [SerializeField,Range(0f,1f)] private float _offIntensityCoef = 1f;
     [SerializeField] private float _openDistance;
     [SerializeField] private float _openDuration;
     [SerializeField] private float _fadeDuration;
@@ -32,7 +32,7 @@ public class UIMainMenu : MonoBehaviour
         if (_light != null)
         {
             _initLightIntens = _light.intensity;
-            _light.intensity = 0;
+            _light.intensity *= _offIntensityCoef;
         }
 
         // Fade Setup
@@ -51,7 +51,8 @@ public class UIMainMenu : MonoBehaviour
         _sceneIndex = index;
 
         //Light
-        if (_light != null) DOVirtual.Float(0, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
+        float currentIntens = _light.intensity;
+        if (_light != null) DOVirtual.Float(currentIntens, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
 
         //Doors
         _leftDoorTR.DOMove(_leftDoorTR.position + (_leftDoorTR.up * _openDistance), _openDuration);
