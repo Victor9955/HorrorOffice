@@ -47,6 +47,8 @@ public class LevelSender : MonoBehaviour
             day = 0;
         }
         BeginDay();
+        fullscreenVignette.SetFloat("_EyesClosed", 1f);
+        fullscreenVignette.SetFloat("_Smoothness", 1f);
     }
 
     public void BeginDay()
@@ -88,16 +90,11 @@ public class LevelSender : MonoBehaviour
         OnEndDay?.Invoke();
     }
 
-    private void OnDestroy()
-    {
-        fullscreenVignette.SetFloat("_EyesClosed", 1f);
-        fullscreenVignette.SetFloat("_Smoothness", 0f);
-    }
-
     public void EndShiftButtonCallback()
     {
         if(current == null)
         {
+            endShiftButton.interactable = false;
             if (day == days.Count - 1)
             {
                 DOVirtual.Float(1f, 0f, vignetteTime, (eye) =>
