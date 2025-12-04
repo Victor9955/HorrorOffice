@@ -26,12 +26,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007696408794837766}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.01}
-  m_LocalScale: {x: 1.24, y: 1.791988, z: 0.0075}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0075}
+  m_LocalScale: {x: 1.2400001, y: 1.7634238, z: 0.0075000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1655544029919054552}
+  m_Father: {fileID: 1663104928401994892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2384849013949695916
 MeshFilter:
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 8eff16f764288b44491439ef13a79df0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -117,11 +117,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.284, z: 0}
-  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1663104928401994892}
-  - {fileID: 1865163199670483160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &180356477389986678
@@ -143,7 +142,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.2325891, y: 1.7848247, z: 0.10000006}
+  m_Size: {x: 0.65, y: 0.9, z: 0.015}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &900574019958138232
 MonoBehaviour:
@@ -157,18 +156,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bc5b4289f1d434baf377b6315827fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 0.501
+  _distance: 0.5
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
   _getsConsumedOnCorrectDrop: 1
-  _dragPosSpeed: 15
-  _dragRotSpeed: 7
+  _dragPosSpeed: 25
+  _dragRotSpeed: 25
   _draggingTick: 0.01
   _dragReturnDuration: 0.4
   _draggableOnInit: 1
   _spriteRend: {fileID: 3393969022276253476}
-  _deskHeight: 0.1
+  _deskHeight: 0.025
   OnDroppedUEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -304,13 +303,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9079691308450093938}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.095296e-11, y: 0, z: -0.008}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.48, y: 0.48, z: 0.48}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1865163199670483160}
   m_Father: {fileID: 1655544029919054552}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3393969022276253476
 SpriteRenderer:
   m_ObjectHideFlags: 0

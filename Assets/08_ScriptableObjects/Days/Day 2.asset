@@ -29,7 +29,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
         m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-        m_MethodName: SendMailWait
+        m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: e0bce90cbb653fb45b546f93a33168d3, type: 2}
@@ -41,7 +41,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
         m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-        m_MethodName: SendMailWait
+        m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: 54ab10ba656e449458c7f20767b7aeb6, type: 2}
@@ -53,7 +53,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
         m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-        m_MethodName: SendMailWait
+        m_MethodName: SendMail
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 11400000, guid: d60f928657d8a9142a1b30ad24c98aeb, type: 2}
@@ -77,16 +77,16 @@ MonoBehaviour:
       DefaultDialogueKey: DayTwo
       dialogs:
         _serializedList: []
-  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
+  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
     sheets:
-    - {fileID: 11400000, guid: 3d664626dcbb14a4db40c2d83d9945b1, type: 2}
+    - {fileID: 11400000, guid: 1c027b4bef808c84bb4d13b43df6c35e, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayTwo
       dialogs:
         _serializedList: []
-  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
     sheets:
-    - {fileID: 11400000, guid: 1c027b4bef808c84bb4d13b43df6c35e, type: 2}
+    - {fileID: 11400000, guid: 3d664626dcbb14a4db40c2d83d9945b1, type: 2}
     dayDialogue:
       DefaultDialogueKey: DayTwo
       dialogs:

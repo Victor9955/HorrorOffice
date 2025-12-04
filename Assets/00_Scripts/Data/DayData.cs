@@ -18,14 +18,17 @@ public struct SheetAction
     public CharacterData character;
     public List<SheetData> sheets;
     public DayDialogueData dayDialogue;
+    public UnityEvent finishedEvent;
 }
 
 [CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/LevelData")]
 public class DayData : ScriptableObject
 {
     public UnityEvent startEvent;
-    public int endDayScene;
+
     public List<Binder> binders;
-    public List<SheetAction> startActions;
     public List<SheetAction> actions;
+
+    public UnityEvent endEvent;
+    public int endDayScene;
 }

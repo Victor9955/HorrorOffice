@@ -13,12 +13,23 @@ public class LevelCreator : MonoBehaviour
     [HideInInspector] public bool isFinished;
     [HideInInspector] public bool isCreated;
     [HideInInspector] public bool isEnded;
+    [SerializeField] FileSender fileSender;
     SheetAction current;
     private Dictionary<CharacterData, Binder> CharacterSheetDict = new();
 
     private void Start()
     {
         fileSorting.OnFileDroppedEvent += ReceiveBinder;
+        fileSender.OnGiveFile += () =>
+        {
+            if (current.sheets.Count > 0)
+            {
+                foreach (SheetData sheet in current.sheets)
+                {
+                    fileSorting.OnNewFile(sheet);
+                }
+            }
+        };
     }
 
     private void OnDestroy()
@@ -28,9 +39,12 @@ public class LevelCreator : MonoBehaviour
 
     void ReceiveBinder(Binder binder, SheetData sheetData)
     {
-        CharacterStaticInfo info = current.character.staticInfo;
-        info.lastBinder = binder;
-        current.character.staticInfo = info;
+        if(sheetData.character != null)
+        {
+            CharacterStaticInfo info = sheetData.character.staticInfo;
+            info.lastBinder = binder;
+            current.character.staticInfo = info;
+        }
         if(sheetData.actions.TryGetValue(binder, out UnityEvent actionEvent))
         {
             actionEvent?.Invoke();
@@ -53,22 +67,10 @@ public class LevelCreator : MonoBehaviour
         characterCreator.Play();
 
         yield return new WaitUntil(() => characterCreator.arrived);
+        yield return new WaitUntil(() => DialoguePlayer.IsTalking);
+        yield return new WaitUntil(() => !DialoguePlayer.IsTalking);
 
-        foreach (SheetData sheet in current.sheets)
-        {
-            fileSorting.OnNewFile(sheet);
-        }
-
-        yield return new WaitForSecondsRealtime(current.character.staticInfo.waitTime);
-        if(!DialoguePlayer.IsTalking)
-        {
-            isFinished = true;
-        }
-        else
-        {
-            yield return new WaitUntil(() => !DialoguePlayer.IsTalking);
-            isFinished = true;
-        }
+        isFinished = true;
     }
 
     public IEnumerator End()

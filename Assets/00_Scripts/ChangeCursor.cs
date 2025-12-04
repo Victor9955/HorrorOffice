@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ChangeCursor : MonoBehaviour
 {
+    [SerializeField] CameraMovement cameraMovement;
     [SerializeField] Texture2D hoverUI;
     [SerializeField] Texture2D normalUI;
     [SerializeField] Texture2D outsideUI;
@@ -17,7 +18,14 @@ public class ChangeCursor : MonoBehaviour
 
     private void Update()
     {
-        IsPointerOverUIElement(GetEventSystemRaycastResults());
+        if(cameraMovement.focusState == FocusState.PC)
+        {
+            IsPointerOverUIElement(GetEventSystemRaycastResults());
+        }
+        else
+        {
+            Cursor.SetCursor(outsideUI, Vector2.zero, CursorMode.Auto);
+        }
     }
 
     private void IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)

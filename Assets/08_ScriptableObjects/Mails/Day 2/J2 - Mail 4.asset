@@ -14,20 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: 'Warning: Self-Report Data Mismatch'
   character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
-  mailText: 'Greetings,
+  hasDelay: 0
+  hasRandomDelay: 0
+  delay: 0
+  maxDelay: 0
+  mailText: '<size=12>Greetings,
 
-    
 
-    Due to increasingly frequent discrepancies between
-    the self-rating of employees in the <b>MARKETING SERVICE</b> and our own recorded
-    data, we will now require you to systematically verify <b>H.E.A.L.T.H.</b> values
-    from that particular service with the employee <b>DATABASE</b>.
+    Due to increasingly frequent discrepancies
+    between the self-rating of employees in the <b>MARKETING SERVICE</b> and our
+    own recorded data, we will now require you to systematically verify <b>H.E.A.L.T.H.</b>
+    values from that particular service with the employee <b>DATABASE</b>.
 
-    
 
     Sincerely,
 
-    
 
     <b>Nurturing
     Service Direction</b>'
