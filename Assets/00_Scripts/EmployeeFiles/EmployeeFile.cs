@@ -65,7 +65,7 @@ public class EmployeeFile : Draggable
             {
                 _targetDI = new(
                     ray.hit.point + (ray.hit.normal.normalized * _deskHeight),
-                    Quaternion.LookRotation(_cam.transform.up) * Quaternion.Euler(0, 0, 180)
+                    Quaternion.Euler(-Quaternion.LookRotation(ray.hit.normal.normalized).eulerAngles.x, Quaternion.LookRotation(_cam.transform.up).eulerAngles.y, -Quaternion.LookRotation(ray.hit.normal.normalized).eulerAngles.z)
                 );
                 lastOnDeskInfo = _targetDI;
             }
@@ -74,7 +74,7 @@ public class EmployeeFile : Draggable
                 fileBinder = binder as FileBinder;
                 _targetDI = new(
                     fileBinder.GetFilePosition(),
-                    Quaternion.LookRotation(fileBinder.transform.up)
+                    Quaternion.LookRotation(-fileBinder.transform.up)
                 );
             }
             else
@@ -86,7 +86,7 @@ public class EmployeeFile : Draggable
         {
             _targetDI = new DragInfo(
                CamToWorldPos,
-               Quaternion.LookRotation(-_cam.transform.forward)
+               Quaternion.LookRotation(_cam.transform.forward)
                );
         }
         base.DragTick(); // apply DI
