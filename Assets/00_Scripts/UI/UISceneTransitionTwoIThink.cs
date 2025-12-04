@@ -2,13 +2,13 @@ using DG.Tweening;
 using HuntroxGames.Utils;
 using System.Collections;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UIDayTransition : MonoBehaviour
+public class UISceneTransitionTwoIThink : MonoBehaviour
 {
     [SerializeField] private Image _fadeImg;
-    [SerializeField] private int _mainSceneIndex;
     [Space(10)]
     [Header("Settings")]
     [SerializeField] private float _fadeDuration;
@@ -26,7 +26,7 @@ public class UIDayTransition : MonoBehaviour
         .OnComplete(() => _fadeImg.gameObject.SetActive(false));
     }
 
-    public void BeginNextDay()
+    public void SceneTransition(int index)
     {
         _fadeImg.gameObject.SetActive(true);
         DOVirtual.Float(0f, _initAlpha, _fadeDuration, (a) =>
@@ -34,6 +34,14 @@ public class UIDayTransition : MonoBehaviour
             _fadeImg.SetAlpha(a);
         })
         .SetEase(Ease.InOutQuad)
-        .OnComplete(() => SceneManager.LoadScene(1));
+        .OnComplete(() => SceneManager.LoadScene(index));
     }
+    public void QuitButton(int index)
+    {
+        Application.Quit();
+#if UNITY_EDITOR
+                EditorApplication.ExitPlaymode();
+#endif
+    }
+
 }
