@@ -54,7 +54,7 @@ public class UIMainMenu : MonoBehaviour
 
 
         //Li
-        if (_isLiHere)
+        if (_isLiHere && _hangedObj != null)
         {
             _hangedObj.SetActive(true);
             Hang();
