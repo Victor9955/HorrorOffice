@@ -18,11 +18,13 @@ public class MailApp : MonoBehaviour, IApp
     [SerializeField] FMODUnity.EventReference _mailNotificationSound;
 
     Dictionary<Mail, MailData> reiceivedMail = new();
+    float startRotationZ;
 
     Tween notifTween;
     private void Start()
     {
         gameplayEvents.OnSendMail += ReiceiveMail;
+        startRotationZ = notification.eulerAngles.z;
     }
 
     private void OnDestroy()
@@ -54,7 +56,7 @@ public class MailApp : MonoBehaviour, IApp
             int seenMail = reiceivedMail.Keys.Where((m) => m.wasOpened).Count();
             if(seenMail == 0)
             {
-                notifTween.Complete();
+                notification.eulerAngles = new Vector3(0,0, startRotationZ);
                 notifTween.Kill();
             }
             mailView.Show(mailCash);
