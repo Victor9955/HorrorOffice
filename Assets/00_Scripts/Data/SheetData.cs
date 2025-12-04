@@ -28,10 +28,11 @@ public class SheetData : ScriptableObject
     [Header("Database")]
     public string charachterId;
     public string characterName;
-    public int pausesNumber;
-    public string beginTime;
-    public string breakfastTime;
-    [TextArea(1,20)] public string medicineTime;
+    public string departement;
+    public string service;
+    public string position;
+
+    [Header("H.E.A.L.T.H")]
     public string HGrade;
     public string EGrade;
     public string AGrade;

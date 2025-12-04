@@ -10,6 +10,7 @@ public class EmployeeFile : Draggable
     public SheetData GetSheetData => _sheetData;
 
     [SerializeField] private SpriteRenderer _spriteRend;
+    [SerializeField] private Transform ancor;
     [SerializeField] private float _deskHeight = 0.1f;
     private SpriteRenderer SpriteRend
     {
@@ -38,6 +39,16 @@ public class EmployeeFile : Draggable
     }
 
     DragInfo lastOnDeskInfo;
+
+    private void Start()
+    {
+        Vector3 old = ancor.position;
+        ancor.position += Vector3.up * 3.5f;
+        ancor.DOMove(old, 2f).SetEase(Ease.InExpo).OnComplete(() =>
+        {
+            ancor.DOShakeScale(0.35f,0.1f).SetEase(Ease.OutElastic);
+        });
+    }
 
     public void Init(SheetData data)
     {
