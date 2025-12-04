@@ -121,6 +121,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _focusDuration: 1.5
   _viewDistanceFromObject: 20
   _fov: 15
+  _innerDialogueID: BookA_details
+  _focusDuration: 1.5
+  _verticalLimits: {x: 0, y: 0}
+  _horizontalLimits: {x: 0, y: 0}
