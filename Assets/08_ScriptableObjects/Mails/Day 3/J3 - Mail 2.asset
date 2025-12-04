@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Daily S.E.R.F Validation Checklist
   character: {fileID: 11400000, guid: 6e731307e1799234cada5ca4daea2a06, type: 2}
-  mailText: "Greetings,\r\n\r\nHere is the list of information we require you to
-    verify on today\u2019s report forms.\r\n\r\nReminder: employees not fulfilling
+  hasDelay: 0
+  hasRandomDelay: 0
+  delay: 0
+  maxDelay: 0
+  mailText: "<size=12>Greetings,\r\n\r\nHere is the list of information we require
+    you to verify on today\u2019s report forms.\r\n\r\nReminder: employees not fulfilling
     any of these requirements should be given a <b>warning</b>.\r\n\r\nSCHEDULE\r\n\r\n-
     Arrival time is strictly between <b>8:30 AM</b> and <b>9 AM</b>.\r\n- Departure
     time is either at or after <b>4:30 PM</b>.\r\n- No more than <b>1 hour</b> of
