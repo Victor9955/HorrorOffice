@@ -1,28 +1,45 @@
 using DG.Tweening;
+using HuntroxGames.Utils;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
+    [Header("Object References")]
     [SerializeField] private Transform _leftDoorTR;
     [SerializeField] private Transform _rightDoorTR;
     [SerializeField] private Light _light;
+    [SerializeField] private Image _fadeImg;
+    [Space(10)]
+    [SerializeField] private int _mainSceneIndex;
     [Space]
+    [Header("Anim Settings")]
     [SerializeField] private float _openDistance;
     [SerializeField] private float _openDuration;
+    [SerializeField] private float _fadeDuration;
 
     private int _sceneIndex;
     private float _initLightIntens;
+    private float _initAlpha;
 
     private void Start()
     {
-            _initLightIntens = _light.intensity;
-            _light.intensity = 0;
+        _fadeImg.gameObject.SetActive(true);
+        _initLightIntens = _light.intensity;
+        _light.intensity = 0;
 
+        _initAlpha = _fadeImg.color.a;
+        DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
+        {
+            _fadeImg.SetAlpha(a);
+        })
+        .SetEase(Ease.InOutQuad)
+        .OnComplete(() => _fadeImg.gameObject.SetActive(false));
 
     }
     public void StartButton(int index)
@@ -30,11 +47,18 @@ public class UIMainMenu : MonoBehaviour
         _sceneIndex = index;
         _leftDoorTR.DOMove(_leftDoorTR.position + (_leftDoorTR.up * _openDistance), _openDuration);
         _rightDoorTR.DOMove(_rightDoorTR.position + (-_rightDoorTR.up * _openDistance), _openDuration);
-            DOVirtual.Float(0, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
-
-        Invoke("LaunchScene", 2);
+        DOVirtual.Float(0, _initLightIntens, _openDuration, (intens) => _light.intensity = intens)
+            .OnComplete(() =>
+            {
+                _fadeImg.gameObject.SetActive(true);
+                DOVirtual.Float(0f, _initAlpha, _fadeDuration, (a) =>
+                {
+                    _fadeImg.SetAlpha(a);
+                })
+                .SetEase(Ease.InOutQuad)
+                .OnComplete(() => SceneManager.LoadScene(_mainSceneIndex));
+            });
     }
-
     private void LaunchScene() => SceneManager.LoadScene(_sceneIndex);
 
 
@@ -42,7 +66,7 @@ public class UIMainMenu : MonoBehaviour
     {
         Application.Quit();
 #if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
+                EditorApplication.ExitPlaymode();
 #endif
     }
 
