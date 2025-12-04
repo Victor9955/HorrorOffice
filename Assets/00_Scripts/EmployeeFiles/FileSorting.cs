@@ -30,11 +30,12 @@ public class FileSorting : MonoBehaviour
     //[SerializeField] private UnityEvent<bool> OnSetLockEvent;
     //[SerializeField] private UnityEvent OnMatchCheckEvent;
 
-    private bool _canDropFile;
     private EmployeeFile _currentFile;
     private List<FileBinder> _binderList = new();
     private Stack<EmployeeFile> _activeFileList = new();
     private Coroutine _newFileCoroutine;
+
+    public int fileToSort => _activeFileList.Count;
 
     public event Action<Binder,SheetData> OnFileDroppedEvent;
 
@@ -50,7 +51,6 @@ public class FileSorting : MonoBehaviour
 
     private void Init()
     {
-        _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
         _characterDisplay.OnCharacterExited += () => SetBindersLockState(true);
         SetupBinders();
         _binderList.Clear();
@@ -76,7 +76,6 @@ public class FileSorting : MonoBehaviour
         Debug.Log($"{_binderList.Count} binders in the scene");
     }
 
-
     private void SetBindersLockState(bool isUnlocked)
     {
         foreach (FileBinder file in _binderList)
@@ -92,13 +91,14 @@ public class FileSorting : MonoBehaviour
     }
 
     #endregion
+
+
     public void OnNewFile(SheetData data)
     {
         _currentFile = Instantiate(_fileToSortPrefab, _filePoolTr);
 
         _currentFile.transform.rotation = _filePoolTr.rotation * Quaternion.Euler(0,0, Random.Range(_fileStackRotOffset.x,_fileStackRotOffset.y));
         _currentFile.transform.position = _filePoolTr.position;
-        _currentFile.transform.DOShakeScale(0.5f,0.5f,5);
         if (_activeFileList.TryPeek(out EmployeeFile employeeFile))
         {
             _currentFile.transform.position = employeeFile.transform.position + Vector3.up * _fileStackingDistance;
@@ -111,6 +111,7 @@ public class FileSorting : MonoBehaviour
         SetBindersLockState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
+
     private void FileStackRemoveTopFile()
     {
         if(_activeFileList.TryPop(out EmployeeFile employeeFile))

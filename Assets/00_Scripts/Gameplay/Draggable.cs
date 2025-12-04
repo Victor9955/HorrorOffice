@@ -77,7 +77,7 @@ public class Draggable : MonoBehaviour
     #endregion
 
     //Refs
-    protected Camera _cam;
+    protected Camera _cam => Camera.main;
     public Vector3 CamToWorldPos => _cam.ScreenPointToRay(Mouse.current.position.value).GetPoint(_distance);
 
     //Info
@@ -102,11 +102,6 @@ public class Draggable : MonoBehaviour
                 StopCoroutine(_dragCoroutine);
             _dragCoroutine = value;
         }
-    }
-
-    private void Start()
-    {
-        _cam = Camera.main;
     }
 
     #region Inputs

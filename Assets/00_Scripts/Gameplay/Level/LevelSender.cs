@@ -40,6 +40,7 @@ public class LevelSender : MonoBehaviour
     public event Action OnEndGame;
 
     int endDayIndex = 0;
+
     private void Start()
     {
         if(beginFirstDay)
@@ -47,6 +48,8 @@ public class LevelSender : MonoBehaviour
             day = 0;
         }
         BeginDay();
+        fullscreenVignette.SetFloat("_EyesClosed", 1f);
+        fullscreenVignette.SetFloat("_Smoothness", 1f);
     }
 
     public void BeginDay()
@@ -82,22 +85,19 @@ public class LevelSender : MonoBehaviour
             levelAction.finishedEvent?.Invoke();
             yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
         }
+
+        yield return new WaitUntil(() => fileSorting.fileToSort == 0);
         endShiftButton.interactable = true;
         endShiftImage.color = Color.red;
         current = null;
         OnEndDay?.Invoke();
     }
 
-    private void OnDestroy()
-    {
-        fullscreenVignette.SetFloat("_EyesClosed", 1f);
-        fullscreenVignette.SetFloat("_Smoothness", 0f);
-    }
-
     public void EndShiftButtonCallback()
     {
         if(current == null)
         {
+            endShiftButton.interactable = false;
             if (day == days.Count - 1)
             {
                 DOVirtual.Float(1f, 0f, vignetteTime, (eye) =>
