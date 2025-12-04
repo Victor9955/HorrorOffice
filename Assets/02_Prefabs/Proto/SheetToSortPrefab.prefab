@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.01}
-  m_LocalScale: {x: 1.24, y: 1.791988, z: 0.03}
+  m_LocalScale: {x: 1.24, y: 1.791988, z: 0.0075}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1655544029919054552}
@@ -157,13 +157,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bc5b4289f1d434baf377b6315827fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 0.501
+  _distance: 1
   _layerMask:
     serializedVersion: 2
     m_Bits: 8
   _getsConsumedOnCorrectDrop: 1
-  _dragPosSpeed: 15
-  _dragRotSpeed: 7
+  _dragPosSpeed: 25
+  _dragRotSpeed: 25
   _draggingTick: 0.01
   _dragReturnDuration: 0.4
   _draggableOnInit: 1
@@ -305,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 9079691308450093938}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.095296e-11, y: 0, z: 0.00000008217486}
+  m_LocalPosition: {x: -4.095296e-11, y: 0, z: -0.008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -354,7 +354,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -7460193037895503351, guid: 709a25eeeb7863b4cbc436937638fc9f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

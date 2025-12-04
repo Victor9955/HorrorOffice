@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a740d1a2d7566498b6f836d99eb043, type: 3}
+  m_Name: Day2Connor
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 6347456975407333951, guid: 06c7287b08bbe8e4994549791f259198, type: 3}
+  rightBinder: 2
+  actions:
+    _serializedList:
+    - Key: 3
+      Value:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+            m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+            m_MethodName: SendMail
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 11400000, guid: 7bfe491bc3d46594ea2bcbc040de5f24, type: 2}
+              m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+  charachterId: PR-2458-D22
+  characterName: Connor Bradley
+  pausesNumber: 0
+  beginTime: x
+  breakfastTime: x
+  medicineTime: 
+  HGrade: C
+  EGrade: D
+  AGrade: A
+  LGrade: B
+  TGrade: B
+  HGradeTwo: C

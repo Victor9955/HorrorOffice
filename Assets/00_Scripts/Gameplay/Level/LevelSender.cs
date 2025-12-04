@@ -80,6 +80,7 @@ public class LevelSender : MonoBehaviour
             yield return new WaitUntil(() => levelCreator.isFinished);
             StartCoroutine(levelCreator.End());
             yield return new WaitUntil(() => levelCreator.isEnded);
+            levelAction.finishedEvent?.Invoke();
             yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
         }
         endShiftButton.interactable = true;

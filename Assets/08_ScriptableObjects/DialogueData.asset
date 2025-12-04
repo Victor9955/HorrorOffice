@@ -50,11 +50,11 @@ MonoBehaviour:
       - 
     - Key: ESTEBAN_DayOne
       Value:
-      - "\u2026\n\n\xA4...\n\n\xA4\u2026\n\n\xA4<!sprite=Pissed>...\n\n\xA4Backlog."
+      - ".<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>\n\n\xA4Ahem...\n\n\xA4<!sprite=Pissed>.<!wait=0.25>.<!wait=0.25>.\n\n\xA4Backlog."
       - 
     - Key: ESTEBAN_DayTwo
       Value:
-      - "\u2026\n\n\xA4So...\n\n\xA4...\n\n\xA4<!sprite=Pissed>\u2026<!wait=0.5>Backlog."
+      - ".<!wait=0.25>.<!wait=0.25>.\n\n\xA4So...\n\n\xA4.<!wait=0.25>.<!wait=0.25>.\n\n\xA4<!sprite=Pissed><!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.5>Backlog."
       - 
     - Key: ESTEBAN_DayThree
       Value:
@@ -62,11 +62,11 @@ MonoBehaviour:
       - 
     - Key: LI_DayTwo
       Value:
-      - "Oh.<!wait=1> You\u2019re new.\n\n\xA4Uh\u2026<!wait=1> hi."
+      - "Oh.<!wait=0.75><!sprite=Glasses> You\u2019re new.\n\n\xA4Uh\u2026\n\n\xA4<!sprite=Default>Hi."
       - 
     - Key: CONNIE_DayTwo
       Value:
-      - "<!sprite=Happy>Hey, fella!\n\n\xA4<!sprite=Default>You\u2019re new here,\nam
+      - "<!sprite=Happy>Hey, fella!\n\n\xA4<!sprite=Default>You\u2019re new here,<!wait=0.5>\nam
         I right?\n\n\xA4\u2026<!wait=0.5>eh,<!wait=0.5> who am I kidding.\n\n\xA4<!sprite=Happy>'Whole
         floor knows about\nour little newcomer!\n\n\xA4Sorry,<!wait=0.5> 'guess that
         wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4<!sprite=Default>Ah,
@@ -77,16 +77,16 @@ MonoBehaviour:
       - 
     - Key: DEVI_DayTwo
       Value:
-      - ...
+      - .<!wait=0.25>.<!wait=0.25>.
       - 
-    - Key: MAX_DayTwo
+    - Key: MAX_DayThree
       Value:
       - "Oh! <!wait=1>Sorry for surprising you.\n\n\xA4I did not expect to see a
         new face here.<!wait=1>\nForgot you were replacing <wave amplitude=1 uniformity=0.5>\u2588\u2588\u2588\u2588\u2588\u2588\n\n\xA4A
         shame. <!wait=1>I quite liked her. <!wait=1>\n<!sprite=Wink>Though I\u2019m
         sure you\u2019ll fit right in as well!\n\n\xA4<!sprite=Default>You know,<!wait=0.5>
         I think you\u2019re gonna bring \nsome much-needed life up here.\n\n\xA4Floor
-        was getting pretty dull \nwith only the four of us.\n\n\xA4\u2026<!wait=0.5>Five,
+        was getting pretty dull \nwith only the four of us.\n\n\xA4.<!wait=0.25>.<!wait=0.25>.<!wait=0.5>Five,
         if you count Esteban, though \nthe guy doesn\u2019t talk much.\n\n\xA4Ahem,<!wait=0.5>
         neither does Devi,<!wait=0.5> to be honest.\n\n\xA4Anyway,<!wait=0.5> nice
         to meet you! \n\n\xA4Don\u2019t worry,<!wait=0.5> I probably \nwon\u2019t
@@ -96,15 +96,15 @@ MonoBehaviour:
       - 
     - Key: CONNIE_DayThree_Good
       Value:
-      - "Hey, pal!\n\n\xA4<!sprite=Happy>Thanks for covering \nmy ass yesterday.\n\n\xA4Knew
-        you were \na real mate.\n\n\xA4<!sprite=Default>Really appreciate it. And
-        you \nknow I\u2019ll return the favour.\n\n\xA4<sprite=Happy>So! Met any
-        new friends?\n\n\xA4Saw you talking with Max earlier.\nI\u2019d be careful
-        in your place.\n\n\xA4<!sprite=Default>All smiles, and just ready to plant
-        \na dagger in your back when you least expect it.\n\n\xA4Again, I\u2019d
-        be wary of who you trust. \n\n\xA4It\u2019s a shark tank here, and you wouldn\u2019t
-        believe \nthe lengths some people go just to earn a promotion.\n\n\xA4<!sprite=Happy>Glad
-        you\u2019re one of the good ones!"
+      - "Hey,<!wait=0.5> pal!\n\n\xA4<!sprite=Happy>Thanks for covering \nmy ass
+        yesterday.\n\n\xA4Knew you were \na real mate.\n\n\xA4<!sprite=Default>Really
+        appreciate it.<!wait=0.5> And you \nknow I\u2019ll return the favour.\n\n\xA4<sprite=Happy>So!<!wait=0.5>
+        Met any new friends?\n\n\xA4Saw you talking with Max earlier.<!wait=1>\nI\u2019d
+        be careful in your place.\n\n\xA4<!sprite=Default>All smiles,<!wait=0.5>
+        and just ready to plant \na dagger in your back when you least expect it.\n\n\xA4Again,<!wait=0.5>
+        I\u2019d be wary of who you trust. \n\n\xA4It\u2019s a shark tank here,<!wait=0.5>
+        and you wouldn\u2019t believe \nthe lengths some people go just to earn a
+        promotion.\n\n\xA4<!sprite=Happy>Glad you\u2019re one of the good ones!"
       - 
     - Key: CONNIE_DayThree_Bad
       Value:
@@ -119,5 +119,172 @@ MonoBehaviour:
       - 
     - Key: DEVI_DayThree
       Value:
-      - "\u2026\n\n\xA4\u2026What? Is there something \non my face?"
+      - ".<!wait=0.25>.<!wait=0.25>.\n\n\xA4.<!wait=0.25>.<!wait=0.2>.<!wait=1>What?<!wait=0.5>
+        Is there something \non my face?"
+      - 
+    - Key: CONNIE _DayFourShort
+      Value:
+      - "\xA4EXPLAIN YOURSELF!<!sprite=Angry><!wait=1>\n\n\xA4I've been friendly
+        with you didn\u2019t I?<!wait=0.5>\n\n\xA4Even though you\u2019re a wothless
+        little ****.<!wait=0.5>\n\n\xA4And how did you return the favor?<!wait=0.5>\n\n\xA4BY
+        PLANTING A DAGGER IN MY BACK??!<!wait=1>\n\n\xA4But hey\u2026 it\u2019s ok
+        sooner or later I\u2019ll get this promotion.<!sprite=Dafault><!wait=1>\n\n\xA4Mark
+        my words cause when that happens.\n\n\xA4<b>I</b><!wait=0.5> will make your
+        life even more miserable than it already is!\u201D"
+      - 
+    - Key: CONNIE _DayFourLong
+      Value:
+      - "\u201CHEY WHAT THE HELL?!!<!wait=0.5><!sprite=Angry>\n\n\xA4WHY *** ****
+        DIDN\u2019T I GET A PROMOTION?<!wait=1>\n\n\xA4<b>I</b>'ve been in this company
+        for the longest time!<!wait=0.5><!sprite=Dafault>\n\n\xA4<b>I</b> am the
+        most proficient employee!<!wait=0.5>\n\n\xA4<b>I</b> am the most deserving
+        one of them all!<!wait=0.5>\n\n\xA4SO WHY THE **** DIDN\u2019T <b>I</b> GET
+        A PROMOTION?!!!<!wait=1><!sprite=Angry>\n\n\xA4Hin hin hin\u2026 <!wait=2>\n\n\xA4YOU!
+        <!wait=1>\n\n\xA4EXPLAIN YOURSELF!<!sprite=Angry><!wait=1>\n\n\xA4I've been
+        friendly with you didn\u2019t I?<!wait=0.5>\n\n\xA4Even though you\u2019re
+        a wothless little ****.<!wait=0.5>\n\n\xA4And how did you return the favor?<!wait=0.5>\n\n\xA4BY
+        PLANTING A DAGGER IN MY BACK??!<!wait=1>\n\n\xA4But hey\u2026 it\u2019s ok
+        sooner or later I\u2019ll get this promotion.<!sprite=Dafault><!wait=1>\n\n\xA4Mark
+        my words cause when that happens.\n\n\xA4<b>I</b><!wait=0.5> will make your
+        life even more miserable than it already is!\u201D"
+      - 
+    - Key: Ledger_details
+      Value:
+      - Pretty handy.
+      - 
+    - Key: Calculator_details
+      Value:
+      - Didn't do any math for a long time this might help
+      - 
+    - Key: Glass_details
+      Value:
+      - Some fresh water wouldn't hurt
+      - 
+    - Key: Cup_details
+      Value:
+      - Not bad, but I could do without the chemical aftertaste.
+      - 
+    - Key: BookA_details
+      Value:
+      - "\"Ensuring Proper Office Behaviour: A Complete Compendium\".\n\xA4Provides
+        two different methods to knock someone out."
+      - 
+    - Key: BookB_details
+      Value:
+      - '"A Song of Mice and Files". I wonder if this will get popular.'
+      - 
+    - Key: BookC_details
+      Value:
+      - ...
+      - 
+    - Key: PictureFrame_details
+      Value:
+      - 'Probably from a couple of years ago.
+
+        They seemed happier back then.
+        Feels like completely different people now.
+
+        There''s one face I
+        don''t recognize here.'
+      - 
+    - Key: Printer_details
+      Value:
+      - These older models never betray.
+      - 
+    - Key: Pills_details
+      Value:
+      - 'They give them away for free. That''s... nice. '
+      - 
+    - Key: PosterA_details
+      Value:
+      - Wouldn't hurt trying
+      - 
+    - Key: PosterB_details
+      Value:
+      - Hopefully, I won't ever need this.
+      - 
+    - Key: Window_details
+      Value:
+      - "All of us cover \nthe buildings in snow and frost \nwe in warm clothes "
+      - Tous se recouvrent,            les batiments de neige,        et nous d'habits
+        chauds
+    - Key: Camera _details
+      Value:
+      - Cheese...
+      - 
+    - Key: Cigarettes_details
+      Value:
+      - The price is unbelievable here...
+      - 
+    - Key: Pen_details
+      Value:
+      - Dad gave this one to me.
+      - 
+    - Key: Ledger_details
+      Value:
+      - Pretty handy.
+      - 
+    - Key: Calculator_details
+      Value:
+      - Didn't do any math for a long time this might help
+      - 
+    - Key: Glass_details
+      Value:
+      - Some fresh water wouldn't hurt
+      - 
+    - Key: Cup_details
+      Value:
+      - Not bad, but I could do without the chemical aftertaste.
+      - 
+    - Key: BookA_details
+      Value:
+      - "\"Ensuring Proper Office Behaviour: A Complete Compendium\".\n\xA4Provides
+        two different methods to knock someone out."
+      - 
+    - Key: BookB_details
+      Value:
+      - '"A Game of Crowns". I wonder if this will get popular.'
+      - 
+    - Key: BookC_details
+      Value:
+      - ...
+      - 
+    - Key: PictureFrame_details
+      Value:
+      - "Probably from a couple of years ago.\n\xA4They seemed happier back then.
+        \xA4Feels like completely different people now.\n\xA4There's one face I don't
+        recognize here."
+      - 
+    - Key: Printer_details
+      Value:
+      - These older models never betray.
+      - 
+    - Key: Pills_details
+      Value:
+      - 'They give them away for free. That''s... nice. '
+      - 
+    - Key: PosterA_details
+      Value:
+      - Wouldn't hurt trying
+      - 
+    - Key: PosterB_details
+      Value:
+      - Hopefully, I won't ever need this.
+      - 
+    - Key: Window_details
+      Value:
+      - "All of us cover \nthe buildings in snow and frost \nwe in warm clothes "
+      - Tous se recouvrent,            les batiments de neige,        et nous d'habits
+        chauds
+    - Key: Camera _details
+      Value:
+      - Cheese...
+      - 
+    - Key: Cigarettes_details
+      Value:
+      - The price is unbelievable here
+      - 
+    - Key: Pen_details
+      Value:
+      - "Dad gave this one to me \xA4Such a nice gift"
       - 
