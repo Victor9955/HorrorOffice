@@ -146,7 +146,7 @@ MonoBehaviour:
       - 
     - Key: DEVI_One
       Value:
-      - "<color=red>T<!wait=0.25>S<!wait=0.25>K<!wait=0.25>.<!drop>\n\n\xA4<color=red><!wait=0.25>.<!wait=0.25>.<!wait=0.25>.\n\n\xA4<color=red>.<!wait=0.25>.<!wait=0.25>.<!wait=1>
+      - "<!sprite=AngryTinfoil><color=red>T<!wait=0.25>S<!wait=0.25>K<!wait=0.25>.<!drop>\n\n\xA4<!sprite=DefaultTinfoil><color=red><!wait=0.25>.<!wait=0.25>.<!wait=0.25>.\n\n\xA4<!sprite=ShockTinfoil><color=red>.<!wait=0.25>.<!wait=0.25>.<!wait=1>
         <wave amplitude=1>W<!wait=0.1> H<!wait=0.1> A <!wait=0.1>T<!wait=0.1>? \n\n\xA4<color=red>IS<!wait=0.25>
         THERE <!wait=0.25>SOMETHING<!wait=0.25> ON<!wait=0.25> MY<!wait=0.25> FACE?"
       - 
@@ -158,20 +158,22 @@ MonoBehaviour:
       Value:
       - "Err<!wait=0.25>.<!wait=0.25>.<!wait=0.25>. hi?\n\n\xA4Sorry, is this the
         right desk?<!wait=0.5>\nI\u2019m looking for<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.
-        Nurturing?\n\n\xA4Oh, finally!\n\n\xA4I\u2019m supposed to give you this.<!wait=0.5>\nI
-        hope it\u2019s all good?<!drop>\n\n\xA4I only just joined. Applied as \nsoon
-        as I graduated. \n\n\xA4I\u2019m so glad I\u2019ll get to work\non the Panacea
-        project!\n\n\xA4You should see the stuff they got up in R&D.<!wait=0.5>\nI\u2019d
-        never seen anything like it.\n\n\xA4\u2026I\u2019m not really allowed to
-        talk about it,<!wait=0.5> though.\n\n\xA4Anyway, got to go back to the lab.
-        \n\n\xA4They\u2019re giving me a tour of the research facilities, \nand I
-        think I\u2019m already late.\n\n\xA4This place is such a maze.<!wait=0.5>
-        Lost so much time finding my way here,<!wait=0.5>\nand I still need to figure
-        out how to make the return trip.\n\n\xA4Bye!"
+        Nurturing?\n\n\xA4<sprite=Happy>Oh, finally!\n\n\xA4I\u2019m supposed to
+        give you this.<!wait=0.5>\nI hope it\u2019s all good?<!drop>\n\n\xA4<sprite=Default>I
+        only just joined. Applied as \nsoon as I graduated. \n\n\xA4<sprite=Happy>I\u2019m
+        so glad I\u2019ll get to work\non the <color=blue><wave>PANACEA</wave></color>
+        project!\n\n\xA4You should see the stuff they got up in <color=blue>R&D</color>.<!wait=0.5>\nI\u2019d
+        never seen anything like it.\n\n\xA4<sprite=Stressed>\u2026I\u2019m not really
+        allowed to \ntalk about it,<!wait=0.5> though.\n\n\xA4<sprite=Default>Anyway,<!wait=0.5>
+        got to go back to the lab. \n\n\xA4<sprite=Stressed>They\u2019re giving me
+        a tour of the research facilities,<!wait=0.5>\nand I think I\u2019m already
+        late.\n\n\xA4<sprite=Depressed>This place is such a maze.\n\n\xA4Lost so
+        much time finding my way here,<!wait=0.5>\nand still need to figure out the
+        return trip.\n\n\xA4<sprite=Happy>Bye!"
       - 
     - Key: ABBIE_Two
       Value:
-      - "Hey, you!<!wait=1> How are you doing since last time?\n\n\xA4<!sprite=StressedPostIt>Me?<!wait=1>
+      - "<!sprite=DefaultPostIt>Hey, you!<!wait=1> How are you doing since last time?\n\n\xA4<!sprite=StressedPostIt>Me?<!wait=1>
         Oh, I'm trying my best,\nbut there's so much to learn\u2026\n\n\xA4I really
         hope there\u2019s no issue with my form this time.<!drop>\n\n\xA4<!sprite=DepressedPostIt>My
         manager got pretty angry last time.\nHe wouldn't stop screaming at me.\n\n\xA4<!sprite=HappyPostIt>Hahaha.\n\n\xA4<!sprite=DepressedPostIt>I

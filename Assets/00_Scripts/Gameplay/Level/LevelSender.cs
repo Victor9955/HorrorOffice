@@ -151,4 +151,11 @@ public class LevelSender : MonoBehaviour
             endShiftImage.color = Color.gray;
         }
     }
+
+    [ConsoleCommand("Force")]
+    void ForceChangeDay()
+    {
+        day = Mathf.Clamp(day + 1, 0, days.Count);
+        SceneManager.LoadScene(endDayIndex);
+    }
 }
