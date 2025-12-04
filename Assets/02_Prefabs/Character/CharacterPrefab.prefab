@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 916635792450857072}
   - component: {fileID: 2691220864710659236}
   - component: {fileID: 360992032214625215}
+  - component: {fileID: 5747401783583050601}
   m_Layer: 5
   m_Name: NameBG
   m_TagString: Untagged
@@ -34,10 +35,10 @@ RectTransform:
   - {fileID: 5179482900399076347}
   m_Father: {fileID: 7248760813873539352}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 49.07, y: 12}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 45.5, y: -6}
+  m_SizeDelta: {x: 41, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &916635792450857072
 CanvasRenderer:
@@ -103,6 +104,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!114 &5747401783583050601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124622695296641640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 0
 --- !u!1 &293180106391809645
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +146,7 @@ RectTransform:
   m_GameObject: {fileID: 293180106391809645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0068685, y: 0.0068685, z: 0.0068685}
+  m_LocalScale: {x: 0.008707196, y: 0.008707196, z: 0.008707196}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4866178662080736172}
@@ -1212,8 +1227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 24.535, y: -6}
-  m_SizeDelta: {x: 45.07, y: 0}
+  m_AnchoredPosition: {x: 20.5, y: -6}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4583721845053457223
 CanvasRenderer:
@@ -1243,7 +1258,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Testdddd
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
   m_sharedMaterial: {fileID: 5179109703141641612, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
