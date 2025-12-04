@@ -59,27 +59,17 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     dayDialogue:
-      DefaultDialogueKey: ESTEBAN_DayThree
+      DefaultDialogueKey: ESTEBAN_Four
       dialogs:
         _serializedList: []
     finishedEvent:
       m_PersistentCalls:
         m_Calls: []
-  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+  - character: {fileID: 11400000, guid: 7b019c02551eb464ebc354c5ad3605cc, type: 2}
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: CONNIE_DayLong
-      dialogs:
-        _serializedList: []
-    finishedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - character: {fileID: 11400000, guid: 514aaac62036cba419b9157239295ecc, type: 2}
-    sheets:
-    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
-    dayDialogue:
-      DefaultDialogueKey: 
+      DefaultDialogueKey: DEVI_Two
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -89,7 +79,27 @@ MonoBehaviour:
     sheets:
     - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
     dayDialogue:
-      DefaultDialogueKey: ROSALYNE_DayFour
+      DefaultDialogueKey: ROSALYNE_One
+      dialogs:
+        _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: CONNIE_Three
+      dialogs:
+        _serializedList: []
+    finishedEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - character: {fileID: 11400000, guid: 514aaac62036cba419b9157239295ecc, type: 2}
+    sheets:
+    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
+    dayDialogue:
+      DefaultDialogueKey: MAX_Two
       dialogs:
         _serializedList: []
     finishedEvent:
