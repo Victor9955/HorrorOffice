@@ -78,10 +78,9 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
-    sheets:
-    - {fileID: 0}
+    sheets: []
     dayDialogue:
-      DefaultDialogueKey: CONNOR_One
+      DefaultDialogueKey: One
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -93,15 +92,7 @@ MonoBehaviour:
     dayDialogue:
       DefaultDialogueKey: LI_One
       dialogs:
-        _serializedList:
-        - Key: 1
-          Value: CONNIE_DayTwo_Good
-        - Key: 2
-          Value: CONNIE_DayTwo_Good
-        - Key: 3
-          Value: CONNIE_DayTwo_Bad
-        - Key: 0
-          Value: CONNIE_DayTwo_Bad
+        _serializedList: []
     finishedEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -127,4 +118,4 @@ MonoBehaviour:
   endEvent:
     m_PersistentCalls:
       m_Calls: []
-  endDayScene: 1
+  endDayScene: 2
