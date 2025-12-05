@@ -819,6 +819,7 @@ MonoBehaviour:
   nameTMP: {fileID: 5580241713031938811}
   dialogueUI: {fileID: 6134152621443695089}
   dialogueBG: {fileID: 998101555891156688}
+  v: {fileID: 0}
   defaultFont: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
   writer: {fileID: 7274194577669656605}
   spawnEffect: {fileID: 5694028448386255367}
@@ -1044,7 +1045,7 @@ MonoBehaviour:
   keywordDatabase: {fileID: 0}
   sceneKeywordDatabase: {fileID: 0}
   database: {fileID: 11400000, guid: 290ad04254a96934aa269d5b8d258008, type: 2}
-  maySkip: 0
+  maySkip: 1
   writeOnStart: 1
   writeOnNewText: 0
   useScaledTime: 1
