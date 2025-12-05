@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   sprite: {fileID: 21300000, guid: a82c06a033e21c44eab92c7bd40efc00, type: 3}
-  rightBinder: 2
+  rightBinder: 3
   actions:
     _serializedList:
-    - Key: 3
+    - Key: 2
       Value:
         m_PersistentCalls:
           m_Calls:
@@ -54,9 +54,9 @@ MonoBehaviour:
   departement: Public Relation
   service: Communication
   position: Manager
-  HGrade: E
-  EGrade: D
+  HGrade: A
+  EGrade: A
   AGrade: C
-  LGrade: B
+  LGrade: A
   TGrade: B
-  HGradeTwo: A
+  HGradeTwo: B

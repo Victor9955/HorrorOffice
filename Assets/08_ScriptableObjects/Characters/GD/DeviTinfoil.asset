@@ -10,18 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1c3e49100d4cf5342a1ce4b12cc722c2, type: 3}
-  m_Name: Li
+  m_Name: DeviTinfoil
   m_EditorClassIdentifier: 
   characterStaticInfo:
-    name: Li
-    dialogueKey: LI
+    name: Devika
+    dialogueKey: DEVI
     sprites:
       _serializedList:
       - Key: Default
-        Value: {fileID: 21300000, guid: a5537db1dbf34c74cabd6eea449008a2, type: 3}
-      - Key: Glasses
-        Value: {fileID: 21300000, guid: 82677a529d9a2fa40bb6857c2ea816f9, type: 3}
-    comingSprite: {fileID: 21300000, guid: a5537db1dbf34c74cabd6eea449008a2, type: 3}
+        Value: {fileID: 21300000, guid: 559696bc1729a864ab28d5e2bc7a516c, type: 3}
+      - Key: AngryTinfoil
+        Value: {fileID: 21300000, guid: 37da7e2f172279149af62c8f0cfdf112, type: 3}
+      - Key: HappyTinfoil
+        Value: {fileID: 21300000, guid: fb5c569a6ab82c841855e73d9274922a, type: 3}
+      - Key: ShockTinfoil
+        Value: {fileID: 21300000, guid: 8b257e2e9934a23468e978f4534dac4b, type: 3}
+      - Key: DefaultTinfoil
+        Value: {fileID: 21300000, guid: 36356006bfa4cbf4a9a0fab6f47b297b, type: 3}
+      - Key: Angry
+        Value: {fileID: 21300000, guid: ae285d1b9254bb94896a2d46434baaad, type: 3}
+      - Key: Happy
+        Value: {fileID: 21300000, guid: e422c0cb8586694449be19bc39c2e4c6, type: 3}
+      - Key: Shock
+        Value: {fileID: 21300000, guid: a3845d52d9c8f56478078ebb88e18508, type: 3}
+    comingSprite: {fileID: 21300000, guid: 36356006bfa4cbf4a9a0fab6f47b297b, type: 3}
     givePaperSprite: {fileID: 0}
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
@@ -56,5 +68,5 @@ MonoBehaviour:
     saySpeed: 0.05
     timeBetweenPhrases: 1.25
     waitTime: 5
-    font: {fileID: 11400000, guid: d2003993a62edba4480468a824d1f12d, type: 2}
+    font: {fileID: 11400000, guid: 409f631f7f790d6428dcd3b21e674cee, type: 2}
     mailPP: {fileID: 0}

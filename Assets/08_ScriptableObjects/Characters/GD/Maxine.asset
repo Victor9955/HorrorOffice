@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Maxine
   m_EditorClassIdentifier: 
   characterStaticInfo:
-    name: Maxine Hamilton
+    name: Maxine
     dialogueKey: MAX
     sprites:
       _serializedList:
@@ -29,9 +29,9 @@ MonoBehaviour:
     givePaperSprite: {fileID: 0}
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
-    _enterDuration: 2.5
-    _exitDuration: 2.5
-    _walkMagnitude: 0.3
+    _enterDuration: 3
+    _exitDuration: 3
+    _walkMagnitude: 0.1
     _walkFrequency: 5
     _animCurve:
       serializedVersion: 2
