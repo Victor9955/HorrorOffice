@@ -71,22 +71,21 @@ MonoBehaviour:
       - 
     - Key: LI_Two
       Value:
-      - "Oh,<!wait=0.5> you\u2019re here?<!wait=1> \n\n\xA4Sorry,<!wait=0.5> didn\u2019t
-        really notice you.<!wait=1> \n\xA4<!sprite=Glasses>I was thinking about the
-        150 new-punton fusion.<!wait=1>\n\n\xA4Actually,<!wait=0.5> I believe I could
-        reach 200 soon.<!wait=2>\n\n\xA4.<!wait=0.5>.<!wait=0.5>.<!wait=0.5><!sprite=Default>What?<!wait=1>\n\n\xA4What
-        do you mean,<!wait=0.5> you\u2019re not aware\nof what a \"new-punton\" is?<!wait=2>\n\n\xA4<!sprite=Glasses>A
-        new-punton is <i>obviously</i> the \nequivalent of 2000 old-punton\u2026<!wait=1.5>
-        \n\n\xA4.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>I thought they\u2019d brief you
-        on it.<!wait=0.5>\nHow weird.<!wait=1>"
+      - "Oh,<!wait=0.5> you\u2019re here?\n\n\xA4Sorry,<!wait=0.5> didn\u2019t really
+        notice you.\n\n\xA4<!sprite=Glasses>I was thinking about the \n150 new-punton
+        fusion.\n\n\xA4Actually,<!wait=0.5> I believe I could \nreach 200 soon.\n\n\xA4.<!wait=0.5>.<!wait=0.5>.<!wait=0.5><!sprite=Default>What?\n\n\xA4What
+        do you mean,<!wait=0.5> you\u2019re not aware\nof what a \"new-punton\" is?\n\n\xA4<!sprite=Glasses>A
+        new-punton is <i>obviously</i> the \nequivalent of 2000 old-punton\u2026\n\n\xA4.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>I
+        thought they\u2019d brief \nyou on it.<!wait=0.5> How weird."
       - 
     - Key: CONNIE_One
       Value:
-      - "<!sprite=Happy>Hey, fella!\n\n\xA4<!sprite=Default>You\u2019re new here,\nam
-        I right?\n\n\xA4.<!wait=0.2>.<!wait=0.2>.<!wait=0.2>eh,<!wait=0.5> who am
-        I kidding.\n\n\xA4<!sprite=Happy>'Whole floor knows about\nour little newcomer!\n\n\xA4Sorry,<!wait=0.5>
-        'guess that wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4<!sprite=Default>Ah,<!wait=0.75>
-        don\u2019t blame them.<!wait=0.75>\nEverybody\u2019s on edge lately.<!wait=0.5>\n\n\xA4Thought
+      - "<!sprite=Happy>Hey,<!wait=0.5> fella!\n\n\xA4<!sprite=Default>You\u2019re
+        new here,<!wait=0.5>\nam I right?\n\n\xA4.<!wait=0.2>.<!wait=0.2>.<!wait=0.2>eh,<!wait=0.5>
+        who am I kidding.\n\n\xA4<!sprite=Happy>'Whole floor knows about\nour little
+        newcomer!\n\n\xA4Sorry,<!wait=0.5> 'guess that wasn\u2019t the\nwarm welcome
+        you expected\u2026\n\n\xA4<!sprite=Default>Ah,<!wait=0.75> don\u2019t blame
+        them.<!wait=0.75>\nEverybody\u2019s on edge lately.<!wait=0.5>\n\n\xA4Thought
         I\u2019d at least come by\nand greet you properly.<!wait=0.25>\n\n\xA4Anyway,<!wait=0.5>
         took enough of your time.<!drop>\n\n\xA4<!sprite=Happy>See you tomorrow,
         <!wait=0.15>pal!"
@@ -95,7 +94,7 @@ MonoBehaviour:
       Value:
       - "Hey,<!wait=0.5> pal!\n\n\xA4<!sprite=Happy>Thanks for covering \nmy ass
         yesterday.\n\n\xA4Knew you were \na real mate.\n\n\xA4<!sprite=Default>Really
-        appreciate it.<!wait=0.5> And you \nknow I\u2019ll return the favour.<!drop>\n\n\xA4<sprite=Happy>So!<!wait=0.5>
+        appreciate it.<!wait=0.5> And you \nknow I\u2019ll return the favour.<!drop>\n\n\xA4<!sprite=Happy>So!<!wait=0.5>
         Met any new friends?\n\n\xA4Saw you talking with Max earlier.<!wait=1>\nI\u2019d
         be careful in your place.\n\n\xA4<!sprite=Default>All smiles,<!wait=0.5>
         and just ready to plant a dagger \nin your back when you least expect it.\n\n\xA4Again,<!wait=0.5>
@@ -105,14 +104,15 @@ MonoBehaviour:
       - 
     - Key: CONNIE_Two_Bad
       Value:
-      - "Hey, pal!\n\n\xA4Nice one the other day.\nVery funny.\n\n\xA4<!sprite=Surprised>\u2026<color=orange>Don\u2019t
+      - "Hey,<!wait=0.5> pal!\n\n\xA4Nice one the other day.\n<!sprite=Happy>Very
+        funny.\n\n\xA4.<!wait=0.4>.<!wait=0.4>.<!wait=0.4><color=orange><!sprite=Surprised>don\u2019t
         do that again?\n\n\xA4<!sprite=Default>But hey. \nNo offence taken.<!drop>\n\n\xA4<!sprite=Happy>So!<!wait=0.5>
-        Met any new friends?\n\n\xA4Saw you talking with Max earlier.\nI\u2019d be
-        careful in your place.\n\n\xA4<!sprite=Default>All smiles, and just ready
-        to plant a dagger \nin your back when you least expect it.\n\n\xA4Again,
-        I\u2019d be wary of who you trust. \n\n\xA4It\u2019s a shark tank here, and
-        you wouldn\u2019t believe \nthe lengths some people go just to earn a promotion.\n\n\xA4<!sprite=Happy>Glad
-        you\u2019re one of the good ones!<!sprite=Default><"
+        Met any new friends?\n\n\xA4Saw you talking with Max earlier.<!wait=1>\nI\u2019d
+        be careful in your place.\n\n\xA4<!sprite=Default>All smiles,<!wait=0.5>
+        and just ready to plant a dagger \nin your back when you least expect it.\n\n\xA4Again,<!wait=0.5>
+        I\u2019d be wary of who you trust. \n\n\xA4It\u2019s a shark tank here,<!wait=0.5>
+        and you wouldn\u2019t believe \nthe lengths some people go just to earn a
+        promotion.\n\n\xA4<!sprite=Happy>Glad you\u2019re one of the good ones!<!sprite=Default>"
       - 
     - Key: CONNIE _Three
       Value:
@@ -142,7 +142,7 @@ MonoBehaviour:
         if you count Esteban,<!wait=0.5> \nthough the guy doesn\u2019t talk much.\n\n\xA4<!sprite=Wink>Anyway,<!wait=0.5>
         nice to meet you! \n\n\xA4<!sprite=Default>Don\u2019t worry,<!wait=0.5> I
         probably \nwon\u2019t make your job too hard. \n\n\xA4<!sprite=Wink>Haven\u2019t
-        failed a single report ever since I joined,<!wait=0.5>\nand I well intend
+        failed a single report ever since\nI joined,<!wait=0.5> and I well intend
         to continue!\n\n\xA4See you tomorrow!<!sprite=Default>"
       - 
     - Key: DEVI_One
@@ -150,7 +150,7 @@ MonoBehaviour:
       - "<wave amplitude=3 uniformity=0.5><color=red>.<!wait=0.1>.<!wait=0.1>.<!wait=1>
         <!sprite=ShockTinfoil>W<!wait=0.1> H<!wait=0.1> A <!wait=0.1>T<!wait=0.1>
         ? \n\n\xA4<wave amplitude=3 uniformity=0.5><color=red>IS THERE SOMETHING
-        \nON MY FACE?<!wait=1><!sprite=AngryTinfoil>\n\n\xA4<wave amplitude=3 uniformity=0.5><!sprite=DefaultTinfoil><color=red><!wait=0.4>.<!wait=0.4>.<!wait=0.4>.<color=red><!wait=0.75><!sprite=AngryTinfoil>TSK.<!drop>"
+        \nON MY FACE?<!wait=1>\n\n\xA4<wave amplitude=3 uniformity=0.5><!sprite=DefaultTinfoil><color=red><!wait=0.4>.<!wait=0.4>.<!wait=0.4>.<color=red><!wait=0.75><!sprite=AngryTinfoil>TSK.<!drop>"
       - 
     - Key: DEVI_Two
       Value:
@@ -169,7 +169,7 @@ MonoBehaviour:
         never seen anything like it.\n\n\xA4<!sprite=Stressed>\u2026I\u2019m not
         really allowed to \ntalk about it,<!wait=0.5> though.\n\n\xA4<!sprite=Default>Anyway,<!wait=0.5>
         got to go back to the lab. \n\n\xA4<!sprite=Stressed>They\u2019re giving
-        me a tour of the research facilities,<!wait=0.5>\nand I think I\u2019m already
+        me a tour of the research\nfacilities,<!wait=0.5> and I think I\u2019m already
         late.\n\n\xA4<!sprite=Depressed>This place is such a maze.\n\n\xA4Lost so
         much time finding my way here,<!wait=0.5>\nand still need to figure out the
         return trip.\n\n\xA4<!sprite=Happy>Bye!"
