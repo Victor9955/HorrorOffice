@@ -22,6 +22,7 @@ public class GameplayEventSender : ScriptableObject
             }
         }
         OnSendMail?.Invoke(mail);
+        Debug.Log("SendMail");
     }
 
     public void AddHelpfullness()

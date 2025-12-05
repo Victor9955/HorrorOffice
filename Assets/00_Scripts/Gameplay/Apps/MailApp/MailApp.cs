@@ -12,7 +12,8 @@ public class MailApp : MonoBehaviour, IApp
     [SerializeField] Mail mailPrefab;
     [SerializeField] MailView mailView;
     [SerializeField] RectTransform mailViewRect;
-    [SerializeField] RectTransform mailViewAncor;
+    [SerializeField] RectTransform mailSpawnAncor;
+    [SerializeField] VerticalLayoutGroup mailLayoutGroup;
     [SerializeField] RectTransform notification;
     [SerializeField] GameplayEventSender gameplayEvents;
     [SerializeField] FMODUnity.EventReference _mailNotificationSound;
@@ -34,11 +35,14 @@ public class MailApp : MonoBehaviour, IApp
 
     void ReiceiveMail(MailData mailData)
     {
-        Mail mailCash = Instantiate(mailPrefab,mailViewAncor);
+        Mail mailCash = Instantiate(mailPrefab,mailSpawnAncor);
         reiceivedMail.Add(mailCash,mailData);
         mailCash.mailData = mailData;
         mailCash.mailAppRef = this;
-        if(notifTween == null)
+        mailSpawnAncor.ForceUpdateRectTransforms();
+        mailLayoutGroup.CalculateLayoutInputHorizontal();
+        mailLayoutGroup.CalculateLayoutInputVertical();
+        if (notifTween == null)
         {
             notifTween = notification.DOShakeRotation(0.25f, Vector3.forward * 20f);
             notifTween.SetLoops(-1);
