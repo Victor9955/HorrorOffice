@@ -78,11 +78,18 @@ public class LevelSender : MonoBehaviour
         if (current == null) // when current = null current level is finished
         {
             current = days[day];
-            current.startEvent?.Invoke();
             fileSorting._binderDataList = current.binders;
             fileSorting.SetupBinders();
             endDayIndex = current.endDayScene;
             OnInitDatabase?.Invoke(current);
+        }
+    }
+
+    public void OnPCLogIn()
+    {
+        if(current != null)
+        {
+            current.startEvent?.Invoke();
         }
     }
 
