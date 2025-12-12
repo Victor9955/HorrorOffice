@@ -38,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20.5, y: -4.5}
-  m_SizeDelta: {x: 41, y: 9}
+  m_AnchoredPosition: {x: 32.84, y: -7}
+  m_SizeDelta: {x: 65.68, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &916635792450857072
 CanvasRenderer:
@@ -275,7 +275,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1.25, y: 9}
+  m_SizeDelta: {x: 0.625, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5987307335260331532
 CanvasRenderer:
@@ -1619,8 +1619,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20.5, y: -4.5}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 32.84, y: -7}
+  m_SizeDelta: {x: 61.68, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4583721845053457223
 CanvasRenderer:
@@ -1650,10 +1650,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Mehdi Haffoudhi
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
-  m_sharedMaterial: {fileID: 5179109703141641612, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1c5a00e08dd86f848b7362a72f9ddc99, type: 2}
+  m_sharedMaterial: {fileID: 6408654857453385156, guid: 1c5a00e08dd86f848b7362a72f9ddc99, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1677,8 +1677,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

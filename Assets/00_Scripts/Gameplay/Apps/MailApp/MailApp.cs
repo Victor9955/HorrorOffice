@@ -68,6 +68,22 @@ public class MailApp : MonoBehaviour, IApp
         }
     }
 
+    public void OpenMail(MailData mailData)
+    {
+        Mail mail = reiceivedMail.Keys.First((key) => reiceivedMail[key] == mailData);
+        if (reiceivedMail.TryGetValue(mail, out MailData mailCash))
+        {
+            int seenMail = reiceivedMail.Keys.Where((m) => m.wasOpened).Count();
+            if (seenMail == 0)
+            {
+                notification.eulerAngles = new Vector3(0, 0, startRotationZ);
+                notifTween.Kill();
+            }
+            mailView.Show(mailCash);
+            RecalculateSize();
+        }
+    }
+
     void RecalculateSize()
     {
         float size = 0f;
@@ -88,6 +104,8 @@ public class MailApp : MonoBehaviour, IApp
 
     public void Open()
     {
-
+        Vector2 size = mailSpawnAncor.sizeDelta;
+        mailSpawnAncor.sizeDelta.Set(0.0001f, size.y);
+        mailSpawnAncor.sizeDelta = size;
     }
 }
