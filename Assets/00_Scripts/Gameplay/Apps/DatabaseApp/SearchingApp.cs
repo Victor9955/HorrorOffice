@@ -21,6 +21,7 @@ public class SearchingApp : MonoBehaviour, IApp
     [SerializeField] LevelSender levelSender;
     [SerializeField] DatabaseView view;
     [SerializeField] WindowAnimation viewAnim;
+    [SerializeField] RectTransform button;
     Dictionary<string, GameObject> codes = new();
     Dictionary<string, SheetData> stats = new();
 
@@ -38,7 +39,11 @@ public class SearchingApp : MonoBehaviour, IApp
     {
         if(gameplayEventSender != null)
         {
-            gameplayEventSender.DesactivateDataBaseEvent += () => gameObject.SetActive(false);
+            gameplayEventSender.DesactivateDataBaseEvent += () =>
+            {
+                gameObject.SetActive(false);
+                button.gameObject.SetActive(false);
+            };
         }
 
         contentAncor.sizeDelta = new Vector2(0,size * content.cellSize.y);
