@@ -2,6 +2,7 @@ using DG.Tweening;
 using HuntroxGames.Utils;
 using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -16,11 +17,18 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private Light _light;
     [SerializeField] private Image _fadeImg;
     [Space(10)]
-    [Space]
+    [Space(10)]
     [Header("Anim Settings")]
     [SerializeField] private float _openDistance;
     [SerializeField] private float _openDuration;
+    [SerializeField] private float _delay;
     [SerializeField] private float _fadeDuration;
+    [SerializeField] private Material eyes;
+
+    [Header("Hanged Settings")]
+    [Space(10)]
+    [SerializeField] private GameObject _hangedObj;
+    [SerializeField] private bool _isLiHere;
 
     private int _sceneIndex;
     private float _initLightIntens;
@@ -44,7 +52,16 @@ public class UIMainMenu : MonoBehaviour
         })
         .SetEase(Ease.InOutQuad)
         .OnComplete(() => _fadeImg.gameObject.SetActive(false));
+        eyes.SetFloat("_EyesClosed", 1f);
+        eyes.SetFloat("_Smoothness", 1f);
 
+
+        //Li
+        if (_isLiHere && _hangedObj != null)
+        {
+            _hangedObj.SetActive(true);
+            Hang();
+        }
     }
     public void FadeToScene(int index)
     {
@@ -56,12 +73,12 @@ public class UIMainMenu : MonoBehaviour
         //Doors
         _leftDoorTR.DOMove(_leftDoorTR.position + (_leftDoorTR.up * _openDistance), _openDuration);
         _rightDoorTR.DOMove(_rightDoorTR.position + (-_rightDoorTR.up * _openDistance), _openDuration)
-            
+
             // Fade
-            .OnComplete(FadeToScene);
+            .OnComplete(SceneFade);
     }
 
-    private void FadeToScene()
+    private void SceneFade()
     {
         _fadeImg.gameObject.SetActive(true);
         DOVirtual.Float(0f, _initAlpha, _fadeDuration, (a) =>
@@ -69,9 +86,14 @@ public class UIMainMenu : MonoBehaviour
             _fadeImg.SetAlpha(a);
         })
         .SetEase(Ease.InOutQuad)
-        .OnComplete(() => SceneManager.LoadScene(_sceneIndex));
+        .OnComplete(() => SceneManager.LoadScene(_sceneIndex)).SetDelay(_delay);
     }
 
+
+    private void Hang()
+    {
+        return;
+    }
     public void QuitButton()
     {
         Application.Quit();

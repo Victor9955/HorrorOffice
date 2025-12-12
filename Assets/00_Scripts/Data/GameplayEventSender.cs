@@ -10,18 +10,24 @@ public class GameplayEventSender : ScriptableObject
     public Action AddHelpFullness;
     public async void SendMail(MailData mail)
     {
-        if(mail.hasDelay)
+        MailData current = mail;
+        do
         {
-            if(mail.hasRandomDelay)
+            if (current.hasDelay)
             {
-                await Awaitable.WaitForSecondsAsync(UnityEngine.Random.Range(mail.delay, mail.maxDelay));
+                if (current.hasRandomDelay)
+                {
+                    await Awaitable.WaitForSecondsAsync(UnityEngine.Random.Range(current.delay, current.maxDelay));
+                }
+                else
+                {
+                    await Awaitable.WaitForSecondsAsync(current.delay);
+                }
             }
-            else
-            {
-                await Awaitable.WaitForSecondsAsync(mail.delay);
-            }
+            OnSendMail?.Invoke(current);
+            current = current.nextMail;
         }
-        OnSendMail?.Invoke(mail);
+        while (current != null);
     }
 
     public void AddHelpfullness()

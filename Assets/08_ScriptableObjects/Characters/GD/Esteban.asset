@@ -27,9 +27,9 @@ MonoBehaviour:
     givePaperSprite: {fileID: 21300000, guid: 5c53b83dd1e294a44a7aeca211175d9f, type: 3}
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
-    _enterDuration: 2
+    _enterDuration: 3
     _exitDuration: 3
-    _walkMagnitude: 0.3
+    _walkMagnitude: 0.1
     _walkFrequency: 5
     _animCurve:
       serializedVersion: 2
@@ -58,5 +58,5 @@ MonoBehaviour:
     saySpeed: 0.05
     timeBetweenPhrases: 1.25
     waitTime: 5
-    font: {fileID: 11400000, guid: 5b73c4c0f04d24d448d8405ad5016a09, type: 2}
+    font: {fileID: 11400000, guid: 22a4213734ad8b745b052cb37d38c651, type: 2}
     mailPP: {fileID: 0}

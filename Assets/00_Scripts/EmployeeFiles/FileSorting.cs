@@ -35,8 +35,6 @@ public class FileSorting : MonoBehaviour
     private Stack<EmployeeFile> _activeFileList = new();
     private Coroutine _newFileCoroutine;
 
-    public int fileToSort => _activeFileList.Count;
-
     public event Action<Binder,SheetData> OnFileDroppedEvent;
 
     private void Awake()
@@ -76,17 +74,12 @@ public class FileSorting : MonoBehaviour
         Debug.Log($"{_binderList.Count} binders in the scene");
     }
 
+
     private void SetBindersLockState(bool isUnlocked)
     {
         foreach (FileBinder file in _binderList)
         {
             file.isUnlocked = isUnlocked;
-        }
-
-        if(_currentFile != null)
-        {
-            if (isUnlocked) _currentFile.OnFileDroppedInSorter += OnFileDropped;
-            else _currentFile.OnFileDroppedInSorter -= OnFileDropped;
         }
     }
 
@@ -105,6 +98,7 @@ public class FileSorting : MonoBehaviour
         }
         _activeFileList.Push(_currentFile);
         _currentFile.OnPickup += FileStackRemoveTopFile;
+        _currentFile.OnFileDroppedInSorter += OnFileDropped;
 
         _currentFile.Init(data);
 
@@ -119,9 +113,10 @@ public class FileSorting : MonoBehaviour
             employeeFile.OnPickup -= FileStackRemoveTopFile;
         }
     }
-    private void OnFileDropped(Binder binderType, SheetData sheetData)
+    private void OnFileDropped(Binder binderType,EmployeeFile employeFile)
     {
         SetBindersLockState(false);
-        OnFileDroppedEvent?.Invoke(binderType, sheetData);
+        employeFile.OnFileDroppedInSorter -= OnFileDropped;
+        OnFileDroppedEvent?.Invoke(binderType, employeFile.GetSheetData);
     }
 }

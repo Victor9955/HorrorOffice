@@ -4,6 +4,7 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using TMPro;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
@@ -12,6 +13,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using ReadOnlyAttribute = HuntroxGames.Utils.ReadOnlyAttribute;
 
 public class LevelSender : MonoBehaviour
 {
@@ -40,6 +42,7 @@ public class LevelSender : MonoBehaviour
     public event Action OnEndGame;
 
     int endDayIndex = 0;
+    int fileNum = 0;
 
     private void Start()
     {
@@ -50,6 +53,24 @@ public class LevelSender : MonoBehaviour
         BeginDay();
         fullscreenVignette.SetFloat("_EyesClosed", 1f);
         fullscreenVignette.SetFloat("_Smoothness", 1f);
+        Singleton.Instance<GameManager>().OnFileSpawned += Add;
+        fileSorting.OnFileDroppedEvent += Sub;
+    }
+
+    private void OnDestroy()
+    {
+        Singleton.Instance<GameManager>().OnFileSpawned -= Add;
+        fileSorting.OnFileDroppedEvent -= Sub;
+    }
+
+    void Add()
+    {
+        fileNum++;
+    }
+
+    void Sub(Binder binder,SheetData sheetData)
+    {
+        fileNum--;
     }
 
     public void BeginDay()
@@ -57,11 +78,18 @@ public class LevelSender : MonoBehaviour
         if (current == null) // when current = null current level is finished
         {
             current = days[day];
-            current.startEvent?.Invoke();
             fileSorting._binderDataList = current.binders;
             fileSorting.SetupBinders();
             endDayIndex = current.endDayScene;
             OnInitDatabase?.Invoke(current);
+        }
+    }
+
+    public void OnPCLogIn()
+    {
+        if(current != null)
+        {
+            current.startEvent?.Invoke();
         }
     }
 
@@ -86,7 +114,7 @@ public class LevelSender : MonoBehaviour
             yield return new WaitForSeconds(UnityEngine.Random.Range(randomWaitTimeForCharacter.x, randomWaitTimeForCharacter.y));
         }
 
-        yield return new WaitUntil(() => fileSorting.fileToSort == 0);
+        yield return new WaitUntil(() => fileNum == 0);
         endShiftButton.interactable = true;
         endShiftImage.color = Color.red;
         current = null;
@@ -130,5 +158,12 @@ public class LevelSender : MonoBehaviour
             endShiftText.text = "End Shift";
             endShiftImage.color = Color.gray;
         }
+    }
+
+    [ConsoleCommand("Force")]
+    void ForceChangeDay()
+    {
+        day = Mathf.Clamp(day + 1, 0, days.Count);
+        SceneManager.LoadScene(endDayIndex);
     }
 }

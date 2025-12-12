@@ -62,26 +62,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: dbce6c9b666fec84a981b7bd4d18f456, type: 2}
     - {fileID: 11400000, guid: 6ce100c130abe5649b18c0ae16700baf, type: 2}
     dayDialogue:
-      DefaultDialogueKey: ESTEBAN_DayOne
-      dialogs:
-        _serializedList: []
-    finishedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
-    sheets: []
-    dayDialogue:
-      DefaultDialogueKey: CONNIE_DayOne
-      dialogs:
-        _serializedList: []
-    finishedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
-    sheets:
-    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
-    dayDialogue:
-      DefaultDialogueKey: LI_DayOne
+      DefaultDialogueKey: ESTEBAN_One
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -90,4 +71,4 @@ MonoBehaviour:
   endEvent:
     m_PersistentCalls:
       m_Calls: []
-  endDayScene: 1
+  endDayScene: 2

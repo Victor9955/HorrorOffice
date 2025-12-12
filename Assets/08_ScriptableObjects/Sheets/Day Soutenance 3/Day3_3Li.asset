@@ -10,13 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99a740d1a2d7566498b6f836d99eb043, type: 3}
-  m_Name: Day3Abbie
+  m_Name: Day3_3Li
   m_EditorClassIdentifier: 
   character: {fileID: 0}
-  sprite: {fileID: 21300000, guid: c4f335da1e829744b8cca65676df8bc1, type: 3}
-  rightBinder: 2
+  sprite: {fileID: 21300000, guid: cf730f184fe9655458fc39ea3a4f4c93, type: 3}
+  rightBinder: 1
   actions:
     _serializedList:
+    - Key: 2
+      Value:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+            m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+            m_MethodName: SendMail
+            m_Mode: 2
+            m_Arguments:
+              m_ObjectArgument: {fileID: 11400000, guid: 71fed08b6fcf0a049ae0ab266dcaabb0, type: 2}
+              m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
     - Key: 3
       Value:
         m_PersistentCalls:
@@ -26,38 +42,21 @@ MonoBehaviour:
             m_MethodName: SendMail
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: 7bfe491bc3d46594ea2bcbc040de5f24, type: 2}
+              m_ObjectArgument: {fileID: 11400000, guid: 71fed08b6fcf0a049ae0ab266dcaabb0, type: 2}
               m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
               m_IntArgument: 0
               m_FloatArgument: 0
               m_StringArgument: 
               m_BoolArgument: 0
             m_CallState: 2
-    - Key: 1
-      Value:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
-            m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-            m_MethodName: SendMail
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: 0d659b3c21ef23c44bc9db83032e711f, type: 2}
-              m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-  charachterId: RD-5973-J92
-  characterName: Employe Abigail Levi
-  pausesNumber: 0
-  beginTime: x
-  breakfastTime: x
-  medicineTime: 
+  charachterId: IO-8732-V93
+  characterName: Li Lushan
+  departement: Internal Operations
+  service: Legal
+  position: Senior Manager
   HGrade: A
   EGrade: C
   AGrade: B
   LGrade: A
-  TGrade: B
-  HGradeTwo: E
+  TGrade: A
+  HGradeTwo: C

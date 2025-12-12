@@ -27,8 +27,7 @@ public class EmployeeFile : Draggable
         set { _isDraggable = value; }
     }
 
-    public Action<Binder,SheetData> OnFileDroppedInSorter;
-    public UnityEvent OnDroppedUEvent;
+    public Action<Binder,EmployeeFile> OnFileDroppedInSorter;
     public Color FileColor
     {
         get => SpriteRend.color;
@@ -109,8 +108,7 @@ public class EmployeeFile : Draggable
         if (fileBinder != null) //dropped on anything where it can be dropped
         {
             fileBinder.Drop(this);
-            OnFileDroppedInSorter?.Invoke(fileBinder.BinderType, _sheetData);
-            OnDroppedUEvent?.Invoke();
+            OnFileDroppedInSorter?.Invoke(fileBinder.BinderType, this);
             gameObject.SetActive(!_getsConsumedOnCorrectDrop);
         }
         else

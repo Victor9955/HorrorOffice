@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   sprite: {fileID: 21300000, guid: ee51e3945c373dd4da3d7f69e16134d7, type: 3}
-  rightBinder: 2
+  rightBinder: 3
   actions:
     _serializedList:
-    - Key: 3
+    - Key: 2
       Value:
         m_PersistentCalls:
           m_Calls:
@@ -26,7 +26,7 @@ MonoBehaviour:
             m_MethodName: SendMail
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: 7bfe491bc3d46594ea2bcbc040de5f24, type: 2}
+              m_ObjectArgument: {fileID: 11400000, guid: 4bc23a64b2f12df449643fe8e087dc86, type: 2}
               m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
               m_IntArgument: 0
               m_FloatArgument: 0
@@ -35,10 +35,9 @@ MonoBehaviour:
             m_CallState: 2
   charachterId: IO-3164-A36
   characterName: Mathieu Derk
-  pausesNumber: 0
-  beginTime: x
-  breakfastTime: x
-  medicineTime: 
+  departement: 
+  service: 
+  position: 
   HGrade: C
   EGrade: B
   AGrade: D
