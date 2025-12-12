@@ -11,6 +11,7 @@ using UnityEngine.UI;
 
 public class SearchingApp : MonoBehaviour, IApp
 {
+    [SerializeField] GameplayEventSender gameplayEventSender;
     [SerializeField] int size;
     [SerializeField] RectTransform contentAncor;
     [SerializeField] GridLayoutGroup content;
@@ -35,6 +36,11 @@ public class SearchingApp : MonoBehaviour, IApp
 
     private void Start()
     {
+        if(gameplayEventSender != null)
+        {
+            gameplayEventSender.DesactivateDataBaseEvent += () => gameObject.SetActive(false);
+        }
+
         contentAncor.sizeDelta = new Vector2(0,size * content.cellSize.y);
         RandomCode(size);
     }
