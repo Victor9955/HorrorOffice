@@ -6,8 +6,11 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(fileName = "MailSender", menuName = "Scriptable Objects/MailSender")]
 public class GameplayEventSender : ScriptableObject
 {
-    public Action<MailData> OnSendMail;
-    public Action AddHelpFullness;
+    public event Action<MailData> OnSendMail;
+    public event Action<int> AddHelpfulnessEvent;
+    public event Action<int> AddTrustworthinessEvent;
+    public event Action<int> AddAuthenticityEvent;
+    public event Action<int> AddEmpathyEvent;
     public async void SendMail(MailData mail)
     {
         MailData current = mail;
@@ -30,13 +33,11 @@ public class GameplayEventSender : ScriptableObject
         while (current != null);
     }
 
-    public void AddHelpfullness()
-    {
-        AddHelpFullness?.Invoke();
-    }
+    public void AddHelpfulness(int amount) => AddHelpfulnessEvent?.Invoke(amount);
 
-    public void LoadScene(int index)
-    {
-        SceneManager.LoadScene(index);
-    }
+    public void LoadScene(int index) => SceneManager.LoadScene(index);
+
+    public void AddTrustworthiness(int amount) => AddTrustworthinessEvent?.Invoke(amount);
+    public void AddAuthenticity(int amount) => AddAuthenticityEvent?.Invoke(amount);
+    public void AddEmpathy(int amount) => AddEmpathyEvent?.Invoke(amount);
 }

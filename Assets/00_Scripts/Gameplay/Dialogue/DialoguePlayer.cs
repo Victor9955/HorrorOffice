@@ -3,6 +3,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPEffects.Components;
 using TMPro;
 using UnityEngine;
@@ -96,6 +97,8 @@ public class DialoguePlayer : MonoBehaviour
         }
     }
 
+    Tweener fade;
+
     public void Say()
     {
         if(doHideUI)
@@ -107,11 +110,16 @@ public class DialoguePlayer : MonoBehaviour
             dialogueUI.gameObject.SetActive(true);
             dialogueTMP.text = "<wave>...";
             spawnEffect.transitionRate = 1f;
-            DOVirtual.Float(1f, 0f, fadeTime, (t) =>
+            fade = DOVirtual.Float(1f, 0f, fadeTime, (t) =>
             {
                 spawnEffect.transitionRate = t;
             }).OnComplete(() => spawnEffect.enabled = false);
         }
+    }
+
+    private void OnDestroy()
+    {
+        fade.Kill();
     }
 
     public void SetFinished() => finished = true;
@@ -122,6 +130,7 @@ public class DialoguePlayer : MonoBehaviour
     {
         IsTalking = true;
         finished = false;
+        FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.CanFocused = false);
         foreach (string s in phrases)
         {
             writer.StartWriter();
@@ -133,6 +142,7 @@ public class DialoguePlayer : MonoBehaviour
             finished = false;
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
         }
+        FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.CanFocused = true);
         IsTalking = false;
     }
 }
