@@ -10,7 +10,7 @@ public partial class SpriteChange : TMPCommand
 {
     public override TagType TagType => TagType.Index;
     public override bool ExecuteInstantly => false;
-    public override bool ExecuteOnSkip => false;
+    public override bool ExecuteOnSkip => true;
     public override bool ExecuteRepeatable => true;
 
 #if UNITY_EDITOR

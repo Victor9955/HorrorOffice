@@ -13,12 +13,20 @@ MonoBehaviour:
   m_Name: Devi
   m_EditorClassIdentifier: 
   characterStaticInfo:
-    name: Devika Maraji
+    name: Devika
     dialogueKey: DEVI
     sprites:
       _serializedList:
       - Key: Default
         Value: {fileID: 21300000, guid: 559696bc1729a864ab28d5e2bc7a516c, type: 3}
+      - Key: AngryTinfoil
+        Value: {fileID: 21300000, guid: 37da7e2f172279149af62c8f0cfdf112, type: 3}
+      - Key: HappyTinfoil
+        Value: {fileID: 21300000, guid: fb5c569a6ab82c841855e73d9274922a, type: 3}
+      - Key: ShockTinfoil
+        Value: {fileID: 21300000, guid: 8b257e2e9934a23468e978f4534dac4b, type: 3}
+      - Key: DefaultTinfoil
+        Value: {fileID: 21300000, guid: 36356006bfa4cbf4a9a0fab6f47b297b, type: 3}
       - Key: Angry
         Value: {fileID: 21300000, guid: ae285d1b9254bb94896a2d46434baaad, type: 3}
       - Key: Happy
@@ -30,7 +38,7 @@ MonoBehaviour:
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
     _enterDuration: 3
-    _exitDuration: 2
+    _exitDuration: 3
     _walkMagnitude: 0.1
     _walkFrequency: 5
     _animCurve:
@@ -60,5 +68,5 @@ MonoBehaviour:
     saySpeed: 0.05
     timeBetweenPhrases: 1.25
     waitTime: 5
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    font: {fileID: 11400000, guid: 409f631f7f790d6428dcd3b21e674cee, type: 2}
     mailPP: {fileID: 0}

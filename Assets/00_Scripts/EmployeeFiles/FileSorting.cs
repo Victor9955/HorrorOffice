@@ -30,7 +30,6 @@ public class FileSorting : MonoBehaviour
     //[SerializeField] private UnityEvent<bool> OnSetLockEvent;
     //[SerializeField] private UnityEvent OnMatchCheckEvent;
 
-    private bool _canDropFile;
     private EmployeeFile _currentFile;
     private List<FileBinder> _binderList = new();
     private Stack<EmployeeFile> _activeFileList = new();
@@ -50,7 +49,6 @@ public class FileSorting : MonoBehaviour
 
     private void Init()
     {
-        _characterDisplay.OnCharacterEntered += () => _canDropFile = true;
         _characterDisplay.OnCharacterExited += () => SetBindersLockState(true);
         SetupBinders();
         _binderList.Clear();
@@ -83,34 +81,31 @@ public class FileSorting : MonoBehaviour
         {
             file.isUnlocked = isUnlocked;
         }
-
-        if(_currentFile != null)
-        {
-            if (isUnlocked) _currentFile.OnFileDroppedInSorter += OnFileDropped;
-            else _currentFile.OnFileDroppedInSorter -= OnFileDropped;
-        }
     }
 
     #endregion
+
+
     public void OnNewFile(SheetData data)
     {
         _currentFile = Instantiate(_fileToSortPrefab, _filePoolTr);
 
         _currentFile.transform.rotation = _filePoolTr.rotation * Quaternion.Euler(0,0, Random.Range(_fileStackRotOffset.x,_fileStackRotOffset.y));
         _currentFile.transform.position = _filePoolTr.position;
-        _currentFile.transform.DOShakeScale(0.5f,0.5f,5);
         if (_activeFileList.TryPeek(out EmployeeFile employeeFile))
         {
             _currentFile.transform.position = employeeFile.transform.position + Vector3.up * _fileStackingDistance;
         }
         _activeFileList.Push(_currentFile);
         _currentFile.OnPickup += FileStackRemoveTopFile;
+        _currentFile.OnFileDroppedInSorter += OnFileDropped;
 
         _currentFile.Init(data);
 
         SetBindersLockState(true);
         Singleton.Instance<GameManager>().OnFileSpawned?.Invoke();
     }
+
     private void FileStackRemoveTopFile()
     {
         if(_activeFileList.TryPop(out EmployeeFile employeeFile))
@@ -118,9 +113,10 @@ public class FileSorting : MonoBehaviour
             employeeFile.OnPickup -= FileStackRemoveTopFile;
         }
     }
-    private void OnFileDropped(Binder binderType, SheetData sheetData)
+    private void OnFileDropped(Binder binderType,EmployeeFile employeFile)
     {
         SetBindersLockState(false);
-        OnFileDroppedEvent?.Invoke(binderType, sheetData);
+        employeFile.OnFileDroppedInSorter -= OnFileDropped;
+        OnFileDroppedEvent?.Invoke(binderType, employeFile.GetSheetData);
     }
 }

@@ -24,6 +24,7 @@ public class Singleton : MonoBehaviour
             {
                 if(singletons.ContainsKey(singleton.GetType()))
                 {
+                    singletons[singleton.GetType()] = cash;
                     Debug.LogAssertion("Singleton " + singleton.GetType().Name + " is no alone please kill the other one");
                     continue;
                 }

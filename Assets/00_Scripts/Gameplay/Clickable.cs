@@ -24,6 +24,8 @@ public class Clickable : MonoBehaviour
     private bool IsCamFocused => _camMovement.focusState != FocusState.Unfocused;
     private bool IsChangingFocus => _camMovement.ischangingFocus;
 
+    public bool CanFocused = true;
+
     // cam info
     private Vector3 _position;
     private Vector3 _dir;
@@ -55,6 +57,7 @@ public class Clickable : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (!CanFocused) return;
         if (!IsCamFocused && !IsChangingFocus)
         {
             HUDController.instance.SetThoughtActive(true);

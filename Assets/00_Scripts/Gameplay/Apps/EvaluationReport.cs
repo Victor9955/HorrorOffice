@@ -8,7 +8,8 @@ class Stat
 {
     public int maxGrade;
     [SerializeField] TextMeshProUGUI tmp;
-    [HideInInspector] public int value;
+    [HideInInspector] public int value { get { return _value; } set { _value = Mathf.Clamp(_value + value, 0, maxGrade); } }
+    private int _value;
 
     public void ShowGrade(List<string> grades)
     {
@@ -44,6 +45,10 @@ public class EvaluationReport : MonoBehaviour
     {
         Liveliness.value = 0;
         levelSender.OnEndDay += OnEndDay;
+        gameplayEventSender.AddAuthenticityEvent += (amount) => { Authenticity.value += amount; };
+        gameplayEventSender.AddHelpfulnessEvent += (amount) => { Helpfulness.value += amount; };
+        gameplayEventSender.AddEmpathyEvent += (amount) => { Empathy.value += amount; };
+        gameplayEventSender.AddTrustworthinessEvent += (amount) => { Trustworthiness.value += amount; };
     }
 
     private void OnEndDay()
@@ -64,7 +69,7 @@ public class EvaluationReport : MonoBehaviour
     {
         if (LevelSender.day == 0)
         {
-            Hopefulness.value = 0;
+            Hopefulness.value = Hopefulness.maxGrade / 2;
         }
         else
         {
@@ -72,7 +77,6 @@ public class EvaluationReport : MonoBehaviour
             Hopefulness.value = Mathf.FloorToInt((lastHopefulness + (0.5f - currentGrade)) * Hopefulness.maxGrade);
             lastHopefulness = 0.5f - currentGrade;
         }
-
 
         Helpfulness.ShowGrade(grades);
         Empathy.ShowGrade(grades);
