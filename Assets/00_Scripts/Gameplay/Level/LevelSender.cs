@@ -101,6 +101,7 @@ public class LevelSender : MonoBehaviour
     IEnumerator PlayLevel()
     {
         OnBeginDay?.Invoke(current);
+        current.startFileSortingEvent?.Invoke();
         foreach (var levelAction in current.actions)
         {
             //yield return new WaitUntil(() => levelAction.beginCondition);
