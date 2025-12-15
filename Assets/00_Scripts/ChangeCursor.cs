@@ -37,7 +37,7 @@ public class ChangeCursor : MonoBehaviour
         }
         int uiAmount = 0;
         int notUIAmount = 0;
-        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
+        for (int index = 0; index < 1; index++)
         {
             RaycastResult curRaysastResult = eventSystemRaysastResults[index];
             if (curRaysastResult.gameObject.layer == UILayer)
