@@ -58,6 +58,7 @@ public void SetThoughtActive(bool active)
         .OnComplete(() =>
         {
             if (!_cam.ischangingFocus) _charThoughtObj.gameObject.SetActive(active);
+            _cam.ischangingFocus = false;
         });
     }
 }
