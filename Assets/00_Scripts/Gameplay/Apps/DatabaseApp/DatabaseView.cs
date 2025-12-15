@@ -30,5 +30,8 @@ public class DatabaseView : MonoBehaviour
         _grades[3].text = data.LGrade;
         _grades[4].text = data.TGrade;
         _grades[5].text = data.HGradeTwo;
+        characterDepartement.input.text = characterDepartement.before + data.departement;
+        characterService.input.text = characterService.before + data.service;
+        characterPosition.input.text = characterPosition.before + data.position;
     }
 }

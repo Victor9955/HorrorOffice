@@ -25,6 +25,7 @@ public struct SheetAction
 public class DayData : ScriptableObject
 {
     public UnityEvent startEvent;
+    public UnityEvent startFileSortingEvent;
 
     public List<Binder> binders;
     public List<SheetAction> actions;

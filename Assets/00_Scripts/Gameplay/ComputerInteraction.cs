@@ -22,6 +22,7 @@ public class ComputerInteraction : MonoBehaviour
     [SerializeField] List<MeshRenderer> computerMeshs;
     [SerializeField] InputAction quitAction;
     [SerializeField] Collider interactionCol;
+    [SerializeField] UnityEvent OnLoggedIn;
     List<Material> materials = new();
 
     CameraMovement cam;

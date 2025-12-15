@@ -147,7 +147,6 @@ public class CameraMovement : MonoBehaviour
     {
         if (ischangingFocus) return;
 
-        Debug.Log("Focus State : " + focusState.ToString());
         switch (focusState)
         {
             case FocusState.Unfocused:

@@ -28,7 +28,7 @@ MonoBehaviour:
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
     _enterDuration: 3
-    _exitDuration: 2
+    _exitDuration: 3
     _walkMagnitude: 0.1
     _walkFrequency: 5
     _animCurve:
@@ -58,5 +58,5 @@ MonoBehaviour:
     saySpeed: 0.05
     timeBetweenPhrases: 1.25
     waitTime: 5
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    font: {fileID: 11400000, guid: 589094e796033f14b883b94559fd017f, type: 2}
     mailPP: {fileID: 0}

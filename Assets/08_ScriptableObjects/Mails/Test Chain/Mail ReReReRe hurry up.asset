@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
+  m_Name: Mail ReReReRe hurry up
+  m_EditorClassIdentifier: 
+  title: ReReReRe hurry up
+  character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
+  hasNextMail: 1
+  hasDelay: 1
+  hasRandomDelay: 0
+  delay: 4
+  maxDelay: 0
+  mailText: "<size=12>Greetings,\r\n\r\nHere is the list of information we require
+    you to verify on today\u2019s report forms.\r\n\r\nReminder: employees not fulfilling
+    any of these requirements should be given a <b>warning</b>.\r\n\r\nSCHEDULE\r\n\r\n-
+    Arrival time is strictly Before <b>9 AM</b>.\r\n- Departure time is either at
+    or after <b>4:30 PM</b>.\r\n- No more than <b>1 hour</b> of <b>total break time</b>.\r\n-
+    No more than <b>30 minutes</b> of <b>consecutive break time</b>.\r\n\r\nSELF-RATING\r\n\r\n-
+    At least <b>1 A\u2019s</b> in any given <b>H.E.A.L.T.H</b>. categories.\r\n-
+    No more than <b>3 E's</b> in any given <b>H.E.A.L.T.H.</b> categories.\r\n\r\n<b>[THIS
+    IS AN AUTOMATED MESSAGE. PLEASE DO NOT REPLY.]</b>"
+  nextMail: {fileID: 11400000, guid: a10d96971cdb1824b98c61680d1d4752, type: 2}

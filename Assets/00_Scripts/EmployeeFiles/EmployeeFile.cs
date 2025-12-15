@@ -10,6 +10,7 @@ public class EmployeeFile : Draggable
     public SheetData GetSheetData => _sheetData;
 
     [SerializeField] private SpriteRenderer _spriteRend;
+    [SerializeField] private Transform ancor;
     [SerializeField] private float _deskHeight = 0.1f;
     private SpriteRenderer SpriteRend
     {
@@ -26,8 +27,7 @@ public class EmployeeFile : Draggable
         set { _isDraggable = value; }
     }
 
-    public Action<Binder,SheetData> OnFileDroppedInSorter;
-    public UnityEvent OnDroppedUEvent;
+    public Action<Binder,EmployeeFile> OnFileDroppedInSorter;
     public Color FileColor
     {
         get => SpriteRend.color;
@@ -38,6 +38,16 @@ public class EmployeeFile : Draggable
     }
 
     DragInfo lastOnDeskInfo;
+
+    private void Start()
+    {
+        Vector3 old = ancor.position;
+        ancor.position += Vector3.up * 3.5f;
+        ancor.DOMove(old, 2f).SetEase(Ease.InExpo).OnComplete(() =>
+        {
+            ancor.DOShakeScale(0.35f,0.1f).SetEase(Ease.OutElastic);
+        });
+    }
 
     public void Init(SheetData data)
     {
@@ -98,8 +108,7 @@ public class EmployeeFile : Draggable
         if (fileBinder != null) //dropped on anything where it can be dropped
         {
             fileBinder.Drop(this);
-            OnFileDroppedInSorter?.Invoke(fileBinder.BinderType, _sheetData);
-            OnDroppedUEvent?.Invoke();
+            OnFileDroppedInSorter?.Invoke(fileBinder.BinderType, this);
             gameObject.SetActive(!_getsConsumedOnCorrectDrop);
         }
         else

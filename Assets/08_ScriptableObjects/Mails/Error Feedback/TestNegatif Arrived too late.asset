@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
+  m_Name: TestNegatif Arrived too late
+  m_EditorClassIdentifier: 
+  title: 'Warning: Filling Error'
+  character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
+  hasNextMail: 0
+  hasDelay: 0
+  hasRandomDelay: 0
+  delay: 0
+  maxDelay: 0
+  mailText: '<size=12>Greetings,
+
+
+    It has come to our notice that you''ve made
+    a S.E.R.F. sorting mistake.
+
+
+    REASON: Employee arrived <b>after</b> 9:00.
+
+
+    Please
+    try to remain focused during your future endeavours.
+
+
+    <b>[THIS IS AN AUTOMATED
+    MESSAGE. DO NOT REPLY.]</b>'
+  nextMail: {fileID: 0}

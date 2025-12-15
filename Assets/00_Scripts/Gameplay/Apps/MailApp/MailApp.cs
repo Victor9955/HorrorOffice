@@ -12,7 +12,8 @@ public class MailApp : MonoBehaviour, IApp
     [SerializeField] Mail mailPrefab;
     [SerializeField] MailView mailView;
     [SerializeField] RectTransform mailViewRect;
-    [SerializeField] RectTransform mailViewAncor;
+    [SerializeField] RectTransform mailSpawnAncor;
+    [SerializeField] VerticalLayoutGroup mailLayoutGroup;
     [SerializeField] RectTransform notification;
     [SerializeField] GameplayEventSender gameplayEvents;
     [SerializeField] FMODUnity.EventReference _mailNotificationSound;
@@ -34,11 +35,14 @@ public class MailApp : MonoBehaviour, IApp
 
     void ReiceiveMail(MailData mailData)
     {
-        Mail mailCash = Instantiate(mailPrefab,mailViewAncor);
+        Mail mailCash = Instantiate(mailPrefab,mailSpawnAncor);
         reiceivedMail.Add(mailCash,mailData);
         mailCash.mailData = mailData;
         mailCash.mailAppRef = this;
-        if(notifTween == null)
+        mailSpawnAncor.ForceUpdateRectTransforms();
+        mailLayoutGroup.CalculateLayoutInputHorizontal();
+        mailLayoutGroup.CalculateLayoutInputVertical();
+        if (notifTween == null)
         {
             notifTween = notification.DOShakeRotation(0.25f, Vector3.forward * 20f);
             notifTween.SetLoops(-1);
@@ -57,6 +61,22 @@ public class MailApp : MonoBehaviour, IApp
             if(seenMail == 0)
             {
                 notification.eulerAngles = new Vector3(0,0, startRotationZ);
+                notifTween.Kill();
+            }
+            mailView.Show(mailCash);
+            RecalculateSize();
+        }
+    }
+
+    public void OpenMail(MailData mailData)
+    {
+        Mail mail = reiceivedMail.Keys.First((key) => reiceivedMail[key] == mailData);
+        if (reiceivedMail.TryGetValue(mail, out MailData mailCash))
+        {
+            int seenMail = reiceivedMail.Keys.Where((m) => m.wasOpened).Count();
+            if (seenMail == 0)
+            {
+                notification.eulerAngles = new Vector3(0, 0, startRotationZ);
                 notifTween.Kill();
             }
             mailView.Show(mailCash);
@@ -84,6 +104,8 @@ public class MailApp : MonoBehaviour, IApp
 
     public void Open()
     {
-
+        Vector2 size = mailSpawnAncor.sizeDelta;
+        mailSpawnAncor.sizeDelta.Set(0.0001f, size.y);
+        mailSpawnAncor.sizeDelta = size;
     }
 }
