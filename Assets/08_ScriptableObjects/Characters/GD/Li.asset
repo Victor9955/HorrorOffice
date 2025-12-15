@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Li
   m_EditorClassIdentifier: 
   characterStaticInfo:
-    name: Lushan Li
+    name: Li
     dialogueKey: LI
     sprites:
       _serializedList:
@@ -25,9 +25,9 @@ MonoBehaviour:
     givePaperSprite: {fileID: 0}
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
-    _enterDuration: 2
+    _enterDuration: 3
     _exitDuration: 3
-    _walkMagnitude: 0.3
+    _walkMagnitude: 0.1
     _walkFrequency: 5
     _animCurve:
       serializedVersion: 2
@@ -53,8 +53,8 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    saySpeed: 0.05
+    saySpeed: 0.04
     timeBetweenPhrases: 1.25
     waitTime: 5
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    font: {fileID: 11400000, guid: d2003993a62edba4480468a824d1f12d, type: 2}
     mailPP: {fileID: 0}

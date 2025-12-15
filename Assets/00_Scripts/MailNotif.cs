@@ -7,9 +7,15 @@ using UnityEngine;
 public class MailNotif : MonoBehaviour
 {
     [SerializeField] TMPInput input;
+    [SerializeField] float notificationTime;
     [SerializeField] GameplayEventSender gameplayEventSender;
     [SerializeField] RectTransform ancor;
+    [SerializeField] MailApp mailApp;
+    [SerializeField] WindowAnimation windowMail;
+    [SerializeField] List<WindowAnimation> appToClose;
+    
     float ancorPosX;
+    MailData current;
 
     Queue<MailData> queuedMail = new();
 
@@ -37,12 +43,13 @@ public class MailNotif : MonoBehaviour
     bool isShowing = false;
     void ShowMail(MailData mail)
     {
+        current = mail;
         isShowing = true;
         ancor.gameObject.SetActive(true);
         ancor.anchoredPosition = new Vector2(ancorPosX + 250, ancor.anchoredPosition.y);
         ancor.DOAnchorPosX(ancorPosX, 0.5f).SetEase(Ease.InExpo).OnComplete(() =>
         {
-            DOVirtual.DelayedCall(1f, () =>
+            DOVirtual.DelayedCall(notificationTime, () =>
             {
                 ancor.DOAnchorPosX(ancorPosX + 250, 0.5f).SetEase(Ease.InExpo).OnComplete(() =>
                 {
@@ -59,5 +66,12 @@ public class MailNotif : MonoBehaviour
             });
         });
         input.input.text = input.before + mail.character.staticInfo.name;
+    }
+
+    public void OpenMail()
+    {
+        windowMail.Open();
+        appToClose.ForEach((window) => window.Close());
+        mailApp.OpenMail(current);
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Devi
   m_EditorClassIdentifier: 
   characterStaticInfo:
-    name: Devika Maraji
+    name: Devika
     dialogueKey: DEVI
     sprites:
       _serializedList:
@@ -38,7 +38,7 @@ MonoBehaviour:
     lookOffset: {x: 0, y: 0}
     lastBinder: 0
     _enterDuration: 3
-    _exitDuration: 2
+    _exitDuration: 3
     _walkMagnitude: 0.1
     _walkFrequency: 5
     _animCurve:
@@ -68,5 +68,5 @@ MonoBehaviour:
     saySpeed: 0.05
     timeBetweenPhrases: 1.25
     waitTime: 5
-    font: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    font: {fileID: 11400000, guid: 409f631f7f790d6428dcd3b21e674cee, type: 2}
     mailPP: {fileID: 0}

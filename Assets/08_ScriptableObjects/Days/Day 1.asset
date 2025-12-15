@@ -51,6 +51,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  startFileSortingEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+        m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
+        m_MethodName: SendMail
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a144ae3af6f05cc4192659de5fc83395, type: 2}
+          m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   binders: 0300000002000000
   actions:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
@@ -62,26 +77,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: dbce6c9b666fec84a981b7bd4d18f456, type: 2}
     - {fileID: 11400000, guid: 6ce100c130abe5649b18c0ae16700baf, type: 2}
     dayDialogue:
-      DefaultDialogueKey: ESTEBAN_DayOne
-      dialogs:
-        _serializedList: []
-    finishedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
-    sheets: []
-    dayDialogue:
-      DefaultDialogueKey: CONNIE_DayOne
-      dialogs:
-        _serializedList: []
-    finishedEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  - character: {fileID: 11400000, guid: 500af26356f3aa74296a0c948a80b26d, type: 2}
-    sheets:
-    - {fileID: 11400000, guid: 89dcc52bbdadad44aae8b20e3169cfcb, type: 2}
-    dayDialogue:
-      DefaultDialogueKey: LI_DayOne
+      DefaultDialogueKey: ESTEBAN_One
       dialogs:
         _serializedList: []
     finishedEvent:
@@ -90,4 +86,4 @@ MonoBehaviour:
   endEvent:
     m_PersistentCalls:
       m_Calls: []
-  endDayScene: 1
+  endDayScene: 2

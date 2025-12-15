@@ -12,21 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
   m_Name: J3 - Mail 2
   m_EditorClassIdentifier: 
-  title: Daily S.E.R.F Validation Checklist
+  title: <color=#A94242><b>Daily S.E.R.F Validation Checklist
   character: {fileID: 11400000, guid: 6e731307e1799234cada5ca4daea2a06, type: 2}
-  hasDelay: 0
+  hasNextMail: 0
+  hasDelay: 1
   hasRandomDelay: 0
-  delay: 0
+  delay: 15
   maxDelay: 0
-  mailText: "<size=12>Greetings,\r\n\r\nHere is the list of information we require
+  mailText: "<size=16>Greetings,\r\n\r\nHere is the list of information we require
     you to verify on today\u2019s report forms.\r\n\r\nReminder: employees not fulfilling
     any of these requirements should be given a <b>warning</b>.\r\n\r\nSCHEDULE\r\n\r\n-
-    Arrival time is strictly between <b>8:30 AM</b> and <b>9 AM</b>.\r\n- Departure
-    time is either at or after <b>4:30 PM</b>.\r\n- No more than <b>1 hour</b> of
-    <b>total break time</b>.\r\n- No more than <b>30 minutes</b> of <b>consecutive
-    break time</b>.\r\n\r\nSELF-RATING\r\n\r\n- At least <b>1 A\u2019s</b> in any
-    given <b>H.E.A.L.T.H</b>. categories.\r\n- No more than <b>3 E's</b> in any given
-    <b>H.E.A.L.T.H.</b> categories.\r\n\r\nSPECIAL RULE\r\n\r\n- Employees holding
-    at least <b>3 A\u2019s</b>, and no more than <b>2 E\u2019s</b> (regular employees)
-    or <b>1 E\u2019s</b> (managers) should be granted a growth.\r\n\r\n<b>[THIS IS
-    AN AUTOMATED MESSAGE. PLEASE DO NOT REPLY.]</b>"
+    Arrival time is strictly Before <b>9 AM</b>\r\n- Departure time is either at
+    or after <b>4:30 PM</b>.\r\n- No more than <b>1 hour</b> of <b>total break time</b>.\r\n-
+    No more than <b>30 minutes</b> of <b>consecutive break time</b>.\r\n\r\nSELF-RATING\r\n\r\n-
+    At least <b>1 A\u2019s</b> in any given <b>H.E.A.L.T.H</b>. categories.\r\n-
+    No more than <b>3 E's</b> in any given <b>H.E.A.L.T.H.</b> categories.\r\n\r\nSPECIAL
+    RULE\r\n\r\n- Employees holding at least <b>2 A\u2019s</b>, and no more than
+    <b>1 E</b> should be granted a <b>growth</b>\n\n- Managers holding at least <b>3
+    A\u2019s</b>, and no more than <b>2 E</b> should be granted a <b>growth</b>\n\r\n\r\n<b>[THIS
+    IS AN AUTOMATED MESSAGE. PLEASE DO NOT REPLY.]</b>"
+  nextMail: {fileID: 0}

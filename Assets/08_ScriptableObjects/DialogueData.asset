@@ -48,138 +48,189 @@ MonoBehaviour:
       Value:
       - "\u2026What? Is there something on my face?"
       - 
-    - Key: ESTEBAN_DayOne
+    - Key: ESTEBAN_One
       Value:
-      - ".<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.25>\n\n\xA4Ahem...\n\n\xA4<!sprite=Pissed>.<!wait=0.25>.<!wait=0.25>.\n\n\xA4Backlog.<!drop>"
+      - "So...\n\n\xA4<!sprite=Smile>How are y-<!wait=0.2>you d<!wait=0.5>...\n\n\xA4<!sprite=Default><!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!sprite=Pissed>Never
+        mind.\n\n\xA4<!drop>Backlog."
       - 
-    - Key: ESTEBAN_DayTwo
+    - Key: ESTEBAN_Two
       Value:
-      - ".<!wait=0.25>.<!wait=0.25>.\n\n\xA4So...\n\n\xA4.<!wait=0.25>.<!wait=0.25>.\n\n\xA4<!sprite=Pissed><!wait=0.25>.<!wait=0.25>.<!wait=0.25>.<!wait=0.5>Backlog.<!drop>"
+      - "Backlog.<!drop>\n\n\xA4<!sprite=Smile>Also,<!wait=0.5> I-<!wait=0.5> I hope
+        you're...\n\n\xA4<!sprite=Default><!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!sprite=Pissed>Never
+        mind."
       - 
-    - Key: ESTEBAN_DayThree
+    - Key: ESTEBAN_Three
       Value:
-      - "Backlog.<!drop>\n\n\xA4<!sprite=Happy>And...\n\n\xA4...\n\n\xA4<!sprite=Default>...\n\n\xA4<!sprite=Pissed>Nevermind."
+      - TODO
       - 
-    - Key: LI_DayOne
+    - Key: ESTEBAN_Four
       Value:
-      - "Oh.<!wait=0.75><!sprite=Glasses> You\u2019re new.<!drop>\n\n\xA4Uh\u2026\n\n\xA4<!sprite=Default>Hi."
+      - TODO
       - 
-    - Key: LI_DayTwo
+    - Key: LI_One
       Value:
-      - "Today's a great day!<!wait=0,5> \n\n\xA4<!sprite=Glasses>I finally achieved
-        the 150 new-punton fusion.<!wait=0,5>\n\n\xA4<!sprite=Default>No need to
-        thank me,<!wait=1> I'm just doing my job.<!wait=1>\n\n\xA4What?<!wait=0,5>\n\n\xA4What
-        do you mean you don't know what a \"new-punton\" is?<!wait=1>\n\n\xA4<!sprite=Glasses>A
-        new-punton is the equivalent of 2000 old-punton.<!wait=1.5> \n\n\xA4Obviously.<!wait=0.5>.<!wait=0.5>.<!wait=0.5><!sprite=Glasses>\n\n\xA4<!sprite=Default>How
-        did you not know that?<!wait=1><!sprite=Default><!drop>"
+      - "Oh.<!wait=0.75> You\u2019re<!sprite=Glasses> new.<!sprite=Default>\n\n\xA4Uh\u2026\n\n\xA4<!sprite=Glasses>Hi.<!drop>"
       - 
-    - Key: CONNIE_DayOne
+    - Key: LI_Two
       Value:
-      - "<!sprite=Happy>Hey, fella!\n\n\xA4<!sprite=Default>You\u2019re new here,<!wait=0.5>\nam
-        I right?\n\n\xA4\u2026<!wait=0.5>eh,<!wait=0.5> who am I kidding.\n\n\xA4<!sprite=Happy>'Whole
-        floor knows about\nour little newcomer!\n\n\xA4Sorry,<!wait=0.5> 'guess that
-        wasn\u2019t the\nwarm welcome you expected\u2026\n\n\xA4<!sprite=Default>Ah,
-        don\u2019t blame them.<!wait=1>\nEverybody\u2019s on edge lately.\n\n\xA4Thought
-        I\u2019d at least come by\nand greet you properly.\n\n\xA4Anyway,<!wait=0.5>
-        took enough of your time.<!drop>\n\n\xA4<!sprite=Happy>See you tomorrow,<!wait=0.5>
-        pal!"
+      - "Oh,<!wait=0.5> you are here?\n\n\xA4Sorry,<!wait=0.5> didn\u2019t really
+        notice you.\n\n\xA4<!sprite=Glasses>I was thinking about the \n150 new-punton
+        fusion.\n\n\xA4Actually,<!wait=0.5>  I could \nreach 200 soon.\n\n\xA4.<!wait=0.5>.<!wait=0.5>.<!wait=0.5><!sprite=Default>What?\n\n\xA4What
+        do you mean,<!wait=0.5> you\u2019re not aware\nof what a \"new-punton\" is?\n\n\xA4<!sprite=Glasses>A
+        \"new-punton\" is <i>obviously</i> the \nequivalent of 2000 \"old-punton\"\u2026\n\n\xA4.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>I
+        thought they\u2019d brief \nyou on it.<!wait=0.5> How weird."
       - 
-    - Key: DEVI_DayTwo
+    - Key: CONNIE_One
       Value:
-      - .<!wait=0.25>.<!wait=0.25>.
+      - "<!sprite=Happy>Hey,<!wait=0.5> fella!\n\n\xA4<!sprite=Default>You\u2019re
+        new here,<!wait=0.5>\nam I right?\n\n\xA4.<!wait=0.2>.<!wait=0.2>.<!wait=0.2>eh,<!wait=0.5>
+        who am I kidding.\n\n\xA4<!sprite=Happy>'Whole floor knows about\nour little
+        newcomer!\n\n\xA4Sorry,<!wait=0.5> 'guess that wasn\u2019t the\nwarm welcome
+        you expected\u2026\n\n\xA4<!sprite=Default>Ah,<!wait=0.75> don\u2019t blame
+        them.<!wait=0.75>\nEverybody\u2019s on edge lately.<!wait=0.5>\n\n\xA4Thought
+        I\u2019d at least come by\nand greet you properly.<!wait=0.25>\n\n\xA4Anyway,<!wait=0.5>
+        took enough of your time.<!drop>\n\n\xA4<!sprite=Happy>See you tomorrow,
+        <!wait=0.15>pal!"
       - 
-    - Key: MAX_DayThree
-      Value:
-      - "Oh! <!wait=1>Sorry for surprising you.\n\n\xA4I did not expect to see a
-        new face here.<!wait=1>\nForgot you were replacing <wave amplitude=1 uniformity=0.5>\u2588\u2588\u2588\u2588\u2588\u2588\n\n\xA4A
-        shame. <!wait=1>I quite liked her. <!wait=1>\n<!sprite=Wink>Though I\u2019m
-        sure you\u2019ll fit right in as well!<!drop>\n\n\xA4<!sprite=Default>You
-        know,<!wait=0.5> I think you\u2019re gonna bring \nsome much-needed life
-        up here.\n\n\xA4Floor was getting pretty dull \nwith only the four of us.\n\n\xA4.<!wait=0.25>.<!wait=0.25>.<!wait=0.5>Five,
-        if you count Esteban, though \nthe guy doesn\u2019t talk much.\n\n\xA4Ahem,<!wait=0.5>
-        neither does Devi,<!wait=0.5> to be honest.\n\n\xA4Anyway,<!wait=0.5> nice
-        to meet you! \n\n\xA4Don\u2019t worry,<!wait=0.5> I probably \nwon\u2019t
-        make your job too hard. \n\n\xA4<!sprite=Wink>Haven\u2019t failed a single
-        report ever since I joined,<!wait=0.5>\nand I well intend to continue!\n\n\xA4See
-        you tomorrow!"
-      - 
-    - Key: CONNIE_DayTwo_Good
+    - Key: CONNIE_Two_Good
       Value:
       - "Hey,<!wait=0.5> pal!\n\n\xA4<!sprite=Happy>Thanks for covering \nmy ass
         yesterday.\n\n\xA4Knew you were \na real mate.\n\n\xA4<!sprite=Default>Really
-        appreciate it.<!wait=0.5> And you \nknow I\u2019ll return the favour.<!drop>\n\n\xA4<sprite=Happy>So!<!wait=0,5>
+        appreciate it.<!wait=0.5> And you \nknow I\u2019ll return the favour.<!drop>\n\n\xA4<!sprite=Happy>So!<!wait=0.5>
         Met any new friends?\n\n\xA4Saw you talking with Max earlier.<!wait=1>\nI\u2019d
         be careful in your place.\n\n\xA4<!sprite=Default>All smiles,<!wait=0.5>
-        and just ready to plant \na dagger in your back when you least expect it.\n\n\xA4Again,<!wait=0.5>
+        and just ready to plant a dagger \nin your back when you least expect it.\n\n\xA4Again,<!wait=0.5>
+        I\u2019d be wary of whom you trust. \n\n\xA4It\u2019s a shark tank here,<!wait=0.5>
+        and you wouldn\u2019t believe \nthe lengths some people go just to earn a
+        promotion.\n\n\xA4<!sprite=Happy>Glad you\u2019re one of the good ones!"
+      - 
+    - Key: CONNIE_Two_Bad
+      Value:
+      - "Hey,<!wait=0.5> pal!\n\n\xA4Nice one the other day.\n<!sprite=Happy>Very
+        funny.\n\n\xA4.<!wait=0.4>.<!wait=0.4>.<!wait=0.4><color=orange><!sprite=Surprised>don\u2019t
+        do that again?\n\n\xA4<!sprite=Default>But hey. \nNo offence taken.<!drop>\n\n\xA4<!sprite=Happy>So!<!wait=0.5>
+        Met any new friends?\n\n\xA4Saw you talking with Max earlier.<!wait=1>\nI\u2019d
+        be careful in your place.\n\n\xA4<!sprite=Default>All smiles,<!wait=0.5>
+        and just ready to plant a dagger \nin your back when you least expect it.\n\n\xA4Again,<!wait=0.5>
         I\u2019d be wary of who you trust. \n\n\xA4It\u2019s a shark tank here,<!wait=0.5>
         and you wouldn\u2019t believe \nthe lengths some people go just to earn a
         promotion.\n\n\xA4<!sprite=Happy>Glad you\u2019re one of the good ones!"
       - 
-    - Key: CONNIE_DayTwo_Bad
+    - Key: CONNIE _Three
       Value:
-      - "Hey, pal!\n\n\xA4Nice one the other day.\nVery funny.\n\n\xA4<!sprite=Surprised>\u2026Don\u2019t
-        do that again?\n\n\xA4<!sprite=Default>But hey. \nNo offence taken.<!drop>\n\n\xA4<!sprite=Happy>So!<!wait=0,5>
-        Met any new friends?\n\n\xA4Saw you talking with Max earlier.\nI\u2019d be
-        careful in your place.\n\n\xA4<!sprite=Default>All smiles, and just ready
-        to plant \na dagger in your back when you least expect it.\n\n\xA4Again,
-        I\u2019d be wary of who you trust. \n\n\xA4It\u2019s a shark tank here, and
-        you wouldn\u2019t believe \nthe lengths some people go just to earn a promotion.\n\n\xA4<!sprite=Happy>Glad
-        you\u2019re one of the good ones!"
+      - "Hey,<!wait=0.5><!sprite=Angry><color=orange> WHAT THE HELL?!</color>\n\n\xA4<b>I</b>'ve
+        been in this company for so fucking long.\n\n\xA4<b>I</b><!wait=0.5> am the
+        most proficient employee!\n\n\xA4<b>I</b><!wait=0.5> work harder than anyone
+        else!<!wait=0.5>\n\n\xA4<b>I</b><!wait=0.5> am the most deserving one of
+        them all!<!wait=0.5>\n\n\xA4So,<!wait=0.5>WHY<!wait=0.5> the <wave><!wait=0.5>****</wave><!wait=0.5>
+        didn\u2019t <!wait=0.5>I<!wait=0.5> get a <!wait=0.5>GROWTH?!\n\n\xA4<!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>\n\n\xA4You.\n\n\xA4I
+        was nice to you,<!wait=0.5> <color=orange>weren\u2019t I?</color>\n\n\xA4Even
+        though you\u2019re a worthless little <wave>****.\n\n\xA4And how did you
+        return the favor?\n\n\xA4By planting a dagger in my back?!\n\n\xA4But it\u2019s
+        fine.<!wait=0.5> I\u2019ll get what \nI deserve,<!wait=1> and,<!wait=0.5>
+        sooner or later.\n\n\xA4Mark my words,<!wait=0.5> 'cause when it happens\u2026\n\n\xA4<!sprite=Default><b>I</b><!wait=0.5>
+        will make your life even \nmore <b>miserable</b> than it already is. "
       - 
-    - Key: DEVI_DayThree
+    - Key: MAX_One
       Value:
-      - "<!drop>.<!wait=0.25>.<!wait=0.25>.\n\n\xA4.<!wait=0.25>.<!wait=0.2>.<!wait=1>What?<!wait=0.5>
-        Is there something \non my face?"
+      - "Oh!<!wait=1><!sprite=Wink> Sorry for surprising you.\n\n\xA4<!sprite=Default>I
+        did not expect to see a new face here.<!wait=1>\nForgot you were replacing
+        <!sprite=Serious><wave amplitude=3 uniformity=0.5><color=red>\u2588\u2588\u2588\u2588\u2588\u2588<!sprite=Default><!wait=1>\n\n\xA4A
+        shame. <!wait=1><wave amplitude=1 uniformity=0.5><color=red>She</color> was
+        a fun one. <!wait=1><!sprite=Wink>Though I\u2019m \nsure you\u2019ll fit
+        right in as well.<!drop>\n\n\xA4<!sprite=Default>You know,<!wait=0.5> I think
+        you\u2019re gonna bring \nsome much-needed life up here.\n\n\xA4The floor
+        was getting pretty dull \nwith only the four of us.\n\n\xA4.<!wait=0.25>.<!wait=0.25>.<!wait=0.5><!sprite=Serious>Five,<!wait=0.5>
+        if you count Esteban,<!wait=0.5> \nthough the guy doesn\u2019t talk much.\n\n\xA4<!sprite=Wink>Anyway,<!wait=0.5>
+        nice to meet you! \n\n\xA4<!sprite=Default>Don\u2019t worry,<!wait=0.5> I
+        probably \nwon\u2019t make your job too hard. \n\n\xA4<!sprite=Wink>Haven\u2019t
+        failed a single report ever since\nI joined,<!wait=0.5> and I well intend
+        to continue!\n\n\xA4See you tomorrow!<!sprite=Default>"
       - 
-    - Key: CONNIE _DayFourShort
+    - Key: DEVI_One
       Value:
-      - "\xA4EXPLAIN YOURSELF!<!sprite=Angry><!wait=1>\n\n\xA4I've been friendly
-        with you didn\u2019t I?<!wait=0.5>\n\n\xA4Even though you\u2019re a wothless
-        little ****.<!wait=0.5>\n\n\xA4And how did you return the favor?<!wait=0.5>\n\n\xA4BY
-        PLANTING A DAGGER IN MY BACK??!<!wait=1>\n\n\xA4But hey\u2026 it\u2019s ok
-        sooner or later I\u2019ll get this promotion.<!sprite=Dafault><!wait=1>\n\n\xA4Mark
-        my words cause when that happens.\n\n\xA4<b>I</b><!wait=0.5> will make your
-        life even more miserable than it already is!<!drop>"
+      - "<wave amplitude=3 uniformity=0.5><color=red>.<!wait=0.1>.<!wait=0.1>.<!wait=1>
+        <!sprite=ShockTinfoil>W<!wait=0.1> H<!wait=0.1> A <!wait=0.1>T<!wait=0.1>
+        ? \n\n\xA4<wave amplitude=3 uniformity=0.5><color=red>IS THERE SOMETHING
+        \nON MY FACE?<!wait=1>\n\n\xA4<wave amplitude=3 uniformity=0.5><!sprite=DefaultTinfoil><color=red><!wait=0.4>.<!wait=0.4>.<!wait=0.4>.<color=red><!wait=0.75><!sprite=AngryTinfoil>TSK.<!drop>"
       - 
-    - Key: CONNIE_DayFourLong
+    - Key: DEVI_Two
       Value:
-      - "\u201CHEY WHAT THE HELL?!!<!wait=0.5><!sprite=Angry>\n\n\xA4WHY *** ****
-        DIDN\u2019T I GET A PROMOTION?<!wait=1>\n\n\xA4<b>I</b>'ve been in this company
-        for the longest time!<!wait=0.5><!sprite=Dafault>\n\n\xA4<b>I</b> am the
-        most proficient employee!<!wait=0.5>\n\n\xA4<b>I</b> am the most deserving
-        one of them all!<!wait=0.5>\n\n\xA4SO WHY THE **** DIDN\u2019T <b>I</b> GET
-        A PROMOTION?!!!<!wait=1><!sprite=Angry>\n\n\xA4Hin hin hin\u2026 <!wait=2>\n\n\xA4YOU!
-        <!wait=1>\n\n\xA4EXPLAIN YOURSELF!<!sprite=Angry><!wait=1>\n\n\xA4I've been
-        friendly with you didn\u2019t I?<!wait=0.5>\n\n\xA4Even though you\u2019re
-        a wothless little ****.<!wait=0.5>\n\n\xA4And how did you return the favor?<!wait=0.5>\n\n\xA4BY
-        PLANTING A DAGGER IN MY BACK??!<!wait=1>\n\n\xA4But hey\u2026 it\u2019s ok
-        sooner or later I\u2019ll get this promotion.<!sprite=Dafault><!wait=1>\n\n\xA4Mark
-        my words cause when that happens.\n\n\xA4<b>I</b><!wait=0.5> will make your
-        life even more miserable than it already is!<!drop>"
+      - <color=red>DO.<!wait=0.5> NOT.<!wait=0.5>TRUST. <!wait=0.5>. HER.
       - 
-    - Key: ABBIE_DayThree
+    - Key: ABBIE_One
       Value:
-      - "Hey!<!wait=1> How are you doing?<!wait=1>\n\n\xA4<!sprite=StressedPostIt>Me?<!wait=1>
-        I'm doing my best,<!wait=0.5> but there's a lot to learn.<!wait=1>\n\n\xA4I
-        hope I did nothing wrong with my sheet.<!wait=0.5><!drop>\n\n\xA4<!sprite=DepressedPostIt>Last
-        time my manager got pretty angry,<!wait=1> he wouldn't stop screaming at
-        me.<!wait=2>\n\n\xA4<!sprite=HappyPostIt>Haha.<!wait=1.5>\n\n\xA4<!sprite=DepressedPostIt>I
-        sure let him down...<!wait=2><!sprite=StressedPostIt>but it won't happen
-        again.<!wait=0.5>\n\n\xA4I'll definitly fit in!<!wait=1>"
+      - "Err<!wait=0.25>.<!wait=0.25>.<!wait=0.25>. hi?\n\n\xA4<!sprite=Stressed>Sorry,<!wait=0.5>
+        is this the right desk?\n<!wait=0.5>I\u2019m looking for<!wait=0.25>.<!wait=0.25>.<!wait=0.25>.
+        <wave amplitude=1><color=#bf42f5>NURTURING</color>?\n\n\xA4<!sprite=Happy>Oh,<!wait=0.5>
+        finally!\n\n\xA4I\u2019m supposed to give you this.<!wait=0.5>\nI hope it\u2019s
+        all good?<!drop>\n\n\xA4<!sprite=Default>I only just joined.<!wait=0.5> Applied
+        as \nsoon as I graduated. \n\n\xA4<!sprite=Happy>I\u2019m so glad I\u2019ll
+        get to work\non the <color=#427ef5><wave>PANACEA</wave></color> project!\n\n\xA4You
+        should see the stuff they got up in <wave amplitude=1><color=#bf42f5>R&D</color>.<!wait=1></wave>\nI\u2019d
+        never seen anything like it.\n\n\xA4<!sprite=Stressed>\u2026I\u2019m not
+        really allowed to \ntalk about it,<!wait=0.5> though.\n\n\xA4<!sprite=Default>Anyway,<!wait=0.5>
+        got to go back to the <wave amplitude=1><color=#427ef5>lab.</color>\n\n\xA4<!sprite=Stressed>They\u2019re
+        giving me a tour of the research\nfacilities,<!wait=0.5> and I think I\u2019m
+        already late.\n\n\xA4<!sprite=Depressed>This place is such a maze.\n\n\xA4Lost
+        so much time finding my way here,<!wait=0.5>\nand still need to figure out
+        the return trip.\n\n\xA4<!sprite=Happy>Bye!"
       - 
-    - Key: ROSALYNE_DayFour
+    - Key: ABBIE_Two
       Value:
-      - "Hello my dear!<!wait=1>\n\n\xA4What a wonderful place to be...<!wait=1>\n\n\xA4...<!wait=1>\n\n\xA4It\u2019s
-        the beginning of a brand new chapter for me.<!wait=0.5>\n\n\xA4And for us.<!wait=1.5>\n\n\xA4I
-        am looking forward to working with you in the future!<!wait=1>\n\n\xA4I sincerely
-        hope that we will develop<!wait=0.5> the best,<!wait=0.5> working environment
-        possible.<!wait=1.5>\n\n\xA4So all of our coworkers will finally do their
-        best.<!wait=1>\n\n\xA4<!sprite=Serious>It's important you know...<!wait=1.5>\n\n\xA4<!sprite=Default>It's
-        for the best,<!wait=1> for everyone.<!wait=1>\n\n\xA4Having a work space
-        where you feel free,<!wait=1> confident,<!wait=1> and loved.<!wait=2>\n\n\xA4Everyone
-        feeling this way is really important to me!<!wait=1>\n\n\xA4<!sprite=Serious>It
-        really is\u2026<!wait=1.5>\n\n\xA4<!sprite=Default>Once again,<!wait=1> I'm
-        counting on you!<!wait=1><!drop>\n\n\xA4Bye bye!<!wait=1>"
+      - "<!sprite=HappyPostIt>Hey,<!wait=0.5> you!<!wait=0.75><!sprite=DefaultPostIt>
+        How are you\ndoing since last time?\n\n\xA4.<!wait=0.25>.<!wait=0.25>.<!wait=0.25><!sprite=StressedPostIt>Me?<!wait=0.75>
+        Oh,<!wait=0.75> I'm trying my best,<!wait=0.75>\n<!sprite=DepressedPostIt>but
+        there's so much to learn...\n\n\xA4I really hope there\u2019s no issue\nwith
+        my form this time.<!drop>\n\n\xA4<!sprite=DepressedPostIt>My manager got
+        pretty angry last time.\nHe wouldn't stop screaming at me.\n\n\xA4<!sprite=HappyPostIt>Hahaha.\n\n\xA4<!sprite=DepressedPostIt>I
+        sure let him down...<!wait=2><!sprite=StressedPostIt>\nbut it won't happen
+        again!\n\n\xA4<!sprite=HappyPostIt>I'll definitely fit in!"
+      - 
+    - Key: ROSALYNE_One
+      Value:
+      - "Hello, my dear!<!wait=1>\n\n\xA4What a wonderful place to be...<!wait=1>\n\n\xA4...<!wait=1>\n\n\xA4I
+        heard there was a lot \nof tensions here.\n\n\xA4And so,<!wait=1> here I
+        come to\nsoothe it all!\n\n\xA4It\u2019s the beginning of a brand new chapter
+        for me.<!wait=0.5>\n\n\xA4And for us.<!wait=1.5>\n\n\xA4I am looking forward
+        to working with you in the future!<!wait=1>\n\n\xA4I sincerely hope that
+        we will develop<!wait=0.5> the best,<!wait=0.5> working environment possible.<!wait=1.5>\n\n\xA4So
+        all of our coworkers will finally do their best.<!wait=1>\n\n\xA4<!sprite=Serious>It's
+        important you know...<!wait=1.5>\n\n\xA4<!sprite=Default>It's for the best,<!wait=1>
+        for everyone.<!wait=1>\n\n\xA4Having a work space where you feel free,<!wait=1>
+        confident,<!wait=1> and loved.<!wait=2>\n\n\xA4Everyone feeling this way
+        is really important to me!<!wait=1>\n\n\xA4<!sprite=Serious>It really is\u2026<!wait=1.5>\n\n\xA4<!sprite=Default>Once
+        again,<!wait=1> I'm counting on you!<!wait=1><!drop>\n\n\xA4Bye bye!<!wait=1>"
+      - 
+    - Key: MAX_Two
+      Value:
+      - "Hey,<!wait=1><!sprite=Serious> I didn't get my promotion.\n\n\xA4I was wondering<!wait=1>
+        why?<!wait=1>\n\nAnd it seems like\u2026<!wait=1>\n\n\xA4You would be the<!wait=1>
+        \n\nsole<!wait=1> obstacle to that.\n\n\xA4But it must be a mistake\u2026\n\n\xA4<!sprite=Blink><!color=red>Right?</color><!wait=2>\n\n\xA4<!sprite=Serious>\u2026<!wait=2>\n\n\xA4Because,<!wait=1>
+        if it was not.\n\n\xA4That would imply certain things.\n\n\xA4And I would
+        have to take certain actions.\n\n\xA4You know...<!wait=2>\n\n\xA4So,<!wait=1>
+        let's consider it\n\n\xA4A<!wait=0.5>.<!wait=0.5>.<!wait=0.5>. mistake<!wait=1>\n\n\xA4A<!wait=0.5>
+        simple\u2026<!wait=1> and<!wait=1> idiot\u2026<!wait=1>\n\nmistake.\n\xA4It
+        happens,<!wait=1> haha!\n\n\xA4But it happens once.<!wait=1>\n\n\xA4Because\u2026<!wait=0.5>\n\nYou
+        know\u2026<!wait=0.5>\n\n\xA4<!sprite=Angry>I can't allow a pig<!wait=1>
+        \n\nto prejudice my PERFECT career.\n\n\xA4<!sprite=Serious>And if it were
+        to happen again.\n\n\xA4<!sprite=Blink><!color=red>Let's just say that I
+        love<!wait=1>\n\nthe screams of a bleeding pig.</color>\n\n\xA4<!sprite=Serious>Bye!<!drop>\n"
+      - 
+    - Key: MAX_CONNOR_Three
+      Value:
+      - "[WIP]\n\nConnor: You'll see,\n\_        today is the day I will\n\_       
+        finally have my promotion.\nMaxine: But Connor, they only give those\n\_       
+        to the ones who deserve it\nConnor: Haha. Very funny indeed.\n\_        You
+        should open a circus\nMaxine: No, I wouldn't steal your spot\n\_        You're
+        doing such a great job\n\_        I saw your results last month\n\_       
+        We couldn't stop laughi...\nConnor: Keep your mouth shut, you damn...\n\_       
+        ...\nMaxine: Oh, Connor, darling, what are you saying?\n\_        Come on,\n\_       
+        I'm sure our new colleague\n\_        here,<!wait=1> wants to hear that.\nConnor:
+        Pretty bold to talk\n\_        like that when you only accede to your\n\_       
+        position because the ones above you\n\_        quitted their job\nMaxine:
+        It's time you ask yourself the right questions, \n        Connor, because
+        you might be the next one\n"
       - 
     - Key: Ledger_details
       Value:
@@ -187,11 +238,14 @@ MonoBehaviour:
       - 
     - Key: Calculator_details
       Value:
-      - Didn't do any math for a long time this might help
+      - 'Unsure how I would ever need a calculator for this job,
+
+        but hey,
+        not my place to argue.'
       - 
     - Key: Glass_details
       Value:
-      - Some fresh water wouldn't hurt
+      - Haven't seen any water dispenser since coming here. Weird.
       - 
     - Key: Cup_details
       Value:
@@ -199,8 +253,10 @@ MonoBehaviour:
       - 
     - Key: BookA_details
       Value:
-      - "\"Ensuring Proper Office Behaviour: A Complete Compendium\".\n\xA4Provides
-        two different methods to knock someone out."
+      - '"Ensuring Proper Office Behaviour: A Complete Compendium".
+
+        Provides
+        two different methods to knock someone out.'
       - 
     - Key: BookB_details
       Value:
@@ -212,9 +268,13 @@ MonoBehaviour:
       - 
     - Key: PictureFrame_details
       Value:
-      - "Probably from a couple of years ago.\n\xA4They seemed happier back then.
-        \xA4Feels like completely different people now.\n\xA4There's one face I don't
-        recognize here."
+      - 'Probably from a couple of years ago.
+
+        They seemed happier back then.
+        Feels like completely different people now.
+
+        There''s one face I
+        don''t recognize here.'
       - 
     - Key: Printer_details
       Value:
@@ -232,22 +292,19 @@ MonoBehaviour:
       - 
     - Key: PosterB_details
       Value:
-      - Hopefully, I won't ever need this.
+      - ...Hopefully, I won't ever need this.
       - 
-    - Key: Window_details
-      Value:
-      - "All of us cover \nthe buildings in snow and frost \nwe in warm clothes "
-      - Tous se recouvrent,            les batiments de neige,        et nous d'habits
-        chauds
     - Key: Camera _details
       Value:
       - Cheese...
       - 
     - Key: Cigarettes_details
       Value:
-      - The price is unbelievable here...
+      - 'Did someone forget them here?
+
+        I don''t even smoke.'
       - 
-    - Key: Pen_details
+    - Key: Screen_details
       Value:
-      - Dad gave this one to me. Such a nice gift
+      - Je sais pas ptdr
       - 

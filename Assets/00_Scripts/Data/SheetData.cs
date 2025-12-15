@@ -6,10 +6,10 @@ using UnityEngine.Events;
 
 public enum Binder
 {
-    Rehabilitation,
-    Growth,
-    Adequate,
-    Warning,
+    REHAB,
+    GROWTH,
+    ADEQUATE,
+    WARNING,
 }
 
 

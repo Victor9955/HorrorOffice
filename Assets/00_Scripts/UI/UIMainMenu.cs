@@ -23,6 +23,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private float _openDuration;
     [SerializeField] private float _delay;
     [SerializeField] private float _fadeDuration;
+    [SerializeField] private Material eyes;
 
     [Header("Hanged Settings")]
     [Space(10)]
@@ -51,6 +52,8 @@ public class UIMainMenu : MonoBehaviour
         })
         .SetEase(Ease.InOutQuad)
         .OnComplete(() => _fadeImg.gameObject.SetActive(false));
+        eyes.SetFloat("_EyesClosed", 1f);
+        eyes.SetFloat("_Smoothness", 1f);
 
 
         //Li

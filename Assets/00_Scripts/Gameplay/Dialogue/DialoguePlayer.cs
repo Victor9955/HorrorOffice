@@ -3,10 +3,12 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPEffects.Components;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class DialoguePlayer : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueTMP;
     [SerializeField] private TextMeshProUGUI nameTMP;
     [SerializeField] private RectTransform dialogueUI;
+    [SerializeField] private RectTransform dialogueBG;
+    [SerializeField] private VerticalLayoutGroup v;
     [SerializeField] private TMP_FontAsset defaultFont;
     [SerializeField] private TMPWriter writer;
     [SerializeField] private UIEffect spawnEffect;
@@ -93,6 +97,8 @@ public class DialoguePlayer : MonoBehaviour
         }
     }
 
+    Tweener fade;
+
     public void Say()
     {
         if(doHideUI)
@@ -104,11 +110,16 @@ public class DialoguePlayer : MonoBehaviour
             dialogueUI.gameObject.SetActive(true);
             dialogueTMP.text = "<wave>...";
             spawnEffect.transitionRate = 1f;
-            DOVirtual.Float(1f, 0f, fadeTime, (t) =>
+            fade = DOVirtual.Float(1f, 0f, fadeTime, (t) =>
             {
                 spawnEffect.transitionRate = t;
             }).OnComplete(() => spawnEffect.enabled = false);
         }
+    }
+
+    private void OnDestroy()
+    {
+        fade.Kill();
     }
 
     public void SetFinished() => finished = true;
@@ -119,15 +130,19 @@ public class DialoguePlayer : MonoBehaviour
     {
         IsTalking = true;
         finished = false;
+        FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = false);
         foreach (string s in phrases)
         {
             writer.StartWriter();
             dialogueTMP.text = s;
             writer.DefaultDelays.delay = current.saySpeed;
+            dialogueBG.sizeDelta = dialogueBG.sizeDelta * 1.001f;
+            dialogueBG.ForceUpdateRectTransforms();
             yield return new WaitUntil(() => finished);
             finished = false;
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
         }
+        FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = true);
         IsTalking = false;
     }
 }

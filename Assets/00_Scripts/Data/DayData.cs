@@ -24,7 +24,9 @@ public struct SheetAction
 [CreateAssetMenu(fileName = "LevelData", menuName = "Scriptable Objects/LevelData")]
 public class DayData : ScriptableObject
 {
+    public UnityEvent initEvent;
     public UnityEvent startEvent;
+    public UnityEvent startFileSortingEvent;
 
     public List<Binder> binders;
     public List<SheetAction> actions;

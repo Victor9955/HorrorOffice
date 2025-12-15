@@ -20,21 +20,24 @@ public class LevelCreator : MonoBehaviour
     private void Start()
     {
         fileSorting.OnFileDroppedEvent += ReceiveBinder;
-        fileSender.OnGiveFile += () =>
-        {
-            if (current.sheets.Count > 0)
-            {
-                foreach (SheetData sheet in current.sheets)
-                {
-                    fileSorting.OnNewFile(sheet);
-                }
-            }
-        };
+        fileSender.OnGiveFile += SpawnSheet;
     }
 
     private void OnDestroy()
     {
         fileSorting.OnFileDroppedEvent -= ReceiveBinder;
+        fileSender.OnGiveFile -= SpawnSheet;
+    }
+
+    void SpawnSheet()
+    {
+        if (current.sheets.Count > 0)
+        {
+            foreach (SheetData sheet in current.sheets)
+            {
+                fileSorting.OnNewFile(sheet);
+            }
+        }
     }
 
     void ReceiveBinder(Binder binder, SheetData sheetData)
