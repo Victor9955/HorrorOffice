@@ -21,7 +21,7 @@ public partial class SpriteChange : TMPCommand
 
     private partial void ExecuteCommand(AutoParametersData data, ICommandContext context)
     {
-        if(context.Writer.gameObject.TryGetComponent(out SpriteChanger dialoguePlayer))
+        if(context.Writer.gameObject.TryGetComponent(out ActionReceiver dialoguePlayer))
         {
             dialoguePlayer.ChangeSprite(data.spriteKey);
         }

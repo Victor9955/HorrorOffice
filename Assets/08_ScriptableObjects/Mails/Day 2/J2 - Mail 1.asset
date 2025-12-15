@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
   m_Name: J2 - Mail 1
   m_EditorClassIdentifier: 
-  title: Your second day at CHERUB!
+  title: <b>Your second day at CHERUB!
   character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
+  hasNextMail: 0
   hasDelay: 1
   hasRandomDelay: 0
   delay: 5
   maxDelay: 0
-  mailText: "<size=12>Good morning!\n\nWe hope you\u2019re growing comfortable in
-    your new position.\n\nFrom today onward, we will sometimes require you to cross-check
-    information on the report sheets with the <b>employee database</b>, accessed
-    through the <b>EYE</b> icon on your desktop.\n\n<b>Reminder:<b> In case of confusion,
-    you can find any information you need in the <b>Nurturing Booklet<b>, also present
-    on your computer!"
+  mailText: "<size=16>Good morning!\n\nWe hope you\u2019re growing comfortable in
+    your new position.\n\nFrom today onward, we will require you to verify employee
+    schedules on their S.E.R.F. report forms. You will receive additional details
+    in a seperate email.\n\n<b>Reminder:<b> In case of confusion, you can find any
+    information you need in the <b>Nurturing Booklet<b>, accessible from your computer!"
+  nextMail: {fileID: 0}
