@@ -6,7 +6,7 @@ using UnityEngine;
 
 [AutoParameters]
 [CreateAssetMenu(fileName = "SpriteChange")]
-public partial class SpriteChange : TMPCommand
+public partial class Shake : TMPCommand
 {
     public override TagType TagType => TagType.Index;
     public override bool ExecuteInstantly => false;
@@ -17,17 +17,12 @@ public partial class SpriteChange : TMPCommand
     public override bool ExecuteInPreview => true;
 #endif
 
-    [AutoParameter(true,"")] private string spriteKey;
 
     private partial void ExecuteCommand(AutoParametersData data, ICommandContext context)
     {
-        if(context.Writer.gameObject.TryGetComponent(out ActionReceiver dialoguePlayer))
+        if (context.Writer.gameObject.TryGetComponent(out ActionReceiver actionReceiver))
         {
-            dialoguePlayer.ChangeSprite(data.spriteKey);
-        }
-        else
-        {
-            Debug.Log("Couldnt Get Component in Parent");
+            actionReceiver.ShakeSprite();
         }
     }
 }
