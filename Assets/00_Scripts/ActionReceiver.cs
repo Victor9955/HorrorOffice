@@ -20,6 +20,6 @@ public class ActionReceiver : MonoBehaviour
 
     public void ShakeSprite()
     {
-        spriteRenderer.transform.DOShakePosition(0.25f);
+        spriteRenderer.transform.DOShakePosition(0.25f,0.5f,100);
     }
 }
