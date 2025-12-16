@@ -33,4 +33,11 @@ public class DayData : ScriptableObject
 
     public UnityEvent endEvent;
     public int endDayScene;
+
+    public string Liveliness;
+    public string Helpfulness;
+    public string Empathy;
+    public string Authenticity;
+    public string Trustworthiness;
+    public string Hopefulness;
 }
