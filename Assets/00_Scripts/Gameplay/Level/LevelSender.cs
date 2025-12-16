@@ -82,6 +82,7 @@ public class LevelSender : MonoBehaviour
             fileSorting.SetupBinders();
             endDayIndex = current.endDayScene;
             OnInitDatabase?.Invoke(current);
+            current.initEvent?.Invoke();
         }
     }
 

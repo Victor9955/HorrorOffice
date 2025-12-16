@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Your role at CHERUB.
   character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
+  hasNextMail: 0
   hasDelay: 1
   hasRandomDelay: 0
   delay: 15
   maxDelay: 0
-  mailText: "<size=12>As a member of the <b>Nurturing Service</b>, your goal will
+  mailText: "<size=16>As a member of the <b>Nurturing Service</b>, your goal will
     be to assist your <b>siblings</b> (that\u2019s your coworkers!) in giving the
     best of themselves in their work endeavours.\n\nEach <b>CHERUB</b> employee is
     tasked with providing a <b>daily Self-Evaluation Report Form</b> (<b>S.E.R.F.</b>),
@@ -29,3 +30,4 @@ MonoBehaviour:
     from other floors to take care of as well. \n\nA first batch will soon be delivered
     today as a way to familiarise yourself with the sheets' format. \n\nTomorrow,
     your real work begins, and so does your bright new career!"
+  nextMail: {fileID: 0}

@@ -130,7 +130,7 @@ public class DialoguePlayer : MonoBehaviour
     {
         IsTalking = true;
         finished = false;
-        FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.CanFocused = false);
+        FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = false);
         foreach (string s in phrases)
         {
             writer.StartWriter();
@@ -142,7 +142,7 @@ public class DialoguePlayer : MonoBehaviour
             finished = false;
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
         }
-        FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.CanFocused = true);
+        FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = true);
         IsTalking = false;
     }
 }

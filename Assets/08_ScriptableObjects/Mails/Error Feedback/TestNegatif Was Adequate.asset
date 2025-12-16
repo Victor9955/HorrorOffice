@@ -12,21 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
   m_Name: TestNegatif Was Adequate
   m_EditorClassIdentifier: 
-  title: 'Warning: Filling Error'
+  title: '<color=#A94242><b>Warning: Filling Error'
   character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
+  hasNextMail: 0
   hasDelay: 0
   hasRandomDelay: 0
   delay: 0
   maxDelay: 0
-  mailText: '<size=12>It has come to our notice that you''ve made a sorting mistake.
+  mailText: '<size=16>Greetings,
 
 
-    -
-    S.E.R.F. was correct
+    It has come to our notice that you''ve made
+    a S.E.R.F. sorting mistake.
 
 
-    Please remain focused during your further endeavours.
+    REASON: S.E.R.F. had no errors on it.
 
 
-    <b>[THIS
-    IS AN AUTOMATED MESSAGE. PLEASE DO NOT REPLY.]</b>'
+    Please
+    try to remain focused during your future endeavours.
+
+
+    <b>[THIS IS AN AUTOMATED
+    MESSAGE. DO NOT REPLY.]</b>'
+  nextMail: {fileID: 0}

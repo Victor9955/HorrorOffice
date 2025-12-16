@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
   m_Name: ErrorMailTemplate
   m_EditorClassIdentifier: 
-  title: 'Warning: Filling Error (ERROR)'
+  title: '<color=#A94242><b>Warning: Filling Error (ERROR)'
   character: {fileID: 11400000, guid: 6e731307e1799234cada5ca4daea2a06, type: 2}
   hasNextMail: 0
   hasDelay: 0
   hasRandomDelay: 0
   delay: 0
   maxDelay: 0
-  mailText: '<size=12>Greetings,
+  mailText: '<size=16>Greetings,
 
 
     It has come to our notice that you''ve made
