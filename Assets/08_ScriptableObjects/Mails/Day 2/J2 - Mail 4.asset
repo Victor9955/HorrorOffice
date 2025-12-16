@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: 'Warning: Self-Report Data Mismatch'
   character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+  hasNextMail: 0
   hasDelay: 0
   hasRandomDelay: 0
   delay: 0
   maxDelay: 0
-  mailText: '<size=12>Greetings,
+  mailText: '<size=16>Greetings,
 
 
     Due to increasingly frequent discrepancies
@@ -32,3 +33,4 @@ MonoBehaviour:
 
     <b>Nurturing
     Service Direction</b>'
+  nextMail: {fileID: 0}

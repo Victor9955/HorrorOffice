@@ -37,6 +37,7 @@ public void SetThoughtText(string id)
 {
     _dialogueData.GetDialogue(id, out string dialogue);
     _textCharThought.text = dialogue;
+        if (id != "") SetThoughtActive(true);
 }
 public void SetThoughtActive(bool active)
 {
@@ -58,6 +59,7 @@ public void SetThoughtActive(bool active)
         .OnComplete(() =>
         {
             if (!_cam.ischangingFocus) _charThoughtObj.gameObject.SetActive(active);
+            _cam.ischangingFocus = false;
         });
     }
 }

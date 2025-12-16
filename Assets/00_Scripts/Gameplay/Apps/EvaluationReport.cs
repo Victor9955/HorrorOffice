@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -44,6 +45,11 @@ public class EvaluationReport : MonoBehaviour
     private void Start()
     {
         Liveliness.value = 0;
+        Helpfulness.value = 0;
+        Empathy.value = 0;
+        Authenticity.value = 0;
+        Trustworthiness.value = 0;
+        Hopefulness.value = 0;
         levelSender.OnEndDay += OnEndDay;
         gameplayEventSender.AddAuthenticityEvent += (amount) => { Authenticity.value += amount; };
         gameplayEventSender.AddHelpfulnessEvent += (amount) => { Helpfulness.value += amount; };

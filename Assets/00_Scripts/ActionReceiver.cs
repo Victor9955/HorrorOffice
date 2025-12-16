@@ -1,6 +1,7 @@
+using DG.Tweening;
 using UnityEngine;
 
-public class SpriteChanger : MonoBehaviour
+public class ActionReceiver : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private DialoguePlayer dialoguePlayer;
@@ -15,5 +16,10 @@ public class SpriteChanger : MonoBehaviour
         {
             Debug.LogError("No Sprite " + key + " on " + dialoguePlayer.current.name);
         }
+    }
+
+    public void ShakeSprite(Vector2 direction, float strenght)
+    {
+        spriteRenderer.transform.DOShakePosition(0.25f, direction * strenght, 100);
     }
 }

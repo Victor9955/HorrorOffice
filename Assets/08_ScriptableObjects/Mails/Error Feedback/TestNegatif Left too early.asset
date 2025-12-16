@@ -10,23 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
-  m_Name: TestNegatif NO A in health
+  m_Name: TestNegatif Left too early
   m_EditorClassIdentifier: 
-  title: 'Warning: Filling Error'
+  title: '<color=#A94242><b>Warning: Filling Error'
   character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
+  hasNextMail: 0
   hasDelay: 0
   hasRandomDelay: 0
   delay: 0
   maxDelay: 0
-  mailText: '<size=12>It has come to our notice that you''ve made a sorting mistake.
+  mailText: '<size=16>Greetings,
 
 
-    -
-    Empleye had zero A''s
+    It has come to our notice that you''ve made
+    a S.E.R.F. sorting mistake.
 
 
-    Please remain focused during your further endeavours.
+    REASON: Employee left work too early.
 
 
-    <b>[THIS
-    IS AN AUTOMATED MESSAGE. PLEASE DO NOT REPLY.]</b>'
+    Please
+    try to remain focused during your future endeavours.
+
+
+    <b>[THIS IS AN AUTOMATED
+    MESSAGE. DO NOT REPLY.]</b>'
+  nextMail: {fileID: 0}

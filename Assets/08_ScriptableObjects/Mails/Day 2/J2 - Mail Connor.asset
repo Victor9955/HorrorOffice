@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: "It\u2019s me again!"
   character: {fileID: 11400000, guid: 54bf09c5b5fdced4fb15b8f856b441f3, type: 2}
+  hasNextMail: 0
   hasDelay: 1
   hasRandomDelay: 0
   delay: 7
   maxDelay: 0
-  mailText: "<size=12>Hey, it's your boy Connor!\n\nDidn't forget about me, right?
+  mailText: "<size=16>Hey, it's your boy Connor!\n\nDidn't forget about me, right?
     Chill guy with the cool vest?\n\nWell, you know what? You seem alright, so I\u2019m
     gonna clue you in on a lil' something.\n\nTomorrow, company\u2019s about to hand
     over some long-overdue promotions to its best soldiers. And of course, duty will
@@ -30,3 +31,4 @@ MonoBehaviour:
     earning a few friends here and there can go a long way towards making you fit
     in.\n\nAnyways, just my two cents.\n\nAnd remember: <b>I am</b> rooting for you,
     pal!"
+  nextMail: {fileID: 0}
