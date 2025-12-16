@@ -18,8 +18,8 @@ public class ActionReceiver : MonoBehaviour
         }
     }
 
-    public void ShakeSprite()
+    public void ShakeSprite(Vector2 direction, float strenght)
     {
-        spriteRenderer.transform.DOShakePosition(0.25f,0.5f,100);
+        spriteRenderer.transform.DOShakePosition(0.25f, direction * strenght, 100);
     }
 }
