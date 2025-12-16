@@ -1785,7 +1785,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'H.E.A.L.T.H
 
-    GRADES'
+    RATING'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
   m_sharedMaterial: {fileID: -1159701200862812941, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
@@ -7610,7 +7610,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: PosterA_details
@@ -17969,7 +17975,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: 
@@ -19621,7 +19633,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
@@ -23065,7 +23083,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10953926, y: 4329229.5}
+  m_AnchoredPosition: {x: -11418686, y: 4507441}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -26012,7 +26030,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: Pills_details
@@ -27252,7 +27276,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Evalutaion Report
+  m_text: Psychological Evaluation Report
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
   m_sharedMaterial: {fileID: -1159701200862812941, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
@@ -29703,7 +29727,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
@@ -32157,7 +32187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2683963.2, y: 1658942.1}
+  m_AnchoredPosition: {x: -3174543.2, y: 1948555.1}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &769049245
@@ -33940,7 +33970,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: Printer_details
@@ -34929,7 +34965,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 20
   _fov: 20
   _innerDialogueID: 
@@ -42021,7 +42063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 17069608}
+  m_AnchoredPosition: {x: 0, y: 17303696}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -47277,7 +47319,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: Calculator_details
@@ -48047,7 +48095,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
@@ -49253,7 +49307,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: PosterB_details
@@ -50887,7 +50947,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 10
   _innerDialogueID: Cigarettes_details
@@ -52761,12 +52827,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Properly sorted files :
+  m_text: 'Properly sorted S.E.R.Fs:
 
-    Incorrectly sorted files :
-
-    Overtime
-    :'
+    Incorrectly sorted S.E.R.Fs:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
   m_sharedMaterial: {fileID: -1159701200862812941, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
@@ -53155,7 +53218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -199440, y: 74077.5}
+  m_AnchoredPosition: {x: -664200, y: 240210}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1219672434
@@ -55107,7 +55170,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
@@ -56248,7 +56317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Username :'
+  m_text: 'Username:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
   m_sharedMaterial: {fileID: -1159701200862812941, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
@@ -57467,7 +57536,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: PosterB_details
@@ -71065,7 +71140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Password :'
+  m_text: 'Password:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
   m_sharedMaterial: {fileID: -1159701200862812941, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
@@ -74664,7 +74739,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
@@ -80740,7 +80821,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 105323.5}
+  m_AnchoredPosition: {x: 0, y: 339863.5}
   m_SizeDelta: {x: -473.0007, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956545016
@@ -81586,7 +81667,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: BookA_details
@@ -83546,7 +83633,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: Cup_details
@@ -86330,7 +86423,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DAILY RATING :'
+  m_text: 'DAILY AVERAGE:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
   m_sharedMaterial: {fileID: -1159701200862812941, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
@@ -87609,7 +87702,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doNotFocus: 0
   _playsSound: 0
-  _soundID: 
+  _fmodEventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: 

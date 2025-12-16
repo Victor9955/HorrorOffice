@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start
+  m_text: '| Start'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 93beb0d89aa654a4aa75831a0efe7a15, type: 2}
   m_sharedMaterial: {fileID: -1356635927245411306, guid: 93beb0d89aa654a4aa75831a0efe7a15, type: 2}
@@ -454,7 +454,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2338237331711011838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1.1061, y: 1.1061, z: 1.1061}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -462,7 +462,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 62, y: 36}
+  m_AnchoredPosition: {x: 224, y: 19}
   m_SizeDelta: {x: -626.1, y: 213.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1381303429961560658
@@ -531,7 +531,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4391825665459108101}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -542,8 +542,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 679, y: -800}
-  m_SizeDelta: {x: 0, y: -935.8}
+  m_AnchoredPosition: {x: 933, y: -800}
+  m_SizeDelta: {x: -609.4, y: -935.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4462508692466886826
 CanvasRenderer:
@@ -613,8 +613,8 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: -257.8
-  m_ChildForceExpandWidth: 1
+  m_Spacing: 71.8
+  m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
@@ -635,7 +635,7 @@ GameObject:
   - component: {fileID: 8255665917036221199}
   - component: {fileID: 8516408869990961706}
   m_Layer: 5
-  m_Name: SettingsText
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: '| Credits'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 93beb0d89aa654a4aa75831a0efe7a15, type: 2}
   m_sharedMaterial: {fileID: -1356635927245411306, guid: 93beb0d89aa654a4aa75831a0efe7a15, type: 2}
@@ -822,7 +822,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 813793399945704056}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &7851771247888189889
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Quit
+  m_text: '| Quit'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 93beb0d89aa654a4aa75831a0efe7a15, type: 2}
   m_sharedMaterial: {fileID: -1356635927245411306, guid: 93beb0d89aa654a4aa75831a0efe7a15, type: 2}
@@ -1098,7 +1110,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &7855658449785435538
 MonoBehaviour:
@@ -1156,6 +1168,17 @@ MonoBehaviour:
   _rightDoorTR: {fileID: 0}
   _light: {fileID: 0}
   _fadeImg: {fileID: 0}
+  _nextShiftText: {fileID: 0}
+  _isCinematic: 0
+  _startDelay: 0
   _openDistance: 2
+  _offLightIntensPerc: 0
   _openDuration: 1.5
+  _delay: 0
   _fadeDuration: 1
+  eyes: {fileID: 2100000, guid: b4e179f5b447fbe489a02575f751d75a, type: 2}
+  _flickerDelay: 0
+  _flickerTurnBackOnChance: 0
+  _flickerRerollBuff: 0
+  _hangedObj: {fileID: 0}
+  _isLiHere: 0
