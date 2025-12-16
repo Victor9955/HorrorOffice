@@ -10,28 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99a740d1a2d7566498b6f836d99eb043, type: 3}
-  m_Name: Day3Connor
+  m_Name: Day4Connor
   m_EditorClassIdentifier: 
-  sprite: {fileID: -4766570894954642218, guid: e23ac5a66538da94d8ab17c2d12dc65d, type: 3}
+  character: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 3d48308b66a2aa44084560f48cdac390, type: 3}
   rightBinder: 3
   actions:
     _serializedList:
-    - Key: 1
-      Value:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
-            m_TargetAssemblyTypeName: GameplayEventSender, Assembly-CSharp
-            m_MethodName: SendMail
-            m_Mode: 2
-            m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: b8ba446f1e8d6d442a5f3e7b4a6d3efd, type: 2}
-              m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
     - Key: 2
       Value:
         m_PersistentCalls:
@@ -41,7 +26,7 @@ MonoBehaviour:
             m_MethodName: SendMail
             m_Mode: 2
             m_Arguments:
-              m_ObjectArgument: {fileID: 11400000, guid: b8ba446f1e8d6d442a5f3e7b4a6d3efd, type: 2}
+              m_ObjectArgument: {fileID: 11400000, guid: b8579a6ef81ad0e43b91b1e51c8cca2e, type: 2}
               m_ObjectArgumentAssemblyTypeName: MailData, Assembly-CSharp
               m_IntArgument: 0
               m_FloatArgument: 0
@@ -50,10 +35,9 @@ MonoBehaviour:
             m_CallState: 2
   charachterId: PR-2458-D22
   characterName: Manager Connor Bradley
-  pausesNumber: 0
-  beginTime: x
-  breakfastTime: x
-  medicineTime: 
+  departement: 
+  service: 
+  position: 
   HGrade: E
   EGrade: D
   AGrade: C
