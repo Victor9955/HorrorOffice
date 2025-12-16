@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FMODUnity;
 using System;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,6 +11,9 @@ using UnityEngine.UIElements;
 public class Clickable : MonoBehaviour
 {
     [Space(5), Header("Focus settings")]
+    [SerializeField] private bool _doNotFocus;
+    [SerializeField] private bool _playsSound;
+    [SerializeField] private EventReference _fmodEventReference;
     [SerializeField, Range(10f, 100f)] private float _viewDistanceFromObject = 100f;
     [SerializeField] private float _fov = 58;
     [SerializeField] private string _innerDialogueID;
@@ -24,7 +28,7 @@ public class Clickable : MonoBehaviour
     private bool IsCamFocused => _camMovement.focusState != FocusState.Unfocused;
     private bool IsChangingFocus => _camMovement.ischangingFocus;
 
-    public bool CanFocused = true;
+    public bool canFocus = true;
 
     // cam info
     private Vector3 _position;
@@ -57,10 +61,11 @@ public class Clickable : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!CanFocused) return;
+        if(_playsSound) RuntimeManager.PlayOneShot(_fmodEventReference);
+
+        if (!canFocus || _doNotFocus) return;
         if (!IsCamFocused && !IsChangingFocus)
         {
-            HUDController.instance.SetThoughtActive(true);
             HUDController.instance.SetThoughtText(_innerDialogueID);
             _camMovement.FocusClickable(this);
             // activate text ui

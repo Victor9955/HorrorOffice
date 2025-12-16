@@ -7608,13 +7608,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: PosterA_details
   _focusDuration: 2.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &155675186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10594,7 +10597,7 @@ MonoBehaviour:
   m_Content: {fileID: 1956545015}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -17964,13 +17967,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: 
   _focusDuration: 2
   _verticalLimits: {x: 0.3, y: 0.3}
   _horizontalLimits: {x: 0.3, y: 0.3}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &433975570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19613,13 +19619,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!1 &477128238
 GameObject:
   m_ObjectHideFlags: 0
@@ -23010,6 +23019,7 @@ MonoBehaviour:
   levelSender: {fileID: 1861938364}
   view: {fileID: 1492184825}
   viewAnim: {fileID: 1492184824}
+  button: {fileID: 0}
   randomStats: []
   jobsKey:
   - HRA
@@ -23055,7 +23065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10665800, y: 4214445.5}
+  m_AnchoredPosition: {x: -10953926, y: 4329229.5}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -24186,7 +24196,7 @@ MonoBehaviour:
   m_Content: {fileID: 769049244}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -26000,13 +26010,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: Pills_details
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!1 &632409184
 GameObject:
   m_ObjectHideFlags: 0
@@ -29688,13 +29701,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
   _focusDuration: 2.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &712637977
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32141,7 +32157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2379726, y: 1471458.8}
+  m_AnchoredPosition: {x: -2683963.2, y: 1658942.1}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &769049245
@@ -33922,13 +33938,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: Printer_details
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &815085385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34908,13 +34927,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 20
   _fov: 20
   _innerDialogueID: 
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!1 &830903485
 GameObject:
   m_ObjectHideFlags: 0
@@ -41999,7 +42021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 16918580}
+  m_AnchoredPosition: {x: 0, y: 17069608}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -47253,13 +47275,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: Calculator_details
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &1116173698
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47749,7 +47774,7 @@ MonoBehaviour:
   m_Content: {fileID: 561668353}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -48020,13 +48045,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &1134673206
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -49223,13 +49251,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: PosterB_details
   _focusDuration: 2
   _verticalLimits: {x: 0.3, y: 0.3}
   _horizontalLimits: {x: 0.3, y: 0.3}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &1151603168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50854,13 +50885,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 10
   _innerDialogueID: Cigarettes_details
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &1181472864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -51105,6 +51139,7 @@ GameObject:
   - component: {fileID: 1185831075}
   - component: {fileID: 1185831074}
   - component: {fileID: 1185831076}
+  - component: {fileID: 1185831077}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -51265,6 +51300,7 @@ MonoBehaviour:
   offset: {x: -4, y: 0.25}
   pc: {fileID: 1902982588}
   fovPC: 14.5
+  clickSoundEvent: {fileID: 1185831077}
   triggerQuit: {x: 0.3, y: 0}
   unfocusHorizontalLimits: {x: 0, y: 0}
   unfocusVerticalLimits: {x: 0, y: 0}
@@ -51286,6 +51322,37 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &1185831077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185831069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 509479480
+      Data2: 1115175879
+      Data3: -825620860
+      Data4: -1527718609
+    Path: event:/FOL/FOL_MouseClick_OS
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1188559012
 GameObject:
   m_ObjectHideFlags: 0
@@ -53088,7 +53155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -36821544, y: 13124266}
+  m_AnchoredPosition: {x: -199440, y: 74077.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1219672434
@@ -55038,13 +55105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &1274014891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -57395,13 +57465,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: PosterB_details
   _focusDuration: 2.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &1345504980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58539,6 +58612,7 @@ GameObject:
   - component: {fileID: 1376179346}
   - component: {fileID: 1376179345}
   - component: {fileID: 1376179350}
+  - component: {fileID: 1376179351}
   m_Layer: 0
   m_Name: PcInteraction
   m_TagString: Untagged
@@ -58666,7 +58740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: HRN_1302_AAAA
   passwordLength: 9
-  loadTime: 2
+  loadTime: 4
   usernameTMP: {fileID: 2054618588}
   passwordTMP: {fileID: 757180914}
   windowAnim: {fileID: 924103279}
@@ -58695,6 +58769,39 @@ MonoBehaviour:
   OnLoggedIn:
     m_PersistentCalls:
       m_Calls: []
+  tipppingEmetter: {fileID: 1376179351}
+  logo: {fileID: 1769242906}
+--- !u!114 &1376179351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376179344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -641104228
+      Data2: 1181221591
+      Data3: 1965452200
+      Data4: -961384084
+    Path: event:/FOL/FOL_Keyboard
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1376911602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73297,8 +73404,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 83.72}
-  m_SizeDelta: {x: 1080, y: 979.5}
+  m_AnchoredPosition: {x: 0, y: 74.8}
+  m_SizeDelta: {x: 1080, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1769242907
 MonoBehaviour:
@@ -74555,13 +74662,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &1801262153
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -80630,7 +80740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 5297803.5}
+  m_AnchoredPosition: {x: 0, y: 105323.5}
   m_SizeDelta: {x: -473.0007, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956545016
@@ -81474,13 +81584,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: BookA_details
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &1978945686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -82376,7 +82489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aa15642aae36bf44b2a17b12ac30478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rect: {fileID: 1993233335}
 --- !u!1 &1993350529
 GameObject:
   m_ObjectHideFlags: 0
@@ -83432,13 +83544,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: Cup_details
   _focusDuration: 1.5
   _verticalLimits: {x: 0, y: 0}
   _horizontalLimits: {x: 0, y: 0}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &2014035308
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83846,6 +83961,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: eventEmitter
+      value: 
+      objectReference: {fileID: 2041667332}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: _exitDuration
       value: 3
       objectReference: {fileID: 0}
@@ -83881,6 +84000,34 @@ PrefabInstance:
       propertyPath: _animCurve.m_Curve.Array.data[1].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/AMB/RFX/AMB_RFX_Office
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 649101481
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1327697687
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: -1497656650
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1881498306
+      objectReference: {fileID: 0}
     - target: {fileID: 8894900813394608900, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_Name
       value: CharacterSpriteDisplayer
@@ -83906,6 +84053,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a283e29a430b13342b7d11a38c508bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2041667332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+  m_PrefabInstance: {fileID: 2041667328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2043326469
@@ -86497,7 +86655,7 @@ MonoBehaviour:
   m_Content: {fileID: 993033590}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
@@ -87449,13 +87607,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _doNotFocus: 0
+  _playsSound: 0
+  _soundID: 
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: 
   _focusDuration: 2
   _verticalLimits: {x: 0.3, y: 0.3}
   _horizontalLimits: {x: 0.3, y: 0.3}
-  CanFocused: 1
+  canFocus: 1
 --- !u!65 &2133388531
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -88708,11 +88869,11 @@ MonoBehaviour:
   _text: {fileID: 8574689402041568214}
   _hoverSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1574021065
+      Data2: 1304804129
+      Data3: 190059139
+      Data4: -787658397
+    Path: event:/FOL/FOL_Drawer_Trigger
   animIsOpen: 0
   isUnlocked: 0
   _filePosOffset: {x: 0, y: 0, z: 0}
@@ -89040,11 +89201,11 @@ MonoBehaviour:
   _text: {fileID: 7259473768027466118}
   _hoverSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1574021065
+      Data2: 1304804129
+      Data3: 190059139
+      Data4: -787658397
+    Path: event:/FOL/FOL_Drawer_Trigger
   animIsOpen: 0
   isUnlocked: 0
   _filePosOffset: {x: 0, y: 0, z: 0}
@@ -89304,11 +89465,11 @@ MonoBehaviour:
   _text: {fileID: 1760003113013759538}
   _hoverSound:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1574021065
+      Data2: 1304804129
+      Data3: 190059139
+      Data4: -787658397
+    Path: event:/FOL/FOL_Drawer_Trigger
   animIsOpen: 0
   isUnlocked: 0
   _filePosOffset: {x: 0, y: 0, z: 0}

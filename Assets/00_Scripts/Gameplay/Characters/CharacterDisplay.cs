@@ -1,3 +1,4 @@
+using FMODUnity;
 using NaughtyAttributes;
 using System;
 using System.Collections;
@@ -14,6 +15,8 @@ public class CharacterDisplay : MonoBehaviour
     [SerializeField] private Transform _exitTr;
 
     [SerializeField] private GameObject _characterPrefab;
+
+    [SerializeField] StudioEventEmitter eventEmitter;
 
 
     private GameObject _currentCharacterObj;
@@ -60,7 +63,8 @@ public class CharacterDisplay : MonoBehaviour
 
     private IEnumerator Move(Vector3 endPos, float duration = 1f, AnimationCurve animCurve = null, Action callback = null)
     {
-        if(_moveCoroutine != null)
+        eventEmitter.Play();
+        if (_moveCoroutine != null)
         {
             StopCoroutine(_moveCoroutine);
         }
@@ -91,5 +95,6 @@ public class CharacterDisplay : MonoBehaviour
         _moveCoroutine = null;
         _currentCharacterObj.GetComponent<DialoguePlayer>().Say();
         callback?.Invoke();
+        eventEmitter.Stop();
     }
 }

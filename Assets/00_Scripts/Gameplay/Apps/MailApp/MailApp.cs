@@ -51,6 +51,7 @@ public class MailApp : MonoBehaviour, IApp
         {
             FMODUnity.RuntimeManager.PlayOneShot(_mailNotificationSound, transform.position);
         }
+        Fix();
     }
 
     public void OpenMail(Mail mail)
@@ -104,8 +105,17 @@ public class MailApp : MonoBehaviour, IApp
 
     public void Open()
     {
+        Fix();
+    }
+
+    async void Fix()
+    {
+        await Awaitable.NextFrameAsync();
         Vector2 size = mailSpawnAncor.sizeDelta;
+        mailSpawnAncor.offsetMin = Vector2.one;
+        mailSpawnAncor.offsetMin = Vector2.zero;
         mailSpawnAncor.sizeDelta.Set(0.0001f, size.y);
         mailSpawnAncor.sizeDelta = size;
+        mailSpawnAncor.ForceUpdateRectTransforms();
     }
 }
