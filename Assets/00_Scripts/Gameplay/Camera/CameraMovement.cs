@@ -4,6 +4,7 @@ using NaughtyAttributes;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 
 public enum FocusState
@@ -38,6 +39,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] Vector2 offset;
     [SerializeField] Transform pc;
     [SerializeField] float fovPC;
+    [SerializeField] StudioEventEmitter clickSoundEvent;
 
     [Header("QuitPC")]
     [SerializeField] Vector2 triggerQuit;
@@ -47,6 +49,8 @@ public class CameraMovement : MonoBehaviour
 
     [HideInInspector] public FocusState focusState = FocusState.Unfocused;
     [HideInInspector] public bool ischangingFocus = false;
+
+
 
     public event Action<bool> OnFocusedChange;
 
@@ -229,11 +233,14 @@ public class CameraMovement : MonoBehaviour
                     {
                         StopFocus();
                     }
-
                     //Left
-                    if (mousePos.x < (triggerQuit.x * Screen.width))
+                    else if (mousePos.x < (triggerQuit.x * Screen.width))
                     {
                         StopFocus();
+                    }
+                    else
+                    {
+                        clickSoundEvent.Play();
                     }
                 }
                 break;
