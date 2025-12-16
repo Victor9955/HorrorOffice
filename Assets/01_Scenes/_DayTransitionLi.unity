@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 328202285940832476, guid: 1c370966c64bea14ab2f88147b41cf3f, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 330417097417791006, guid: 1c370966c64bea14ab2f88147b41cf3f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -998,7 +998,7 @@ Transform:
   m_GameObject: {fileID: 683785479}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3670516, y: 0.15201451, z: -0.17361091, w: -0.90112376}
-  m_LocalPosition: {x: 5.54, y: -2.71, z: -12.820007}
+  m_LocalPosition: {x: 4.56, y: -2.04, z: -11.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1670,6 +1670,14 @@ PrefabInstance:
     - target: {fileID: 1236240193489344387, guid: 60c40cff0d964d340b1dea114099ea59, type: 3}
       propertyPath: m_Name
       value: PR_AdditativeElevatorFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236240193489344387, guid: 60c40cff0d964d340b1dea114099ea59, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1236240193489344387, guid: 60c40cff0d964d340b1dea114099ea59, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 1901593589600636217, guid: 60c40cff0d964d340b1dea114099ea59, type: 3}
       propertyPath: m_LocalScale.x
