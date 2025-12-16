@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using FMODUnity;
 
 public class ComputerInteraction : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class ComputerInteraction : MonoBehaviour
     [SerializeField] InputAction quitAction;
     [SerializeField] Collider interactionCol;
     [SerializeField] UnityEvent OnLoggedIn;
+    [SerializeField] StudioEventEmitter tipppingEmetter;
+    [SerializeField] RectTransform logo;
     List<Material> materials = new();
 
     CameraMovement cam;
@@ -94,6 +97,7 @@ public class ComputerInteraction : MonoBehaviour
         {
             usernameCash += item;
             usernameTMP.text = usernameCash;
+            tipppingEmetter.Play();
             yield return new WaitForSeconds(Random.Range(0.08f, 0.2f));
         }
 
@@ -101,11 +105,20 @@ public class ComputerInteraction : MonoBehaviour
         {
             passwordCash += "*";
             passwordTMP.text = passwordCash;
+            tipppingEmetter.Play();
             yield return new WaitForSeconds(Random.Range(0.08f, 0.2f));
         }
 
-        yield return new WaitForSeconds(loadTime);
+        float timer = 0f;
 
+        while (timer <= loadTime)
+        {
+            logo.eulerAngles += Vector3.forward * 180f * Time.deltaTime;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        logo.eulerAngles = Vector3.zero;
         windowAnim.Close();
     }
 }
