@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class FileSorting : MonoBehaviour
@@ -36,6 +37,9 @@ public class FileSorting : MonoBehaviour
     private Coroutine _newFileCoroutine;
 
     public event Action<Binder,SheetData> OnFileDroppedEvent;
+
+    [SerializeField] UnityEvent OnRightBinder;
+    [SerializeField] UnityEvent OnWrongBinder;
 
     private void Awake()
     {
@@ -118,5 +122,13 @@ public class FileSorting : MonoBehaviour
         SetBindersLockState(false);
         employeFile.OnFileDroppedInSorter -= OnFileDropped;
         OnFileDroppedEvent?.Invoke(binderType, employeFile.GetSheetData);
+        if(binderType == employeFile.GetSheetData.rightBinder)
+        {
+            OnRightBinder?.Invoke();
+        }
+        else
+        {
+            OnWrongBinder?.Invoke();
+        }
     }
 }
