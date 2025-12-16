@@ -1,9 +1,11 @@
 using DG.Tweening;
+using FMODUnity;
 using HuntroxGames.Utils;
 using NUnit.Framework;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,11 +21,23 @@ public class UIMainMenu : MonoBehaviour
     [Space(10)]
     [Space(10)]
     [Header("Anim Settings")]
+    [SerializeField, UnityEngine.Range(0f, 100f)] private float _initOffPerc;
+    [Space]
     [SerializeField] private float _openDistance;
     [SerializeField] private float _openDuration;
     [SerializeField] private float _delay;
     [SerializeField] private float _fadeDuration;
     [SerializeField] private Material eyes;
+    [Header("Day Transition")]
+    [SerializeField] private bool _isCinematic;
+    [SerializeField] private TMP_Text _nextShiftText;
+    [SerializeField] private int _sceneToTransitionIndex;
+    [Space]
+    [SerializeField] private float _textAppeareanceDelay;
+    [SerializeField] private float _fadeInDelay;
+
+    [SerializeField] private EventReference _nexShiftSound;
+    [SerializeField] private EventReference _doorsOpeningSound;
 
     [Header("Hanged Settings")]
     [Space(10)]
@@ -32,43 +46,61 @@ public class UIMainMenu : MonoBehaviour
 
     private int _sceneIndex;
     private float _initLightIntens;
+    private float _initOffIntens;
     private float _initAlpha;
 
     private void Start()
     {
+        _initAlpha = _fadeImg.color.a;
+
+        // Eyeshader setup
+        eyes.SetFloat("_EyesClosed", 1f);
+        eyes.SetFloat("_Smoothness", 1f);
+
         //Light setup
         if (_light != null)
         {
             _initLightIntens = _light.intensity;
-            _light.intensity = 0;
+            _initOffIntens = _light.intensity * (_initOffPerc * 0.01f);
+            _light.intensity = _initOffIntens;
         }
 
-        // Fade Setup
-        _fadeImg.gameObject.SetActive(true);
-        _initAlpha = _fadeImg.color.a;
-        DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
-        {
-            _fadeImg.SetAlpha(a);
-        })
-        .SetEase(Ease.InOutQuad)
-        .OnComplete(() => _fadeImg.gameObject.SetActive(false));
-        eyes.SetFloat("_EyesClosed", 1f);
-        eyes.SetFloat("_Smoothness", 1f);
 
-
-        //Li
-        if (_isLiHere && _hangedObj != null)
+        // DayTransition
+        if (_isCinematic)
         {
-            _hangedObj.SetActive(true);
-            Hang();
+            _fadeImg.gameObject.SetActive(true);
+            DOVirtual.DelayedCall(_textAppeareanceDelay, () =>
+            {
+                _nextShiftText.gameObject.SetActive(true);
+                DOVirtual.Float(_initAlpha, 0, _fadeDuration, (a) => _fadeImg.SetAlpha(a))
+                    .OnComplete(() => DOVirtual.DelayedCall(_fadeInDelay, () => FadeToScene(_sceneToTransitionIndex)));
+            });
         }
-    }
+
+            // Fade Setup
+            if (!_isCinematic)
+            {
+                _fadeImg.gameObject.SetActive(true);
+                DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
+                {
+                    _fadeImg.SetAlpha(a);
+                })
+                .SetEase(Ease.InOutQuad)
+                .OnComplete(() => _fadeImg.gameObject.SetActive(false));
+
+            }
+        }
     public void FadeToScene(int index)
     {
         _sceneIndex = index;
 
         //Light
-        if (_light != null) DOVirtual.Float(0, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
+        if (_light != null) DOVirtual.Float(_initOffIntens, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
+
+        // Text
+        if (_isCinematic) DOVirtual.Float(1f, 0f, _openDuration, (a) => _nextShiftText.SetAlpha(a))
+                .OnComplete(() => _nextShiftText.gameObject.SetActive(false));
 
         //Doors
         _leftDoorTR.DOMove(_leftDoorTR.position + (_leftDoorTR.up * _openDistance), _openDuration);
@@ -89,11 +121,6 @@ public class UIMainMenu : MonoBehaviour
         .OnComplete(() => SceneManager.LoadScene(_sceneIndex)).SetDelay(_delay);
     }
 
-
-    private void Hang()
-    {
-        return;
-    }
     public void QuitButton()
     {
         Application.Quit();
