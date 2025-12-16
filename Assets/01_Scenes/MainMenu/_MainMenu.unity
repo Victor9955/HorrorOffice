@@ -2096,9 +2096,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 112530580768878, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: m_text
+      value: '| Start'
+      objectReference: {fileID: 0}
     - target: {fileID: 813793399945704056, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_text
-      value: Credits
+      value: '| Credits'
       objectReference: {fileID: 0}
     - target: {fileID: 1565536546364432260, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: eyes
@@ -2188,6 +2192,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5779096719252380447, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: m_Name
+      value: Credits
+      objectReference: {fileID: 0}
     - target: {fileID: 6031929574122675549, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2214,11 +2222,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6663438727869225469, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_Spacing
-      value: 0
+      value: 71.8
       objectReference: {fileID: 0}
     - target: {fileID: 6663438727869225469, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_ChildForceExpandWidth
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7449212481806166348, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: m_text
+      value: '| Quit'
       objectReference: {fileID: 0}
     - target: {fileID: 7930015790064358249, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_SizeDelta.x
