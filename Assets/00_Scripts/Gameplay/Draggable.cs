@@ -111,7 +111,10 @@ public class Draggable : MonoBehaviour
         {
             Debug.Log($"Cant pickup {name} rn");
         }
-        else DragCoroutine = StartCoroutine(Drag());
+        else
+        {
+            Drag();
+        }
     }
 
     private void OnMouseUp()
@@ -125,15 +128,18 @@ public class Draggable : MonoBehaviour
         _isPickedUp = false;
         // Usual drop stuff
     }
-    protected virtual IEnumerator Drag()
+
+    private void Update()
+    {
+        if(_isPickedUp)
+        {
+            DragTick();
+        }
+    }
+    protected virtual void Drag()
     {
         _isPickedUp = true;
         OnPickup?.Invoke();
-        while (_isPickedUp)
-        {
-            DragTick();
-            yield return new WaitForSecondsRealtime(_draggingTick);
-        }
     }
 
     protected virtual void DragTick()
@@ -158,17 +164,8 @@ public class Draggable : MonoBehaviour
 
     protected void ApplyDrag(DragInfo dragInfo, bool isDragging = true)
     {
-        Quaternion targetRot = dragInfo.Rot;
-        Vector3 targetPos = dragInfo.Pos;
-
-        DragInfo newDI = new
-            (
-            DragLerp(transform.position, targetPos), // Lerp Pos
-            DragLerp(transform.rotation, targetRot) // Lerp Yaw
-            );
-
-        transform.position = newDI.Pos;
-        transform.rotation = newDI.Rot;
+        transform.position = Vector3.Lerp(transform.position, dragInfo.Pos, Time.deltaTime * _dragPosSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, dragInfo.Rot, Time.deltaTime * _dragRotSpeed);
 
     }
 
