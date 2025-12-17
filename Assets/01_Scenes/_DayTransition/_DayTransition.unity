@@ -2089,9 +2089,13 @@ PrefabInstance:
     - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
       propertyPath: _nextShiftText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 695233374}
     - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
       propertyPath: _nexShiftSound.Path
+      value: event:/UI/UI_DayTransitionHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nextShiftSound.Path
       value: event:/UI/UI_DayTransitionHit
       objectReference: {fileID: 0}
     - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
@@ -2112,6 +2116,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
       propertyPath: _nexShiftSound.Guid.Data4
+      value: 1086703142
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nextShiftSound.Guid.Data1
+      value: -264189151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nextShiftSound.Guid.Data2
+      value: 1331735133
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nextShiftSound.Guid.Data3
+      value: 161599125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nextShiftSound.Guid.Data4
       value: 1086703142
       objectReference: {fileID: 0}
     - target: {fileID: 6867151784711676190, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}

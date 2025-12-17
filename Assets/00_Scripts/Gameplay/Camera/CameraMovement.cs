@@ -48,8 +48,8 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private Vector2 unfocusHorizontalLimits;
     [SerializeField] private Vector2 unfocusVerticalLimits;
 
-    [HideInInspector] public FocusState focusState = FocusState.Unfocused;
-    [HideInInspector] public bool ischangingFocus = false;
+     public FocusState focusState = FocusState.Unfocused;
+    public bool ischangingFocus = false;
 
 
 
@@ -159,7 +159,6 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-        if (ischangingFocus) return;
 
         switch (focusState)
         {
@@ -243,14 +242,11 @@ public class CameraMovement : MonoBehaviour
                         StopFocus();
                     }
                     //Left
-                    else if (mousePos.x < (triggerQuit.x * Screen.width))
+                    if (mousePos.x < (triggerQuit.x * Screen.width))
                     {
                         StopFocus();
                     }
-                    else
-                    {
-                        clickSoundEvent.Play();
-                    }
+                    clickSoundEvent.Play();
                 }
                 break;
 
