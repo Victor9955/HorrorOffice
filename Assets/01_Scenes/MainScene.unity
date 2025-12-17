@@ -23147,7 +23147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15728966, y: 6196737.5}
+  m_AnchoredPosition: {x: -16302446, y: 6421132.5}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -32251,7 +32251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1932680, y: 1158076.5}
+  m_AnchoredPosition: {x: -2538020, y: 1520762.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &769049245
@@ -42127,7 +42127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 19518232}
+  m_AnchoredPosition: {x: 0, y: 19812160}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -53243,7 +53243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1297080, y: 461932.5}
+  m_AnchoredPosition: {x: -1870560, y: 665932.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1219672434
@@ -58809,7 +58809,8 @@ Transform:
   m_LocalPosition: {x: 0.665, y: 0.903, z: -8.138}
   m_LocalScale: {x: 0.83571, y: 0.65, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2041667331}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1376179350
@@ -80834,7 +80835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 652345}
+  m_AnchoredPosition: {x: 0, y: 940345}
   m_SizeDelta: {x: -473.0007, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956545016
@@ -83983,7 +83984,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1376179349}
     m_Modifications:
     - target: {fileID: 1652715279107205996, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -84010,16 +84011,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5064504969117165728, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1965873
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064504969117165728, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5384616
+      objectReference: {fileID: 0}
+    - target: {fileID: 5064504969117165728, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.68
+      value: 4.804298
       objectReference: {fileID: 0}
     - target: {fileID: 5064504969117165728, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.35
+      value: 0.68769234
       objectReference: {fileID: 0}
     - target: {fileID: 5064504969117165728, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.73
+      value: 1.4079995
       objectReference: {fileID: 0}
     - target: {fileID: 5064504969117165728, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -84216,6 +84225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a283e29a430b13342b7d11a38c508bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2041667331 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5064504969117165728, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+  m_PrefabInstance: {fileID: 2041667328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2041667332 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
@@ -90729,7 +90743,6 @@ SceneRoots:
   - {fileID: 1376179349}
   - {fileID: 1207184979}
   - {fileID: 1861938362}
-  - {fileID: 2041667328}
   - {fileID: 2693993883021038263}
   - {fileID: 2083677285}
   - {fileID: 51383438}
