@@ -2117,6 +2117,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1972892456}
     - target: {fileID: 1565536546364432260, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: _isLiHere
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565536546364432260, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: _leftDoorTR
       value: 
       objectReference: {fileID: 1668703593}
@@ -2124,6 +2128,18 @@ PrefabInstance:
       propertyPath: _rightDoorTR
       value: 
       objectReference: {fileID: 2117332481}
+    - target: {fileID: 1565536546364432260, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: _openDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565536546364432260, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: _offLightIntensPerc
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 3100070369742826113, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 3900216231269927102, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
@@ -2142,6 +2158,10 @@ PrefabInstance:
       objectReference: {fileID: 241579257}
     - target: {fileID: 4343885278714988057, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391825665459108101, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4653157139060377945, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
@@ -2219,6 +2239,14 @@ PrefabInstance:
     - target: {fileID: 6031929574122675549, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444410414626111165, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6444410414626111165, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6663438727869225469, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_Spacing
@@ -5025,7 +5053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1961403683247492265, guid: a78660b41cc6632408b339ea7df55efd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4503278938736174604, guid: a78660b41cc6632408b339ea7df55efd, type: 3}
       propertyPath: m_RenderingLayers
