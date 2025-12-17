@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 class Stat
 {
     public int maxGrade;
-    [SerializeField] TextMeshProUGUI tmp;
+    public TextMeshProUGUI tmp;
     [HideInInspector] public int value { get { return _value; } set { _value = Mathf.Clamp(_value + value, 0, maxGrade); } }
     private int _value;
 
@@ -27,6 +27,7 @@ public class EvaluationReport : MonoBehaviour
     [SerializeField] LevelSender levelSender;
     [SerializeField] WindowAnimation windowAnimation;
     [SerializeField] List<string> grades;
+    [SerializeField] TextMeshProUGUI binderCount;
 
     int RightSheets;//le nombre de fiches triées correctement
     int WrongSheets;//le nombre de fiches mal triées
@@ -44,6 +45,9 @@ public class EvaluationReport : MonoBehaviour
 
     private void Start()
     {
+        levelSender.OnBeginDay += OnBeginDay;
+        RightSheets = 0;
+        WrongSheets = 0;
         Liveliness.value = 0;
         Helpfulness.value = 0;
         Empathy.value = 0;
@@ -57,8 +61,17 @@ public class EvaluationReport : MonoBehaviour
         gameplayEventSender.AddTrustworthinessEvent += (amount) => { Trustworthiness.value += amount; };
     }
 
+    DayData currentDayData;
+
+    private void OnBeginDay(DayData obj)
+    {
+        levelSender.OnBeginDay -= OnBeginDay;
+        currentDayData = obj;
+    }
+
     private void OnEndDay()
     {
+        levelSender.OnEndDay -= OnEndDay;
         windowAnimation.Open();
         ShowGrades();
     }
@@ -73,6 +86,23 @@ public class EvaluationReport : MonoBehaviour
 
     public void ShowGrades()
     {
+        Helpfulness.ShowGrade(grades);
+        Empathy.ShowGrade(grades);
+        Authenticity.ShowGrade(grades);
+        Liveliness.ShowGrade(grades);
+        Trustworthiness.ShowGrade(grades);
+        Hopefulness.ShowGrade(grades);
+
+        Helpfulness.tmp.text = currentDayData.Helpfulness;
+        Empathy.tmp.text = currentDayData.Empathy;
+        Authenticity.tmp.text = currentDayData.Authenticity;
+        Liveliness.tmp.text = currentDayData.Liveliness;
+        Trustworthiness.tmp.text = currentDayData.Trustworthiness;
+        Hopefulness.tmp.text = currentDayData.Hopefulness;
+
+        binderCount.text = $"Properly sorted files : {RightSheets} \r\nIncorrectly sorted files : {WrongSheets}";
+
+        /*
         if (LevelSender.day == 0)
         {
             Hopefulness.value = Hopefulness.maxGrade / 2;
@@ -82,13 +112,20 @@ public class EvaluationReport : MonoBehaviour
             float currentGrade = ((Helpfulness.value / Helpfulness.maxGrade) +  (Empathy.value / Empathy.maxGrade) + (Authenticity.value / Authenticity.maxGrade) + (Liveliness.value / Liveliness.maxGrade) + (Trustworthiness.value / Trustworthiness.maxGrade)) / 5f;
             Hopefulness.value = Mathf.FloorToInt((lastHopefulness + (0.5f - currentGrade)) * Hopefulness.maxGrade);
             lastHopefulness = 0.5f - currentGrade;
-        }
+        }*/
 
-        Helpfulness.ShowGrade(grades);
-        Empathy.ShowGrade(grades);
-        Authenticity.ShowGrade(grades);
-        Liveliness.ShowGrade(grades);
-        Trustworthiness.ShowGrade(grades);
-        Hopefulness.ShowGrade(grades);
+
+    }
+
+    public void ChangeBinderValue(bool isRight)
+    {
+        if(isRight)
+        {
+            RightSheets++;
+        }
+        else
+        {
+            WrongSheets++;
+        }
     }
 }

@@ -39,15 +39,25 @@ public class SearchingApp : MonoBehaviour, IApp
     {
         if(gameplayEventSender != null)
         {
-            gameplayEventSender.DesactivateDataBaseEvent += () =>
-            {
-                gameObject.SetActive(false);
-                button.gameObject.SetActive(false);
-            };
+            gameplayEventSender.DesactivateDataBaseEvent += DesactivateDatabase;
         }
 
         contentAncor.sizeDelta = new Vector2(0,size * content.cellSize.y);
         RandomCode(size);
+    }
+
+    private void OnDestroy()
+    {
+        if (gameplayEventSender != null)
+        {
+            gameplayEventSender.DesactivateDataBaseEvent -= DesactivateDatabase;
+        }
+    }
+
+    void DesactivateDatabase()
+    {
+        gameObject.SetActive(false);
+        button.gameObject.SetActive(false);
     }
 
     private void InitDataBase(DayData day)

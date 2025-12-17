@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1505c4666b9a044a83eefced2f46473, type: 3}
   m_Name: Day 3
   m_EditorClassIdentifier: 
+  initEvent:
+    m_PersistentCalls:
+      m_Calls: []
   startEvent:
     m_PersistentCalls:
       m_Calls:
@@ -39,7 +42,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  binders: 030000000200000001000000
+  startFileSortingEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  binders: 010000000300000002000000
   actions:
   - character: {fileID: 11400000, guid: 22fee877d6557974eb5144fdf1827bb9, type: 2}
     sheets:
@@ -96,3 +102,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   endDayScene: 2
+  Liveliness: B
+  Helpfulness: C
+  Empathy: E
+  Authenticity: D
+  Trustworthiness: B
+  Hopefulness: c

@@ -61,6 +61,9 @@ public class LevelSender : MonoBehaviour
     {
         Singleton.Instance<GameManager>().OnFileSpawned -= Add;
         fileSorting.OnFileDroppedEvent -= Sub;
+
+        fullscreenVignette.SetFloat("_EyesClosed", 1f);
+        fullscreenVignette.SetFloat("_Smoothness", 1f);
     }
 
     void Add()

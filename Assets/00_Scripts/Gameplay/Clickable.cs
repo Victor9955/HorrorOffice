@@ -22,8 +22,8 @@ public class Clickable : MonoBehaviour
     [SerializeField] private float _focusDuration;
 
     [Space(5), Header("Unfocus limits")]
-    [SerializeField] private Vector2 _verticalLimits = Vector2.zero;
-    [SerializeField] private Vector2 _horizontalLimits = Vector2.zero;
+    [SerializeField] private Vector2 _verticalLimit = Vector2.one * 0.2f;
+    [SerializeField] private Vector2 _horizontalLimit = Vector2.one * 0.2f;
 
     private bool IsCamFocused => _camMovement.focusState != FocusState.Unfocused;
     private bool IsChangingFocus => _camMovement.ischangingFocus;
@@ -38,8 +38,8 @@ public class Clickable : MonoBehaviour
     public float Fov => _fov;
 
     // unfocus limits
-    public Vector2 HorizontalLimits => _horizontalLimits;
-    public Vector2 VerticalLimits => _verticalLimits;
+    public Vector2 HorizontalLimits => _horizontalLimit;
+    public Vector2 VerticalLimits => _verticalLimit;
     public float FocusDuration => _focusDuration;
 
     //private refs
