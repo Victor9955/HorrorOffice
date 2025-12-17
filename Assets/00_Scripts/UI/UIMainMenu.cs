@@ -37,13 +37,8 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private float _fadeInDelay;
     [SerializeField] private float _textFadeOutDuration;
 
-    [SerializeField] private EventReference _nexShiftSound;
+    [SerializeField] private EventReference _nextShiftSound;
     [SerializeField] private EventReference _doorsOpeningSound;
-
-    [Header("Hanged Settings")]
-    [Space(10)]
-    [SerializeField] private GameObject _hangedObj;
-    [SerializeField] private bool _isLiHere;
 
     private int _sceneIndex;
     private float _initLightIntens;
@@ -72,14 +67,18 @@ public class UIMainMenu : MonoBehaviour
         {
             _fadeImg.gameObject.SetActive(true);
             DOVirtual.DelayedCall(_textAppeareanceDelay, () =>
-                _nextShiftText.gameObject.SetActive(true));
+            {
+                _nextShiftText.gameObject.SetActive(true);
+                RuntimeManager.PlayOneShot(_nextShiftSound);
+
+            });
 
             DOVirtual.DelayedCall(_textAppeareanceDelay + _fadeInDelay, () =>
             {
                 DOVirtual.Float(1, 0, _fadeDuration, (a) => _fadeImg.SetAlpha(a))
                     .OnComplete(() => FadeToScene(_sceneToTransitionIndex));
             });
-            DOVirtual.DelayedCall(_textFadeOutDuration, ()=>
+            DOVirtual.DelayedCall(_textFadeOutDuration, () =>
             {
                 // Text
                 DOVirtual.Float(1f, 0f, _textFadeOutDuration, (a) => _nextShiftText.SetAlpha(a))
