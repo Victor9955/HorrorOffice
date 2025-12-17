@@ -10,27 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38948bbc0f96de7498bb32b64efae4ec, type: 3}
-  m_Name: J2 - Mail 4
+  m_Name: J4 - Mail 1
   m_EditorClassIdentifier: 
-  title: 'Warning: Self-Report Data Mismatch'
+  title: 'RE: Special Announcement'
   character: {fileID: 11400000, guid: 8db74389b8c31914dbe8c9c4cf3c818b, type: 2}
   hasNextMail: 0
-  hasDelay: 0
+  hasDelay: 1
   hasRandomDelay: 0
-  delay: 0
+  delay: 5
   maxDelay: 0
-  mailText: '<size=16>Greetings,
+  mailText: '<size=16>Good morning,
 
 
-    Due to increasingly frequent discrepancies
-    between the self-rating of employees in the <b>COMMUNICATION SERVICE</b> and
-    our own recorded data, we will now require you to systematically verify <b>H.E.A.L.T.H.</b>
-    values from that particular service with the employee <b>DATABASE</b>.
+    It is unfortunate that due to increasingly
+    frequent discrepancies between employees S.E.R.F. ratings and our own recorded
+    data, we have taken the difficult decision to suspend any GROWTH procedure until
+    further notice.
 
 
-    Sincerely,
-
-
-    <b>Nurturing
-    Service Direction</b>'
+    Reminder: 5 minutes hugging sessions remain available upon
+    request to help any psychological harm caused as an outcome of this announcement.'
   nextMail: {fileID: 0}
