@@ -12,6 +12,7 @@ public class GameplayEventSender : ScriptableObject
     public event Action<int> AddAuthenticityEvent;
     public event Action<int> AddEmpathyEvent;
     public event Action DesactivateDataBaseEvent;
+    public event Action DesactivateGuideEvent;
     public async void SendMail(MailData mail)
     {
         MailData current = mail;
@@ -43,4 +44,5 @@ public class GameplayEventSender : ScriptableObject
     public void AddEmpathy(int amount) => AddEmpathyEvent?.Invoke(amount);
 
     public void DesactivateDataBase() => DesactivateDataBaseEvent?.Invoke();
+    public void DesactivateGuide() => DesactivateGuideEvent?.Invoke();
 }
