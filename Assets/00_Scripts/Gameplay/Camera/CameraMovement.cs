@@ -5,6 +5,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using FMODUnity;
+using System.Collections.Generic;
 
 
 public enum FocusState
@@ -56,10 +57,12 @@ public class CameraMovement : MonoBehaviour
 
     Quaternion lastRotation;
     float lastFov;
+    private List<Tween> tweens;
 
     float cameraRotation;
     private void Start()
     {
+        tweens = new List<Tween>();
         lastFov = cameraRef.fieldOfView;
         lastRotation = cameraTransform.localRotation;
         cameraRotation = lastRotation.y;
@@ -68,6 +71,10 @@ public class CameraMovement : MonoBehaviour
     [ConsoleCommand]
     public void StopFocus()
     {
+        foreach (var t in tweens)
+        {
+            t.Kill(false);
+        }
         ischangingFocus = true;
         DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, lastFov, transitionSpeed).SetEase(Ease.InOutCirc);
         cameraTransform.DOLocalRotate(lastRotation.eulerAngles, transitionSpeed).SetEase(Ease.InOutCirc).OnComplete(() =>
@@ -90,13 +97,14 @@ public class CameraMovement : MonoBehaviour
         finalRoation.x += character.staticInfo.lookOffset.y;
         finalRoation.y += character.staticInfo.lookOffset.x;
 
-        cameraTransform.DORotate(finalRoation, transitionSpeed);
-        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
+        tweens.Add(cameraTransform.DORotate(finalRoation, transitionSpeed));
+        tweens.Add(DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
             {
+                if (ischangingFocus || focusState == FocusState.Unfocused) return;
                 focusState = FocusState.Character;
                 ischangingFocus = false;
             }
-        );
+        ));
     }
 
     [ConsoleCommand]
@@ -113,14 +121,14 @@ public class CameraMovement : MonoBehaviour
         finalRoation.x += offset.y;
         finalRoation.y += offset.x;
 
-        cameraTransform.DOLocalRotate(finalRoation, transitionSpeed);
-        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
+        tweens.Add(cameraTransform.DOLocalRotate(finalRoation, transitionSpeed));
+         tweens.Add(DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
         {
+            if (ischangingFocus || focusState == FocusState.Unfocused) return;
             focusState = FocusState.PC;
             ischangingFocus = false;
-        }
-        );
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 1);
+        }));
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 1);
     }
 
     public void FocusClickable(Clickable subject)
@@ -133,17 +141,18 @@ public class CameraMovement : MonoBehaviour
 
         Vector3 finalRot = subject.RotationInEulerAngles;
 
-        cameraTransform.DOLocalRotate(finalRot, subject.FocusDuration).SetEase(Ease.InOutQuad);
-        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, subject.Fov, subject.FocusDuration)
+        tweens.Add(cameraTransform.DOLocalRotate(finalRot, subject.FocusDuration).SetEase(Ease.InOutQuad));
+        tweens.Add(DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, subject.Fov, subject.FocusDuration)
             .SetEase(Ease.InOutQuad)
             .OnComplete(() =>
             {
+                if (ischangingFocus || focusState == FocusState.Unfocused) return;
                 focusState = FocusState.Object;
                 ischangingFocus = false;
                 unfocusHorizontalLimits = subject.HorizontalLimits;
                 unfocusVerticalLimits = subject.VerticalLimits;
             }
-        );
+        ));
         // Play sound
     }
 
@@ -175,7 +184,7 @@ public class CameraMovement : MonoBehaviour
                 {
                     cameraRotation += rotationSpeed2 * Time.deltaTime;
                 }
-                
+
                 //Left2
                 if (mousePosition.x < (triggerAmounts2.x * Screen.width))
                 {
