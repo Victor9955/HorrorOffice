@@ -1602,7 +1602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1297002210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2091,8 +2091,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1297002210}
     - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nexShiftSound.Path
+      value: event:/UI/UI_DayTransitionHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
       propertyPath: _textFadeOutDuration
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nexShiftSound.Guid.Data1
+      value: -264189151
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nexShiftSound.Guid.Data2
+      value: 1331735133
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nexShiftSound.Guid.Data3
+      value: 161599125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _nexShiftSound.Guid.Data4
+      value: 1086703142
       objectReference: {fileID: 0}
     - target: {fileID: 6867151784711676190, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
       propertyPath: m_Name
