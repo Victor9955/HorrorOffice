@@ -35,6 +35,7 @@ public class UIMainMenu : MonoBehaviour
     [Space]
     [SerializeField] private float _textAppeareanceDelay;
     [SerializeField] private float _fadeInDelay;
+    [SerializeField] private float _textFadeOutDuration;
 
     [SerializeField] private EventReference _nexShiftSound;
     [SerializeField] private EventReference _doorsOpeningSound;
@@ -71,43 +72,52 @@ public class UIMainMenu : MonoBehaviour
         {
             _fadeImg.gameObject.SetActive(true);
             DOVirtual.DelayedCall(_textAppeareanceDelay, () =>
+                _nextShiftText.gameObject.SetActive(true));
+
+            DOVirtual.DelayedCall(_textAppeareanceDelay + _fadeInDelay, () =>
             {
-                _nextShiftText.gameObject.SetActive(true);
-                DOVirtual.Float(_initAlpha, 0, _fadeDuration, (a) => _fadeImg.SetAlpha(a))
-                    .OnComplete(() => DOVirtual.DelayedCall(_fadeInDelay, () => FadeToScene(_sceneToTransitionIndex)));
+                DOVirtual.Float(1, 0, _fadeDuration, (a) => _fadeImg.SetAlpha(a))
+                    .OnComplete(() => FadeToScene(_sceneToTransitionIndex));
+            });
+            DOVirtual.DelayedCall(_textFadeOutDuration, ()=>
+            {
+                // Text
+                DOVirtual.Float(1f, 0f, _textFadeOutDuration, (a) => _nextShiftText.SetAlpha(a))
+                        .OnComplete(() => _nextShiftText.gameObject.SetActive(false));
+
             });
         }
 
-            // Fade Setup
-            if (!_isCinematic)
+        // Fade Setup
+        if (!_isCinematic)
+        {
+            _fadeImg.gameObject.SetActive(true);
+            DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
             {
-                _fadeImg.gameObject.SetActive(true);
-                DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
-                {
-                    _fadeImg.SetAlpha(a);
-                })
-                .SetEase(Ease.InOutQuad)
-                .OnComplete(() => _fadeImg.gameObject.SetActive(false));
+                _fadeImg.SetAlpha(a);
+            })
+            .SetEase(Ease.InOutQuad)
+            .OnComplete(() => _fadeImg.gameObject.SetActive(false));
 
-            }
         }
+    }
     public void FadeToScene(int index)
     {
-        _sceneIndex = index;
+        DOVirtual.DelayedCall(_textFadeOutDuration, () =>
+        {
+            _sceneIndex = index;
 
-        //Light
-        if (_light != null) DOVirtual.Float(_initOffIntens, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
+            //Light
+            if (_light != null) DOVirtual.Float(_initOffIntens, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
 
-        // Text
-        if (_isCinematic) DOVirtual.Float(1f, 0f, _openDuration, (a) => _nextShiftText.SetAlpha(a))
-                .OnComplete(() => _nextShiftText.gameObject.SetActive(false));
 
-        //Doors
-        _leftDoorTR.DOMove(_leftDoorTR.position + (_leftDoorTR.up * _openDistance), _openDuration);
-        _rightDoorTR.DOMove(_rightDoorTR.position + (-_rightDoorTR.up * _openDistance), _openDuration)
+            //Doors
+            _leftDoorTR.DOMove(_leftDoorTR.position + (_leftDoorTR.up * _openDistance), _openDuration);
+            _rightDoorTR.DOMove(_rightDoorTR.position + (-_rightDoorTR.up * _openDistance), _openDuration)
 
-            // Fade
-            .OnComplete(SceneFade);
+                // Fade
+                .OnComplete(SceneFade);
+        });
     }
 
     private void SceneFade()

@@ -2121,9 +2121,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1668703593}
     - target: {fileID: 1565536546364432260, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: _initOffPerc
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565536546364432260, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: _rightDoorTR
       value: 
       objectReference: {fileID: 2117332481}
+    - target: {fileID: 1565536546364432260, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
+      propertyPath: _openDistance
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3900216231269927102, guid: 1473adacc0096b04f848f14cd42203dc, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
@@ -5025,7 +5033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1961403683247492265, guid: a78660b41cc6632408b339ea7df55efd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4503278938736174604, guid: a78660b41cc6632408b339ea7df55efd, type: 3}
       propertyPath: m_RenderingLayers
@@ -5081,7 +5089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5811802705554283581, guid: a78660b41cc6632408b339ea7df55efd, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8130602374995216269, guid: a78660b41cc6632408b339ea7df55efd, type: 3}
       propertyPath: m_IsActive

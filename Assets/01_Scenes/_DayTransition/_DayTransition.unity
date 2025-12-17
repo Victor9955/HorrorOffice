@@ -1923,6 +1923,10 @@ PrefabInstance:
       value: 0.093
       objectReference: {fileID: 0}
     - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _delay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
       propertyPath: _light
       value: 
       objectReference: {fileID: 1434439702}
@@ -1938,6 +1942,10 @@ PrefabInstance:
       propertyPath: _rightDoorTR
       value: 
       objectReference: {fileID: 1980629961}
+    - target: {fileID: 6201596648180600456, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
+      propertyPath: _textFadeOutDuration
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6867151784711676190, guid: 3a84d98eb4e9f9a429bbb7b391e53588, type: 3}
       propertyPath: m_Name
       value: UIDayTransition
