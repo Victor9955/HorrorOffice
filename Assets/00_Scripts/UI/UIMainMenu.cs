@@ -1,6 +1,10 @@
 using DG.Tweening;
+using FMODUnity;
 using HuntroxGames.Utils;
+using NUnit.Framework;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -14,23 +18,26 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private Transform _rightDoorTR;
     [SerializeField] private Light _light;
     [SerializeField] private Image _fadeImg;
-    [SerializeField] private TMP_Text _nextShiftText;
     [Space(10)]
     [Space(10)]
     [Header("Anim Settings")]
-    [SerializeField] private bool _isCinematic;
-    [SerializeField] private float _startDelay;
+    [SerializeField, UnityEngine.Range(0f, 100f)] private float _initOffPerc;
+    [Space]
     [SerializeField] private float _openDistance;
-    [SerializeField, Range(0, 100f)] private float _offLightIntensPerc;
     [SerializeField] private float _openDuration;
     [SerializeField] private float _delay;
     [SerializeField] private float _fadeDuration;
     [SerializeField] private Material eyes;
+    [Header("Day Transition")]
+    [SerializeField] private bool _isCinematic;
+    [SerializeField] private TMP_Text _nextShiftText;
+    [SerializeField] private int _sceneToTransitionIndex;
     [Space]
-    [Header("Flicker Settings")]
-    [SerializeField] private float _flickerDelay;
-    [SerializeField, Range(0, 100)] private int _flickerTurnBackOnChance;
-    [SerializeField] private int _flickerRerollBuff;
+    [SerializeField] private float _textAppeareanceDelay;
+    [SerializeField] private float _fadeInDelay;
+
+    [SerializeField] private EventReference _nexShiftSound;
+    [SerializeField] private EventReference _doorsOpeningSound;
 
     [Header("Hanged Settings")]
     [Space(10)]
@@ -39,83 +46,68 @@ public class UIMainMenu : MonoBehaviour
 
     private int _sceneIndex;
     private float _initLightIntens;
+    private float _initOffIntens;
     private float _initAlpha;
-    private float _offLightIntens;
-    private int _rerollCount;
+
     private void Start()
     {
+        _initAlpha = _fadeImg.color.a;
+
+        // Eyeshader setup
+        eyes.SetFloat("_EyesClosed", 1f);
+        eyes.SetFloat("_Smoothness", 1f);
+
         //Light setup
         if (_light != null)
         {
             _initLightIntens = _light.intensity;
-            float offLightIntens = _initLightIntens * (_offLightIntensPerc / 100f);
-            _light.intensity = _offLightIntens;
-
+            _initOffIntens = _light.intensity * (_initOffPerc * 0.01f);
+            _light.intensity = _initOffIntens;
         }
 
-        // Fade Setup
-        _fadeImg.gameObject.SetActive(true);
-        _initAlpha = _fadeImg.color.a;
-        DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
+
+        // DayTransition
+        if (_isCinematic)
         {
-            _fadeImg.SetAlpha(a);
-        })
-        .SetEase(Ease.InOutQuad)
-        .OnComplete(() =>
-        {
-            _fadeImg.gameObject.SetActive(false);
-            if (_isCinematic)
+            _fadeImg.gameObject.SetActive(true);
+            DOVirtual.DelayedCall(_textAppeareanceDelay, () =>
             {
-                Debug.Log("Cinematic : start day in " + _startDelay);
-                DOVirtual.DelayedCall(_startDelay, () => FadeToScene(_sceneIndex));
-            }
-        });
-        eyes.SetFloat("_EyesClosed", 1f);
-        eyes.SetFloat("_Smoothness", 1f);
-
-
-        //Li
-        if (_isLiHere && _hangedObj != null)
-        {
-            _hangedObj.SetActive(true);
-            Hang();
+                _nextShiftText.gameObject.SetActive(true);
+                DOVirtual.Float(_initAlpha, 0, _fadeDuration, (a) => _fadeImg.SetAlpha(a))
+                    .OnComplete(() => DOVirtual.DelayedCall(_fadeInDelay, () => FadeToScene(_sceneToTransitionIndex)));
+            });
         }
-    }
+
+            // Fade Setup
+            if (!_isCinematic)
+            {
+                _fadeImg.gameObject.SetActive(true);
+                DOVirtual.Float(_initAlpha, 0f, _fadeDuration, (a) =>
+                {
+                    _fadeImg.SetAlpha(a);
+                })
+                .SetEase(Ease.InOutQuad)
+                .OnComplete(() => _fadeImg.gameObject.SetActive(false));
+
+            }
+        }
     public void FadeToScene(int index)
     {
         _sceneIndex = index;
 
         //Light
-        if (_light != null) DOVirtual.Float(_offLightIntens, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
+        if (_light != null) DOVirtual.Float(_initOffIntens, _initLightIntens, _openDuration, (intens) => _light.intensity = intens);
 
-        //Text fade
-        DOVirtual.Float(1f, 0f, _openDuration, (a) => _nextShiftText.SetAlpha(a));
-
-        // Light Flicker
-        //StartCoroutine(FlickerRoutine(0));
+        // Text
+        if (_isCinematic) DOVirtual.Float(1f, 0f, _openDuration, (a) => _nextShiftText.SetAlpha(a))
+                .OnComplete(() => _nextShiftText.gameObject.SetActive(false));
 
         //Doors
         _leftDoorTR.DOMove(_leftDoorTR.position + (_leftDoorTR.up * _openDistance), _openDuration);
         _rightDoorTR.DOMove(_rightDoorTR.position + (-_rightDoorTR.up * _openDistance), _openDuration)
-        // Fade
-        .OnComplete(SceneFade);
 
-    }
-    private IEnumerator FlickerRoutine(int luckBonus)
-    {
-        int rerollLuck = _rerollCount == 0 ? 0 : luckBonus;
-        _nextShiftText.SetAlpha(0f);
-        yield return new WaitForSeconds(0.5f);
-        bool doesTheLightTurnsOnAgain = Random.Range(0, 1f) < (_offLightIntensPerc + rerollLuck) * 0.1f;
-        Debug.Log($"Turning off, ({(_offLightIntensPerc + rerollLuck)}% chance to turn on again)");
-        if (doesTheLightTurnsOnAgain)
-        {
-            _rerollCount++;
-            Debug.Log("Turning back on again");
-            rerollLuck += _flickerRerollBuff;
-            _nextShiftText.SetAlpha(1f);
-            StartCoroutine(FlickerRoutine(rerollLuck));
-        }
+            // Fade
+            .OnComplete(SceneFade);
     }
 
     private void SceneFade()
@@ -129,11 +121,6 @@ public class UIMainMenu : MonoBehaviour
         .OnComplete(() => SceneManager.LoadScene(_sceneIndex)).SetDelay(_delay);
     }
 
-
-    private void Hang()
-    {
-        return;
-    }
     public void QuitButton()
     {
         Application.Quit();

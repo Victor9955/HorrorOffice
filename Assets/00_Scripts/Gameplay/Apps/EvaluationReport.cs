@@ -27,6 +27,7 @@ public class EvaluationReport : MonoBehaviour
     [SerializeField] LevelSender levelSender;
     [SerializeField] WindowAnimation windowAnimation;
     [SerializeField] List<string> grades;
+    [SerializeField] TextMeshProUGUI binderCount;
 
     int RightSheets;//le nombre de fiches triées correctement
     int WrongSheets;//le nombre de fiches mal triées
@@ -44,6 +45,8 @@ public class EvaluationReport : MonoBehaviour
 
     private void Start()
     {
+        RightSheets = 0;
+        WrongSheets = 0;
         Liveliness.value = 0;
         Helpfulness.value = 0;
         Empathy.value = 0;
@@ -90,5 +93,19 @@ public class EvaluationReport : MonoBehaviour
         Liveliness.ShowGrade(grades);
         Trustworthiness.ShowGrade(grades);
         Hopefulness.ShowGrade(grades);
+
+        binderCount.text = $"Properly sorted files : {RightSheets} \r\nIncorrectly sorted files : {WrongSheets}";
+    }
+
+    public void ChangeBinderValue(bool isRight)
+    {
+        if(isRight)
+        {
+            RightSheets++;
+        }
+        else
+        {
+            WrongSheets++;
+        }
     }
 }
