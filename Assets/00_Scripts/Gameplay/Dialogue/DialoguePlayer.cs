@@ -140,7 +140,10 @@ public class DialoguePlayer : MonoBehaviour
             dialogueBG.ForceUpdateRectTransforms();
             writer.StartWriter();
             yield return new WaitUntil(() => !writer.IsWriting || skipped);
-            writer.SkipWriter();
+            if(skipped)
+            {
+                writer.SkipWriter();
+            }
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
         }
         FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = true);
