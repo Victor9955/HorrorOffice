@@ -19,7 +19,6 @@ public class DialoguePlayer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameTMP;
     [SerializeField] private RectTransform dialogueUI;
     [SerializeField] private RectTransform dialogueBG;
-    [SerializeField] private VerticalLayoutGroup v;
     [SerializeField] private TMP_FontAsset defaultFont;
     [SerializeField] private TMPWriter writer;
     [SerializeField] private UIEffect spawnEffect;
@@ -93,8 +92,13 @@ public class DialoguePlayer : MonoBehaviour
         }
         else
         {
-            writer.SkipWriter();
+            skipped = true;
         }
+    }
+
+    private void Update()
+    {
+        Debug.Log($"Is Writing : {writer.IsWriting} ");
     }
 
     Tweener fade;
@@ -122,24 +126,24 @@ public class DialoguePlayer : MonoBehaviour
         fade.Kill();
     }
 
-    public void SetFinished() => finished = true;
-
-    bool finished;
-
+    bool skipped;
     IEnumerator Say(string[] phrases)
     {
         IsTalking = true;
-        finished = false;
         FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = false);
         foreach (string s in phrases)
         {
-            writer.StartWriter();
+            skipped = false;
             dialogueTMP.text = s;
             writer.DefaultDelays.delay = current.saySpeed;
             dialogueBG.sizeDelta = dialogueBG.sizeDelta * 1.001f;
             dialogueBG.ForceUpdateRectTransforms();
-            yield return new WaitUntil(() => finished);
-            finished = false;
+            writer.StartWriter();
+            yield return new WaitUntil(() => !writer.IsWriting || skipped);
+            if(skipped)
+            {
+                writer.SkipWriter();
+            }
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
         }
         FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = true);

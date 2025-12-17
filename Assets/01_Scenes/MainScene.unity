@@ -3619,7 +3619,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
-  _focusDuration: 0
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -7684,7 +7684,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: PosterA_details
-  _focusDuration: 2.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -18049,7 +18049,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: 
-  _focusDuration: 2
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -19707,7 +19707,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -23101,7 +23101,7 @@ MonoBehaviour:
   levelSender: {fileID: 1861938364}
   view: {fileID: 1492184825}
   viewAnim: {fileID: 1492184824}
-  button: {fileID: 0}
+  button: {fileID: 1540064445}
   randomStats: []
   jobsKey:
   - HRA
@@ -23147,7 +23147,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13049126, y: 5145484.5}
+  m_AnchoredPosition: {x: -15728966, y: 6196737.5}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -26104,7 +26104,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: Pills_details
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -27317,8 +27317,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 170, y: 0}
-  m_SizeDelta: {x: 316.37, y: 50}
+  m_AnchoredPosition: {x: 340.2, y: 0}
+  m_SizeDelta: {x: 656.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657409859
 MonoBehaviour:
@@ -29801,7 +29801,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
-  _focusDuration: 2.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -32251,7 +32251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4895563, y: 2979696}
+  m_AnchoredPosition: {x: -1932680, y: 1158076.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &769049245
@@ -34044,7 +34044,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: Printer_details
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -35039,7 +35039,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 20
   _fov: 20
   _innerDialogueID: 
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -42127,7 +42127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 18139400}
+  m_AnchoredPosition: {x: 0, y: 19518232}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -47393,7 +47393,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: Calculator_details
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -48657,6 +48657,7 @@ GameObject:
   - component: {fileID: 1146086281}
   - component: {fileID: 1146086284}
   - component: {fileID: 1146086282}
+  - component: {fileID: 1146086285}
   m_Layer: 5
   m_Name: GuideApp
   m_TagString: Untagged
@@ -48724,6 +48725,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146086280}
   m_CullTransparentMesh: 1
+--- !u!114 &1146086285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146086280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87589ea0a65f89e46ab3cfeb02bc9e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameplayEventSender: {fileID: 11400000, guid: 5944572d2fccab04e91b16770deb78d7, type: 2}
+  toDesactivate:
+  - {fileID: 1146086280}
+  - {fileID: 84719051}
 --- !u!1001 &1148143076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49321,7 +49338,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: PosterB_details
-  _focusDuration: 2
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -49569,6 +49586,10 @@ PrefabInstance:
     - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
+      propertyPath: _focusDuration
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
       propertyPath: _innerDialogueID
@@ -50961,7 +50982,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 10
   _fov: 10
   _innerDialogueID: Cigarettes_details
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -53222,7 +53243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2294640, y: 819952.5}
+  m_AnchoredPosition: {x: -1297080, y: 461932.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1219672434
@@ -53502,7 +53523,6 @@ GameObject:
   - component: {fileID: 1226332563}
   - component: {fileID: 1226332565}
   - component: {fileID: 1226332567}
-  - component: {fileID: 1226332566}
   m_Layer: 5
   m_Name: NoteApp
   m_TagString: Untagged
@@ -53538,19 +53558,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226332562}
   m_CullTransparentMesh: 1
---- !u!114 &1226332566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226332562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87589ea0a65f89e46ab3cfeb02bc9e60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollbar: {fileID: 0}
 --- !u!114 &1226332567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53567,7 +53574,7 @@ MonoBehaviour:
   OpenEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1226332566}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NoteApp, Assembly-CSharp
         m_MethodName: Open
         m_Mode: 1
@@ -53594,7 +53601,7 @@ MonoBehaviour:
   CloseEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1226332566}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NoteApp, Assembly-CSharp
         m_MethodName: Close
         m_Mode: 1
@@ -55184,7 +55191,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -57547,10 +57554,10 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
-  _viewDistanceFromObject: 10
-  _fov: 5
+  _viewDistanceFromObject: 15
+  _fov: 10
   _innerDialogueID: PosterB_details
-  _focusDuration: 2.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -58819,7 +58826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: HRN_1302_AAAA
   passwordLength: 9
-  loadTime: 4
+  loadTime: 2
   usernameTMP: {fileID: 2054618588}
   passwordTMP: {fileID: 757180914}
   windowAnim: {fileID: 924103279}
@@ -64864,8 +64871,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 156, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 242.7, y: 0}
+  m_SizeDelta: {x: 371.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1554247097
 MonoBehaviour:
@@ -64922,7 +64929,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -66084,9 +66091,9 @@ RectTransform:
   - {fileID: 1554247096}
   m_Father: {fileID: 1956545015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 45, y: -50}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1585006338
@@ -74353,7 +74360,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 242.5, y: -80}
-  m_SizeDelta: {x: 445, y: 0}
+  m_SizeDelta: {x: 445, y: 868.88}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1789623236
 MonoBehaviour:
@@ -74753,7 +74760,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 10
   _fov: 5
   _innerDialogueID: 
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -75334,7 +75341,7 @@ MonoBehaviour:
   - D
   - E
   - F
-  binderCount: {fileID: 0}
+  binderCount: {fileID: 1210951108}
   Helpfulness:
     maxGrade: 0
     tmp: {fileID: 2022269623}
@@ -77445,6 +77452,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dc610e98e4636534b9d2f5b1e7ef4c16, type: 2}
   - {fileID: 11400000, guid: c8e035f172816f84da978ef5ebeceb1d, type: 2}
   - {fileID: 11400000, guid: 2204fbd7c6e4fb84c97d260cdedcda72, type: 2}
+  - {fileID: 11400000, guid: f7068b115e3c05340a1bb68de5da3055, type: 2}
   endShiftText: {fileID: 1633881120}
   endShiftImage: {fileID: 802239263}
   endShiftButton: {fileID: 802239262}
@@ -80826,7 +80834,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1158323.5}
+  m_AnchoredPosition: {x: 0, y: 652345}
   m_SizeDelta: {x: -473.0007, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956545016
@@ -81682,7 +81690,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: BookA_details
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -83635,7 +83643,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 15
   _fov: 10
   _innerDialogueID: Cup_details
-  _focusDuration: 1.5
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -83986,6 +83994,10 @@ PrefabInstance:
       value: 0.7199998
       objectReference: {fileID: 0}
     - target: {fileID: 2700676165287438542, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 2700676165287438542, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.7199998
       objectReference: {fileID: 0}
@@ -84074,8 +84086,72 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2387469011626408398, guid: 6d29382a0199ccf429a363c44a6e7ac2, type: 3}
     - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[0].Path
+      value: event:/FOL/FOL_Character_Footsteps/FOL_CHAR_FT_Generic_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[1].Path
+      value: event:/FOL/FOL_Character_Footsteps/FOL_CHAR_FT_Generic_B
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[2].Path
+      value: event:/FOL/FOL_Character_Footsteps/FOL_CHAR_FT_Generic_C
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: _animCurve.m_Curve.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[0].Guid.Data1
+      value: 1558392890
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[0].Guid.Data2
+      value: 1119536645
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[0].Guid.Data3
+      value: 1669458069
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[0].Guid.Data4
+      value: 1070448472
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[1].Guid.Data1
+      value: 641446051
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[1].Guid.Data2
+      value: 1298020632
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[1].Guid.Data3
+      value: 1166192313
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[1].Guid.Data4
+      value: -1587092856
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[2].Guid.Data1
+      value: 1750279237
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[2].Guid.Data2
+      value: 1150009953
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[2].Guid.Data3
+      value: -1281450578
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
+      propertyPath: events.Array.data[2].Guid.Data4
+      value: 1842345285
       objectReference: {fileID: 0}
     - target: {fileID: 5523249486796164246, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: _animCurve.m_Curve.Array.data[1].time
@@ -84087,7 +84163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: EventReference.Path
-      value: event:/AMB/RFX/AMB_RFX_Office
+      value: event:/FOL/FOL_Character_Footsteps/FOL_CHAR_FT_Generic_C
       objectReference: {fileID: 0}
     - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: OverrideMaxDistance
@@ -84099,19 +84175,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: EventReference.Guid.Data1
-      value: 649101481
+      value: 1750279237
       objectReference: {fileID: 0}
     - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: EventReference.Guid.Data2
-      value: 1327697687
+      value: 1150009953
       objectReference: {fileID: 0}
     - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: EventReference.Guid.Data3
-      value: -1497656650
+      value: -1281450578
       objectReference: {fileID: 0}
     - target: {fileID: 5805518006736588355, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: EventReference.Guid.Data4
-      value: 1881498306
+      value: 1842345285
       objectReference: {fileID: 0}
     - target: {fileID: 8894900813394608900, guid: b51727f38a2b1484cbd3e29f9ed01ea5, type: 3}
       propertyPath: m_Name
@@ -87704,7 +87780,7 @@ MonoBehaviour:
   _viewDistanceFromObject: 20
   _fov: 15
   _innerDialogueID: 
-  _focusDuration: 2
+  _focusDuration: 0.75
   _verticalLimit: {x: 0.2, y: 0.2}
   _horizontalLimit: {x: 0.2, y: 0.2}
   canFocus: 1
@@ -88946,10 +89022,34 @@ MonoBehaviour:
   _fileStackRotOffset: {x: -10, y: 10}
   OnRightBinder:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1816054650}
+        m_TargetAssemblyTypeName: EvaluationReport, Assembly-CSharp
+        m_MethodName: ChangeBinderValue
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   OnWrongBinder:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1816054650}
+        m_TargetAssemblyTypeName: EvaluationReport, Assembly-CSharp
+        m_MethodName: ChangeBinderValue
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2968356357572915675
 MonoBehaviour:
   m_ObjectHideFlags: 0
