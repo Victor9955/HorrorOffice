@@ -86,17 +86,6 @@ public class EvaluationReport : MonoBehaviour
 
     public void ShowGrades()
     {
-        if (LevelSender.day == 0)
-        {
-            Hopefulness.value = Hopefulness.maxGrade / 2;
-        }
-        else
-        {
-            float currentGrade = ((Helpfulness.value / Helpfulness.maxGrade) +  (Empathy.value / Empathy.maxGrade) + (Authenticity.value / Authenticity.maxGrade) + (Liveliness.value / Liveliness.maxGrade) + (Trustworthiness.value / Trustworthiness.maxGrade)) / 5f;
-            Hopefulness.value = Mathf.FloorToInt((lastHopefulness + (0.5f - currentGrade)) * Hopefulness.maxGrade);
-            lastHopefulness = 0.5f - currentGrade;
-        }
-
         Helpfulness.ShowGrade(grades);
         Empathy.ShowGrade(grades);
         Authenticity.ShowGrade(grades);
@@ -112,6 +101,20 @@ public class EvaluationReport : MonoBehaviour
         Hopefulness.tmp.text = currentDayData.Hopefulness;
 
         binderCount.text = $"Properly sorted files : {RightSheets} \r\nIncorrectly sorted files : {WrongSheets}";
+
+        /*
+        if (LevelSender.day == 0)
+        {
+            Hopefulness.value = Hopefulness.maxGrade / 2;
+        }
+        else
+        {
+            float currentGrade = ((Helpfulness.value / Helpfulness.maxGrade) +  (Empathy.value / Empathy.maxGrade) + (Authenticity.value / Authenticity.maxGrade) + (Liveliness.value / Liveliness.maxGrade) + (Trustworthiness.value / Trustworthiness.maxGrade)) / 5f;
+            Hopefulness.value = Mathf.FloorToInt((lastHopefulness + (0.5f - currentGrade)) * Hopefulness.maxGrade);
+            lastHopefulness = 0.5f - currentGrade;
+        }*/
+
+
     }
 
     public void ChangeBinderValue(bool isRight)
