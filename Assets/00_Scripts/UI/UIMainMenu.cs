@@ -37,7 +37,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private float _fadeInDelay;
     [SerializeField] private float _textFadeOutDuration;
 
-    [SerializeField] private EventReference _nexShiftSound;
+    [SerializeField] private EventReference _nextShiftSound;
     [SerializeField] private EventReference _doorsOpeningSound;
 
     private int _sceneIndex;
@@ -69,6 +69,8 @@ public class UIMainMenu : MonoBehaviour
             DOVirtual.DelayedCall(_textAppeareanceDelay, () =>
             {
                 _nextShiftText.gameObject.SetActive(true);
+                RuntimeManager.PlayOneShot(_nextShiftSound);
+
             });
 
             DOVirtual.DelayedCall(_textAppeareanceDelay + _fadeInDelay, () =>
