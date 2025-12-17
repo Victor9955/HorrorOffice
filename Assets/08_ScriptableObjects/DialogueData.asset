@@ -50,18 +50,18 @@ MonoBehaviour:
       - 
     - Key: ESTEBAN_One
       Value:
-      - "So...\n\n\xA4<!sprite=Smile>How are y-<!wait=0.2>you d<!wait=0.5>...\n\n\xA4<!sprite=Default><!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!sprite=Pissed>Never
-        mind.\n\n\xA4<!drop>Backlog."
+      - "Ahem.\n\n\xA4<!wait=0.2>.<!wait=0.2>.<!wait=0.2>.<!sprite=Left><!wait=1><!sprite=Right><!wait=1><!drop>Backlog."
       - 
     - Key: ESTEBAN_Two
       Value:
-      - "Backlog.<!drop>\n\n\xA4<!sprite=Smile>Also,<!wait=0.5> I-<!wait=0.5> I hope
+      - "Backlog.<!drop>\n\n\xA4<!sprite=Blush>Also,<!wait=0.5> I-<!wait=0.5> I hope
         you're...\n\n\xA4<!sprite=Default><!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!sprite=Pissed>Never
         mind."
       - 
     - Key: ESTEBAN_Three
       Value:
-      - TODO
+      - "<!sprite=Pissed>Hey.<!wait=1><!drop>Backlog.\n\n\xA4<!sprite=Left>And,<!sprite=0.5>
+        uh<!wait=0.2>.<!wait=0.2>.<!wait=0.2>.\n<!sprite=Smile>Good luck."
       - 
     - Key: ESTEBAN_Four
       Value:
@@ -116,20 +116,22 @@ MonoBehaviour:
         and you wouldn\u2019t believe \nthe lengths some people go just to earn a
         promotion.\n\n\xA4<!sprite=Happy>Glad you\u2019re one of the good ones!"
       - 
-    - Key: CONNIE _Three
+    - Key: CONNIE_Three
       Value:
-      - "Hey,<!wait=0.5><!sprite=Angry><color=orange> WHAT THE HELL?!</color>\n\n\xA4<b>I</b>'ve
-        been in this company for so fucking long.\n\n\xA4<b>I</b><!wait=0.5> am the
-        most proficient employee!\n\n\xA4<b>I</b><!wait=0.5> work harder than anyone
-        else!<!wait=0.5>\n\n\xA4<b>I</b><!wait=0.5> am the most deserving one of
-        them all!<!wait=0.5>\n\n\xA4So,<!wait=0.5>WHY<!wait=0.5> the <wave><!wait=0.5>****</wave><!wait=0.5>
-        didn\u2019t <!wait=0.5>I<!wait=0.5> get a <!wait=0.5>GROWTH?!\n\n\xA4<!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>.<!wait=0.5>\n\n\xA4You.\n\n\xA4I
-        was nice to you,<!wait=0.5> <color=orange>weren\u2019t I?</color>\n\n\xA4Even
-        though you\u2019re a worthless little <wave>****.\n\n\xA4And how did you
-        return the favor?\n\n\xA4By planting a dagger in my back?!\n\n\xA4But it\u2019s
-        fine.<!wait=0.5> I\u2019ll get what \nI deserve,<!wait=1> and,<!wait=0.5>
-        sooner or later.\n\n\xA4Mark my words,<!wait=0.5> 'cause when it happens\u2026\n\n\xA4<!sprite=Default><b>I</b><!wait=0.5>
-        will make your life even \nmore <b>miserable</b> than it already is. "
+      - "Hey,<!wait=0.5><!sprite=Angry><color=orange><!shake> WHAT THE HELL?!</color>\n\n\xA4<b>I</b>'ve
+        been in this company\nfor so f*cking long.\n\n\xA4<b>I</b> work harder \nthan
+        anyone else!\n\n\xA4<b>I</b> am the most deserving\nof this whole damn floor!\n\n\xA4So,<color=orange><wave><!wait=0.5>
+        WHY<!wait=0.5></wave></color>the<wave><!wait=0.5>****</wave><!wait=0.5> didn\u2019t
+        I get a <color=orange><wave>GROWTH</color></wave><!wait=0.1>?<!wait=0.1>!\n\n\xA4<!wait=0.5>.<!wait=0.5>.<!wait=0.5>.\n\n\xA4<wave
+        amplitude=1 uniformity=0.5><color=orange>You.\n\n\xA4I was nice to you,<!wait=0.5>
+        <wave amplitude=1 uniformity=0.5><color=orange>weren\u2019t I?</color>\n\n\xA4Even
+        though you\u2019re a \nworthless little <color=orange><wave>****</wave></color>.\n\n\xA4And
+        how did you\nreturn the favor?\n\n\xA4By planting a dagger \nin my back<!wait=0.1>?<!wait=0.1>!\n\n\xA4<!sprite=Serious>But
+        it\u2019s fine.<!wait=0.5> Sooner or later,<!wait=0.5>\nI\u2019ll get what
+        I f*cking deserve.\n\n\xA4<wave amplitude=1 uniformity=0.5><color=orange>And
+        so will you.\n\n\xA4<!sprite=Default>Mark my words,<!wait=0.5> 'cause\nwhen
+        it happens\u2026\n\n\xA4<!sprite=Happy><color=orange><wave amplitude=1 uniformity=0.5><b>I</b>
+        will make your life even more \n<b>miserable</b> than it already is.<!drop>"
       - 
     - Key: MAX_One
       Value:
@@ -156,7 +158,9 @@ MonoBehaviour:
       - 
     - Key: DEVI_Two
       Value:
-      - <color=red>DO.<!wait=0.5> NOT.<!wait=0.5>TRUST. <!wait=0.5>. HER.
+      - "<!sprite=Angry><wave amplitude=3 uniformity=0.5><color=red>YOU.<!wait=0.5>
+        YOU<!wait=0.2>.<!wait=0.2>.<!wait=0.2>.\n\n\xA4<!sprite=Shock><!wait=0.1>.<!wait=0.1>.<!wait=0.1>.<!wait=1>y-<!wait=0.25>you've
+        got to help me.<!drop>"
       - 
     - Key: ABBIE_One
       Value:
@@ -189,48 +193,62 @@ MonoBehaviour:
       - 
     - Key: ROSALYNE_One
       Value:
-      - "Hello, my dear!<!wait=1>\n\n\xA4What a wonderful place to be...<!wait=1>\n\n\xA4...<!wait=1>\n\n\xA4I
-        heard there was a lot \nof tensions here.\n\n\xA4And so,<!wait=1> here I
-        come to\nsoothe it all!\n\n\xA4It\u2019s the beginning of a brand new chapter
-        for me.<!wait=0.5>\n\n\xA4And for us.<!wait=1.5>\n\n\xA4I am looking forward
-        to working with you in the future!<!wait=1>\n\n\xA4I sincerely hope that
-        we will develop<!wait=0.5> the best,<!wait=0.5> working environment possible.<!wait=1.5>\n\n\xA4So
-        all of our coworkers will finally do their best.<!wait=1>\n\n\xA4<!sprite=Serious>It's
-        important you know...<!wait=1.5>\n\n\xA4<!sprite=Default>It's for the best,<!wait=1>
-        for everyone.<!wait=1>\n\n\xA4Having a work space where you feel free,<!wait=1>
-        confident,<!wait=1> and loved.<!wait=2>\n\n\xA4Everyone feeling this way
-        is really important to me!<!wait=1>\n\n\xA4<!sprite=Serious>It really is\u2026<!wait=1.5>\n\n\xA4<!sprite=Default>Once
-        again,<!wait=1> I'm counting on you!<!wait=1><!drop>\n\n\xA4Bye bye!<!wait=1>"
+      - "My,<!wait=0.25> my.\n\n\xA4Dear,<!wait=0.5> what a \nwonderful place to
+        be.\n\n\xA4I<!wait=0.1>.<!wait=0.1>.<!wait=0.1>.<!sprite=Serious> heard there
+        was a lot \nof tensions on this floor.\n\n\xA4<!sprite=Default>And so,<!wait=0.4>
+        here I come to soothe \nall these troubled minds!\n\n\xA4Oh,<!wait=0.4> don't
+        worry,<!wait=0.4> I won't cause\nany trouble.<!wait=0.75> Quite the contrary.\n\n\xA4I'm
+        from <wave><color=#bf42f5>HR</color></wave>,<!wait=0.4> just like you.<!wait=0.75>
+        My service sent \nme to help you keep an eye on this lot.\n\n\xA4<!sprite=Serious>It's
+        important,<!wait=0.3> you know<!wait=0.1>.<!wait=0.1>.<!wait=01>.\n\n\xA4Having
+        a workspace where you feel \nvalued,<!wait=0.5> confident,<!wait=0.5> and
+        loved.\n\n\xA4<!sprite=Default>And it's one I sincerely hope \nfor us to
+        build together.\n\n\xA4<!sprite=Eyes><color=#bf42f5><wave amplitude=1 uniformity=0.5>That's
+        why I'm\ncounting on you.<!wait=1>\n\n\xA4<!sprite=Default>This is the beginning
+        of a \nbrand new chapter for all of us.\n\n\xA4<wave amplitude=3 uniformity=0.5><color=#bf42f5>I'm</color></wave>
+        looking forward\nto working with <wave amplitude=3 uniformity=0.5><color=#bf42f5>you</color></wave>!"
       - 
     - Key: MAX_Two
       Value:
-      - "Hey,<!wait=1><!sprite=Serious> I didn't get my promotion.\n\n\xA4I was wondering<!wait=1>
-        why?<!wait=1>\n\nAnd it seems like\u2026<!wait=1>\n\n\xA4You would be the<!wait=1>
-        \n\nsole<!wait=1> obstacle to that.\n\n\xA4But it must be a mistake\u2026\n\n\xA4<!sprite=Blink><!color=red>Right?</color><!wait=2>\n\n\xA4<!sprite=Serious>\u2026<!wait=2>\n\n\xA4Because,<!wait=1>
-        if it was not.\n\n\xA4That would imply certain things.\n\n\xA4And I would
-        have to take certain actions.\n\n\xA4You know...<!wait=2>\n\n\xA4So,<!wait=1>
-        let's consider it\n\n\xA4A<!wait=0.5>.<!wait=0.5>.<!wait=0.5>. mistake<!wait=1>\n\n\xA4A<!wait=0.5>
-        simple\u2026<!wait=1> and<!wait=1> idiot\u2026<!wait=1>\n\nmistake.\n\xA4It
-        happens,<!wait=1> haha!\n\n\xA4But it happens once.<!wait=1>\n\n\xA4Because\u2026<!wait=0.5>\n\nYou
-        know\u2026<!wait=0.5>\n\n\xA4<!sprite=Angry>I can't allow a pig<!wait=1>
-        \n\nto prejudice my PERFECT career.\n\n\xA4<!sprite=Serious>And if it were
-        to happen again.\n\n\xA4<!sprite=Blink><!color=red>Let's just say that I
-        love<!wait=1>\n\nthe screams of a bleeding pig.</color>\n\n\xA4<!sprite=Serious>Bye!<!drop>\n"
+      - "<!sprite=Serious><!wait=0.2>.<!wait=0.2>.<!wait=0.2>.<!wait=0.5>Hey.\n\n\xA4I
+        was wondering why I\ndidn't receive my <color=red><wave>GROWTH</wave></color>.\n\n\xA4And
+        it seems like<!wait=0.2>.<!wait=0.2>.<!wait=0.2>. You would\nbe the sole
+        obstacle to that?\n\n\xA4<!sprite=Default>But it has to be a\nmisunderstanding.
+        <!wait=2><!sprite=Wink><wave><color=red>Right?</color>\n\n\xA4<!sprite=Serious><!wait=0.4>.<!wait=0.4>.<!wait=0.4>.\n\n\xA4So,<!wait=0.5>
+        let's consider this<!wait=0.1>.<!wait=0.1>.<!wait=0.1>.\n\n\xA4An honest<!wait=0.2>.<!wait=0.2>.<!wait=0.2>.<!wait=0.2><!sprite=Default><color=red><wave
+        amplitude=3 uniformity=0.5> mistake</color>.\n\n\xA4A simple,<!wait=0.2>
+        and idiotic,<!wait=0.2><color=red><wave amplitude=3 uniformity=0.5> mistake</color>.\n\n\xA4And
+        a one-time occurrence.\n\n\xA4<!sprite=Serious>Because if some  <color=red><wave
+        amplitude=3 uniformity=0.5>stupid mistake</wave></color> were to \nprejudice
+        my <color=red><wave amplitude=3 uniformity=0.5>PERFECT CAREER</wave></color>
+        again<!wait=0.1>.<!wait=0.1>.<!wait=0.1>.\n\n\xA4<!sprite=Default>Well<!wait=0.4>.<!wait=0.4>.<!wait=0.4>.
+        <!sprite=Wink><color=red><wave amplitude=3 uniformity=0.5>let's just say
+        that I love\nthe screams of a bleeding pig.</color>\n\n\xA4<color=red><wave
+        amplitude=3 uniformity=0.5>See you later.<!drop>"
       - 
     - Key: MAX_CONNOR_Three
       Value:
-      - "[WIP]\n\nConnor: You'll see,\n\_        today is the day I will\n\_       
-        finally have my promotion.\nMaxine: But Connor, they only give those\n\_       
-        to the ones who deserve it\nConnor: Haha. Very funny indeed.\n\_        You
-        should open a circus\nMaxine: No, I wouldn't steal your spot\n\_        You're
-        doing such a great job\n\_        I saw your results last month\n\_       
-        We couldn't stop laughi...\nConnor: Keep your mouth shut, you damn...\n\_       
-        ...\nMaxine: Oh, Connor, darling, what are you saying?\n\_        Come on,\n\_       
-        I'm sure our new colleague\n\_        here,<!wait=1> wants to hear that.\nConnor:
-        Pretty bold to talk\n\_        like that when you only accede to your\n\_       
-        position because the ones above you\n\_        quitted their job\nMaxine:
-        It's time you ask yourself the right questions, \n        Connor, because
-        you might be the next one\n"
+      - "[WIP]\n\n[They meet each other by chance in the corridor leading to the
+        player's desk.]\n\n\xA4Connor: Hello... Maxine.\n\n\xA4Maxine: Hi, Connor!
+        How are you doing?\n\n\xA4Connor: I was doing just fine until I ran into
+        you.\n\n\xA4Maxine: I suppose it can't be helped, not anyone can withstand
+        my charisma.\n\n\xA4Connor: Whatever... Anyway,\n\n[The player gets into
+        the conversation. And it starts here from his point of view. ]\n\nConnor:
+        You'll see,<!wait=1>  today is the day I will\n\nfinally have my promotion.\n\n\xA4Maxine:
+        But,<!wait=1>  Connor,<!wait=1>  they only give those\n\nto people that deserve
+        it.\n\n\xA4Connor: Haha.<!wait=1>  You think you're so funny, huh.<!wait=1>
+        \n\nYou should think about starting a one-man-show.\n\nMaxine: I couldn't,<!wait=1> 
+        I would never steal your spot.<!wait=1> \n\nNot when you're doing such a
+        great job.\n\n\xA4We saw your results last month.<!wait=1> \n\nWe couldn't
+        stop laughi...\n\n\xA4Connor: Keep your mouth shut, you damn...<!wait=1>
+        \n\n\xA4...<!wait=2> \n\n\xA4Maxine: Oh,<!wait=0,5> Connor,<!wait=0,5> darling,<!wait=0,5>
+        what were you saying?\n\n\xA4Come on, I'm sure our new colleague here,\n\n<!wait=1>
+        wants to hear that.\n\n\xA4Connor: Getting bolder now are we.<!wait=1>Vixens
+        like you only get this high because,<!wait=1>\n\nsomeone else quit their
+        job.\n\n\xA4Maxine: It's funny you say it like this,<!wait=1> \n\nConnor,<!wait=1>
+        because you might be the next in line\n\nConnor: I'm honored \"The\" Maxine
+        cares about me keeping my job.\n\nMaxine: I really don't, though.\n\nConnor:
+        ...?<!wait=1>\n\n[Maxine leaves and so does Connor a few seconds after. ]"
       - 
     - Key: Ledger_details
       Value:
