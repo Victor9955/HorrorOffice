@@ -82,6 +82,8 @@ public class DialoguePlayer : MonoBehaviour
         dialogueUI.gameObject.SetActive(false);
     }
 
+    bool canSkip = true;
+
     public void BeginDialogue()
     {
         if(!saidOnce)
@@ -92,13 +94,17 @@ public class DialoguePlayer : MonoBehaviour
         }
         else
         {
-            skipped = true;
+            if(canSkip)
+            {
+                writer.SkipWriter();
+                canSkip = false;
+            }
         }
     }
 
     private void Update()
     {
-        Debug.Log($"Is Writing : {writer.IsWriting} ");
+        //Debug.Log($"Is Writing : {writer.IsWriting} ");
     }
 
     Tweener fade;
@@ -126,25 +132,20 @@ public class DialoguePlayer : MonoBehaviour
         fade.Kill();
     }
 
-    bool skipped;
     IEnumerator Say(string[] phrases)
     {
         IsTalking = true;
         FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = false);
         foreach (string s in phrases)
         {
-            skipped = false;
             dialogueTMP.text = s;
             writer.DefaultDelays.delay = current.saySpeed;
             dialogueBG.sizeDelta = dialogueBG.sizeDelta * 1.001f;
             dialogueBG.ForceUpdateRectTransforms();
             writer.StartWriter();
-            yield return new WaitUntil(() => !writer.IsWriting || skipped);
-            if(skipped)
-            {
-                writer.SkipWriter();
-            }
+            yield return new WaitUntil(() => !writer.IsWriting);
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
+            canSkip = true;
         }
         FindObjectsByType<Clickable>(FindObjectsSortMode.None).ToList().ForEach((c) => c.canFocus = true);
         IsTalking = false;
