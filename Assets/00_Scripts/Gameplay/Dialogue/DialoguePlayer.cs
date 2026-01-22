@@ -142,7 +142,7 @@ public class DialoguePlayer : MonoBehaviour
             writer.DefaultDelays.delay = current.saySpeed;
             dialogueBG.sizeDelta = dialogueBG.sizeDelta * 1.001f;
             dialogueBG.ForceUpdateRectTransforms();
-            writer.StartWriter();
+            writer.RestartWriter();
             yield return new WaitUntil(() => !writer.IsWriting);
             yield return new WaitForSecondsRealtime(current.timeBetweenPhrases);
             canSkip = true;
