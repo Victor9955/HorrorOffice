@@ -119,6 +119,11 @@ public class UIMainMenu : MonoBehaviour
         });
     }
 
+    public void ResetDayCounter()
+    {
+        LevelSender.day = 0;
+    }
+
     private void SceneFade()
     {
         _fadeImg.gameObject.SetActive(true);
