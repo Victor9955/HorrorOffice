@@ -146,7 +146,6 @@ public class CameraMovement : MonoBehaviour
             .SetEase(Ease.InOutQuad)
             .OnComplete(() =>
             {
-                if (ischangingFocus || focusState == FocusState.Unfocused) return;
                 focusState = FocusState.Object;
                 ischangingFocus = false;
                 unfocusHorizontalLimits = subject.HorizontalLimits;
@@ -159,7 +158,7 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
-
+        if (ischangingFocus) return;
         switch (focusState)
         {
             case FocusState.Unfocused:
