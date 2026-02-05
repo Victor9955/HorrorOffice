@@ -13,7 +13,6 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using ReadOnlyAttribute = HuntroxGames.Utils.ReadOnlyAttribute;
 
 public class LevelSender : MonoBehaviour
 {
@@ -139,11 +138,17 @@ public class LevelSender : MonoBehaviour
             {
                 if(day == days.Count - 1)
                 {
+                    day = 0;
                     SceneManager.LoadScene(endGameScene);
                 }
                 else
                 {
                     day = Mathf.Clamp(day + 1, 0, days.Count - 1);
+                    Steamworks.Data.Achievement ach = new Steamworks.Data.Achievement("END_DEMO");
+                    if (!ach.State)
+                    {
+                        ach.Trigger();
+                    }
                     SceneManager.LoadScene(endDayIndex);
                 }
             });

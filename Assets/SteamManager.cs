@@ -28,6 +28,7 @@ public class SteamManager : MonoBehaviour
 
         if(SteamClient.IsValid && SteamClient.IsLoggedOn)
         {
+            DontDestroyOnLoad(gameObject);
             username.text = SteamClient.Name;
             GetAvatar();
             var ach = new Achievement("OPEN_GAME");
@@ -81,5 +82,10 @@ public class SteamManager : MonoBehaviour
 
         avatar.Apply();
         return avatar;
+    }
+
+    private void OnDestroy()
+    {
+        SteamClient.Shutdown();
     }
 }

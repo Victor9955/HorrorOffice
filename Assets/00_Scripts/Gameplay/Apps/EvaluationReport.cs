@@ -1,3 +1,4 @@
+using Steamworks.Data;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -106,6 +107,23 @@ public class EvaluationReport : MonoBehaviour
         PlayerStat.ShowGrade(grades);
 
         binderCount.text = $"Properly sorted files : {RightSheets} \r\nIncorrectly sorted files : {WrongSheets}";
+
+        if(WrongSheets == 0)
+        {
+            Achievement ach = new Achievement("ALL_WRONG");
+            if (!ach.State)
+            {
+                ach.Trigger();
+            }
+        }
+        if(RightSheets == 0)
+        {
+            Achievement ach = new Achievement("ALL_RIGHT");
+            if (!ach.State)
+            {
+                ach.Trigger();
+            }
+        }
 
         /*
         if (LevelSender.day == 0)
