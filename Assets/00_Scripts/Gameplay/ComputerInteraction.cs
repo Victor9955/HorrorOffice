@@ -21,7 +21,6 @@ public class ComputerInteraction : MonoBehaviour
     [SerializeField] TextMeshProUGUI passwordTMP;
     [SerializeField] WindowAnimation windowAnim;
     [SerializeField] List<MeshRenderer> computerMeshs;
-    [SerializeField] InputAction quitAction;
     [SerializeField] Collider interactionCol;
     [SerializeField] UnityEvent OnLoggedIn;
     [SerializeField] StudioEventEmitter tipppingEmetter;
@@ -37,11 +36,6 @@ public class ComputerInteraction : MonoBehaviour
         {
             interactionCol.enabled = !focused;
         };
-        quitAction.Enable();
-        quitAction.performed += (Input) =>
-        {
-            cam.StopFocus();
-        };
 
         computerMeshs.ForEach((m) =>
         {
@@ -53,11 +47,6 @@ public class ComputerInteraction : MonoBehaviour
                 }
             }
         });
-    }
-
-    private void OnDestroy()
-    {
-        quitAction.Disable();
     }
 
     public void Clicked()

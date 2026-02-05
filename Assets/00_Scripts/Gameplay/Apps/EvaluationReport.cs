@@ -41,6 +41,7 @@ public class EvaluationReport : MonoBehaviour
     [SerializeField] Stat Trustworthiness;//GameplayEventSender //le nombre de fiches qui ont été triés en respectant les demande de la direction
     [SerializeField] Stat Hopefulness;//Résultat d'aujourdhui comparer a hier comparer a tout ce qui est au dessus //on compare les résultats du jour à ceux de la veille (augmentation = bonne note, régression = mauvaise note)
 
+    [SerializeField] Stat PlayerStat;
     static float lastHopefulness;
 
     private void Start()
@@ -99,6 +100,10 @@ public class EvaluationReport : MonoBehaviour
         Liveliness.tmp.text = currentDayData.Liveliness;
         Trustworthiness.tmp.text = currentDayData.Trustworthiness;
         Hopefulness.tmp.text = currentDayData.Hopefulness;
+
+        PlayerStat.maxGrade = RightSheets + WrongSheets;
+        PlayerStat.value = RightSheets;
+        PlayerStat.ShowGrade(grades);
 
         binderCount.text = $"Properly sorted files : {RightSheets} \r\nIncorrectly sorted files : {WrongSheets}";
 

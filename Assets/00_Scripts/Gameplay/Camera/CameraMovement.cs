@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using FMODUnity;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
 
 
 public enum FocusState
@@ -57,24 +58,20 @@ public class CameraMovement : MonoBehaviour
 
     Quaternion lastRotation;
     float lastFov;
-    private List<Tween> tweens;
 
     float cameraRotation;
     private void Start()
     {
-        tweens = new List<Tween>();
         lastFov = cameraRef.fieldOfView;
         lastRotation = cameraTransform.localRotation;
         cameraRotation = lastRotation.y;
+
     }
 
     [ConsoleCommand]
     public void StopFocus()
     {
-        foreach (var t in tweens)
-        {
-            t.Kill(false);
-        }
+        DOTween.Kill(this);
         ischangingFocus = true;
         DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, lastFov, transitionSpeed).SetEase(Ease.InOutCirc);
         cameraTransform.DOLocalRotate(lastRotation.eulerAngles, transitionSpeed).SetEase(Ease.InOutCirc).OnComplete(() =>
@@ -97,14 +94,14 @@ public class CameraMovement : MonoBehaviour
         finalRoation.x += character.staticInfo.lookOffset.y;
         finalRoation.y += character.staticInfo.lookOffset.x;
 
-        tweens.Add(cameraTransform.DORotate(finalRoation, transitionSpeed));
-        tweens.Add(DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
+        cameraTransform.DORotate(finalRoation, transitionSpeed);
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
             {
                 if (ischangingFocus || focusState == FocusState.Unfocused) return;
                 focusState = FocusState.Character;
                 ischangingFocus = false;
             }
-        ));
+        );
     }
 
     [ConsoleCommand]
@@ -121,14 +118,12 @@ public class CameraMovement : MonoBehaviour
         finalRoation.x += offset.y;
         finalRoation.y += offset.x;
 
-        tweens.Add(cameraTransform.DOLocalRotate(finalRoation, transitionSpeed));
-         tweens.Add(DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, fovPC, transitionSpeed).OnComplete(() =>
         {
-            if (ischangingFocus || focusState == FocusState.Unfocused) return;
-            focusState = FocusState.PC;
             ischangingFocus = false;
-        }));
-            FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 1);
+        });
+        cameraTransform.DOLocalRotate(finalRoation, transitionSpeed);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("PR_Computer_Focus", 1);
     }
 
     public void FocusClickable(Clickable subject)
@@ -141,8 +136,8 @@ public class CameraMovement : MonoBehaviour
 
         Vector3 finalRot = subject.RotationInEulerAngles;
 
-        tweens.Add(cameraTransform.DOLocalRotate(finalRot, subject.FocusDuration).SetEase(Ease.InOutQuad));
-        tweens.Add(DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, subject.Fov, subject.FocusDuration)
+        cameraTransform.DOLocalRotate(finalRot, subject.FocusDuration).SetEase(Ease.InOutQuad);
+        DOTween.To(() => cameraRef.fieldOfView, fov => cameraRef.fieldOfView = fov, subject.Fov, subject.FocusDuration)
             .SetEase(Ease.InOutQuad)
             .OnComplete(() =>
             {
@@ -151,7 +146,7 @@ public class CameraMovement : MonoBehaviour
                 unfocusHorizontalLimits = subject.HorizontalLimits;
                 unfocusVerticalLimits = subject.VerticalLimits;
             }
-        ));
+        );
         // Play sound
     }
 
@@ -159,12 +154,11 @@ public class CameraMovement : MonoBehaviour
     private void Update()
     {
         if (ischangingFocus) return;
+        Vector2 mousePosition = Mouse.current.position.value;
         switch (focusState)
         {
             case FocusState.Unfocused:
                 cameraTransform.rotation = lastRotation;
-
-                Vector2 mousePosition = Mouse.current.position.value;
                 //Rights
                 if (mousePosition.x > Screen.width - (triggerAmounts.y * Screen.width))
                 {
@@ -234,38 +228,25 @@ public class CameraMovement : MonoBehaviour
             case FocusState.PC:
                 if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
-                    Vector2 mousePos = Mouse.current.position.value;
-                    //Rights
-                    if (mousePos.x > Screen.width - (triggerQuit.y * Screen.width))
+                    if (mousePosition.x > Screen.width - (triggerQuit.y * Screen.width) || mousePosition.x < (triggerQuit.x * Screen.width))
                     {
                         StopFocus();
                     }
-                    //Left
-                    if (mousePos.x < (triggerQuit.x * Screen.width))
+                    else
                     {
-                        StopFocus();
+                        clickSoundEvent.Play();
                     }
-                    clickSoundEvent.Play();
                 }
                 break;
 
             case FocusState.Object:
                 if (Mouse.current.leftButton.wasPressedThisFrame)
                 {
-                    Vector2 mousePos = Mouse.current.position.value;
-
-                    // right & left limits
-                    bool clickedOffRightLimit = mousePos.x < (unfocusHorizontalLimits.y * Screen.width);
-                    bool clickedOffLeftLimit = mousePos.x > Screen.width - (unfocusHorizontalLimits.y * Screen.width);
-                    if (clickedOffLeftLimit || clickedOffRightLimit)
-                    {
-                        StopFocus();
-                    }
-
-                    // top & bottom limits
-                    bool clickedOffTopLimit = mousePos.y < (unfocusVerticalLimits.x * Screen.height);
-                    bool clickedOffBottomLimit = mousePos.y > Screen.height - (unfocusVerticalLimits.y * Screen.height);
-                    if (clickedOffTopLimit || clickedOffBottomLimit)
+                    bool clickedOffRightLimit = mousePosition.x < (unfocusHorizontalLimits.y * Screen.width);
+                    bool clickedOffLeftLimit = mousePosition.x > Screen.width - (unfocusHorizontalLimits.y * Screen.width);
+                    bool clickedOffTopLimit = mousePosition.y < (unfocusVerticalLimits.x * Screen.height);
+                    bool clickedOffBottomLimit = mousePosition.y > Screen.height - (unfocusVerticalLimits.y * Screen.height);
+                    if (clickedOffTopLimit || clickedOffBottomLimit || clickedOffLeftLimit || clickedOffRightLimit)
                     {
                         StopFocus();
                     }

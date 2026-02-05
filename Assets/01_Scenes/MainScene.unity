@@ -23065,7 +23065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20794886, y: 8171456}
+  m_AnchoredPosition: {x: -21745286, y: 8540860}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &561668354
@@ -32169,7 +32169,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7280040, y: 4352055.5}
+  m_AnchoredPosition: {x: -8283240, y: 4952298.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &769049245
@@ -42045,7 +42045,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 22105800}
+  m_AnchoredPosition: {x: 0, y: 22591344}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &993033591
@@ -43981,7 +43981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 181, y: -126.999954}
+  m_AnchoredPosition: {x: 181, y: -112.81}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1060560012
@@ -49230,12 +49230,28 @@ PrefabInstance:
       value: PictureFrame_details
       objectReference: {fileID: 0}
     - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
+      propertyPath: _verticalLimit.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
+      propertyPath: _verticalLimit.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
       propertyPath: _verticalLimits.x
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
       propertyPath: _verticalLimits.y
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
+      propertyPath: _horizontalLimit.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
+      propertyPath: _horizontalLimit.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4081960086238235372, guid: 5354818e2553874448df9a7430134a40, type: 3}
       propertyPath: _horizontalLimits.x
@@ -52877,7 +52893,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6363000, y: 2263125}
+  m_AnchoredPosition: {x: -7313400, y: 2605462.5}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1219672434
@@ -57179,7 +57195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f28b376759d62488c3893b9986d72c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _doNotFocus: 1
+  _doNotFocus: 0
   _playsSound: 0
   _fmodEventReference:
     Guid:
@@ -58468,23 +58484,6 @@ MonoBehaviour:
   - {fileID: 1050748187}
   - {fileID: 1650593524}
   - {fileID: 2000284368}
-  quitAction:
-    m_Name: Quit
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 1d77dfa1-d2e5-4996-9f47-99df89963583
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 921fcfe9-46ce-499e-bc09-64c6549d3945
-      m_Path: <Keyboard>/escape
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Quit
-      m_Flags: 0
-    m_Flags: 0
   interactionCol: {fileID: 1376179346}
   OnLoggedIn:
     m_PersistentCalls:
@@ -74994,6 +74993,9 @@ MonoBehaviour:
   Hopefulness:
     maxGrade: 0
     tmp: {fileID: 2096463365}
+  PlayerStat:
+    maxGrade: 0
+    tmp: {fileID: 1060560012}
 --- !u!1001 &1818202661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80468,7 +80470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 3195205}
+  m_AnchoredPosition: {x: 0, y: 3678505}
   m_SizeDelta: {x: -473.0007, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1956545016
@@ -86012,7 +86014,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 181.1, y: 5.000046}
+  m_AnchoredPosition: {x: 181.1, y: 13.5}
   m_SizeDelta: {x: 430, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102950493
@@ -86035,7 +86037,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'DAILY AVERAGE:'
+  m_text: 'DAILY EVALUATION:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}
   m_sharedMaterial: {fileID: -1159701200862812941, guid: 2bced150cc24b4e478fb8072f9d6cb84, type: 2}

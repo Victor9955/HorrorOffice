@@ -131,30 +131,22 @@ public class LevelSender : MonoBehaviour
         if(current == null)
         {
             endShiftButton.interactable = false;
-            if (day == days.Count - 1)
+            DOVirtual.Float(1f, 0f, vignetteTime, (eye) =>
             {
-                DOVirtual.Float(1f, 0f, vignetteTime, (eye) =>
+                fullscreenVignette.SetFloat("_EyesClosed", eye);
+                fullscreenVignette.SetFloat("_Smoothness", eye);
+            }).OnComplete(() =>
+            {
+                if(day == days.Count - 1)
                 {
-                    fullscreenVignette.SetFloat("_EyesClosed", eye);
-                    fullscreenVignette.SetFloat("_Smoothness", eye);
-                }).OnComplete(() =>
-                {
-                    day = Mathf.Clamp(day + 1, 0, days.Count);
                     SceneManager.LoadScene(endGameScene);
-                });
-            }
-            else
-            {
-                DOVirtual.Float(1f, 0f, vignetteTime, (eye) =>
+                }
+                else
                 {
-                    fullscreenVignette.SetFloat("_EyesClosed", eye);
-                    fullscreenVignette.SetFloat("_Smoothness", eye);
-                }).OnComplete(() =>
-                {
-                    day = Mathf.Clamp(day + 1, 0, days.Count);
+                    day = Mathf.Clamp(day + 1, 0, days.Count - 1);
                     SceneManager.LoadScene(endDayIndex);
-                });
-            }
+                }
+            });
         }
         else
         {
